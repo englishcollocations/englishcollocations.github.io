@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Collocations - Interactive Learning Platform</title>
     <meta name="description" content="Learn English collocations with interactive audio lessons and PDF reference guide">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="English Collocations">
+    <link rel="apple-touch-icon" href="icon-192.svg">
+    <link rel="manifest" href="manifest.json">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script>
@@ -39,17 +48,25 @@
         }
         @media (max-width: 1024px) {
             .pdf-container {
-                height: 50vh;
+                height: 55vh;
             }
         }
         @media (max-width: 768px) {
             .pdf-container {
-                height: 40vh;
+                height: 60vh;
+                min-height: 450px;
             }
         }
         @media (max-width: 640px) {
             .pdf-container {
-                height: 35vh;
+                height: 70vh !important;
+                min-height: 500px;
+            }
+        }
+        @media (max-width: 480px) {
+            .pdf-container {
+                height: 75vh !important;
+                min-height: 550px;
             }
         }
         /* Custom slider styles */
@@ -73,6 +90,7 @@
         .line-clamp-2 {
             display: -webkit-box;
             -webkit-line-clamp: 2;
+            line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -131,11 +149,31 @@
                 </div>
             </div>
             <div class="pdf-container">
+                <div id="pdfFallback" class="hidden bg-gray-100 p-6 text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-file-pdf text-red-500 text-4xl mb-3"></i>
+                        <p class="text-gray-700 mb-4">PDF preview not supported in this browser</p>
+                        <div class="flex justify-center space-x-3">
+                            <button id="openPdfBtn2" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Open PDF</span>
+                            </button>
+                            <button id="downloadPdfBtn2" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
+                                <i class="fas fa-download"></i>
+                                <span>Download PDF</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <iframe 
                     id="pdfViewer" 
-                    src="pdf.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH"
+                    src="pdf.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH&zoom=page-fit"
                     class="w-full h-full border-0"
-                    title="English Collocations PDF Reference">
+                    title="English Collocations PDF Reference"
+                    sandbox="allow-same-origin allow-scripts allow-forms"
+                    loading="lazy">
+                    <p>Your browser does not support PDFs. 
+                    <a href="pdf.pdf" target="_blank" class="text-blue-500 underline">Download the PDF</a>.</p>
                 </iframe>
             </div>
         </div>
@@ -280,6 +318,68 @@
     </div>
 
     <script>
+        // PWA Functions
+        function checkPdfSupport() {
+            // Enhanced PDF support detection
+            const iframe = document.getElementById('pdfViewer');
+            const fallback = document.getElementById('pdfFallback');
+            
+            // Check for PDF plugin support
+            const hasPdfPlugin = navigator.mimeTypes['application/pdf'];
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            
+            // Force fallback for Safari/iOS as they often have PDF viewing issues
+            if ((isSafari && !hasPdfPlugin) || isIOS) {
+                setTimeout(() => showPdfFallback(), 1000);
+                return;
+            }
+            
+            // Test iframe loading after delay
+            setTimeout(() => {
+                try {
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    // If we can't access the document or it's empty, show fallback
+                    if (!iframeDoc || !iframeDoc.body || iframeDoc.body.children.length === 0) {
+                        showPdfFallback();
+                    }
+                } catch (e) {
+                    // Cross-origin or other errors indicate PDF might not be working
+                    console.log('PDF loading error:', e);
+                    showPdfFallback();
+                }
+            }, 3000);
+        }
+
+        function showPdfFallback() {
+            const iframe = document.getElementById('pdfViewer');
+            const fallback = document.getElementById('pdfFallback');
+            
+            if (iframe && fallback) {
+                iframe.style.display = 'none';
+                fallback.classList.remove('hidden');
+                console.log('PDF fallback activated');
+            }
+        }
+
+        // Check PDF support on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            checkPdfSupport();
+        });
+
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
         class EnglishCollocationPlayer {
             constructor() {
                 this.currentLessonIndex = 0;
@@ -363,6 +463,12 @@
                 // PDF events
                 this.openPdfBtn.addEventListener('click', () => this.openPdfInNewTab());
                 this.downloadPdfBtn.addEventListener('click', () => this.downloadPdf());
+                
+                // PDF fallback events
+                const openPdfBtn2 = document.getElementById('openPdfBtn2');
+                const downloadPdfBtn2 = document.getElementById('downloadPdfBtn2');
+                if (openPdfBtn2) openPdfBtn2.addEventListener('click', () => this.openPdfInNewTab());
+                if (downloadPdfBtn2) downloadPdfBtn2.addEventListener('click', () => this.downloadPdf());
                 
                 // Progress events
                 this.markAllBtn.addEventListener('click', () => this.markAllCompleted());

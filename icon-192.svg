@@ -1,0 +1,13 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Clean background -->
+  <rect width="192" height="192" rx="32" fill="#6366f1"/>
+  
+  <!-- Simple headphones icon -->
+  <path d="M96 50C75 50 58 67 58 88V116C58 122 63 127 69 127H78C81 127 84 124 84 121V93C84 90 81 87 78 87H72V88C72 75 83 64 96 64C109 64 120 75 120 88V87H114C111 87 108 90 108 93V121C108 124 111 127 114 127H123C129 127 134 122 134 116V88C134 67 117 50 96 50Z" fill="white"/>
+  
+  <!-- Book icon -->
+  <rect x="76" y="135" width="40" height="28" rx="3" fill="white"/>
+  <line x1="80" y1="142" x2="112" y2="142" stroke="#6366f1" stroke-width="1.5"/>
+  <line x1="80" y1="148" x2="108" y2="148" stroke="#6366f1" stroke-width="1.5"/>
+  <line x1="80" y1="154" x2="110" y2="154" stroke="#6366f1" stroke-width="1.5"/>
+</svg>
