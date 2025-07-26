@@ -39,7 +39,17 @@
         }
         @media (max-width: 1024px) {
             .pdf-container {
-                height: 60vh;
+                height: 50vh;
+            }
+        }
+        @media (max-width: 768px) {
+            .pdf-container {
+                height: 40vh;
+            }
+        }
+        @media (max-width: 640px) {
+            .pdf-container {
+                height: 35vh;
             }
         }
         /* Custom slider styles */
@@ -59,23 +69,37 @@
             cursor: pointer;
             border: none;
         }
+        
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 640px) {
+            .lesson-card-text {
+                font-size: 0.75rem;
+                line-height: 1.2;
+            }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
     <!-- Header -->
     <header class="bg-white shadow-lg border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <i class="fas fa-headphones text-3xl text-primary-600"></i>
-                    <h1 class="text-2xl font-bold text-gray-900">English Collocations</h1>
+        <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+            <div class="flex justify-between items-center h-14 sm:h-16">
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <i class="fas fa-headphones text-xl sm:text-2xl lg:text-3xl text-primary-600"></i>
+                    <h1 class="text-sm sm:text-lg lg:text-2xl font-bold text-gray-900 truncate">English Collocations</h1>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <div class="text-sm text-gray-600">
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <div class="text-xs sm:text-sm text-gray-600">
                         <span id="completedCount" class="font-semibold text-green-600">0</span> / 
-                        <span id="totalCount" class="font-semibold">50</span> completed
+                        <span id="totalCount" class="font-semibold">50</span> <span class="hidden sm:inline">completed</span>
                     </div>
-                    <div class="bg-gray-200 rounded-full h-2 w-32">
+                    <div class="bg-gray-200 rounded-full h-2 w-16 sm:w-32">
                         <div id="progressBar" class="bg-green-500 h-2 rounded-full progress-bar" style="width: 0%"></div>
                     </div>
                 </div>
@@ -83,23 +107,25 @@
         </div>
     </header>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-3 sm:py-6">
         <!-- PDF Viewer Section -->
         <div class="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
-            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-xl font-semibold text-gray-900 flex items-center">
-                        <i class="fas fa-file-pdf text-red-500 mr-3"></i>
-                        English Collocations Reference Guide
+            <div class="bg-gray-50 px-3 sm:px-6 py-3 sm:py-4 border-b border-gray-200">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <h2 class="text-lg sm:text-xl font-semibold text-gray-900 flex items-center">
+                        <i class="fas fa-file-pdf text-red-500 mr-2 sm:mr-3"></i>
+                        <span class="truncate">English Collocations Reference Guide</span>
                     </h2>
-                    <div class="flex space-x-3">
-                        <button id="openPdfBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span>Open in New Tab</span>
+                    <div class="flex space-x-2 sm:space-x-3 w-full sm:w-auto">
+                        <button id="openPdfBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-1 sm:space-x-2 text-sm flex-1 sm:flex-none justify-center">
+                            <i class="fas fa-external-link-alt text-sm"></i>
+                            <span class="hidden sm:inline">Open in New Tab</span>
+                            <span class="sm:hidden">Open</span>
                         </button>
-                        <button id="downloadPdfBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
-                            <i class="fas fa-download"></i>
-                            <span>Download</span>
+                        <button id="downloadPdfBtn" class="bg-green-500 hover:bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-1 sm:space-x-2 text-sm flex-1 sm:flex-none justify-center">
+                            <i class="fas fa-download text-sm"></i>
+                            <span class="hidden sm:inline">Download</span>
+                            <span class="sm:hidden">DL</span>
                         </button>
                     </div>
                 </div>
@@ -115,27 +141,27 @@
         </div>
 
         <!-- Audio Player Section -->
-        <div class="bg-white rounded-xl shadow-lg mb-6 p-6">
-            <div class="text-center mb-6">
-                <h3 id="currentLessonTitle" class="text-2xl font-bold text-gray-900 mb-2">Collocations Lesson 01</h3>
-                <p id="lessonNumber" class="text-gray-600">Lesson 1 of 50</p>
+        <div class="bg-white rounded-xl shadow-lg mb-6 p-3 sm:p-6">
+            <div class="text-center mb-4 sm:mb-6">
+                <h3 id="currentLessonTitle" class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Collocations Lesson 01</h3>
+                <p id="lessonNumber" class="text-sm sm:text-base text-gray-600">Lesson 1 of 50</p>
             </div>
 
-            <div class="bg-gray-50 rounded-xl p-6">
+            <div class="bg-gray-50 rounded-xl p-3 sm:p-6">
                 <audio id="audioPlayer" class="hidden" preload="metadata"></audio>
                 
                 <!-- Player Controls -->
-                <div class="flex items-center justify-center space-x-6 mb-6">
-                    <button id="prevBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 w-14 h-14 rounded-full transition-all duration-200 transform hover:scale-110 shadow-md flex items-center justify-center" title="Previous Lesson">
-                        <i class="fas fa-step-backward text-lg"></i>
+                <div class="flex items-center justify-center space-x-4 sm:space-x-6 mb-4 sm:mb-6">
+                    <button id="prevBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 w-12 h-12 sm:w-14 sm:h-14 rounded-full transition-all duration-200 transform hover:scale-110 shadow-md flex items-center justify-center" title="Previous Lesson">
+                        <i class="fas fa-step-backward text-sm sm:text-lg"></i>
                     </button>
                     
-                    <button id="playBtn" class="bg-primary-600 hover:bg-primary-700 text-white w-16 h-16 rounded-full transition-all duration-200 transform hover:scale-110 shadow-lg flex items-center justify-center" title="Play/Pause">
-                        <i class="fas fa-play text-xl"></i>
+                    <button id="playBtn" class="bg-primary-600 hover:bg-primary-700 text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full transition-all duration-200 transform hover:scale-110 shadow-lg flex items-center justify-center" title="Play/Pause">
+                        <i class="fas fa-play text-lg sm:text-xl"></i>
                     </button>
                     
-                    <button id="nextBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 w-14 h-14 rounded-full transition-all duration-200 transform hover:scale-110 shadow-md flex items-center justify-center" title="Next Lesson">
-                        <i class="fas fa-step-forward text-lg"></i>
+                    <button id="nextBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 w-12 h-12 sm:w-14 sm:h-14 rounded-full transition-all duration-200 transform hover:scale-110 shadow-md flex items-center justify-center" title="Next Lesson">
+                        <i class="fas fa-step-forward text-sm sm:text-lg"></i>
                     </button>
                 </div>
 
@@ -151,46 +177,47 @@
                 </div>
 
                 <!-- Volume and Speed Controls -->
-                <div class="flex items-center justify-center space-x-8">
-                    <div class="flex items-center space-x-3">
-                        <i class="fas fa-volume-up text-gray-600"></i>
+                <div class="flex items-center justify-center space-x-4 sm:space-x-8 flex-wrap gap-2">
+                    <div class="flex items-center space-x-2 sm:space-x-3">
+                        <i class="fas fa-volume-up text-gray-600 text-sm"></i>
                         <input type="range" id="volumeSlider" min="0" max="100" value="100" 
-                               class="w-24 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer slider" 
+                               class="w-16 sm:w-24 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer slider" 
                                title="Volume">
                     </div>
                     
-                    <button id="speedBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1 rounded-lg transition-colors duration-200 text-sm font-medium" title="Playback Speed">
+                    <button id="speedBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-2 sm:px-3 py-1 rounded-lg transition-colors duration-200 text-xs sm:text-sm font-medium" title="Playback Speed">
                         1x
                     </button>
                     
-                    <button id="markCompleteBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
-                        <i class="fas fa-check"></i>
-                        <span>Mark as Complete</span>
+                    <button id="markCompleteBtn" class="bg-green-500 hover:bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-1 sm:space-x-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm">
+                        <i class="fas fa-check text-sm"></i>
+                        <span class="hidden sm:inline">Mark as Complete</span>
+                        <span class="sm:hidden">Complete</span>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Notes Section -->
-        <div class="bg-white rounded-xl shadow-lg mb-6 p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-semibold text-gray-900 flex items-center">
-                    <i class="fas fa-sticky-note text-yellow-500 mr-3"></i>
+        <div class="bg-white rounded-xl shadow-lg mb-6 p-3 sm:p-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
+                <h3 class="text-lg sm:text-xl font-semibold text-gray-900 flex items-center">
+                    <i class="fas fa-sticky-note text-yellow-500 mr-2 sm:mr-3"></i>
                     Lesson Notes
                 </h3>
-                <div class="flex space-x-2">
-                    <button id="saveNotesBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
+                <div class="flex space-x-2 w-full sm:w-auto">
+                    <button id="saveNotesBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
                         <i class="fas fa-save"></i>
-                        <span>Save Notes</span>
+                        <span>Save</span>
                     </button>
-                    <button id="clearNotesBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
+                    <button id="clearNotesBtn" class="bg-red-500 hover:bg-red-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
                         <i class="fas fa-trash"></i>
                         <span>Clear</span>
                     </button>
                 </div>
             </div>
             
-            <div class="bg-gray-50 rounded-xl p-4">
+            <div class="bg-gray-50 rounded-xl p-3 sm:p-4">
                 <textarea 
                     id="notesTextarea" 
                     placeholder="Write your notes here... 
@@ -198,10 +225,10 @@
 • Key collocations to remember  
 • Personal observations
 • Examples and usage"
-                    class="w-full h-40 p-4 border-2 border-gray-200 rounded-lg resize-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200 bg-white"
+                    class="w-full h-32 sm:h-40 p-3 sm:p-4 border-2 border-gray-200 rounded-lg resize-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200 bg-white text-sm sm:text-base"
                     spellcheck="true"></textarea>
                 
-                <div class="flex justify-between items-center mt-3 text-sm text-gray-500">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-3 text-xs sm:text-sm text-gray-500 gap-2 sm:gap-0">
                     <span id="notesCharCount" class="flex items-center">
                         <i class="fas fa-keyboard mr-1"></i>
                         0 characters
@@ -215,26 +242,30 @@
         </div>
 
         <!-- Lessons Grid Section -->
-        <div class="bg-white rounded-xl shadow-lg p-6">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xl font-semibold text-gray-900">Lessons</h3>
-                <div class="flex items-center space-x-4">
+        <div class="bg-white rounded-xl shadow-lg p-3 sm:p-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-3">
+                <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Lessons</h3>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
                     <input type="text" id="searchInput" placeholder="Search lessons..." 
-                           class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+                           class="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none text-sm w-full sm:w-auto">
                     
-                    <button id="markAllBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
-                        <i class="fas fa-check-double"></i>
-                        <span>Mark All</span>
-                    </button>
-                    
-                    <button id="resetProgressBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
-                        <i class="fas fa-refresh"></i>
-                        <span>Reset</span>
-                    </button>
+                    <div class="flex space-x-2">
+                        <button id="markAllBtn" class="bg-green-500 hover:bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-1 sm:space-x-2 text-sm flex-1 sm:flex-none justify-center">
+                            <i class="fas fa-check-double"></i>
+                            <span class="hidden sm:inline">Mark All</span>
+                            <span class="sm:hidden">All</span>
+                        </button>
+                        
+                        <button id="resetProgressBtn" class="bg-red-500 hover:bg-red-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-1 sm:space-x-2 text-sm flex-1 sm:flex-none justify-center">
+                            <i class="fas fa-refresh"></i>
+                            <span class="hidden sm:inline">Reset</span>
+                            <span class="sm:hidden">Reset</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div id="lessonsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            <div id="lessonsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4">
                 <!-- Lessons will be populated by JavaScript -->
             </div>
         </div>
@@ -635,8 +666,8 @@
                     
                     const lessonCard = document.createElement('div');
                     lessonCard.className = `
-                        relative bg-white border-2 rounded-xl p-4 cursor-pointer transition-all duration-200 
-                        hover:shadow-lg hover:scale-105 group
+                        relative bg-white border-2 rounded-xl p-2 sm:p-4 cursor-pointer transition-all duration-200 
+                        hover:shadow-lg hover:scale-105 group min-h-[80px] sm:min-h-[100px]
                         ${isCompleted ? 'lesson-completed text-white border-green-500' : 
                           isActive ? 'lesson-active text-white border-blue-500' : 
                           'border-gray-200 hover:border-blue-300'}
@@ -644,16 +675,16 @@
                     
                     lessonCard.innerHTML = `
                         <div class="text-center">
-                            <div class="text-lg font-semibold mb-2">Lesson ${lesson.id}</div>
-                            <div class="text-sm opacity-90">
+                            <div class="text-sm sm:text-lg font-semibold mb-1 sm:mb-2 truncate">Lesson ${lesson.id}</div>
+                            <div class="text-xs sm:text-sm opacity-90 line-clamp-2">
                                 ${lesson.title.replace('Collocations Lesson', 'Collocations')}
                             </div>
                             ${isCompleted ? 
-                                '<div class="absolute top-2 right-2"><i class="fas fa-check-circle text-white"></i></div>' : 
-                                '<div class="absolute top-2 right-2"><i class="fas fa-circle text-gray-300 group-hover:text-blue-300"></i></div>'
+                                '<div class="absolute top-1 sm:top-2 right-1 sm:right-2"><i class="fas fa-check-circle text-white text-sm sm:text-base"></i></div>' : 
+                                '<div class="absolute top-1 sm:top-2 right-1 sm:right-2"><i class="fas fa-circle text-gray-300 group-hover:text-blue-300 text-sm sm:text-base"></i></div>'
                             }
                             ${hasNotes ? 
-                                '<div class="absolute bottom-2 right-2"><i class="fas fa-sticky-note text-yellow-400"></i></div>' : ''
+                                '<div class="absolute bottom-1 sm:bottom-2 right-1 sm:right-2"><i class="fas fa-sticky-note text-yellow-400 text-xs sm:text-sm"></i></div>' : ''
                             }
                         </div>
                     `;
@@ -667,7 +698,7 @@
                     
                     // Add checkbox for completion toggle
                     const checkbox = document.createElement('div');
-                    checkbox.className = 'complete-checkbox absolute top-2 left-2 w-6 h-6 cursor-pointer';
+                    checkbox.className = 'complete-checkbox absolute top-1 sm:top-2 left-1 sm:left-2 w-4 h-4 sm:w-6 sm:h-6 cursor-pointer';
                     checkbox.innerHTML = `
                         <input type="checkbox" ${isCompleted ? 'checked' : ''} 
                                class="w-full h-full rounded border-2 border-gray-300 text-green-500 focus:ring-green-500">
@@ -737,7 +768,8 @@
             }
 
             handleKeyboardShortcuts(event) {
-                if (event.target.tagName === 'INPUT') return; // Don't trigger when typing in search
+                // Don't trigger shortcuts when typing in input fields or textarea
+                if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
                 
                 switch(event.code) {
                     case 'Space':
