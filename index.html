@@ -16,6 +16,8 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- PDF.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -43,8 +45,22 @@
         .progress-bar {
             transition: width 0.3s ease;
         }
+        .progress-bar-header {
+            width: 0%;
+        }
+        .progress-bar-player {
+            width: 0%;
+        }
         .pdf-container {
             height: calc(100vh - 200px);
+        }
+        .pdf-canvas-container {
+            height: calc(100% - 50px);
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
         }
         @media (max-width: 1024px) {
             .pdf-container {
@@ -113,12 +129,20 @@
                     <h1 class="text-sm sm:text-lg lg:text-2xl font-bold text-gray-900 truncate">English Collocations</h1>
                 </div>
                 <div class="flex items-center space-x-2 sm:space-x-4">
+                    <div id="connectionStatus" class="flex items-center space-x-1 text-xs sm:text-sm">
+                        <i id="connectionIcon" class="fas fa-wifi text-green-500"></i>
+                        <span id="connectionText" class="text-green-600 font-medium">Online</span>
+                    </div>
+                    <button id="installBtn" class="hidden bg-primary-600 hover:bg-primary-700 text-white px-3 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm" title="Install App">
+                        <i class="fas fa-download"></i>
+                        <span class="hidden sm:inline">Install</span>
+                    </button>
                     <div class="text-xs sm:text-sm text-gray-600">
                         <span id="completedCount" class="font-semibold text-green-600">0</span> / 
                         <span id="totalCount" class="font-semibold">50</span> <span class="hidden sm:inline">completed</span>
                     </div>
                     <div class="bg-gray-200 rounded-full h-2 w-16 sm:w-32">
-                        <div id="progressBar" class="bg-green-500 h-2 rounded-full progress-bar" style="width: 0%"></div>
+                        <div id="progressBar" class="bg-green-500 h-2 rounded-full progress-bar progress-bar-header"></div>
                     </div>
                 </div>
             </div>
@@ -149,11 +173,42 @@
                 </div>
             </div>
             <div class="pdf-container">
-                <div id="pdfFallback" class="hidden bg-gray-100 p-6 text-center">
+                <!-- PDF.js Viewer -->
+                <div id="pdfJsViewer" class="w-full h-full bg-gray-100">
+                    <div class="flex items-center justify-between p-3 bg-gray-200 border-b">
+                        <div class="flex items-center space-x-2">
+                            <button id="prevPage" class="bg-white hover:bg-gray-50 text-gray-700 px-3 py-1 rounded border text-sm" title="Previous Page">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <span class="text-sm text-gray-700">
+                                Page <span id="pageNum">1</span> of <span id="pageCount">--</span>
+                            </span>
+                            <button id="nextPage" class="bg-white hover:bg-gray-50 text-gray-700 px-3 py-1 rounded border text-sm" title="Next Page">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button id="zoomOut" class="bg-white hover:bg-gray-50 text-gray-700 px-3 py-1 rounded border text-sm" title="Zoom Out">
+                                <i class="fas fa-search-minus"></i>
+                            </button>
+                            <span id="zoomLevel" class="text-sm text-gray-700 min-w-[60px] text-center">100%</span>
+                            <button id="zoomIn" class="bg-white hover:bg-gray-50 text-gray-700 px-3 py-1 rounded border text-sm" title="Zoom In">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pdf-canvas-container">
+                        <canvas id="pdfCanvas" class="shadow-lg border"></canvas>
+                    </div>
+                </div>
+
+                <!-- Fallback for browsers without PDF.js support -->
+                <div id="pdfFallback" class="hidden bg-gray-100 p-6 text-center h-full flex flex-col justify-center">
                     <div class="mb-4">
                         <i class="fas fa-file-pdf text-red-500 text-4xl mb-3"></i>
-                        <p class="text-gray-700 mb-4">PDF preview not supported in this browser</p>
-                        <div class="flex justify-center space-x-3">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">PDF Preview Not Available</h3>
+                        <p class="text-gray-700 mb-4">Your browser doesn't support PDF preview, but you can still access the document:</p>
+                        <div class="flex justify-center space-x-3 flex-wrap gap-2">
                             <button id="openPdfBtn2" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
                                 <i class="fas fa-external-link-alt"></i>
                                 <span>Open PDF</span>
@@ -165,13 +220,14 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Legacy iframe viewer (hidden by default) -->
                 <iframe 
                     id="pdfViewer" 
                     src="pdf.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH&zoom=page-fit"
-                    class="w-full h-full border-0"
+                    class="w-full h-full border-0 hidden"
                     title="English Collocations PDF Reference"
-                    sandbox="allow-same-origin allow-scripts allow-forms"
-                    loading="lazy">
+                    sandbox="allow-same-origin allow-scripts allow-forms">
                     <p>Your browser does not support PDFs. 
                     <a href="pdf.pdf" target="_blank" class="text-blue-500 underline">Download the PDF</a>.</p>
                 </iframe>
@@ -206,7 +262,7 @@
                 <!-- Progress Bar -->
                 <div class="mb-4">
                     <div id="progressBarContainer" class="bg-gray-300 rounded-full h-2 cursor-pointer">
-                        <div id="progressFill" class="bg-primary-600 h-2 rounded-full progress-bar" style="width: 0%"></div>
+                        <div id="progressFill" class="bg-primary-600 h-2 rounded-full progress-bar progress-bar-player"></div>
                     </div>
                     <div class="flex justify-between text-sm text-gray-600 mt-2">
                         <span id="currentTime">0:00</span>
@@ -309,6 +365,45 @@
         </div>
     </div>
 
+    <!-- PWA Install Banner -->
+    <div id="installBanner" class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-primary-600 to-primary-700 text-white p-4 shadow-lg z-50 transform translate-y-full transition-transform duration-300 ease-in-out">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-mobile-alt text-xl"></i>
+                <div>
+                    <h3 class="font-semibold text-sm sm:text-base">Install English Collocations</h3>
+                    <p class="text-xs sm:text-sm opacity-90">Get the app for offline learning and better experience</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button id="installBannerBtn" class="bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors duration-200">
+                    Install
+                </button>
+                <button id="dismissInstallBanner" class="text-white hover:text-gray-200 p-2 transition-colors duration-200" title="Dismiss">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PWA Update Available Banner -->
+    <div id="updateBanner" class="fixed top-0 left-0 right-0 bg-green-600 text-white p-3 shadow-lg z-50 transform -translate-y-full transition-transform duration-300 ease-in-out">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-sync-alt text-lg"></i>
+                <span class="text-sm sm:text-base">A new version is available!</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button id="updateBtn" class="bg-white text-green-600 px-3 py-1 rounded font-semibold text-sm hover:bg-gray-100 transition-colors duration-200">
+                    Update
+                </button>
+                <button id="dismissUpdateBanner" class="text-white hover:text-gray-200 p-1 transition-colors duration-200" title="Dismiss">
+                    <i class="fas fa-times text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notification -->
     <div id="toast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 z-50 opacity-0 translate-x-full pointer-events-none">
         <div class="flex items-center space-x-2">
@@ -319,47 +414,140 @@
 
     <script>
         // PWA Functions
-        function checkPdfSupport() {
-            // Enhanced PDF support detection
-            const iframe = document.getElementById('pdfViewer');
-            const fallback = document.getElementById('pdfFallback');
-            
-            // Check for PDF plugin support
-            const hasPdfPlugin = navigator.mimeTypes['application/pdf'];
-            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-            
-            // Force fallback for Safari/iOS as they often have PDF viewing issues
-            if ((isSafari && !hasPdfPlugin) || isIOS) {
-                setTimeout(() => showPdfFallback(), 1000);
-                return;
+        class PDFViewer {
+            constructor() {
+                this.pdfDoc = null;
+                this.pageNum = 1;
+                this.pageRendering = false;
+                this.pageNumPending = null;
+                this.scale = 1.0;
+                this.canvas = document.getElementById('pdfCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.pdfJsViewer = document.getElementById('pdfJsViewer');
+                this.pdfFallback = document.getElementById('pdfFallback');
+                this.iframe = document.getElementById('pdfViewer');
+                
+                this.initializePDFViewer();
             }
+
+            async initializePDFViewer() {
+                try {
+                    // Configure PDF.js worker
+                    if (typeof pdfjsLib !== 'undefined') {
+                        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+                        
+                        // Load the PDF
+                        const loadingTask = pdfjsLib.getDocument('pdf.pdf');
+                        this.pdfDoc = await loadingTask.promise;
+                        
+                        // Update page count
+                        document.getElementById('pageCount').textContent = this.pdfDoc.numPages;
+                        
+                        // Render the first page
+                        this.renderPage(this.pageNum);
+                        
+                        // Set up event listeners
+                        this.setupPDFControls();
+                        
+                        console.log('PDF loaded successfully with PDF.js');
+                    } else {
+                        throw new Error('PDF.js not loaded');
+                    }
+                } catch (error) {
+                    console.log('PDF.js failed, showing fallback:', error);
+                    this.showFallback();
+                }
+            }
+
+            setupPDFControls() {
+                document.getElementById('prevPage').addEventListener('click', () => {
+                    if (this.pageNum <= 1) return;
+                    this.pageNum--;
+                    this.queueRenderPage(this.pageNum);
+                });
+
+                document.getElementById('nextPage').addEventListener('click', () => {
+                    if (this.pageNum >= this.pdfDoc.numPages) return;
+                    this.pageNum++;
+                    this.queueRenderPage(this.pageNum);
+                });
+
+                document.getElementById('zoomIn').addEventListener('click', () => {
+                    this.scale = Math.min(this.scale + 0.25, 3.0);
+                    this.queueRenderPage(this.pageNum);
+                });
+
+                document.getElementById('zoomOut').addEventListener('click', () => {
+                    this.scale = Math.max(this.scale - 0.25, 0.5);
+                    this.queueRenderPage(this.pageNum);
+                });
+            }
+
+            renderPage(num) {
+                this.pageRendering = true;
+                
+                this.pdfDoc.getPage(num).then((page) => {
+                    const viewport = page.getViewport({ scale: this.scale });
+                    this.canvas.height = viewport.height;
+                    this.canvas.width = viewport.width;
+
+                    // Update zoom level display
+                    document.getElementById('zoomLevel').textContent = Math.round(this.scale * 100) + '%';
+
+                    const renderContext = {
+                        canvasContext: this.ctx,
+                        viewport: viewport
+                    };
+
+                    const renderTask = page.render(renderContext);
+
+                    renderTask.promise.then(() => {
+                        this.pageRendering = false;
+                        if (this.pageNumPending !== null) {
+                            this.renderPage(this.pageNumPending);
+                            this.pageNumPending = null;
+                        }
+                    });
+                });
+
+                // Update page counters
+                document.getElementById('pageNum').textContent = num;
+            }
+
+            queueRenderPage(num) {
+                if (this.pageRendering) {
+                    this.pageNumPending = num;
+                } else {
+                    this.renderPage(num);
+                }
+            }
+
+            showFallback() {
+                this.pdfJsViewer.style.display = 'none';
+                this.iframe.style.display = 'none';
+                this.pdfFallback.classList.remove('hidden');
+                console.log('PDF fallback activated');
+            }
+        }
+
+        function checkPdfSupport() {
+            // Initialize the PDF viewer
+            window.pdfViewer = new PDFViewer();
             
-            // Test iframe loading after delay
+            // Also set up iframe fallback detection
+            const iframe = document.getElementById('pdfViewer');
+            
+            // Test iframe loading after delay for fallback option
             setTimeout(() => {
                 try {
                     const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                    // If we can't access the document or it's empty, show fallback
                     if (!iframeDoc || !iframeDoc.body || iframeDoc.body.children.length === 0) {
-                        showPdfFallback();
+                        console.log('Iframe PDF loading may have issues');
                     }
                 } catch (e) {
-                    // Cross-origin or other errors indicate PDF might not be working
-                    console.log('PDF loading error:', e);
-                    showPdfFallback();
+                    console.log('Iframe PDF loading error:', e);
                 }
             }, 3000);
-        }
-
-        function showPdfFallback() {
-            const iframe = document.getElementById('pdfViewer');
-            const fallback = document.getElementById('pdfFallback');
-            
-            if (iframe && fallback) {
-                iframe.style.display = 'none';
-                fallback.classList.remove('hidden');
-                console.log('PDF fallback activated');
-            }
         }
 
         // Check PDF support on page load
@@ -367,16 +555,277 @@
             checkPdfSupport();
         });
 
+        // Global toast function for PWA events
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            if (!toast || !toastMessage) return;
+            
+            toastMessage.textContent = message;
+            
+            // Update toast colors and icon based on type
+            let bgColor, icon;
+            switch(type) {
+                case 'success':
+                    bgColor = 'bg-green-500';
+                    icon = 'fas fa-check-circle';
+                    break;
+                case 'error':
+                    bgColor = 'bg-red-500';
+                    icon = 'fas fa-exclamation-circle';
+                    break;
+                case 'info':
+                    bgColor = 'bg-blue-500';
+                    icon = 'fas fa-info-circle';
+                    break;
+                case 'warning':
+                    bgColor = 'bg-yellow-500';
+                    icon = 'fas fa-exclamation-triangle';
+                    break;
+                default:
+                    bgColor = 'bg-green-500';
+                    icon = 'fas fa-check-circle';
+            }
+            
+            // Reset classes and apply new ones
+            toast.className = `fixed top-4 right-4 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 z-50 ${bgColor}`;
+            toast.querySelector('i').className = icon;
+            
+            // Show toast
+            toast.classList.remove('opacity-0', 'translate-x-full', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-x-0');
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-x-0');
+                toast.classList.add('opacity-0', 'translate-x-full', 'pointer-events-none');
+            }, 3000);
+        }
+
         // Register Service Worker for PWA
+        let deferredPrompt;
+        let swRegistration = null;
+
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
                     .then((registration) => {
                         console.log('SW registered: ', registration);
+                        swRegistration = registration;
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            if (newWorker) {
+                                newWorker.addEventListener('statechange', () => {
+                                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                        showUpdateBanner();
+                                    }
+                                });
+                            }
+                        });
                     })
                     .catch((registrationError) => {
                         console.log('SW registration failed: ', registrationError);
                     });
+            });
+        }
+
+        // PWA Install Prompt
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('beforeinstallprompt event fired');
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Don't show install options if already installed
+            if (localStorage.getItem('appInstalled') === 'true') {
+                return;
+            }
+            
+            // Show install banner after a short delay
+            setTimeout(() => {
+                if (!localStorage.getItem('installBannerDismissed')) {
+                    showInstallBanner();
+                }
+            }, 3000);
+            
+            // Show install button in header
+            const installBtn = document.getElementById('installBtn');
+            if (installBtn) {
+                installBtn.classList.remove('hidden');
+                installBtn.addEventListener('click', handleInstallClick);
+            }
+        });
+
+        // Handle successful app installation
+        window.addEventListener('appinstalled', (e) => {
+            console.log('App installed successfully');
+            hideInstallBanner();
+            showToast('App installed successfully! 🎉', 'success');
+            
+            // Hide install button in header
+            const installBtn = document.getElementById('installBtn');
+            if (installBtn) {
+                installBtn.classList.add('hidden');
+            }
+            
+            // Mark as installed in localStorage to remember across sessions
+            localStorage.setItem('appInstalled', 'true');
+        });
+
+        function showInstallBanner() {
+            const banner = document.getElementById('installBanner');
+            if (banner) {
+                banner.classList.remove('translate-y-full');
+                banner.classList.add('translate-y-0');
+            }
+        }
+
+        function hideInstallBanner() {
+            const banner = document.getElementById('installBanner');
+            if (banner) {
+                banner.classList.remove('translate-y-0');
+                banner.classList.add('translate-y-full');
+            }
+        }
+
+        function showUpdateBanner() {
+            const banner = document.getElementById('updateBanner');
+            if (banner) {
+                banner.classList.remove('-translate-y-full');
+                banner.classList.add('translate-y-0');
+            }
+        }
+
+        function hideUpdateBanner() {
+            const banner = document.getElementById('updateBanner');
+            if (banner) {
+                banner.classList.remove('translate-y-0');
+                banner.classList.add('-translate-y-full');
+            }
+        }
+
+        function handleInstallClick() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                        hideInstallBanner();
+                        
+                        // Hide install button immediately after acceptance
+                        const installBtn = document.getElementById('installBtn');
+                        if (installBtn) {
+                            installBtn.classList.add('hidden');
+                        }
+                        
+                        // Mark as installed
+                        localStorage.setItem('appInstalled', 'true');
+                        showToast('Installing app...', 'info');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        }
+
+        // Set up banner event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if app is already installed and hide install elements
+            checkInstallStatus();
+            
+            // Set up offline/online detection
+            setupOfflineDetection();
+            
+            // Install banner events
+            const installBannerBtn = document.getElementById('installBannerBtn');
+            const dismissInstallBanner = document.getElementById('dismissInstallBanner');
+            
+            if (installBannerBtn) {
+                installBannerBtn.addEventListener('click', handleInstallClick);
+            }
+            
+            if (dismissInstallBanner) {
+                dismissInstallBanner.addEventListener('click', () => {
+                    hideInstallBanner();
+                    localStorage.setItem('installBannerDismissed', 'true');
+                });
+            }
+
+            // Update banner events
+            const updateBtn = document.getElementById('updateBtn');
+            const dismissUpdateBanner = document.getElementById('dismissUpdateBanner');
+            
+            if (updateBtn) {
+                updateBtn.addEventListener('click', () => {
+                    if (swRegistration && swRegistration.waiting) {
+                        swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                        hideUpdateBanner();
+                        showToast('Updating app...', 'info');
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000);
+                    }
+                });
+            }
+            
+            if (dismissUpdateBanner) {
+                dismissUpdateBanner.addEventListener('click', () => {
+                    hideUpdateBanner();
+                });
+            }
+        });
+
+        function checkInstallStatus() {
+            // Check if app was previously installed
+            if (localStorage.getItem('appInstalled') === 'true') {
+                const installBtn = document.getElementById('installBtn');
+                if (installBtn) {
+                    installBtn.classList.add('hidden');
+                }
+                return;
+            }
+            
+            // Check if running as PWA (display-mode: standalone)
+            if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+                localStorage.setItem('appInstalled', 'true');
+                const installBtn = document.getElementById('installBtn');
+                if (installBtn) {
+                    installBtn.classList.add('hidden');
+                }
+            }
+        }
+
+        function setupOfflineDetection() {
+            const connectionIcon = document.getElementById('connectionIcon');
+            const connectionText = document.getElementById('connectionText');
+            
+            function updateConnectionStatus() {
+                if (navigator.onLine) {
+                    connectionIcon.className = 'fas fa-wifi text-green-500';
+                    connectionText.textContent = 'Online';
+                    connectionText.className = 'text-green-600 font-medium';
+                } else {
+                    connectionIcon.className = 'fas fa-wifi-slash text-red-500';
+                    connectionText.textContent = 'Offline';
+                    connectionText.className = 'text-red-600 font-medium';
+                    showToast('You are now offline. Cached content will be used.', 'warning');
+                }
+            }
+            
+            // Initial status
+            updateConnectionStatus();
+            
+            // Listen for online/offline events
+            window.addEventListener('online', () => {
+                updateConnectionStatus();
+                showToast('Connection restored! Back online.', 'success');
+            });
+            
+            window.addEventListener('offline', () => {
+                updateConnectionStatus();
             });
         }
 
