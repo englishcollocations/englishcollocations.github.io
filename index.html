@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Collocations - Interactive Learning Platform</title>
+    <meta name="description" content="Learn English collocations with interactive audio lessons and PDF reference guide">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f4ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .lesson-completed {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        .lesson-active {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+        }
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+        .pdf-container {
+            height: calc(100vh - 200px);
+        }
+        @media (max-width: 1024px) {
+            .pdf-container {
+                height: 60vh;
+            }
+        }
+        /* Custom slider styles */
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #6366f1;
+            cursor: pointer;
+        }
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #6366f1;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-headphones text-3xl text-primary-600"></i>
+                    <h1 class="text-2xl font-bold text-gray-900">English Collocations</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-sm text-gray-600">
+                        <span id="completedCount" class="font-semibold text-green-600">0</span> / 
+                        <span id="totalCount" class="font-semibold">50</span> completed
+                    </div>
+                    <div class="bg-gray-200 rounded-full h-2 w-32">
+                        <div id="progressBar" class="bg-green-500 h-2 rounded-full progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- PDF Viewer Section -->
+        <div class="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
+            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold text-gray-900 flex items-center">
+                        <i class="fas fa-file-pdf text-red-500 mr-3"></i>
+                        English Collocations Reference Guide
+                    </h2>
+                    <div class="flex space-x-3">
+                        <button id="openPdfBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Open in New Tab</span>
+                        </button>
+                        <button id="downloadPdfBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span>Download</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-container">
+                <iframe 
+                    id="pdfViewer" 
+                    src="pdf.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH"
+                    class="w-full h-full border-0"
+                    title="English Collocations PDF Reference">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Audio Player Section -->
+        <div class="bg-white rounded-xl shadow-lg mb-6 p-6">
+            <div class="text-center mb-6">
+                <h3 id="currentLessonTitle" class="text-2xl font-bold text-gray-900 mb-2">Collocations Lesson 01</h3>
+                <p id="lessonNumber" class="text-gray-600">Lesson 1 of 50</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl p-6">
+                <audio id="audioPlayer" class="hidden" preload="metadata"></audio>
+                
+                <!-- Player Controls -->
+                <div class="flex items-center justify-center space-x-6 mb-6">
+                    <button id="prevBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 w-14 h-14 rounded-full transition-all duration-200 transform hover:scale-110 shadow-md flex items-center justify-center" title="Previous Lesson">
+                        <i class="fas fa-step-backward text-lg"></i>
+                    </button>
+                    
+                    <button id="playBtn" class="bg-primary-600 hover:bg-primary-700 text-white w-16 h-16 rounded-full transition-all duration-200 transform hover:scale-110 shadow-lg flex items-center justify-center" title="Play/Pause">
+                        <i class="fas fa-play text-xl"></i>
+                    </button>
+                    
+                    <button id="nextBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 w-14 h-14 rounded-full transition-all duration-200 transform hover:scale-110 shadow-md flex items-center justify-center" title="Next Lesson">
+                        <i class="fas fa-step-forward text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="mb-4">
+                    <div id="progressBarContainer" class="bg-gray-300 rounded-full h-2 cursor-pointer">
+                        <div id="progressFill" class="bg-primary-600 h-2 rounded-full progress-bar" style="width: 0%"></div>
+                    </div>
+                    <div class="flex justify-between text-sm text-gray-600 mt-2">
+                        <span id="currentTime">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+
+                <!-- Volume and Speed Controls -->
+                <div class="flex items-center justify-center space-x-8">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-volume-up text-gray-600"></i>
+                        <input type="range" id="volumeSlider" min="0" max="100" value="100" 
+                               class="w-24 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer slider" 
+                               title="Volume">
+                    </div>
+                    
+                    <button id="speedBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1 rounded-lg transition-colors duration-200 text-sm font-medium" title="Playback Speed">
+                        1x
+                    </button>
+                    
+                    <button id="markCompleteBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <i class="fas fa-check"></i>
+                        <span>Mark as Complete</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes Section -->
+        <div class="bg-white rounded-xl shadow-lg mb-6 p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold text-gray-900 flex items-center">
+                    <i class="fas fa-sticky-note text-yellow-500 mr-3"></i>
+                    Lesson Notes
+                </h3>
+                <div class="flex space-x-2">
+                    <button id="saveNotesBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
+                        <i class="fas fa-save"></i>
+                        <span>Save Notes</span>
+                    </button>
+                    <button id="clearNotesBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
+                        <i class="fas fa-trash"></i>
+                        <span>Clear</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-xl p-4">
+                <textarea 
+                    id="notesTextarea" 
+                    placeholder="Write your notes here... 
+• Important vocabulary
+• Key collocations to remember  
+• Personal observations
+• Examples and usage"
+                    class="w-full h-40 p-4 border-2 border-gray-200 rounded-lg resize-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200 bg-white"
+                    spellcheck="true"></textarea>
+                
+                <div class="flex justify-between items-center mt-3 text-sm text-gray-500">
+                    <span id="notesCharCount" class="flex items-center">
+                        <i class="fas fa-keyboard mr-1"></i>
+                        0 characters
+                    </span>
+                    <span id="notesLastSaved" class="flex items-center">
+                        <i class="fas fa-clock mr-1"></i>
+                        Auto-saved
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lessons Grid Section -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold text-gray-900">Lessons</h3>
+                <div class="flex items-center space-x-4">
+                    <input type="text" id="searchInput" placeholder="Search lessons..." 
+                           class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+                    
+                    <button id="markAllBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
+                        <i class="fas fa-check-double"></i>
+                        <span>Mark All</span>
+                    </button>
+                    
+                    <button id="resetProgressBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
+                        <i class="fas fa-refresh"></i>
+                        <span>Reset</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="lessonsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                <!-- Lessons will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 z-50 opacity-0 translate-x-full pointer-events-none">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-check-circle"></i>
+            <span id="toastMessage">Success!</span>
+        </div>
+    </div>
+
+    <script>
+        class EnglishCollocationPlayer {
+            constructor() {
+                this.currentLessonIndex = 0;
+                this.isPlaying = false;
+                this.lessons = this.generateLessons();
+                this.filteredLessons = [...this.lessons];
+                this.playbackSpeeds = [0.5, 0.75, 1, 1.25, 1.5, 2];
+                this.currentSpeedIndex = 2;
+                this.completedLessons = this.loadCompletedLessons();
+                this.lessonNotes = this.loadLessonNotes();
+                this.autoSaveTimer = null;
+                
+                this.initializeElements();
+                this.initializeEventListeners();
+                this.renderLessons();
+                this.updateStats();
+                this.loadLesson(0); // Load lesson 1 by default
+            }
+
+            generateLessons() {
+                const lessons = [];
+                for (let i = 1; i <= 50; i++) {
+                    lessons.push({
+                        id: i,
+                        title: `Collocations Lesson ${i.toString().padStart(2, '0')}`,
+                        filename: `Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`,
+                        duration: '0:00',
+                        path: `sounds/Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`
+                    });
+                }
+                return lessons;
+            }
+
+            initializeElements() {
+                this.audioPlayer = document.getElementById('audioPlayer');
+                this.playBtn = document.getElementById('playBtn');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.progressBarContainer = document.getElementById('progressBarContainer');
+                this.progressFill = document.getElementById('progressFill');
+                this.currentTimeSpan = document.getElementById('currentTime');
+                this.durationSpan = document.getElementById('duration');
+                this.volumeSlider = document.getElementById('volumeSlider');
+                this.speedBtn = document.getElementById('speedBtn');
+                this.markCompleteBtn = document.getElementById('markCompleteBtn');
+                this.currentLessonTitle = document.getElementById('currentLessonTitle');
+                this.lessonNumber = document.getElementById('lessonNumber');
+                this.searchInput = document.getElementById('searchInput');
+                this.lessonsGrid = document.getElementById('lessonsGrid');
+                this.openPdfBtn = document.getElementById('openPdfBtn');
+                this.downloadPdfBtn = document.getElementById('downloadPdfBtn');
+                this.markAllBtn = document.getElementById('markAllBtn');
+                this.resetProgressBtn = document.getElementById('resetProgressBtn');
+                this.completedCount = document.getElementById('completedCount');
+                this.totalCount = document.getElementById('totalCount');
+                this.progressBar = document.getElementById('progressBar');
+                this.toast = document.getElementById('toast');
+                this.toastMessage = document.getElementById('toastMessage');
+                this.notesTextarea = document.getElementById('notesTextarea');
+                this.saveNotesBtn = document.getElementById('saveNotesBtn');
+                this.clearNotesBtn = document.getElementById('clearNotesBtn');
+                this.notesCharCount = document.getElementById('notesCharCount');
+                this.notesLastSaved = document.getElementById('notesLastSaved');
+            }
+
+            initializeEventListeners() {
+                // Audio player events
+                this.audioPlayer.addEventListener('loadedmetadata', () => this.updateDuration());
+                this.audioPlayer.addEventListener('timeupdate', () => this.updateProgress());
+                this.audioPlayer.addEventListener('ended', () => this.onAudioEnded());
+                
+                // Control events
+                this.playBtn.addEventListener('click', () => this.togglePlay());
+                this.prevBtn.addEventListener('click', () => this.previousLesson());
+                this.nextBtn.addEventListener('click', () => this.nextLesson());
+                this.progressBarContainer.addEventListener('click', (e) => this.seek(e));
+                this.volumeSlider.addEventListener('input', (e) => this.setVolume(e.target.value));
+                this.speedBtn.addEventListener('click', () => this.cycleSpeed());
+                this.markCompleteBtn.addEventListener('click', () => this.markCurrentLessonComplete());
+                
+                // PDF events
+                this.openPdfBtn.addEventListener('click', () => this.openPdfInNewTab());
+                this.downloadPdfBtn.addEventListener('click', () => this.downloadPdf());
+                
+                // Progress events
+                this.markAllBtn.addEventListener('click', () => this.markAllCompleted());
+                this.resetProgressBtn.addEventListener('click', () => this.resetProgress());
+                
+                // Search event
+                this.searchInput.addEventListener('input', (e) => this.filterLessons(e.target.value));
+
+                // Notes events
+                this.notesTextarea.addEventListener('input', () => this.onNotesInput());
+                this.saveNotesBtn.addEventListener('click', () => this.saveCurrentNotes());
+                this.clearNotesBtn.addEventListener('click', () => this.clearCurrentNotes());
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => this.handleKeyboardShortcuts(e));
+            }
+
+            loadCompletedLessons() {
+                const saved = localStorage.getItem('completedLessons');
+                return saved ? JSON.parse(saved) : [];
+            }
+
+            loadLessonNotes() {
+                const saved = localStorage.getItem('lessonNotes');
+                return saved ? JSON.parse(saved) : {};
+            }
+
+            saveLessonNotes() {
+                localStorage.setItem('lessonNotes', JSON.stringify(this.lessonNotes));
+            }
+
+            saveCompletedLessons() {
+                localStorage.setItem('completedLessons', JSON.stringify(this.completedLessons));
+                this.updateStats();
+                this.renderLessons();
+            }
+
+            isLessonCompleted(lessonId) {
+                return this.completedLessons.includes(lessonId);
+            }
+
+            markCurrentLessonComplete() {
+                const currentLesson = this.lessons[this.currentLessonIndex];
+                if (currentLesson && !this.isLessonCompleted(currentLesson.id)) {
+                    this.completedLessons.push(currentLesson.id);
+                    this.saveCompletedLessons();
+                    this.showToast(`Lesson ${currentLesson.id} marked as complete!`, 'success');
+                    this.updateMarkCompleteButton();
+                }
+            }
+
+            toggleLessonCompleted(lessonId) {
+                const index = this.completedLessons.indexOf(lessonId);
+                if (index > -1) {
+                    this.completedLessons.splice(index, 1);
+                    this.showToast(`Lesson ${lessonId} unmarked`, 'info');
+                } else {
+                    this.completedLessons.push(lessonId);
+                    this.showToast(`Lesson ${lessonId} completed!`, 'success');
+                }
+                this.saveCompletedLessons();
+                this.updateMarkCompleteButton();
+            }
+
+            updateStats() {
+                this.completedCount.textContent = this.completedLessons.length;
+                this.totalCount.textContent = this.lessons.length;
+                const percentage = Math.round((this.completedLessons.length / this.lessons.length) * 100);
+                this.progressBar.style.width = percentage + '%';
+            }
+
+            updateMarkCompleteButton() {
+                const currentLesson = this.lessons[this.currentLessonIndex];
+                if (currentLesson && this.isLessonCompleted(currentLesson.id)) {
+                    this.markCompleteBtn.innerHTML = '<i class="fas fa-check-circle"></i><span>Completed</span>';
+                    this.markCompleteBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    this.markCompleteBtn.classList.add('bg-gray-400');
+                    this.markCompleteBtn.disabled = true;
+                } else {
+                    this.markCompleteBtn.innerHTML = '<i class="fas fa-check"></i><span>Mark as Complete</span>';
+                    this.markCompleteBtn.classList.remove('bg-gray-400');
+                    this.markCompleteBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                    this.markCompleteBtn.disabled = false;
+                }
+            }
+
+            togglePlay() {
+                if (this.isPlaying) {
+                    this.pause();
+                } else {
+                    this.play();
+                }
+            }
+
+            play() {
+                if (this.audioPlayer.src) {
+                    this.audioPlayer.play();
+                    this.isPlaying = true;
+                    this.playBtn.innerHTML = '<i class="fas fa-pause text-xl"></i>';
+                }
+            }
+
+            pause() {
+                this.audioPlayer.pause();
+                this.isPlaying = false;
+                this.playBtn.innerHTML = '<i class="fas fa-play text-xl"></i>';
+            }
+
+            loadLesson(index) {
+                if (index < 0 || index >= this.lessons.length) return;
+                
+                this.currentLessonIndex = index;
+                const lesson = this.lessons[index];
+                
+                this.audioPlayer.src = lesson.path;
+                this.currentLessonTitle.textContent = lesson.title;
+                this.lessonNumber.textContent = `Lesson ${lesson.id} of 50`;
+                
+                this.updateMarkCompleteButton();
+                this.highlightCurrentLesson();
+                this.pause();
+                this.loadNotesForCurrentLesson();
+            }
+
+            loadNotesForCurrentLesson() {
+                const currentLesson = this.lessons[this.currentLessonIndex];
+                if (currentLesson) {
+                    const notes = this.lessonNotes[currentLesson.id] || '';
+                    this.notesTextarea.value = notes;
+                    this.updateCharCount();
+                }
+            }
+
+            onNotesInput() {
+                this.updateCharCount();
+                
+                // Clear existing timer
+                if (this.autoSaveTimer) {
+                    clearTimeout(this.autoSaveTimer);
+                }
+                
+                // Auto-save after 2 seconds of inactivity
+                this.autoSaveTimer = setTimeout(() => {
+                    this.saveCurrentNotes(true); // true means auto-save
+                }, 2000);
+            }
+
+            updateCharCount() {
+                const count = this.notesTextarea.value.length;
+                this.notesCharCount.innerHTML = `<i class="fas fa-keyboard mr-1"></i>${count} characters`;
+            }
+
+            saveCurrentNotes(isAutoSave = false) {
+                const currentLesson = this.lessons[this.currentLessonIndex];
+                if (currentLesson) {
+                    const notes = this.notesTextarea.value.trim();
+                    
+                    if (notes) {
+                        this.lessonNotes[currentLesson.id] = notes;
+                    } else {
+                        delete this.lessonNotes[currentLesson.id];
+                    }
+                    
+                    this.saveLessonNotes();
+                    this.renderLessons(); // Update lesson cards to show note indicator
+                    
+                    // Update last saved indicator
+                    const now = new Date();
+                    const timeString = now.toLocaleTimeString('en-US', { 
+                        hour12: false, 
+                        hour: '2-digit', 
+                        minute: '2-digit' 
+                    });
+                    
+                    if (isAutoSave) {
+                        this.notesLastSaved.innerHTML = `<i class="fas fa-check mr-1"></i>Auto-saved at ${timeString}`;
+                        this.notesLastSaved.classList.add('text-green-600');
+                        setTimeout(() => {
+                            this.notesLastSaved.classList.remove('text-green-600');
+                        }, 2000);
+                    } else {
+                        this.notesLastSaved.innerHTML = `<i class="fas fa-save mr-1"></i>Saved at ${timeString}`;
+                        this.showToast('Notes saved successfully!', 'success');
+                    }
+                }
+            }
+
+            clearCurrentNotes() {
+                const currentLesson = this.lessons[this.currentLessonIndex];
+                if (currentLesson) {
+                    this.notesTextarea.value = '';
+                    delete this.lessonNotes[currentLesson.id];
+                    this.saveLessonNotes();
+                    this.renderLessons();
+                    this.updateCharCount();
+                    this.notesLastSaved.innerHTML = `<i class="fas fa-trash mr-1"></i>Notes cleared`;
+                    this.showToast('Notes cleared!', 'warning');
+                }
+            }
+
+            hasNotesForLesson(lessonId) {
+                return this.lessonNotes[lessonId] && this.lessonNotes[lessonId].trim().length > 0;
+            }
+
+            nextLesson() {
+                if (this.currentLessonIndex < this.lessons.length - 1) {
+                    this.loadLesson(this.currentLessonIndex + 1);
+                }
+            }
+
+            previousLesson() {
+                if (this.currentLessonIndex > 0) {
+                    this.loadLesson(this.currentLessonIndex - 1);
+                }
+            }
+
+            onAudioEnded() {
+                this.pause();
+                // Auto-mark as complete when audio ends
+                const currentLesson = this.lessons[this.currentLessonIndex];
+                if (currentLesson && !this.isLessonCompleted(currentLesson.id)) {
+                    this.completedLessons.push(currentLesson.id);
+                    this.saveCompletedLessons();
+                    this.showToast(`Lesson ${currentLesson.id} completed!`, 'success');
+                    this.updateMarkCompleteButton();
+                }
+            }
+
+            updateProgress() {
+                if (this.audioPlayer.duration) {
+                    const progress = (this.audioPlayer.currentTime / this.audioPlayer.duration) * 100;
+                    this.progressFill.style.width = progress + '%';
+                    this.currentTimeSpan.textContent = this.formatTime(this.audioPlayer.currentTime);
+                }
+            }
+
+            updateDuration() {
+                this.durationSpan.textContent = this.formatTime(this.audioPlayer.duration);
+            }
+
+            seek(event) {
+                const rect = this.progressBarContainer.getBoundingClientRect();
+                const clickX = event.clientX - rect.left;
+                const width = rect.width;
+                const percentage = clickX / width;
+                const newTime = percentage * this.audioPlayer.duration;
+                this.audioPlayer.currentTime = newTime;
+            }
+
+            setVolume(value) {
+                this.audioPlayer.volume = value / 100;
+            }
+
+            cycleSpeed() {
+                this.currentSpeedIndex = (this.currentSpeedIndex + 1) % this.playbackSpeeds.length;
+                const speed = this.playbackSpeeds[this.currentSpeedIndex];
+                this.audioPlayer.playbackRate = speed;
+                this.speedBtn.textContent = speed + 'x';
+            }
+
+            openPdfInNewTab() {
+                window.open('pdf.pdf', '_blank');
+            }
+
+            downloadPdf() {
+                const link = document.createElement('a');
+                link.href = 'pdf.pdf';
+                link.download = 'English-Collocations-Reference.pdf';
+                link.click();
+            }
+
+            markAllCompleted() {
+                this.completedLessons = this.lessons.map(lesson => lesson.id);
+                this.saveCompletedLessons();
+                this.showToast('All lessons marked as completed!', 'success');
+                this.updateMarkCompleteButton();
+            }
+
+            resetProgress() {
+                this.completedLessons = [];
+                this.saveCompletedLessons();
+                this.showToast('Progress reset! All lessons marked as incomplete.', 'warning');
+                this.updateMarkCompleteButton();
+            }
+
+            filterLessons(searchTerm) {
+                this.filteredLessons = this.lessons.filter(lesson =>
+                    lesson.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    lesson.id.toString().includes(searchTerm)
+                );
+                this.renderLessons();
+            }
+
+            renderLessons() {
+                this.lessonsGrid.innerHTML = '';
+                
+                this.filteredLessons.forEach((lesson) => {
+                    const isCompleted = this.isLessonCompleted(lesson.id);
+                    const isActive = lesson.id === this.lessons[this.currentLessonIndex]?.id;
+                    const hasNotes = this.hasNotesForLesson(lesson.id);
+                    
+                    const lessonCard = document.createElement('div');
+                    lessonCard.className = `
+                        relative bg-white border-2 rounded-xl p-4 cursor-pointer transition-all duration-200 
+                        hover:shadow-lg hover:scale-105 group
+                        ${isCompleted ? 'lesson-completed text-white border-green-500' : 
+                          isActive ? 'lesson-active text-white border-blue-500' : 
+                          'border-gray-200 hover:border-blue-300'}
+                    `;
+                    
+                    lessonCard.innerHTML = `
+                        <div class="text-center">
+                            <div class="text-lg font-semibold mb-2">Lesson ${lesson.id}</div>
+                            <div class="text-sm opacity-90">
+                                ${lesson.title.replace('Collocations Lesson', 'Collocations')}
+                            </div>
+                            ${isCompleted ? 
+                                '<div class="absolute top-2 right-2"><i class="fas fa-check-circle text-white"></i></div>' : 
+                                '<div class="absolute top-2 right-2"><i class="fas fa-circle text-gray-300 group-hover:text-blue-300"></i></div>'
+                            }
+                            ${hasNotes ? 
+                                '<div class="absolute bottom-2 right-2"><i class="fas fa-sticky-note text-yellow-400"></i></div>' : ''
+                            }
+                        </div>
+                    `;
+                    
+                    lessonCard.addEventListener('click', (e) => {
+                        if (e.target.closest('.complete-checkbox')) return;
+                        
+                        const originalIndex = this.lessons.indexOf(lesson);
+                        this.loadLesson(originalIndex);
+                    });
+                    
+                    // Add checkbox for completion toggle
+                    const checkbox = document.createElement('div');
+                    checkbox.className = 'complete-checkbox absolute top-2 left-2 w-6 h-6 cursor-pointer';
+                    checkbox.innerHTML = `
+                        <input type="checkbox" ${isCompleted ? 'checked' : ''} 
+                               class="w-full h-full rounded border-2 border-gray-300 text-green-500 focus:ring-green-500">
+                    `;
+                    
+                    checkbox.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.toggleLessonCompleted(lesson.id);
+                    });
+                    
+                    lessonCard.appendChild(checkbox);
+                    this.lessonsGrid.appendChild(lessonCard);
+                });
+            }
+
+            highlightCurrentLesson() {
+                this.renderLessons(); // Re-render to update active states
+            }
+
+            formatTime(seconds) {
+                if (isNaN(seconds)) return '0:00';
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = Math.floor(seconds % 60);
+                return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+            }
+
+            showToast(message, type = 'success') {
+                this.toastMessage.textContent = message;
+                
+                // Update toast colors and icon based on type
+                let bgColor, icon;
+                switch(type) {
+                    case 'success':
+                        bgColor = 'bg-green-500';
+                        icon = 'fas fa-check-circle';
+                        break;
+                    case 'error':
+                        bgColor = 'bg-red-500';
+                        icon = 'fas fa-exclamation-circle';
+                        break;
+                    case 'info':
+                        bgColor = 'bg-blue-500';
+                        icon = 'fas fa-info-circle';
+                        break;
+                    case 'warning':
+                        bgColor = 'bg-yellow-500';
+                        icon = 'fas fa-exclamation-triangle';
+                        break;
+                    default:
+                        bgColor = 'bg-green-500';
+                        icon = 'fas fa-check-circle';
+                }
+                
+                // Reset classes and apply new ones
+                this.toast.className = `fixed top-4 right-4 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 z-50 ${bgColor}`;
+                this.toast.querySelector('i').className = icon;
+                
+                // Show toast
+                this.toast.classList.remove('opacity-0', 'translate-x-full', 'pointer-events-none');
+                this.toast.classList.add('opacity-100', 'translate-x-0');
+                
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    this.toast.classList.remove('opacity-100', 'translate-x-0');
+                    this.toast.classList.add('opacity-0', 'translate-x-full', 'pointer-events-none');
+                }, 3000);
+            }
+
+            handleKeyboardShortcuts(event) {
+                if (event.target.tagName === 'INPUT') return; // Don't trigger when typing in search
+                
+                switch(event.code) {
+                    case 'Space':
+                        event.preventDefault();
+                        this.togglePlay();
+                        break;
+                    case 'ArrowLeft':
+                        event.preventDefault();
+                        this.previousLesson();
+                        break;
+                    case 'ArrowRight':
+                        event.preventDefault();
+                        this.nextLesson();
+                        break;
+                    case 'ArrowUp':
+                        event.preventDefault();
+                        const newVolumeUp = Math.min(100, this.audioPlayer.volume * 100 + 10);
+                        this.setVolume(newVolumeUp);
+                        this.volumeSlider.value = newVolumeUp;
+                        break;
+                    case 'ArrowDown':
+                        event.preventDefault();
+                        const newVolumeDown = Math.max(0, this.audioPlayer.volume * 100 - 10);
+                        this.setVolume(newVolumeDown);
+                        this.volumeSlider.value = newVolumeDown;
+                        break;
+                    case 'KeyM':
+                        event.preventDefault();
+                        this.markCurrentLessonComplete();
+                        break;
+                    case 'KeyS':
+                        if (event.ctrlKey) {
+                            event.preventDefault();
+                            this.saveCurrentNotes();
+                        }
+                        break;
+                }
+            }
+        }
+
+        // Initialize the player when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.player = new EnglishCollocationPlayer();
+        });
+    </script>
+</body>
+</html>
