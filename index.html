@@ -329,24 +329,6 @@
         </div>
     </div>
 
-    <!-- PWA Update Available Banner -->
-    <div id="updateBanner" class="fixed top-0 left-0 right-0 bg-green-600 text-white p-3 shadow-lg z-50 transform -translate-y-full transition-transform duration-300 ease-in-out">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <i class="fas fa-sync-alt text-lg"></i>
-                <span class="text-sm sm:text-base">A new version is available!</span>
-            </div>
-            <div class="flex items-center space-x-2">
-                <button id="updateBtn" class="bg-white text-green-600 px-3 py-1 rounded font-semibold text-sm hover:bg-gray-100 transition-colors duration-200">
-                    Update
-                </button>
-                <button id="dismissUpdateBanner" class="text-white hover:text-gray-200 p-1 transition-colors duration-200" title="Dismiss">
-                    <i class="fas fa-times text-sm"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Toast Notification -->
     <div id="toast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 z-50 opacity-0 translate-x-full pointer-events-none">
         <div class="flex items-center space-x-2">
@@ -404,9 +386,8 @@
             }, 3000);
         }
 
-        // PWA Update Available Banner
+        // PWA Auto-Update
         let swRegistration = null;
-        let isUserRequestedUpdate = false; // Flag to track if user clicked update
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -421,7 +402,9 @@
                             if (newWorker) {
                                 newWorker.addEventListener('statechange', () => {
                                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                        showUpdateBanner();
+                                        console.log('New SW installed, auto-updating...');
+                                        // Auto-update without showing banner
+                                        newWorker.postMessage({ type: 'SKIP_WAITING' });
                                     }
                                 });
                             }
@@ -439,18 +422,10 @@
                     }
                 });
 
-                // Listen for controller changes (when SW becomes active)
+                // Listen for controller changes (when SW becomes active) - Auto reload
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    console.log('Service Worker controller changed');
-                    
-                    // Only reload if the user explicitly requested the update
-                    if (isUserRequestedUpdate) {
-                        console.log('User requested update - reloading page...');
-                        window.location.reload(true);
-                    } else {
-                        console.log('Auto controller change detected - showing update banner instead of auto-reload');
-                        showUpdateBanner();
-                    }
+                    console.log('Service Worker controller changed - auto-reloading...');
+                    window.location.reload(true);
                 });
             });
         }
@@ -515,22 +490,6 @@
             }
         }
 
-        function showUpdateBanner() {
-            const banner = document.getElementById('updateBanner');
-            if (banner) {
-                banner.classList.remove('-translate-y-full');
-                banner.classList.add('translate-y-0');
-            }
-        }
-
-        function hideUpdateBanner() {
-            const banner = document.getElementById('updateBanner');
-            if (banner) {
-                banner.classList.remove('translate-y-0');
-                banner.classList.add('-translate-y-full');
-            }
-        }
-
         function handleInstallClick() {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
@@ -576,51 +535,6 @@
                 dismissInstallBanner.addEventListener('click', () => {
                     hideInstallBanner();
                     localStorage.setItem('installBannerDismissed', 'true');
-                });
-            }
-
-            // Update banner events
-            const updateBtn = document.getElementById('updateBtn');
-            const dismissUpdateBanner = document.getElementById('dismissUpdateBanner');
-            
-            if (updateBtn) {
-                updateBtn.addEventListener('click', async () => {
-                    console.log('Update button clicked');
-                    isUserRequestedUpdate = true; // Set flag that user requested update
-                    hideUpdateBanner();
-                    showToast('Updating app...', 'info');
-                    
-                    try {
-                        if (swRegistration && swRegistration.waiting) {
-                            console.log('Sending SKIP_WAITING message to SW');
-                            swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
-                            
-                            // Wait a bit for SW to take control, then reload
-                            setTimeout(() => {
-                                console.log('Force reloading after SW update...');
-                                window.location.reload(true);
-                            }, 1000);
-                        } else {
-                            console.log('No waiting SW found, checking for updates...');
-                            // Try to update registration
-                            if (swRegistration) {
-                                await swRegistration.update();
-                            }
-                            window.location.reload(true);
-                        }
-                    } catch (error) {
-                        console.error('Update failed:', error);
-                        showToast('Update failed. Please refresh the page manually.', 'error');
-                        setTimeout(() => {
-                            window.location.reload(true);
-                        }, 2000);
-                    }
-                });
-            }
-            
-            if (dismissUpdateBanner) {
-                dismissUpdateBanner.addEventListener('click', () => {
-                    hideUpdateBanner();
                 });
             }
         });
