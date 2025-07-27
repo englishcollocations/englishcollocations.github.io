@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-collocations-v12';
+const CACHE_NAME = 'english-collocations-v13';
 const urlsToCache = [
   '/',
   '/index.html',
