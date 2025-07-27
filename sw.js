@@ -1,8 +1,9 @@
-const CACHE_NAME = 'english-collocations-v14';
+const CACHE_NAME = 'english-collocations-v15';
 const CRITICAL_CACHE_NAME = `${CACHE_NAME}-critical`;
 const AUDIO_CACHE_NAME = `${CACHE_NAME}-audio`;
+const TEXT_CACHE_NAME = `${CACHE_NAME}-text`;
 
-// Separate critical files from audio files for better performance
+// Separate critical files from audio and text files for better performance
 const criticalFiles = [
   '/',
   '/index.html',
@@ -18,7 +19,12 @@ for (let i = 1; i <= 50; i++) {
   audioFiles.push(`sounds/Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`);
 }
 
-const urlsToCache = [...criticalFiles, ...audioFiles];
+const textFiles = [];
+for (let i = 1; i <= 50; i++) {
+  textFiles.push(`texts/${i.toString().padStart(2, '0')}.txt`);
+}
+
+const urlsToCache = [...criticalFiles, ...audioFiles, ...textFiles];
 
 // Install Service Worker with improved performance
 self.addEventListener('install', (event) => {
@@ -48,6 +54,11 @@ self.addEventListener('install', (event) => {
       // Initialize audio cache (don't cache audio files during install)
       caches.open(AUDIO_CACHE_NAME).then(() => {
         console.log('Audio cache initialized, files will be cached on-demand');
+      }),
+      
+      // Initialize text cache (don't cache text files during install)
+      caches.open(TEXT_CACHE_NAME).then(() => {
+        console.log('Text cache initialized, files will be cached on-demand');
       })
     ]).then(() => {
       console.log('Service Worker installation completed successfully');
@@ -86,6 +97,9 @@ self.addEventListener('fetch', (event) => {
   if (url.includes('.mp3')) {
     // Audio files: Cache first strategy with audio cache
     event.respondWith(cacheFirst(event.request, AUDIO_CACHE_NAME));
+  } else if (url.includes('.txt') && url.includes('texts/')) {
+    // Text files: Cache first strategy with text cache
+    event.respondWith(cacheFirst(event.request, TEXT_CACHE_NAME));
   } else if (url.includes('.svg') || 
              url.includes('.jpg') || 
              url.includes('.png') ||
@@ -116,6 +130,11 @@ async function cacheFirst(request, cacheName = CRITICAL_CACHE_NAME) {
     // For audio files, try alternative matching strategies
     if (!cachedResponse && url.includes('.mp3')) {
       cachedResponse = await findAudioInCache(url);
+    }
+    
+    // For text files, try alternative matching strategies
+    if (!cachedResponse && url.includes('.txt')) {
+      cachedResponse = await findTextInCache(url);
     }
     
     if (cachedResponse) {
@@ -180,6 +199,42 @@ async function findAudioInCache(url) {
     return null;
   } catch (error) {
     console.error('Error finding audio in cache:', error);
+    return null;
+  }
+}
+
+// Helper function to find text files in cache with flexible matching
+async function findTextInCache(url) {
+  try {
+    // Try without query parameters
+    const urlWithoutQuery = url.split('?')[0];
+    let cachedResponse = await caches.match(urlWithoutQuery);
+    
+    if (cachedResponse) {
+      console.log(`✓ Found text by URL without query: ${urlWithoutQuery}`);
+      return cachedResponse;
+    }
+    
+    // Try filename matching across both caches
+    const filename = urlWithoutQuery.split('/').pop();
+    const cacheNames = [TEXT_CACHE_NAME, CRITICAL_CACHE_NAME];
+    
+    for (const cacheName of cacheNames) {
+      const cache = await caches.open(cacheName);
+      const cacheKeys = await cache.keys();
+      
+      for (const key of cacheKeys) {
+        if (key.url.includes(filename)) {
+          console.log(`✓ Found text by filename in ${cacheName}: ${key.url}`);
+          return await cache.match(key);
+        }
+      }
+    }
+    
+    console.log(`❌ Text not found in any cache: ${url}`);
+    return null;
+  } catch (error) {
+    console.error('Error finding text in cache:', error);
     return null;
   }
 }
@@ -520,6 +575,19 @@ self.addEventListener('message', (event) => {
       cacheAudioFile(audioPath);
       break;
       
+    case 'CACHE_TEXT':
+      const textPath = data.textPath;
+      console.log(`📄 Received cache text request: ${textPath}`);
+      
+      // Validate the text path
+      if (!textPath || (!textPath.startsWith('texts/') && !textPath.startsWith('/texts/'))) {
+        console.warn('⚠ Invalid text path:', textPath);
+        return;
+      }
+      
+      cacheTextFile(textPath);
+      break;
+      
     default:
       console.log('📨 Unknown message type:', data.type);
   }
@@ -549,6 +617,33 @@ async function cacheAudioFile(audioPath) {
     }
   } catch (error) {
     console.warn('⚠ Failed to cache audio (network error):', audioPath, error);
+  }
+}
+
+// Cache individual text file
+async function cacheTextFile(textPath) {
+  try {
+    const textCache = await caches.open(TEXT_CACHE_NAME);
+    
+    // Check if already cached
+    const cachedResponse = await textCache.match(textPath);
+    if (cachedResponse) {
+      console.log('✓ Text already cached:', textPath);
+      return;
+    }
+    
+    // Cache the text file
+    console.log('⬇ Caching text file:', textPath);
+    const response = await fetch(textPath);
+    
+    if (response && response.status === 200) {
+      await textCache.put(textPath, response);
+      console.log('✅ Successfully cached text:', textPath);
+    } else {
+      console.warn('⚠ Failed to fetch text (bad response):', textPath, response?.status);
+    }
+  } catch (error) {
+    console.warn('⚠ Failed to cache text (network error):', textPath, error);
   }
 }
 

@@ -172,6 +172,44 @@
             </div>
         </div>
 
+        <!-- Lesson Text Section -->
+        <div class="bg-white rounded-xl shadow-lg mb-6 p-3 sm:p-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
+                <h3 class="text-lg sm:text-xl font-semibold text-gray-900 flex items-center">
+                    <i class="fas fa-book-open text-blue-500 mr-2 sm:mr-3"></i>
+                    Lesson Text
+                </h3>
+                <div class="flex space-x-2 w-full sm:w-auto">
+                    <button id="toggleTextBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
+                        <i class="fas fa-eye"></i>
+                        <span>Show Text</span>
+                    </button>
+                    <button id="copyTextBtn" class="bg-green-500 hover:bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
+                        <i class="fas fa-copy"></i>
+                        <span>Copy</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="lessonTextContainer" class="bg-gray-50 rounded-xl p-3 sm:p-4 hidden">
+                <div id="lessonTextContent" class="prose prose-sm sm:prose max-w-none text-gray-800 leading-relaxed">
+                    <p class="text-gray-500 italic">Loading lesson text...</p>
+                </div>
+                <div class="mt-4 text-xs sm:text-sm text-gray-500 border-t pt-3">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+                        <span class="flex items-center">
+                            <i class="fas fa-file-text mr-1"></i>
+                            Text file: <span id="currentTextFile" class="font-mono ml-1">-</span>
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-align-left mr-1"></i>
+                            <span id="textWordCount">0 words</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Notes Section -->
         <div class="bg-white rounded-xl shadow-lg mb-6 p-3 sm:p-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
@@ -250,7 +288,7 @@
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
                         </svg>
-                        <span id="cacheBtnText">Cache Audio Files</span>
+                        <span id="cacheBtnText">Cache All Files</span>
                     </button>
                     
                     <!-- Cache Progress -->
@@ -1422,7 +1460,7 @@
                 }
             }
 
-            static async cacheAudioFiles() {
+            static async cacheAllFiles() {
                 const cacheBtn = document.getElementById('cacheBtn');
                 const cacheBtnText = document.getElementById('cacheBtnText');
                 const cacheProgress = document.getElementById('cacheProgress');
@@ -1441,64 +1479,87 @@
                     cacheBtnText.textContent = 'Caching...';
                     cacheProgress.classList.remove('hidden');
                     
-                    // Generate audio file list
+                    // Generate audio and text file lists
                     const audioFiles = [];
+                    const textFiles = [];
                     for (let i = 1; i <= EnglishCollocationPlayer.TOTAL_LESSONS; i++) {
-                        audioFiles.push(`sounds/Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`);
+                        const paddedNumber = i.toString().padStart(2, '0');
+                        audioFiles.push(`sounds/Collocations-Lesson${paddedNumber}.mp3`);
+                        textFiles.push(`texts/${paddedNumber}.txt`);
                     }
                     
-                    const totalFiles = audioFiles.length;
+                    const allFiles = [...audioFiles, ...textFiles];
+                    const totalFiles = allFiles.length;
                     let cachedCount = 0;
                     let skippedCount = 0;
                     
                     cacheStatusText.textContent = 'Checking cached files...';
                     
-                    const cache = await caches.open(CacheManager.CACHE_VERSION);
-                    
-                    for (let i = 0; i < audioFiles.length; i++) {
-                        const audioPath = audioFiles[i];
+                    for (let i = 0; i < allFiles.length; i++) {
+                        const filePath = allFiles[i];
                         const progress = Math.round(((i + 1) / totalFiles) * 100);
+                        const fileType = filePath.includes('.mp3') ? 'audio' : 'text';
                         
                         cacheProgressBar.style.width = progress + '%';
                         cacheProgressText.textContent = `${i + 1} / ${totalFiles}`;
-                        cacheStatusText.textContent = `Checking: ${audioPath}`;
+                        cacheStatusText.textContent = `Checking ${fileType}: ${filePath}`;
                         
                         try {
-                            const cachedResponse = await cache.match(audioPath);
+                            // Check if already cached
+                            const cachedResponse = await caches.match(filePath);
                             
                             if (cachedResponse) {
                                 skippedCount++;
-                                cacheStatusText.textContent = `Already cached: ${audioPath}`;
+                                cacheStatusText.textContent = `Already cached: ${filePath}`;
                                 await CacheManager.delay(50);
                                 continue;
                             }
                             
                             // Cache the file
-                            cacheStatusText.textContent = `Downloading: ${audioPath}`;
-                            const response = await fetch(audioPath);
+                            cacheStatusText.textContent = `Downloading ${fileType}: ${filePath}`;
+                            const response = await fetch(filePath);
                             
                             if (response.ok) {
-                                await cache.put(audioPath, response);
+                                // Determine which cache to use
+                                const cacheName = filePath.includes('.mp3') ? 
+                                    'english-collocations-v14-audio' : 
+                                    'english-collocations-v14-text';
+                                
+                                const cache = await caches.open(cacheName);
+                                await cache.put(filePath, response);
                                 cachedCount++;
-                                cacheStatusText.textContent = `Cached: ${audioPath}`;
+                                cacheStatusText.textContent = `Cached ${fileType}: ${filePath}`;
+                                
+                                // Also send to service worker for consistency
+                                if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                                    const messageType = filePath.includes('.mp3') ? 'CACHE_AUDIO' : 'CACHE_TEXT';
+                                    const pathKey = filePath.includes('.mp3') ? 'audioPath' : 'textPath';
+                                    
+                                    navigator.serviceWorker.controller.postMessage({
+                                        type: messageType,
+                                        [pathKey]: filePath
+                                    });
+                                }
+                                
                             } else {
-                                console.warn('Failed to fetch audio:', audioPath, response.status);
-                                cacheStatusText.textContent = `Error downloading: ${audioPath}`;
+                                console.warn('Failed to fetch file:', filePath, response.status);
+                                cacheStatusText.textContent = `Error downloading: ${filePath}`;
                             }
                             
                         } catch (error) {
-                            console.error('Error caching audio:', audioPath, error);
-                            cacheStatusText.textContent = `Error: ${audioPath}`;
+                            console.error('Error caching file:', filePath, error);
+                            cacheStatusText.textContent = `Error: ${filePath}`;
                         }
                         
                         await CacheManager.delay(100);
                     }
                     
-                    cacheStatusText.textContent = `Complete! ${cachedCount} new files, ${skippedCount} already cached`;
-                    showToast(`${cachedCount} audio files cached`, 'success');
+                    cacheStatusText.textContent = `Complete! ${cachedCount} new files cached, ${skippedCount} already cached`;
+                    showToast(`${cachedCount} files cached for offline use!`, 'success');
                     
                     // Mark caching as complete
-                    localStorage.setItem('audioFilesCached', 'true');
+                    localStorage.setItem('allFilesCached', 'true');
+                    localStorage.setItem('audioFilesCached', 'true'); // For backward compatibility
                     
                 } catch (error) {
                     console.error('Cache operation failed:', error);
@@ -1509,12 +1570,12 @@
                     setTimeout(() => {
                         cacheProgress.classList.add('hidden');
                         const cacheControl = document.getElementById('cacheControl');
-                        if (localStorage.getItem('audioFilesCached') === 'true') {
+                        if (localStorage.getItem('allFilesCached') === 'true') {
                             cacheControl.style.display = 'none';
-                            showToast('All audio files are now available offline!', 'success');
+                            showToast('All files are now available offline!', 'success');
                         } else {
                             cacheBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                            cacheBtnText.textContent = 'Cache Audio Files';
+                            cacheBtnText.textContent = 'Cache All Files';
                         }
                     }, 3000);
                 }
@@ -1530,11 +1591,11 @@
         
         // Check if caching was already completed and hide button if so
         function checkCacheStatus() {
-            if (localStorage.getItem('audioFilesCached') === 'true') {
+            if (localStorage.getItem('allFilesCached') === 'true' || localStorage.getItem('audioFilesCached') === 'true') {
                 const cacheControl = document.getElementById('cacheControl');
                 if (cacheControl) {
                     cacheControl.style.display = 'none';
-                    console.log('Audio files already cached, hiding cache control');
+                    console.log('Files already cached, hiding cache control');
                 }
             }
         }
@@ -1559,10 +1620,192 @@
             isCaching = true;
             
             try {
-                await CacheManager.cacheAudioFiles();
+                await CacheManager.cacheAllFiles();
             } finally {
                 isCaching = false;
             }
+        });
+        
+        // Lesson Text Functionality
+        class LessonTextManager {
+            constructor() {
+                this.isTextVisible = false;
+                this.currentLessonText = '';
+                this.initializeElements();
+                this.initializeEventListeners();
+            }
+
+            initializeElements() {
+                this.toggleTextBtn = document.getElementById('toggleTextBtn');
+                this.copyTextBtn = document.getElementById('copyTextBtn');
+                this.lessonTextContainer = document.getElementById('lessonTextContainer');
+                this.lessonTextContent = document.getElementById('lessonTextContent');
+                this.currentTextFile = document.getElementById('currentTextFile');
+                this.textWordCount = document.getElementById('textWordCount');
+            }
+
+            initializeEventListeners() {
+                this.toggleTextBtn.addEventListener('click', () => this.toggleText());
+                this.copyTextBtn.addEventListener('click', () => this.copyText());
+            }
+
+            async loadLessonText(lessonNumber) {
+                try {
+                    const paddedNumber = lessonNumber.toString().padStart(2, '0');
+                    const textFilePath = `texts/${paddedNumber}.txt`;
+                    
+                    this.lessonTextContent.innerHTML = '<p class="text-gray-500 italic">Loading lesson text...</p>';
+                    this.currentTextFile.textContent = `${paddedNumber}.txt`;
+                    
+                    // Send message to service worker to cache this text file
+                    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                        navigator.serviceWorker.controller.postMessage({
+                            type: 'CACHE_TEXT',
+                            textPath: textFilePath
+                        });
+                    }
+                    
+                    const response = await fetch(textFilePath);
+                    
+                    if (!response.ok) {
+                        throw new Error(`Failed to load text file: ${response.status}`);
+                    }
+                    
+                    const textContent = await response.text();
+                    this.currentLessonText = textContent;
+                    
+                    // Format text for display
+                    const formattedText = this.formatTextContent(textContent);
+                    this.lessonTextContent.innerHTML = formattedText;
+                    
+                    // Update word count
+                    const wordCount = this.countWords(textContent);
+                    this.textWordCount.textContent = `${wordCount} words`;
+                    
+                    console.log(`Loaded text for lesson ${lessonNumber}: ${wordCount} words`);
+                    
+                } catch (error) {
+                    console.error('Error loading lesson text:', error);
+                    this.lessonTextContent.innerHTML = `
+                        <div class="text-center text-gray-500 py-4">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mb-2"></i>
+                            <p>Text file not found for this lesson</p>
+                            <p class="text-sm">Looking for: texts/${lessonNumber.toString().padStart(2, '0')}.txt</p>
+                        </div>
+                    `;
+                    this.currentTextFile.textContent = 'Not found';
+                    this.textWordCount.textContent = '0 words';
+                }
+            }
+
+            formatTextContent(text) {
+                // Clean and format the text
+                return text
+                    .split('\n')
+                    .map(line => line.trim())
+                    .filter(line => line.length > 0)
+                    .map(line => `<p class="mb-3">${this.escapeHtml(line)}</p>`)
+                    .join('');
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            countWords(text) {
+                return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+            }
+
+            toggleText() {
+                this.isTextVisible = !this.isTextVisible;
+                
+                if (this.isTextVisible) {
+                    this.lessonTextContainer.classList.remove('hidden');
+                    this.toggleTextBtn.innerHTML = '<i class="fas fa-eye-slash"></i><span>Hide Text</span>';
+                    this.toggleTextBtn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+                    this.toggleTextBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
+                } else {
+                    this.lessonTextContainer.classList.add('hidden');
+                    this.toggleTextBtn.innerHTML = '<i class="fas fa-eye"></i><span>Show Text</span>';
+                    this.toggleTextBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
+                    this.toggleTextBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                }
+            }
+
+            copyText() {
+                if (!this.currentLessonText) {
+                    showToast('No text to copy', 'warning');
+                    return;
+                }
+
+                navigator.clipboard.writeText(this.currentLessonText).then(() => {
+                    showToast('Lesson text copied to clipboard!', 'success');
+                    
+                    // Visual feedback on copy button
+                    const originalHTML = this.copyTextBtn.innerHTML;
+                    this.copyTextBtn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
+                    this.copyTextBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    this.copyTextBtn.classList.add('bg-green-600');
+                    
+                    setTimeout(() => {
+                        this.copyTextBtn.innerHTML = originalHTML;
+                        this.copyTextBtn.classList.remove('bg-green-600');
+                        this.copyTextBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                    }, 2000);
+                    
+                }).catch(err => {
+                    console.error('Failed to copy text:', err);
+                    showToast('Failed to copy text', 'error');
+                });
+            }
+
+            hideText() {
+                if (this.isTextVisible) {
+                    this.toggleText();
+                }
+            }
+
+            showText() {
+                if (!this.isTextVisible) {
+                    this.toggleText();
+                }
+            }
+        }
+
+        // Initialize lesson text manager
+        let lessonTextManager;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            lessonTextManager = new LessonTextManager();
+        });
+
+        // Override the original player's loadLesson method to also load text
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for player to be initialized
+            setTimeout(() => {
+                if (window.player) {
+                    const originalLoadLesson = window.player.loadLesson.bind(window.player);
+                    
+                    window.player.loadLesson = function(lessonIndex) {
+                        // Call original loadLesson
+                        originalLoadLesson(lessonIndex);
+                        
+                        // Load corresponding text
+                        const lesson = this.lessons[lessonIndex];
+                        if (lesson && lessonTextManager) {
+                            lessonTextManager.loadLessonText(lesson.id);
+                        }
+                    };
+                    
+                    // Load text for initial lesson
+                    const currentLesson = window.player.lessons[window.player.currentLessonIndex];
+                    if (currentLesson && lessonTextManager) {
+                        lessonTextManager.loadLessonText(currentLesson.id);
+                    }
+                }
+            }, 1000);
         });
     </script>
 </body>
