@@ -579,7 +579,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             checkPdfSupport();
             // Check if audio files are already cached and hide button if needed
-            checkCacheStatus();
+            CacheManager.checkCacheStatus();
         });
 
         // Global toast function for PWA events
@@ -657,10 +657,18 @@
                         console.log('SW registration failed: ', registrationError);
                     });
 
+                // Listen for messages from Service Worker
+                navigator.serviceWorker.addEventListener('message', (event) => {
+                    if (event.data && event.data.type === 'RELOAD_NOW') {
+                        console.log('Received reload command from SW');
+                        window.location.reload(true);
+                    }
+                });
+
                 // Listen for controller changes (when SW becomes active)
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
                     console.log('Service Worker controller changed, reloading page...');
-                    window.location.reload();
+                    window.location.reload(true);
                 });
             });
         }
@@ -792,21 +800,35 @@
             const dismissUpdateBanner = document.getElementById('dismissUpdateBanner');
             
             if (updateBtn) {
-                updateBtn.addEventListener('click', () => {
+                updateBtn.addEventListener('click', async () => {
                     console.log('Update button clicked');
                     hideUpdateBanner();
                     showToast('Updating app...', 'info');
                     
-                    if (swRegistration && swRegistration.waiting) {
-                        console.log('Sending SKIP_WAITING message to SW');
-                        swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
-                        // Force reload after a short delay
+                    try {
+                        if (swRegistration && swRegistration.waiting) {
+                            console.log('Sending SKIP_WAITING message to SW');
+                            swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                            
+                            // Wait a bit for SW to take control, then reload
+                            setTimeout(() => {
+                                console.log('Force reloading after SW update...');
+                                window.location.reload(true);
+                            }, 1000);
+                        } else {
+                            console.log('No waiting SW found, checking for updates...');
+                            // Try to update registration
+                            if (swRegistration) {
+                                await swRegistration.update();
+                            }
+                            window.location.reload(true);
+                        }
+                    } catch (error) {
+                        console.error('Update failed:', error);
+                        showToast('Update failed. Please refresh the page manually.', 'error');
                         setTimeout(() => {
                             window.location.reload(true);
-                        }, 500);
-                    } else {
-                        console.log('No waiting SW found, reloading page directly');
-                        window.location.reload(true);
+                        }, 2000);
                     }
                 });
             }
@@ -881,6 +903,12 @@
                 this.lessonNotes = this.loadLessonNotes();
                 this.autoSaveTimer = null;
                 
+                // Performance optimization: Bind methods once
+                this.handleKeyboardShortcuts = this.handleKeyboardShortcuts.bind(this);
+                this.updateProgress = this.updateProgress.bind(this);
+                this.updateDuration = this.updateDuration.bind(this);
+                this.onAudioEnded = this.onAudioEnded.bind(this);
+                
                 this.initializeElements();
                 this.initializeEventListeners();
                 this.renderLessons();
@@ -888,15 +916,22 @@
                 this.loadLesson(0); // Load lesson 1 by default
             }
 
+            // Constants for better maintainability
+            static get CACHE_VERSION() { return 'english-collocations-v13'; }
+            static get TOTAL_LESSONS() { return 50; }
+            static get AUTO_SAVE_DELAY() { return 2000; }
+            static get PRELOAD_DELAY() { return 100; }
+
             generateLessons() {
                 const lessons = [];
-                for (let i = 1; i <= 50; i++) {
+                for (let i = 1; i <= EnglishCollocationPlayer.TOTAL_LESSONS; i++) {
+                    const lessonNumber = i.toString().padStart(2, '0');
                     lessons.push({
                         id: i,
-                        title: `Collocations Lesson ${i.toString().padStart(2, '0')}`,
-                        filename: `Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`,
+                        title: `Collocations Lesson ${lessonNumber}`,
+                        filename: `Collocations-Lesson${lessonNumber}.mp3`,
                         duration: '0:00',
-                        path: `sounds/Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`
+                        path: `sounds/Collocations-Lesson${lessonNumber}.mp3`
                     });
                 }
                 return lessons;
@@ -976,23 +1011,43 @@
             }
 
             loadCompletedLessons() {
-                const saved = localStorage.getItem('completedLessons');
-                return saved ? JSON.parse(saved) : [];
+                try {
+                    const saved = localStorage.getItem('completedLessons');
+                    return saved ? JSON.parse(saved) : [];
+                } catch (error) {
+                    console.error('Failed to load completed lessons:', error);
+                    return [];
+                }
             }
 
             loadLessonNotes() {
-                const saved = localStorage.getItem('lessonNotes');
-                return saved ? JSON.parse(saved) : {};
+                try {
+                    const saved = localStorage.getItem('lessonNotes');
+                    return saved ? JSON.parse(saved) : {};
+                } catch (error) {
+                    console.error('Failed to load lesson notes:', error);
+                    return {};
+                }
             }
 
             saveLessonNotes() {
-                localStorage.setItem('lessonNotes', JSON.stringify(this.lessonNotes));
+                try {
+                    localStorage.setItem('lessonNotes', JSON.stringify(this.lessonNotes));
+                } catch (error) {
+                    console.error('Failed to save lesson notes:', error);
+                    this.showToast('Failed to save notes', 'error');
+                }
             }
 
             saveCompletedLessons() {
-                localStorage.setItem('completedLessons', JSON.stringify(this.completedLessons));
-                this.updateStats();
-                this.renderLessons();
+                try {
+                    localStorage.setItem('completedLessons', JSON.stringify(this.completedLessons));
+                    this.updateStats();
+                    this.renderLessons();
+                } catch (error) {
+                    console.error('Failed to save completed lessons:', error);
+                    this.showToast('Failed to save progress', 'error');
+                }
             }
 
             isLessonCompleted(lessonId) {
@@ -1052,106 +1107,159 @@
                 }
             }
 
-            play() {
-                if (this.audioPlayer.src) {
-                    this.audioPlayer.play().catch(error => {
-                        console.error('Audio play failed:', error);
-                        // Try to reload the audio source if it failed
-                        if (error.name === 'NotSupportedError' || error.message.includes('no supported sources')) {
-                            console.log('Attempting to reload audio source...');
-                            const currentSrc = this.audioPlayer.src;
-                            this.audioPlayer.load(); // Force reload
-                            setTimeout(() => {
-                                this.audioPlayer.play().catch(retryError => {
-                                    console.error('Audio retry failed:', retryError);
-                                    showToast('Audio playback failed. Please check your connection.', 'error');
-                                });
-                            }, 100);
-                        } else {
-                            showToast('Audio playback failed. Please try again.', 'error');
-                        }
-                    });
+            async play() {
+                if (!this.audioPlayer.src) {
+                    console.warn('No audio source set');
+                    return;
+                }
+
+                try {
+                    await this.audioPlayer.play();
                     this.isPlaying = true;
-                    this.playBtn.innerHTML = '<i class="fas fa-pause text-xl"></i>';
+                    this.playBtn.innerHTML = '<i class="fas fa-pause text-lg sm:text-xl"></i>';
+                } catch (error) {
+                    console.error('Audio play failed:', error);
+                    this.handleAudioError(error);
                 }
             }
 
             pause() {
-                this.audioPlayer.pause();
-                this.isPlaying = false;
-                this.playBtn.innerHTML = '<i class="fas fa-play text-xl"></i>';
+                try {
+                    this.audioPlayer.pause();
+                    this.isPlaying = false;
+                    this.playBtn.innerHTML = '<i class="fas fa-play text-lg sm:text-xl"></i>';
+                } catch (error) {
+                    console.error('Audio pause failed:', error);
+                }
             }
 
-            loadLesson(index) {
-                if (index < 0 || index >= this.lessons.length) return;
+            handleAudioError(error) {
+                const errorMessages = {
+                    'NotSupportedError': 'Audio format not supported',
+                    'NotAllowedError': 'Audio playback not allowed',
+                    'AbortError': 'Audio playback was aborted',
+                    'NetworkError': 'Network error occurred'
+                };
+
+                const message = errorMessages[error.name] || 'Audio playback failed';
+                console.error('Audio error:', error.name, error.message);
+
+                // Try to reload audio source if it's a source issue
+                if (error.name === 'NotSupportedError' || error.message.includes('no supported sources')) {
+                    console.log('Attempting to reload audio source...');
+                    const currentSrc = this.audioPlayer.src;
+                    this.audioPlayer.load();
+                    
+                    setTimeout(async () => {
+                        try {
+                            await this.audioPlayer.play();
+                            this.isPlaying = true;
+                            this.playBtn.innerHTML = '<i class="fas fa-pause text-lg sm:text-xl"></i>';
+                        } catch (retryError) {
+                            console.error('Audio retry failed:', retryError);
+                            this.showToast(message, 'error');
+                        }
+                    }, 100);
+                } else {
+                    this.showToast(message, 'error');
+                }
+            }
+
+            async loadLesson(index) {
+                if (index < 0 || index >= this.lessons.length) {
+                    console.warn('Invalid lesson index:', index);
+                    return;
+                }
                 
                 this.currentLessonIndex = index;
                 const lesson = this.lessons[index];
                 
-                // Clear previous audio and set new source
-                this.audioPlayer.src = '';
-                this.audioPlayer.load();
-                
-                // Set the new source
-                this.audioPlayer.src = lesson.path;
-                this.audioPlayer.load(); // Force load the new source
-                
-                this.currentLessonTitle.textContent = lesson.title;
-                this.lessonNumber.textContent = `Lesson ${lesson.id} of 50`;
-                
-                // Add error handling for audio loading
-                this.audioPlayer.addEventListener('error', (e) => {
-                    console.error('Audio loading error:', e, 'for file:', lesson.path);
-                    showToast(`Failed to load ${lesson.title}`, 'error');
-                }, { once: true });
-                
-                this.audioPlayer.addEventListener('canplay', () => {
-                    console.log('Audio loaded successfully:', lesson.path);
-                }, { once: true });
-                
-                // Pre-cache this audio file for offline usage
-                this.preloadAudioFile(lesson.path);
-                
-                this.updateMarkCompleteButton();
-                this.highlightCurrentLesson();
-                this.pause();
-                this.loadNotesForCurrentLesson();
+                try {
+                    // Clear previous audio and set new source
+                    this.audioPlayer.pause();
+                    this.audioPlayer.currentTime = 0;
+                    this.audioPlayer.src = '';
+                    this.audioPlayer.load();
+                    
+                    // Set the new source
+                    this.audioPlayer.src = lesson.path;
+                    this.audioPlayer.load();
+                    
+                    // Update UI immediately
+                    this.currentLessonTitle.textContent = lesson.title;
+                    this.lessonNumber.textContent = `Lesson ${lesson.id} of ${EnglishCollocationPlayer.TOTAL_LESSONS}`;
+                    
+                    // Add one-time event listeners for this audio load
+                    const handleError = (e) => {
+                        console.error('Audio loading error:', e, 'for file:', lesson.path);
+                        this.showToast(`Failed to load ${lesson.title}`, 'error');
+                    };
+                    
+                    const handleCanPlay = () => {
+                        console.log('Audio loaded successfully:', lesson.path);
+                    };
+                    
+                    this.audioPlayer.addEventListener('error', handleError, { once: true });
+                    this.audioPlayer.addEventListener('canplay', handleCanPlay, { once: true });
+                    
+                    // Pre-cache this audio file for offline usage
+                    await this.preloadAudioFile(lesson.path);
+                    
+                    this.updateMarkCompleteButton();
+                    this.highlightCurrentLesson();
+                    this.pause();
+                    this.loadNotesForCurrentLesson();
+                    
+                } catch (error) {
+                    console.error('Failed to load lesson:', error);
+                    this.showToast('Failed to load lesson', 'error');
+                }
             }
 
-            preloadAudioFile(audioPath) {
-                // Check if already cached before sending to service worker
-                if ('caches' in window) {
-                    caches.open('english-collocations-v13').then(cache => {
-                        return cache.match(audioPath).then(cachedResponse => {
-                            if (cachedResponse) {
-                                console.log('Audio already cached, no need to preload:', audioPath);
-                                return;
-                            }
-                            
-                            console.log('Preloading audio for current lesson:', audioPath);
-                            // Send message to service worker to cache this specific audio file
-                            if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-                                navigator.serviceWorker.controller.postMessage({
-                                    type: 'CACHE_AUDIO',
-                                    audioPath: audioPath
-                                });
-                            }
-                        });
-                    }).catch(err => {
-                        console.warn('Cache check failed:', err);
-                    });
+            async preloadAudioFile(audioPath) {
+                if (!audioPath || !('caches' in window)) {
+                    console.warn('Cache API not available or invalid audio path:', audioPath);
+                    return;
                 }
-                
-                // Also try to preload in browser for immediate playback
-                const audio = new Audio();
-                audio.preload = 'metadata';
-                audio.src = audioPath;
-                audio.addEventListener('canplaythrough', () => {
-                    console.log('Audio preloaded for immediate playback:', audioPath);
-                }, { once: true });
-                audio.addEventListener('error', (e) => {
-                    console.warn('Audio preload failed:', audioPath, e);
-                }, { once: true });
+
+                try {
+                    const cache = await caches.open(EnglishCollocationPlayer.CACHE_VERSION);
+                    const cachedResponse = await cache.match(audioPath);
+                    
+                    if (cachedResponse) {
+                        console.log('Audio already cached, no need to preload:', audioPath);
+                        return;
+                    }
+                    
+                    console.log('Preloading audio for current lesson:', audioPath);
+                    
+                    // Send message to service worker to cache this specific audio file
+                    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                        navigator.serviceWorker.controller.postMessage({
+                            type: 'CACHE_AUDIO',
+                            audioPath: audioPath
+                        });
+                    }
+                    
+                    // Also try to preload in browser for immediate playback
+                    const audio = new Audio();
+                    audio.preload = 'metadata';
+                    audio.src = audioPath;
+                    
+                    const handleLoad = () => {
+                        console.log('Audio preloaded for immediate playback:', audioPath);
+                    };
+                    
+                    const handleError = (e) => {
+                        console.warn('Audio preload failed:', audioPath, e);
+                    };
+                    
+                    audio.addEventListener('canplaythrough', handleLoad, { once: true });
+                    audio.addEventListener('error', handleError, { once: true });
+                    
+                } catch (error) {
+                    console.error('Cache check failed for:', audioPath, error);
+                }
             }
 
             loadNotesForCurrentLesson() {
@@ -1561,12 +1669,146 @@
             
             // Debug: Check what's cached after 5 seconds
             setTimeout(() => {
-                checkCachedFiles();
+                CacheManager.checkCachedFiles();
             }, 5000);
         }
     </script>
 
     <script>
+        // Cache Management Module
+        class CacheManager {
+            static get CACHE_VERSION() { return 'english-collocations-v13'; }
+            
+            static async checkCachedFiles() {
+                if (!('caches' in window)) {
+                    console.warn('Cache API not supported');
+                    return [];
+                }
+
+                try {
+                    const cache = await caches.open(CacheManager.CACHE_VERSION);
+                    const keys = await cache.keys();
+                    console.log('Cached files:', keys.map(key => key.url));
+                    return keys;
+                } catch (error) {
+                    console.error('Error checking cached files:', error);
+                    return [];
+                }
+            }
+
+            static checkCacheStatus() {
+                if (localStorage.getItem('audioFilesCached') === 'true') {
+                    const cacheControl = document.getElementById('cacheControl');
+                    if (cacheControl) {
+                        cacheControl.style.display = 'none';
+                        console.log('Audio files already cached, hiding cache control');
+                    }
+                }
+            }
+
+            static async cacheAudioFiles() {
+                const cacheBtn = document.getElementById('cacheBtn');
+                const cacheBtnText = document.getElementById('cacheBtnText');
+                const cacheProgress = document.getElementById('cacheProgress');
+                const cacheStatusText = document.getElementById('cacheStatusText');
+                const cacheProgressBar = document.getElementById('cacheProgressBar');
+                const cacheProgressText = document.getElementById('cacheProgressText');
+                
+                if (!cacheBtn || !cacheBtnText || !cacheProgress) {
+                    console.error('Cache UI elements not found');
+                    return;
+                }
+
+                try {
+                    // Show loading state
+                    cacheBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    cacheBtnText.textContent = 'Caching...';
+                    cacheProgress.classList.remove('hidden');
+                    
+                    // Generate audio file list
+                    const audioFiles = [];
+                    for (let i = 1; i <= EnglishCollocationPlayer.TOTAL_LESSONS; i++) {
+                        audioFiles.push(`sounds/Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`);
+                    }
+                    
+                    const totalFiles = audioFiles.length;
+                    let cachedCount = 0;
+                    let skippedCount = 0;
+                    
+                    cacheStatusText.textContent = 'Checking cached files...';
+                    
+                    const cache = await caches.open(CacheManager.CACHE_VERSION);
+                    
+                    for (let i = 0; i < audioFiles.length; i++) {
+                        const audioPath = audioFiles[i];
+                        const progress = Math.round(((i + 1) / totalFiles) * 100);
+                        
+                        cacheProgressBar.style.width = progress + '%';
+                        cacheProgressText.textContent = `${i + 1} / ${totalFiles}`;
+                        cacheStatusText.textContent = `Checking: ${audioPath}`;
+                        
+                        try {
+                            const cachedResponse = await cache.match(audioPath);
+                            
+                            if (cachedResponse) {
+                                skippedCount++;
+                                cacheStatusText.textContent = `Already cached: ${audioPath}`;
+                                await CacheManager.delay(50);
+                                continue;
+                            }
+                            
+                            // Cache the file
+                            cacheStatusText.textContent = `Downloading: ${audioPath}`;
+                            const response = await fetch(audioPath);
+                            
+                            if (response.ok) {
+                                await cache.put(audioPath, response);
+                                cachedCount++;
+                                cacheStatusText.textContent = `Cached: ${audioPath}`;
+                            } else {
+                                console.warn('Failed to fetch audio:', audioPath, response.status);
+                                cacheStatusText.textContent = `Error downloading: ${audioPath}`;
+                            }
+                            
+                        } catch (error) {
+                            console.error('Error caching audio:', audioPath, error);
+                            cacheStatusText.textContent = `Error: ${audioPath}`;
+                        }
+                        
+                        await CacheManager.delay(100);
+                    }
+                    
+                    cacheStatusText.textContent = `Complete! ${cachedCount} new files, ${skippedCount} already cached`;
+                    showToast(`${cachedCount} audio files cached`, 'success');
+                    
+                    // Mark caching as complete
+                    localStorage.setItem('audioFilesCached', 'true');
+                    
+                } catch (error) {
+                    console.error('Cache operation failed:', error);
+                    cacheStatusText.textContent = 'Error caching files';
+                    showToast('Error caching files', 'error');
+                } finally {
+                    // Hide progress and button after completion
+                    setTimeout(() => {
+                        cacheProgress.classList.add('hidden');
+                        const cacheControl = document.getElementById('cacheControl');
+                        if (localStorage.getItem('audioFilesCached') === 'true') {
+                            cacheControl.style.display = 'none';
+                            showToast('All audio files are now available offline!', 'success');
+                        } else {
+                            cacheBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                            cacheBtnText.textContent = 'Cache Audio Files';
+                        }
+                    }, 3000);
+                }
+            }
+
+            static delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+        }
+
         // Cache Control Functionality
         let isCaching = false;
         
@@ -1598,100 +1840,13 @@
         
         document.getElementById('cacheBtn').addEventListener('click', async () => {
             if (isCaching) return;
-            
-            const cacheBtn = document.getElementById('cacheBtn');
-            const cacheBtnText = document.getElementById('cacheBtnText');
-            const cacheProgress = document.getElementById('cacheProgress');
-            const cacheStatusText = document.getElementById('cacheStatusText');
-            const cacheProgressBar = document.getElementById('cacheProgressBar');
-            const cacheProgressText = document.getElementById('cacheProgressText');
-            
             isCaching = true;
-            cacheBtn.classList.add('opacity-50', 'cursor-not-allowed');
-            cacheBtnText.textContent = 'Caching...';
-            cacheProgress.classList.remove('hidden');
             
             try {
-                // List of all audio files
-                const audioFiles = [];
-                for (let i = 1; i <= 50; i++) {
-                    audioFiles.push(`sounds/Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`);
-                }
-                
-                const totalFiles = audioFiles.length;
-                let cachedCount = 0;
-                let skippedCount = 0;
-                
-                cacheStatusText.textContent = 'Checking cached files...';
-                
-                for (let i = 0; i < audioFiles.length; i++) {
-                    const audioPath = audioFiles[i];
-                    const progress = Math.round(((i + 1) / totalFiles) * 100);
-                    
-                    cacheProgressBar.style.width = progress + '%';
-                    cacheProgressText.textContent = `${i + 1} / ${totalFiles}`;
-                    cacheStatusText.textContent = `Checking: ${audioPath}`;
-                    
-                    try {
-                        // Check if already cached
-                        const cache = await caches.open('english-collocations-v13');
-                        const cachedResponse = await cache.match(audioPath);
-                        
-                        if (cachedResponse) {
-                            skippedCount++;
-                            cacheStatusText.textContent = `Already cached: ${audioPath}`;
-                            await new Promise(resolve => setTimeout(resolve, 50)); // Short delay for UI
-                            continue;
-                        }
-                        
-                        // Cache the file
-                        cacheStatusText.textContent = `Downloading: ${audioPath}`;
-                        const response = await fetch(audioPath);
-                        
-                        if (response.ok) {
-                            await cache.put(audioPath, response);
-                            cachedCount++;
-                            cacheStatusText.textContent = `Cached: ${audioPath}`;
-                        } else {
-                            console.warn('Failed to fetch audio:', audioPath, response.status);
-                            cacheStatusText.textContent = `Error downloading: ${audioPath}`;
-                        }
-                        
-                    } catch (error) {
-                        console.error('Error caching audio:', audioPath, error);
-                        cacheStatusText.textContent = `Error: ${audioPath}`;
-                    }
-                    
-                    // Small delay to prevent overwhelming the browser
-                    await new Promise(resolve => setTimeout(resolve, 100));
-                }
-                
-                cacheStatusText.textContent = `Complete! ${cachedCount} new files, ${skippedCount} already cached`;
-                showToast(`${cachedCount} audio files cached`, 'success');
-                
-                // Mark caching as complete in localStorage
-                localStorage.setItem('audioFilesCached', 'true');
-                
-            } catch (error) {
-                console.error('Cache operation failed:', error);
-                cacheStatusText.textContent = 'Error caching files';
-                showToast('Error caching files', 'error');
-            }
-            
-            // Hide progress and button after completion
-            setTimeout(() => {
-                cacheProgress.classList.add('hidden');
-                // Hide the entire cache control section permanently
-                const cacheControl = document.getElementById('cacheControl');
-                if (localStorage.getItem('audioFilesCached') === 'true') {
-                    cacheControl.style.display = 'none';
-                    showToast('All audio files are now available offline!', 'success');
-                } else {
-                    cacheBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                    cacheBtnText.textContent = 'Cache Audio Files';
-                }
+                await CacheManager.cacheAudioFiles();
+            } finally {
                 isCaching = false;
-            }, 3000);
+            }
         });
     </script>
 </body>
