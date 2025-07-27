@@ -404,9 +404,9 @@
             }, 3000);
         }
 
-        // Register Service Worker for PWA
-        let deferredPrompt;
+        // PWA Update Available Banner
         let swRegistration = null;
+        let isUserRequestedUpdate = false; // Flag to track if user clicked update
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -441,13 +441,23 @@
 
                 // Listen for controller changes (when SW becomes active)
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    console.log('Service Worker controller changed, reloading page...');
-                    window.location.reload(true);
+                    console.log('Service Worker controller changed');
+                    
+                    // Only reload if the user explicitly requested the update
+                    if (isUserRequestedUpdate) {
+                        console.log('User requested update - reloading page...');
+                        window.location.reload(true);
+                    } else {
+                        console.log('Auto controller change detected - showing update banner instead of auto-reload');
+                        showUpdateBanner();
+                    }
                 });
             });
         }
 
         // PWA Install Prompt
+        let deferredPrompt;
+
         window.addEventListener('beforeinstallprompt', (e) => {
             console.log('beforeinstallprompt event fired');
             e.preventDefault();
@@ -576,6 +586,7 @@
             if (updateBtn) {
                 updateBtn.addEventListener('click', async () => {
                     console.log('Update button clicked');
+                    isUserRequestedUpdate = true; // Set flag that user requested update
                     hideUpdateBanner();
                     showToast('Updating app...', 'info');
                     
@@ -1349,63 +1360,70 @@
             // Check if audio files are already cached and hide button if needed
             CacheManager.checkCacheStatus();
             
-            // Start preloading audio files for offline access
-            preloadAudioFilesInBackground();
+            // Start preloading all files for offline access
+            preloadAllFilesInBackground();
         });
 
-        // Function to preload all audio files in background
-        function preloadAudioFilesInBackground() {
-            console.log('Starting background audio preloading...');
+        // Function to preload all audio and text files in background
+        function preloadAllFilesInBackground() {
+            console.log('Starting background file preloading...');
             
-            // Get all audio file paths
+            // Get all audio and text file paths
             const audioFiles = [];
+            const textFiles = [];
             for (let i = 1; i <= 50; i++) {
-                audioFiles.push(`sounds/Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`);
+                const paddedNumber = i.toString().padStart(2, '0');
+                audioFiles.push(`sounds/Collocations-Lesson${paddedNumber}.mp3`);
+                textFiles.push(`texts/${paddedNumber}.txt`);
             }
             
+            const allFiles = [...audioFiles, ...textFiles];
             let currentIndex = 0;
             let cachedCount = 0;
             let skippedCount = 0;
-            const preloadDelay = 1000; // 1 second between each file
+            const preloadDelay = 800; // 800ms between each file
             
             function preloadNext() {
-                if (currentIndex >= audioFiles.length) {
-                    console.log(`Audio preloading completed! Cached: ${cachedCount}, Already cached: ${skippedCount}`);
+                if (currentIndex >= allFiles.length) {
+                    console.log(`File preloading completed! Cached: ${cachedCount}, Already cached: ${skippedCount}`);
                     if (cachedCount > 0) {
-                        showToast(`${cachedCount} lessons cached for offline use! 🎵`, 'success');
+                        const fileType = cachedCount === 1 ? 'file' : 'files';
+                        showToast(`${cachedCount} ${fileType} cached for offline use! 📁`, 'success');
                     }
                     return;
                 }
                 
-                const audioPath = audioFiles[currentIndex];
+                const filePath = allFiles[currentIndex];
+                const fileType = filePath.includes('.mp3') ? 'Audio' : 'Text';
                 
                 // Check if already cached before attempting to cache
                 if ('caches' in window) {
-                    caches.open('english-collocations-v13').then(cache => {
-                        return cache.match(audioPath).then(cachedResponse => {
-                            if (cachedResponse) {
-                                console.log(`Audio already cached (${currentIndex + 1}/${audioFiles.length}): ${audioPath}`);
-                                skippedCount++;
-                            } else {
-                                console.log(`Caching audio (${currentIndex + 1}/${audioFiles.length}): ${audioPath}`);
-                                cachedCount++;
+                    caches.match(filePath).then(cachedResponse => {
+                        if (cachedResponse) {
+                            console.log(`${fileType} already cached (${currentIndex + 1}/${allFiles.length}): ${filePath}`);
+                            skippedCount++;
+                        } else {
+                            console.log(`Caching ${fileType.toLowerCase()} (${currentIndex + 1}/${allFiles.length}): ${filePath}`);
+                            cachedCount++;
+                            
+                            // Send to service worker for caching
+                            if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                                const messageType = filePath.includes('.mp3') ? 'CACHE_AUDIO' : 'CACHE_TEXT';
+                                const pathKey = filePath.includes('.mp3') ? 'audioPath' : 'textPath';
                                 
-                                // Send to service worker for caching
-                                if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-                                    navigator.serviceWorker.controller.postMessage({
-                                        type: 'CACHE_AUDIO',
-                                        audioPath: audioPath
-                                    });
-                                }
+                                navigator.serviceWorker.controller.postMessage({
+                                    type: messageType,
+                                    [pathKey]: filePath
+                                });
                             }
-                            
-                            currentIndex++;
-                            
-                            // Schedule next preload
-                            setTimeout(preloadNext, preloadDelay);
-                        });
+                        }
+                        
+                        currentIndex++;
+                        
+                        // Schedule next preload
+                        setTimeout(preloadNext, preloadDelay);
                     }).catch(err => {
-                        console.warn('Cache check failed for:', audioPath, err);
+                        console.warn('Cache check failed for:', filePath, err);
                         currentIndex++;
                         setTimeout(preloadNext, preloadDelay);
                     });
@@ -1431,7 +1449,7 @@
     <script>
         // Cache Management Module
         class CacheManager {
-            static get CACHE_VERSION() { return 'english-collocations-v13'; }
+            static get CACHE_VERSION() { return 'english-collocations-v14'; }
             
             static async checkCachedFiles() {
                 if (!('caches' in window)) {
@@ -1604,7 +1622,7 @@
         async function checkCachedFiles() {
             if ('caches' in window) {
                 try {
-                    const cache = await caches.open('english-collocations-v13');
+                    const cache = await caches.open('english-collocations-v14');
                     const keys = await cache.keys();
                     console.log('Cached files:', keys.map(key => key.url));
                     return keys;
