@@ -60,8 +60,8 @@ const urlsToCache = [
   // External CDN resources
   'https://cdn.tailwindcss.com',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'
+  '/pdf.min.js',
+  '/pdf.worker.min.js'
 ];
 
 // Install Service Worker
