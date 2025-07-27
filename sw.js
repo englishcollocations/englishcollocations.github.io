@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-collocations-v11';
+const CACHE_NAME = 'english-collocations-v12';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -172,7 +172,34 @@ async function cacheFirst(request) {
     }
 
     console.log('Cache first strategy for:', request.url);
-    const cachedResponse = await caches.match(request);
+    
+    // For audio files, try multiple cache matching strategies
+    let cachedResponse = await caches.match(request);
+    
+    // If not found and it's an audio file, try alternative matching
+    if (!cachedResponse && request.url.includes('.mp3')) {
+      console.log('Audio file not found with exact match, trying alternative matching...');
+      
+      // Try matching without query parameters
+      const urlWithoutQuery = request.url.split('?')[0];
+      cachedResponse = await caches.match(urlWithoutQuery);
+      
+      if (!cachedResponse) {
+        // Try matching just the filename
+        const filename = urlWithoutQuery.split('/').pop();
+        const cache = await caches.open(CACHE_NAME);
+        const cacheKeys = await cache.keys();
+        
+        for (const key of cacheKeys) {
+          if (key.url.includes(filename)) {
+            console.log('Found audio file by filename match:', key.url);
+            cachedResponse = await cache.match(key);
+            break;
+          }
+        }
+      }
+    }
+    
     if (cachedResponse) {
       console.log('Found in cache:', request.url);
       return cachedResponse;
@@ -190,7 +217,20 @@ async function cacheFirst(request) {
     return networkResponse;
   } catch (error) {
     console.error('Cache first failed for:', request.url, error);
-    // Return offline fallback if available
+    // Return offline fallback if available - try harder for audio files
+    if (request.url.includes('.mp3')) {
+      const cache = await caches.open(CACHE_NAME);
+      const cacheKeys = await cache.keys();
+      const filename = request.url.split('/').pop().split('?')[0];
+      
+      for (const key of cacheKeys) {
+        if (key.url.includes(filename)) {
+          console.log('Found cached audio file for offline fallback:', key.url);
+          return await cache.match(key);
+        }
+      }
+    }
+    
     const cachedResponse = await caches.match(request);
     if (cachedResponse) {
       console.log('Returning cached version after network failure:', request.url);
