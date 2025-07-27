@@ -1036,10 +1036,49 @@
                 this.currentLessonTitle.textContent = lesson.title;
                 this.lessonNumber.textContent = `Lesson ${lesson.id} of 50`;
                 
+                // Pre-cache this audio file for offline usage
+                this.preloadAudioFile(lesson.path);
+                
                 this.updateMarkCompleteButton();
                 this.highlightCurrentLesson();
                 this.pause();
                 this.loadNotesForCurrentLesson();
+            }
+
+            preloadAudioFile(audioPath) {
+                // Check if already cached before sending to service worker
+                if ('caches' in window) {
+                    caches.open('english-collocations-v6').then(cache => {
+                        return cache.match(audioPath).then(cachedResponse => {
+                            if (cachedResponse) {
+                                console.log('Audio already cached, no need to preload:', audioPath);
+                                return;
+                            }
+                            
+                            console.log('Preloading audio for current lesson:', audioPath);
+                            // Send message to service worker to cache this specific audio file
+                            if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                                navigator.serviceWorker.controller.postMessage({
+                                    type: 'CACHE_AUDIO',
+                                    audioPath: audioPath
+                                });
+                            }
+                        });
+                    }).catch(err => {
+                        console.warn('Cache check failed:', err);
+                    });
+                }
+                
+                // Also try to preload in browser for immediate playback
+                const audio = new Audio();
+                audio.preload = 'metadata';
+                audio.src = audioPath;
+                audio.addEventListener('canplaythrough', () => {
+                    console.log('Audio preloaded for immediate playback:', audioPath);
+                }, { once: true });
+                audio.addEventListener('error', (e) => {
+                    console.warn('Audio preload failed:', audioPath, e);
+                }, { once: true });
             }
 
             loadNotesForCurrentLesson() {
@@ -1368,7 +1407,79 @@
         // Initialize the player when the page loads
         document.addEventListener('DOMContentLoaded', () => {
             window.player = new EnglishCollocationPlayer();
+            
+            // Start preloading audio files for offline access
+            preloadAudioFilesInBackground();
         });
+
+        // Function to preload all audio files in background
+        function preloadAudioFilesInBackground() {
+            console.log('Starting background audio preloading...');
+            
+            // Get all audio file paths
+            const audioFiles = [];
+            for (let i = 1; i <= 50; i++) {
+                audioFiles.push(`sounds/Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`);
+            }
+            
+            let currentIndex = 0;
+            let cachedCount = 0;
+            let skippedCount = 0;
+            const preloadDelay = 1000; // 1 second between each file
+            
+            function preloadNext() {
+                if (currentIndex >= audioFiles.length) {
+                    console.log(`Audio preloading completed! Cached: ${cachedCount}, Already cached: ${skippedCount}`);
+                    if (cachedCount > 0) {
+                        showToast(`${cachedCount} lessons cached for offline use! 🎵`, 'success');
+                    }
+                    return;
+                }
+                
+                const audioPath = audioFiles[currentIndex];
+                
+                // Check if already cached before attempting to cache
+                if ('caches' in window) {
+                    caches.open('english-collocations-v6').then(cache => {
+                        return cache.match(audioPath).then(cachedResponse => {
+                            if (cachedResponse) {
+                                console.log(`Audio already cached (${currentIndex + 1}/${audioFiles.length}): ${audioPath}`);
+                                skippedCount++;
+                            } else {
+                                console.log(`Caching audio (${currentIndex + 1}/${audioFiles.length}): ${audioPath}`);
+                                cachedCount++;
+                                
+                                // Send to service worker for caching
+                                if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+                                    navigator.serviceWorker.controller.postMessage({
+                                        type: 'CACHE_AUDIO',
+                                        audioPath: audioPath
+                                    });
+                                }
+                            }
+                            
+                            currentIndex++;
+                            
+                            // Schedule next preload
+                            setTimeout(preloadNext, preloadDelay);
+                        });
+                    }).catch(err => {
+                        console.warn('Cache check failed for:', audioPath, err);
+                        currentIndex++;
+                        setTimeout(preloadNext, preloadDelay);
+                    });
+                } else {
+                    // Fallback if caches API not available
+                    currentIndex++;
+                    setTimeout(preloadNext, preloadDelay);
+                }
+            }
+            
+            // Start preloading after 3 seconds to let the page load first
+            setTimeout(() => {
+                preloadNext();
+            }, 3000);
+        }
     </script>
 </body>
 </html>
