@@ -393,7 +393,6 @@
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
                     .then((registration) => {
-                        console.log('SW registered: ', registration);
                         swRegistration = registration;
                         
                         // Check for updates
@@ -402,7 +401,6 @@
                             if (newWorker) {
                                 newWorker.addEventListener('statechange', () => {
                                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                        console.log('New SW installed, auto-updating...');
                                         // Auto-update without showing banner
                                         newWorker.postMessage({ type: 'SKIP_WAITING' });
                                     }
@@ -411,20 +409,18 @@
                         });
                     })
                     .catch((registrationError) => {
-                        console.log('SW registration failed: ', registrationError);
+                        // Silent error handling
                     });
 
                 // Listen for messages from Service Worker
                 navigator.serviceWorker.addEventListener('message', (event) => {
                     if (event.data && event.data.type === 'RELOAD_NOW') {
-                        console.log('Received reload command from SW');
                         window.location.reload(true);
                     }
                 });
 
                 // Listen for controller changes (when SW becomes active) - Auto reload
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    console.log('Service Worker controller changed - auto-reloading...');
                     window.location.reload(true);
                 });
             });
@@ -434,7 +430,6 @@
         let deferredPrompt;
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            console.log('beforeinstallprompt event fired');
             e.preventDefault();
             deferredPrompt = e;
             
@@ -460,7 +455,6 @@
 
         // Handle successful app installation
         window.addEventListener('appinstalled', (e) => {
-            console.log('App installed successfully');
             hideInstallBanner();
             showToast('App installed successfully! 🎉', 'success');
             
@@ -495,7 +489,6 @@
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the install prompt');
                         hideInstallBanner();
                         
                         // Hide install button immediately after acceptance
@@ -507,8 +500,6 @@
                         // Mark as installed
                         localStorage.setItem('appInstalled', 'true');
                         showToast('Installing app...', 'info');
-                    } else {
-                        console.log('User dismissed the install prompt');
                     }
                     deferredPrompt = null;
                 });
@@ -833,7 +824,6 @@
 
                 // Try to reload audio source if it's a source issue
                 if (error.name === 'NotSupportedError' || error.message.includes('no supported sources')) {
-                    console.log('Attempting to reload audio source...');
                     const currentSrc = this.audioPlayer.src;
                     this.audioPlayer.load();
                     
@@ -883,7 +873,7 @@
                     };
                     
                     const handleCanPlay = () => {
-                        console.log('Audio loaded successfully:', lesson.path);
+                        // Audio ready
                     };
                     
                     this.audioPlayer.addEventListener('error', handleError, { once: true });
@@ -914,11 +904,8 @@
                     const cachedResponse = await cache.match(audioPath);
                     
                     if (cachedResponse) {
-                        console.log('Audio already cached, no need to preload:', audioPath);
                         return;
                     }
-                    
-                    console.log('Preloading audio for current lesson:', audioPath);
                     
                     // Send message to service worker to cache this specific audio file
                     if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
@@ -934,11 +921,11 @@
                     audio.src = audioPath;
                     
                     const handleLoad = () => {
-                        console.log('Audio preloaded for immediate playback:', audioPath);
+                        // Audio ready
                     };
                     
                     const handleError = (e) => {
-                        console.warn('Audio preload failed:', audioPath, e);
+                        // Handle error silently
                     };
                     
                     audio.addEventListener('canplaythrough', handleLoad, { once: true });
@@ -1280,7 +1267,6 @@
 
         // Function to preload all audio and text files in background
         function preloadAllFilesInBackground() {
-            console.log('Starting background file preloading...');
             
             // Get all audio and text file paths
             const audioFiles = [];
@@ -1299,7 +1285,6 @@
             
             function preloadNext() {
                 if (currentIndex >= allFiles.length) {
-                    console.log(`File preloading completed! Cached: ${cachedCount}, Already cached: ${skippedCount}`);
                     if (cachedCount > 0) {
                         const fileType = cachedCount === 1 ? 'file' : 'files';
                         showToast(`${cachedCount} ${fileType} cached for offline use! 📁`, 'success');
@@ -1314,10 +1299,8 @@
                 if ('caches' in window) {
                     caches.match(filePath).then(cachedResponse => {
                         if (cachedResponse) {
-                            console.log(`${fileType} already cached (${currentIndex + 1}/${allFiles.length}): ${filePath}`);
                             skippedCount++;
                         } else {
-                            console.log(`Caching ${fileType.toLowerCase()} (${currentIndex + 1}/${allFiles.length}): ${filePath}`);
                             cachedCount++;
                             
                             // Send to service worker for caching
@@ -1337,7 +1320,6 @@
                         // Schedule next preload
                         setTimeout(preloadNext, preloadDelay);
                     }).catch(err => {
-                        console.warn('Cache check failed for:', filePath, err);
                         currentIndex++;
                         setTimeout(preloadNext, preloadDelay);
                     });
@@ -1367,17 +1349,14 @@
             
             static async checkCachedFiles() {
                 if (!('caches' in window)) {
-                    console.warn('Cache API not supported');
                     return [];
                 }
 
                 try {
                     const cache = await caches.open(CacheManager.CACHE_VERSION);
                     const keys = await cache.keys();
-                    console.log('Cached files:', keys.map(key => key.url));
                     return keys;
                 } catch (error) {
-                    console.error('Error checking cached files:', error);
                     return [];
                 }
             }
@@ -1527,7 +1506,6 @@
                 const cacheControl = document.getElementById('cacheControl');
                 if (cacheControl) {
                     cacheControl.style.display = 'none';
-                    console.log('Files already cached, hiding cache control');
                 }
             }
         }
@@ -1538,10 +1516,8 @@
                 try {
                     const cache = await caches.open('english-collocations-v14');
                     const keys = await cache.keys();
-                    console.log('Cached files:', keys.map(key => key.url));
                     return keys;
                 } catch (error) {
-                    console.error('Error checking cached files:', error);
                     return [];
                 }
             }
@@ -1613,8 +1589,6 @@
                     // Update word count
                     const wordCount = this.countWords(textContent);
                     this.textWordCount.textContent = `${wordCount} words`;
-                    
-                    console.log(`Loaded text for lesson ${lessonNumber}: ${wordCount} words`);
                     
                 } catch (error) {
                     console.error('Error loading lesson text:', error);

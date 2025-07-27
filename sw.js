@@ -28,15 +28,14 @@ const urlsToCache = [...criticalFiles, ...audioFiles, ...textFiles];
 
 // Install Service Worker with improved performance
 self.addEventListener('install', (event) => {
-  console.log('Service Worker installing...', CACHE_NAME);
+  
   
   event.waitUntil(
     Promise.all([
       // Cache critical files immediately
       caches.open(CRITICAL_CACHE_NAME).then(cache => {
-        console.log('Caching critical files...');
+        
         return cache.addAll(criticalFiles)
-          .then(() => console.log('Critical files cached successfully'))
           .catch(error => {
             console.error('Failed to cache critical files:', error);
             // Try caching external resources individually
@@ -53,15 +52,15 @@ self.addEventListener('install', (event) => {
       
       // Initialize audio cache (don't cache audio files during install)
       caches.open(AUDIO_CACHE_NAME).then(() => {
-        console.log('Audio cache initialized, files will be cached on-demand');
+        
       }),
       
       // Initialize text cache (don't cache text files during install)
       caches.open(TEXT_CACHE_NAME).then(() => {
-        console.log('Text cache initialized, files will be cached on-demand');
+        
       })
     ]).then(() => {
-      console.log('Service Worker installation completed successfully');
+      
     }).catch(error => {
       console.error('Service Worker installation failed:', error);
     })
@@ -122,7 +121,7 @@ self.addEventListener('fetch', (event) => {
 async function cacheFirst(request, cacheName = CRITICAL_CACHE_NAME) {
   try {
     const url = request.url;
-    console.log(`Cache first strategy for: ${url} using cache: ${cacheName}`);
+    
     
     // Try exact match first
     let cachedResponse = await caches.match(request);
@@ -138,19 +137,19 @@ async function cacheFirst(request, cacheName = CRITICAL_CACHE_NAME) {
     }
     
     if (cachedResponse) {
-      console.log(`✓ Found in cache: ${url}`);
+      
       return cachedResponse;
     }
     
     // Fetch from network and cache
-    console.log(`⬇ Fetching from network: ${url}`);
+    
     const networkResponse = await fetch(request);
     
     if (networkResponse && networkResponse.status === 200) {
       const cache = await caches.open(cacheName);
       // Clone before caching to avoid consuming the response
       await cache.put(request, networkResponse.clone());
-      console.log(`✓ Cached: ${url}`);
+      
     }
     
     return networkResponse;
@@ -160,7 +159,7 @@ async function cacheFirst(request, cacheName = CRITICAL_CACHE_NAME) {
     // Try fallback cache lookup
     const fallbackResponse = await caches.match(request);
     if (fallbackResponse) {
-      console.log(`✓ Fallback cache hit: ${request.url}`);
+      
       return fallbackResponse;
     }
     
@@ -176,7 +175,7 @@ async function findAudioInCache(url) {
     let cachedResponse = await caches.match(urlWithoutQuery);
     
     if (cachedResponse) {
-      console.log(`✓ Found audio by URL without query: ${urlWithoutQuery}`);
+      
       return cachedResponse;
     }
     
@@ -190,7 +189,7 @@ async function findAudioInCache(url) {
       
       for (const key of cacheKeys) {
         if (key.url.includes(filename)) {
-          console.log(`✓ Found audio by filename in ${cacheName}: ${key.url}`);
+          
           return await cache.match(key);
         }
       }
@@ -211,7 +210,7 @@ async function findTextInCache(url) {
     let cachedResponse = await caches.match(urlWithoutQuery);
     
     if (cachedResponse) {
-      console.log(`✓ Found text by URL without query: ${urlWithoutQuery}`);
+      
       return cachedResponse;
     }
     
@@ -225,13 +224,13 @@ async function findTextInCache(url) {
       
       for (const key of cacheKeys) {
         if (key.url.includes(filename)) {
-          console.log(`✓ Found text by filename in ${cacheName}: ${key.url}`);
+          
           return await cache.match(key);
         }
       }
     }
     
-    console.log(`❌ Text not found in any cache: ${url}`);
+    
     return null;
   } catch (error) {
     console.error('Error finding text in cache:', error);
@@ -242,7 +241,7 @@ async function findTextInCache(url) {
 // Network First Strategy - Optimized for dynamic content
 async function networkFirst(request, cacheName = CRITICAL_CACHE_NAME) {
   try {
-    console.log(`⬇ Network first strategy for: ${request.url}`);
+    
     
     const networkResponse = await fetch(request);
     
@@ -250,14 +249,14 @@ async function networkFirst(request, cacheName = CRITICAL_CACHE_NAME) {
       const cache = await caches.open(cacheName);
       // Cache the response for future offline use
       await cache.put(request, networkResponse.clone());
-      console.log(`✓ Network success and cached: ${request.url}`);
+      
       return networkResponse;
     }
     
     // If network response is not successful, try cache
     const cachedResponse = await caches.match(request);
     if (cachedResponse) {
-      console.log(`✓ Network failed, using cache: ${request.url}`);
+      
       return cachedResponse;
     }
     
@@ -268,7 +267,7 @@ async function networkFirst(request, cacheName = CRITICAL_CACHE_NAME) {
     // Fallback to cache
     const cachedResponse = await caches.match(request);
     if (cachedResponse) {
-      console.log(`✓ Network error, fallback to cache: ${request.url}`);
+      
       return cachedResponse;
     }
     
@@ -278,7 +277,7 @@ async function networkFirst(request, cacheName = CRITICAL_CACHE_NAME) {
 
 // Stale While Revalidate Strategy - Optimized for frequently updated content
 async function staleWhileRevalidate(request, cacheName = CRITICAL_CACHE_NAME) {
-  console.log(`⟲ Stale while revalidate for: ${request.url}`);
+  
   
   const cachedResponse = await caches.match(request);
   
@@ -288,7 +287,7 @@ async function staleWhileRevalidate(request, cacheName = CRITICAL_CACHE_NAME) {
       if (networkResponse && networkResponse.status === 200) {
         const cache = caches.open(cacheName);
         cache.then(c => c.put(request, networkResponse.clone()));
-        console.log(`✓ Background update cached: ${request.url}`);
+        
       }
       return networkResponse;
     })
@@ -299,13 +298,12 @@ async function staleWhileRevalidate(request, cacheName = CRITICAL_CACHE_NAME) {
   
   // Return cached version immediately if available
   if (cachedResponse) {
-    console.log(`✓ Serving from cache (updating in background): ${request.url}`);
     return cachedResponse;
   }
   
   // If no cache, wait for network
   try {
-    console.log(`⬇ No cache, waiting for network: ${request.url}`);
+    
     const networkResponse = await fetchPromise;
     return networkResponse || getOfflineFallback(request);
   } catch (error) {
@@ -316,7 +314,7 @@ async function staleWhileRevalidate(request, cacheName = CRITICAL_CACHE_NAME) {
 
 // Offline Fallback - Enhanced error handling
 async function getOfflineFallback(request) {
-  console.log(`🔄 Providing offline fallback for: ${request.url}`);
+  
   
   const acceptHeader = request.headers.get('accept') || '';
   
@@ -324,19 +322,19 @@ async function getOfflineFallback(request) {
   if (acceptHeader.includes('text/html')) {
     const cachedPage = await caches.match('/index.html') || await caches.match('/');
     if (cachedPage) {
-      console.log('✓ Returning cached index.html as fallback');
+      
       return cachedPage;
     }
   }
   
   // For audio requests, try to find any available audio file
   if (request.url.includes('.mp3')) {
-    console.log('Looking for any cached audio file as fallback...');
+    
     const audioCache = await caches.open(AUDIO_CACHE_NAME);
     const audioKeys = await audioCache.keys();
     
     if (audioKeys.length > 0) {
-      console.log(`✓ Found cached audio fallback: ${audioKeys[0].url}`);
+      
       return await audioCache.match(audioKeys[0]);
     }
   }
@@ -354,13 +352,13 @@ async function getOfflineFallback(request) {
     ? '{"error": "Offline - Content not available"}' 
     : 'Offline - Content not available';
   
-  console.log('⚠ Returning offline fallback response');
+  
   return new Response(message, responseInit);
 }
 
 // Cache All Files Function - Optimized for background caching
 async function cacheAllFiles() {
-  console.log('🔄 Starting comprehensive caching...');
+  
   
   try {
     const results = await Promise.allSettled([
@@ -371,9 +369,9 @@ async function cacheAllFiles() {
     const audioResult = results[0];
     const resourcesResult = results[1];
     
-    console.log('📊 Caching results:');
-    console.log(`   Audio files: ${audioResult.status}`);
-    console.log(`   Additional resources: ${resourcesResult.status}`);
+    
+    
+    
     
     if (audioResult.status === 'rejected') {
       console.error('Audio caching failed:', audioResult.reason);
@@ -382,7 +380,7 @@ async function cacheAllFiles() {
       console.error('Resources caching failed:', resourcesResult.reason);
     }
     
-    console.log('✅ Comprehensive caching completed');
+    
     return true;
   } catch (error) {
     console.error('❌ Comprehensive caching failed:', error);
@@ -392,7 +390,7 @@ async function cacheAllFiles() {
 
 // Cache Audio Files - Optimized batch processing
 async function cacheAudioFiles() {
-  console.log('🎵 Caching audio files...');
+  
   
   const audioCache = await caches.open(AUDIO_CACHE_NAME);
   const existingKeys = await audioCache.keys();
@@ -405,11 +403,11 @@ async function cacheAudioFiles() {
   });
   
   if (filesToCache.length === 0) {
-    console.log('✅ All audio files already cached');
+    
     return;
   }
   
-  console.log(`📦 Caching ${filesToCache.length} new audio files...`);
+  
   
   // Process in smaller batches to avoid overwhelming the network
   const batchSize = 5;
@@ -429,7 +427,7 @@ async function cacheAudioFiles() {
           const response = await fetch(url);
           if (response && response.status === 200) {
             await audioCache.put(url, response);
-            console.log(`✓ Cached: ${url}`);
+            
             cachedCount++;
           } else {
             console.warn(`⚠ Failed to cache (bad response): ${url}`);
@@ -446,12 +444,12 @@ async function cacheAudioFiles() {
     await new Promise(resolve => setTimeout(resolve, 100));
   }
   
-  console.log(`🎵 Audio caching completed: ${cachedCount} cached, ${failedCount} failed`);
+  
 }
 
 // Cache Additional Resources
 async function cacheAdditionalResources() {
-  console.log('📚 Caching additional resources...');
+  
   
   const cache = await caches.open(CRITICAL_CACHE_NAME);
   const additionalResources = [
@@ -463,14 +461,14 @@ async function cacheAdditionalResources() {
       try {
         const existingResponse = await cache.match(url);
         if (existingResponse) {
-          console.log(`✓ Already cached: ${url}`);
+          
           return;
         }
         
         const response = await fetch(url);
         if (response && response.status === 200) {
           await cache.put(url, response);
-          console.log(`✓ Cached: ${url}`);
+          
         } else {
           console.warn(`⚠ Failed to cache: ${url}`);
         }
@@ -480,12 +478,12 @@ async function cacheAdditionalResources() {
     })
   );
   
-  console.log('📚 Additional resources caching completed');
+  
 }
 
 // Activate Service Worker with improved cache management
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker activating...', CACHE_NAME);
+  
   
   event.waitUntil(
     Promise.all([
@@ -497,7 +495,7 @@ self.addEventListener('activate', (event) => {
             !cacheName.startsWith(AUDIO_CACHE_NAME.split('-v')[0])
           )
           .map(cacheName => {
-            console.log('Deleting old cache:', cacheName);
+            
             return caches.delete(cacheName);
           });
         
@@ -507,7 +505,7 @@ self.addEventListener('activate', (event) => {
       // Take control of all clients immediately
       self.clients.claim()
     ]).then(() => {
-      console.log('Service Worker activated successfully');
+      
       
       // Notify all clients about the activation
       return self.clients.matchAll({ includeUncontrolled: true })
@@ -535,7 +533,7 @@ self.addEventListener('message', (event) => {
   
   switch (data.type) {
     case 'SKIP_WAITING':
-      console.log('⚡ Skipping waiting and taking control...');
+      
       self.skipWaiting();
       
       // Immediately claim all clients and reload them
@@ -550,7 +548,7 @@ self.addEventListener('message', (event) => {
       break;
       
     case 'CACHE_ALL_FILES':
-      console.log('📦 Received cache all files request');
+      
       cacheAllFiles()
         .then(() => {
           // Notify the client that caching is complete
@@ -564,7 +562,7 @@ self.addEventListener('message', (event) => {
       
     case 'CACHE_AUDIO':
       const audioPath = data.audioPath;
-      console.log(`🎵 Received cache audio request: ${audioPath}`);
+      
       
       // Validate the audio path
       if (!audioPath || (!audioPath.startsWith('sounds/') && !audioPath.startsWith('/sounds/'))) {
@@ -577,7 +575,7 @@ self.addEventListener('message', (event) => {
       
     case 'CACHE_TEXT':
       const textPath = data.textPath;
-      console.log(`📄 Received cache text request: ${textPath}`);
+      
       
       // Validate the text path
       if (!textPath || (!textPath.startsWith('texts/') && !textPath.startsWith('/texts/'))) {
@@ -589,7 +587,7 @@ self.addEventListener('message', (event) => {
       break;
       
     default:
-      console.log('📨 Unknown message type:', data.type);
+      
   }
 });
 
@@ -601,17 +599,17 @@ async function cacheAudioFile(audioPath) {
     // Check if already cached
     const cachedResponse = await audioCache.match(audioPath);
     if (cachedResponse) {
-      console.log('✓ Audio already cached:', audioPath);
+      
       return;
     }
     
     // Cache the audio file
-    console.log('⬇ Caching audio file:', audioPath);
+    
     const response = await fetch(audioPath);
     
     if (response && response.status === 200) {
       await audioCache.put(audioPath, response);
-      console.log('✅ Successfully cached audio:', audioPath);
+      
     } else {
       console.warn('⚠ Failed to fetch audio (bad response):', audioPath, response?.status);
     }
@@ -628,17 +626,17 @@ async function cacheTextFile(textPath) {
     // Check if already cached
     const cachedResponse = await textCache.match(textPath);
     if (cachedResponse) {
-      console.log('✓ Text already cached:', textPath);
+      
       return;
     }
     
     // Cache the text file
-    console.log('⬇ Caching text file:', textPath);
+    
     const response = await fetch(textPath);
     
     if (response && response.status === 200) {
       await textCache.put(textPath, response);
-      console.log('✅ Successfully cached text:', textPath);
+      
     } else {
       console.warn('⚠ Failed to fetch text (bad response):', textPath, response?.status);
     }
@@ -650,7 +648,7 @@ async function cacheTextFile(textPath) {
 // Handle background sync for offline note saving
 self.addEventListener('sync', (event) => {
   if (event.tag === 'background-sync') {
-    console.log('Background sync triggered');
+    
     event.waitUntil(doBackgroundSync());
   }
 });
