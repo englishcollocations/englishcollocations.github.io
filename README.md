@@ -16,12 +16,7 @@ A modern, responsive web application for learning English collocations through 5
 - **Native App Feel**: Standalone mode without browser UI
 - **Cross-Platform**: Works on iOS, Android, Windows, Mac, Linux
 
-### 📄 PDF Integration
-- **Reference Guide**: Integrated PDF viewer for lesson materials
-- **Safari Compatible**: Fallback options for browsers with PDF issues
-- **Download/Open**: Direct PDF access options
-
-### 📝 Note-Taking System
+###  Note-Taking System
 - **Lesson Notes**: Personal notes for each lesson with auto-save
 - **Character Counter**: Track note length
 - **Local Storage**: Notes saved locally on your device
@@ -76,11 +71,6 @@ A modern, responsive web application for learning English collocations through 5
 - **Manual Save**: Click save button for immediate save
 - **Character Limit**: Track note length with live counter
 
-### PDF Reference
-- **View PDF**: Integrated viewer shows lesson materials
-- **Download**: Save PDF for offline reference
-- **Fallback**: Alternative access for incompatible browsers
-
 ## 🛠️ Technical Details
 
 ### Technologies Used
@@ -103,7 +93,6 @@ A modern, responsive web application for learning English collocations through 5
 - Complete app functionality without internet
 - Audio files cached for offline playback
 - Notes and progress saved locally
-- PDF accessible when cached
 
 ## 📊 File Structure
 
@@ -114,7 +103,6 @@ englishcollocations.github.io/
 ├── sw.js                   # Service worker for offline support
 ├── icon-192.svg           # App icon (192x192)
 ├── icon-512.svg           # App icon (512x512)
-├── pdf.pdf                # Reference materials
 ├── sample-content.html    # Sample content for testing
 ├── sounds/                # Audio lesson files
 │   ├── Collocations-Lesson01.mp3
@@ -132,11 +120,6 @@ englishcollocations.github.io/
 5. **Review Regularly**: Go back to completed lessons for review
 
 ## 🔧 Troubleshooting
-
-### PDF Not Showing
-- Try the "Open PDF" button for direct access
-- Download PDF for offline viewing
-- Some mobile browsers have limited PDF support
 
 ### Audio Not Playing
 - Check device volume and browser permissions

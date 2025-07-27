@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Collocations - Interactive Learning Platform</title>
-    <meta name="description" content="Learn English collocations with interactive audio lessons and PDF reference guide">
+    <meta name="description" content="Learn English collocations with interactive audio lessons">
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#6366f1">
@@ -16,8 +16,6 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- PDF.js library -->
-    <script src="pdf.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -50,40 +48,6 @@
         }
         .progress-bar-player {
             width: 0%;
-        }
-        .pdf-container {
-            height: calc(100vh - 200px);
-        }
-        .pdf-canvas-container {
-            height: calc(100% - 50px);
-            overflow: auto;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 20px;
-        }
-        @media (max-width: 1024px) {
-            .pdf-container {
-                height: 55vh;
-            }
-        }
-        @media (max-width: 768px) {
-            .pdf-container {
-                height: 60vh;
-                min-height: 450px;
-            }
-        }
-        @media (max-width: 640px) {
-            .pdf-container {
-                height: 70vh !important;
-                min-height: 500px;
-            }
-        }
-        @media (max-width: 480px) {
-            .pdf-container {
-                height: 75vh !important;
-                min-height: 550px;
-            }
         }
         /* Custom slider styles */
         .slider::-webkit-slider-thumb {
@@ -150,90 +114,6 @@
     </header>
 
     <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-3 sm:py-6">
-        <!-- PDF Viewer Section -->
-        <div class="bg-white rounded-xl shadow-lg mb-6 overflow-hidden">
-            <div class="bg-gray-50 px-3 sm:px-6 py-3 sm:py-4 border-b border-gray-200">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                    <h2 class="text-lg sm:text-xl font-semibold text-gray-900 flex items-center">
-                        <i class="fas fa-file-pdf text-red-500 mr-2 sm:mr-3"></i>
-                        <span class="truncate">English Collocations Reference Guide</span>
-                    </h2>
-                    <div class="flex space-x-2 sm:space-x-3 w-full sm:w-auto">
-                        <button id="openPdfBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-1 sm:space-x-2 text-sm flex-1 sm:flex-none justify-center">
-                            <i class="fas fa-external-link-alt text-sm"></i>
-                            <span class="hidden sm:inline">Open in New Tab</span>
-                            <span class="sm:hidden">Open</span>
-                        </button>
-                        <button id="downloadPdfBtn" class="bg-green-500 hover:bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-1 sm:space-x-2 text-sm flex-1 sm:flex-none justify-center">
-                            <i class="fas fa-download text-sm"></i>
-                            <span class="hidden sm:inline">Download</span>
-                            <span class="sm:hidden">DL</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="pdf-container">
-                <!-- PDF.js Viewer -->
-                <div id="pdfJsViewer" class="w-full h-full bg-gray-100">
-                    <div class="flex items-center justify-between p-3 bg-gray-200 border-b">
-                        <div class="flex items-center space-x-2">
-                            <button id="prevPage" class="bg-white hover:bg-gray-50 text-gray-700 px-3 py-1 rounded border text-sm" title="Previous Page">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <span class="text-sm text-gray-700">
-                                Page <span id="pageNum">1</span> of <span id="pageCount">--</span>
-                            </span>
-                            <button id="nextPage" class="bg-white hover:bg-gray-50 text-gray-700 px-3 py-1 rounded border text-sm" title="Next Page">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <button id="zoomOut" class="bg-white hover:bg-gray-50 text-gray-700 px-3 py-1 rounded border text-sm" title="Zoom Out">
-                                <i class="fas fa-search-minus"></i>
-                            </button>
-                            <span id="zoomLevel" class="text-sm text-gray-700 min-w-[60px] text-center">100%</span>
-                            <button id="zoomIn" class="bg-white hover:bg-gray-50 text-gray-700 px-3 py-1 rounded border text-sm" title="Zoom In">
-                                <i class="fas fa-search-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="pdf-canvas-container">
-                        <canvas id="pdfCanvas" class="shadow-lg border"></canvas>
-                    </div>
-                </div>
-
-                <!-- Fallback for browsers without PDF.js support -->
-                <div id="pdfFallback" class="hidden bg-gray-100 p-6 text-center h-full flex flex-col justify-center">
-                    <div class="mb-4">
-                        <i class="fas fa-file-pdf text-red-500 text-4xl mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">PDF Preview Not Available</h3>
-                        <p class="text-gray-700 mb-4">Your browser doesn't support PDF preview, but you can still access the document:</p>
-                        <div class="flex justify-center space-x-3 flex-wrap gap-2">
-                            <button id="openPdfBtn2" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
-                                <i class="fas fa-external-link-alt"></i>
-                                <span>Open PDF</span>
-                            </button>
-                            <button id="downloadPdfBtn2" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2">
-                                <i class="fas fa-download"></i>
-                                <span>Download PDF</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Legacy iframe viewer (hidden by default) -->
-                <iframe 
-                    id="pdfViewer" 
-                    src="pdf.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH&zoom=page-fit"
-                    class="w-full h-full border-0 hidden"
-                    title="English Collocations PDF Reference"
-                    sandbox="allow-same-origin allow-scripts allow-forms">
-                    <p>Your browser does not support PDFs. 
-                    <a href="pdf.pdf" target="_blank" class="text-blue-500 underline">Download the PDF</a>.</p>
-                </iframe>
-            </div>
-        </div>
-
         <!-- Audio Player Section -->
         <div class="bg-white rounded-xl shadow-lg mb-6 p-3 sm:p-6">
             <div class="text-center mb-4 sm:mb-6">
@@ -438,150 +318,6 @@
     </div>
 
     <script>
-        // PWA Functions
-        class PDFViewer {
-            constructor() {
-                this.pdfDoc = null;
-                this.pageNum = 1;
-                this.pageRendering = false;
-                this.pageNumPending = null;
-                this.scale = 1.0;
-                this.canvas = document.getElementById('pdfCanvas');
-                this.ctx = this.canvas.getContext('2d');
-                this.pdfJsViewer = document.getElementById('pdfJsViewer');
-                this.pdfFallback = document.getElementById('pdfFallback');
-                this.iframe = document.getElementById('pdfViewer');
-                
-                this.initializePDFViewer();
-            }
-
-            async initializePDFViewer() {
-                try {
-                    // Configure PDF.js worker
-                    if (typeof pdfjsLib !== 'undefined') {
-                        pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
-                        
-                        // Load the PDF
-                        const loadingTask = pdfjsLib.getDocument('pdf.pdf');
-                        this.pdfDoc = await loadingTask.promise;
-                        
-                        // Update page count
-                        document.getElementById('pageCount').textContent = this.pdfDoc.numPages;
-                        
-                        // Render the first page
-                        this.renderPage(this.pageNum);
-                        
-                        // Set up event listeners
-                        this.setupPDFControls();
-                        
-                        console.log('PDF loaded successfully with PDF.js');
-                    } else {
-                        throw new Error('PDF.js not loaded');
-                    }
-                } catch (error) {
-                    console.log('PDF.js failed, showing fallback:', error);
-                    this.showFallback();
-                }
-            }
-
-            setupPDFControls() {
-                document.getElementById('prevPage').addEventListener('click', () => {
-                    if (this.pageNum <= 1) return;
-                    this.pageNum--;
-                    this.queueRenderPage(this.pageNum);
-                });
-
-                document.getElementById('nextPage').addEventListener('click', () => {
-                    if (this.pageNum >= this.pdfDoc.numPages) return;
-                    this.pageNum++;
-                    this.queueRenderPage(this.pageNum);
-                });
-
-                document.getElementById('zoomIn').addEventListener('click', () => {
-                    this.scale = Math.min(this.scale + 0.25, 3.0);
-                    this.queueRenderPage(this.pageNum);
-                });
-
-                document.getElementById('zoomOut').addEventListener('click', () => {
-                    this.scale = Math.max(this.scale - 0.25, 0.5);
-                    this.queueRenderPage(this.pageNum);
-                });
-            }
-
-            renderPage(num) {
-                this.pageRendering = true;
-                
-                this.pdfDoc.getPage(num).then((page) => {
-                    const viewport = page.getViewport({ scale: this.scale });
-                    this.canvas.height = viewport.height;
-                    this.canvas.width = viewport.width;
-
-                    // Update zoom level display
-                    document.getElementById('zoomLevel').textContent = Math.round(this.scale * 100) + '%';
-
-                    const renderContext = {
-                        canvasContext: this.ctx,
-                        viewport: viewport
-                    };
-
-                    const renderTask = page.render(renderContext);
-
-                    renderTask.promise.then(() => {
-                        this.pageRendering = false;
-                        if (this.pageNumPending !== null) {
-                            this.renderPage(this.pageNumPending);
-                            this.pageNumPending = null;
-                        }
-                    });
-                });
-
-                // Update page counters
-                document.getElementById('pageNum').textContent = num;
-            }
-
-            queueRenderPage(num) {
-                if (this.pageRendering) {
-                    this.pageNumPending = num;
-                } else {
-                    this.renderPage(num);
-                }
-            }
-
-            showFallback() {
-                this.pdfJsViewer.style.display = 'none';
-                this.iframe.style.display = 'none';
-                this.pdfFallback.classList.remove('hidden');
-                console.log('PDF fallback activated');
-            }
-        }
-
-        function checkPdfSupport() {
-            // Initialize the PDF viewer
-            window.pdfViewer = new PDFViewer();
-            
-            // Also set up iframe fallback detection
-            const iframe = document.getElementById('pdfViewer');
-            
-            // Test iframe loading after delay for fallback option
-            setTimeout(() => {
-                try {
-                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                    if (!iframeDoc || !iframeDoc.body || iframeDoc.body.children.length === 0) {
-                        console.log('Iframe PDF loading may have issues');
-                    }
-                } catch (e) {
-                    console.log('Iframe PDF loading error:', e);
-                }
-            }, 3000);
-        }
-
-        // Check PDF support on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            checkPdfSupport();
-            // Check if audio files are already cached and hide button if needed
-            CacheManager.checkCacheStatus();
-        });
-
         // Global toast function for PWA events
         function showToast(message, type = 'success') {
             const toast = document.getElementById('toast');
@@ -953,8 +689,6 @@
                 this.lessonNumber = document.getElementById('lessonNumber');
                 this.searchInput = document.getElementById('searchInput');
                 this.lessonsGrid = document.getElementById('lessonsGrid');
-                this.openPdfBtn = document.getElementById('openPdfBtn');
-                this.downloadPdfBtn = document.getElementById('downloadPdfBtn');
                 this.markAllBtn = document.getElementById('markAllBtn');
                 this.resetProgressBtn = document.getElementById('resetProgressBtn');
                 this.completedCount = document.getElementById('completedCount');
@@ -983,16 +717,6 @@
                 this.volumeSlider.addEventListener('input', (e) => this.setVolume(e.target.value));
                 this.speedBtn.addEventListener('click', () => this.cycleSpeed());
                 this.markCompleteBtn.addEventListener('click', () => this.markCurrentLessonComplete());
-                
-                // PDF events
-                this.openPdfBtn.addEventListener('click', () => this.openPdfInNewTab());
-                this.downloadPdfBtn.addEventListener('click', () => this.downloadPdf());
-                
-                // PDF fallback events
-                const openPdfBtn2 = document.getElementById('openPdfBtn2');
-                const downloadPdfBtn2 = document.getElementById('downloadPdfBtn2');
-                if (openPdfBtn2) openPdfBtn2.addEventListener('click', () => this.openPdfInNewTab());
-                if (downloadPdfBtn2) downloadPdfBtn2.addEventListener('click', () => this.downloadPdf());
                 
                 // Progress events
                 this.markAllBtn.addEventListener('click', () => this.markAllCompleted());
@@ -1398,17 +1122,6 @@
                 this.speedBtn.textContent = speed + 'x';
             }
 
-            openPdfInNewTab() {
-                window.open('pdf.pdf', '_blank');
-            }
-
-            downloadPdf() {
-                const link = document.createElement('a');
-                link.href = 'pdf.pdf';
-                link.download = 'English-Collocations-Reference.pdf';
-                link.click();
-            }
-
             markAllCompleted() {
                 this.completedLessons = this.lessons.map(lesson => lesson.id);
                 this.saveCompletedLessons();
@@ -1594,6 +1307,9 @@
         // Initialize the player when the page loads
         document.addEventListener('DOMContentLoaded', () => {
             window.player = new EnglishCollocationPlayer();
+            
+            // Check if audio files are already cached and hide button if needed
+            CacheManager.checkCacheStatus();
             
             // Start preloading audio files for offline access
             preloadAudioFilesInBackground();

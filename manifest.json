@@ -1,7 +1,7 @@
 {
   "name": "English Collocations - Audio Lessons",
   "short_name": "English Collocations",
-  "description": "Learn English collocations with 50 interactive audio lessons and PDF reference guide",
+  "description": "Learn English collocations with 50 interactive audio lessons",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f0f4ff",

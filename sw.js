@@ -7,13 +7,10 @@ const criticalFiles = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/pdf.pdf',
   '/icon-192.svg',
   '/icon-512.svg',
   'https://cdn.tailwindcss.com',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-  '/pdf.min.js',
-  '/pdf.worker.min.js'
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];
 
 const audioFiles = [];
@@ -89,8 +86,7 @@ self.addEventListener('fetch', (event) => {
   if (url.includes('.mp3')) {
     // Audio files: Cache first strategy with audio cache
     event.respondWith(cacheFirst(event.request, AUDIO_CACHE_NAME));
-  } else if (url.includes('.pdf') || 
-             url.includes('.svg') || 
+  } else if (url.includes('.svg') || 
              url.includes('.jpg') || 
              url.includes('.png') ||
              url.includes('.js') ||
@@ -404,8 +400,7 @@ async function cacheAdditionalResources() {
   
   const cache = await caches.open(CRITICAL_CACHE_NAME);
   const additionalResources = [
-    'https://cdn.jsdelivr.net/npm/pdf-js@4.6.82/build/pdf.min.js',
-    'https://cdn.jsdelivr.net/npm/pdf-js@4.6.82/build/pdf.worker.min.js'
+    // No additional PDF-related resources to cache
   ];
   
   const results = await Promise.allSettled(
