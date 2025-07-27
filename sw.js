@@ -62,12 +62,7 @@ const urlsToCache = [
   'sounds/Collocations-Lesson47.mp3',
   'sounds/Collocations-Lesson48.mp3',
   'sounds/Collocations-Lesson49.mp3',
-  'sounds/Collocations-Lesson50.mp3',
-  // External CDN resources
-  'https://cdn.tailwindcss.com',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-  '/pdf.min.js',
-  '/pdf.worker.min.js'
+  'sounds/Collocations-Lesson50.mp3'
 ];
 
 // Install Service Worker
