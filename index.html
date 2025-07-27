@@ -629,6 +629,12 @@
                     .catch((registrationError) => {
                         console.log('SW registration failed: ', registrationError);
                     });
+
+                // Listen for controller changes (when SW becomes active)
+                navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    console.log('Service Worker controller changed, reloading page...');
+                    window.location.reload();
+                });
             });
         }
 
@@ -760,13 +766,20 @@
             
             if (updateBtn) {
                 updateBtn.addEventListener('click', () => {
+                    console.log('Update button clicked');
+                    hideUpdateBanner();
+                    showToast('Updating app...', 'info');
+                    
                     if (swRegistration && swRegistration.waiting) {
+                        console.log('Sending SKIP_WAITING message to SW');
                         swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
-                        hideUpdateBanner();
-                        showToast('Updating app...', 'info');
+                        // Force reload after a short delay
                         setTimeout(() => {
-                            window.location.reload();
-                        }, 1000);
+                            window.location.reload(true);
+                        }, 500);
+                    } else {
+                        console.log('No waiting SW found, reloading page directly');
+                        window.location.reload(true);
                     }
                 });
             }
@@ -1048,7 +1061,7 @@
             preloadAudioFile(audioPath) {
                 // Check if already cached before sending to service worker
                 if ('caches' in window) {
-                    caches.open('english-collocations-v6').then(cache => {
+                    caches.open('english-collocations-v11').then(cache => {
                         return cache.match(audioPath).then(cachedResponse => {
                             if (cachedResponse) {
                                 console.log('Audio already cached, no need to preload:', audioPath);
@@ -1440,7 +1453,7 @@
                 
                 // Check if already cached before attempting to cache
                 if ('caches' in window) {
-                    caches.open('english-collocations-v6').then(cache => {
+                    caches.open('english-collocations-v11').then(cache => {
                         return cache.match(audioPath).then(cachedResponse => {
                             if (cachedResponse) {
                                 console.log(`Audio already cached (${currentIndex + 1}/${audioFiles.length}): ${audioPath}`);
@@ -1480,6 +1493,122 @@
                 preloadNext();
             }, 3000);
         }
+    </script>
+
+    <!-- Cache Control Button -->
+    <div id="cacheControl" class="fixed bottom-4 right-4 z-50">
+        <button id="cacheBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-lg transition-all duration-200 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+            </svg>
+            <span id="cacheBtnText">Cache Audio Files</span>
+        </button>
+        
+        <!-- Cache Progress -->
+        <div id="cacheProgress" class="hidden mt-2 bg-white rounded-lg shadow-lg p-3 min-w-64">
+            <div class="text-sm text-gray-700 mb-2">
+                <span id="cacheStatusText">Preparing...</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="cacheProgressBar" class="bg-blue-600 h-2 rounded-full transition-all duration-300 w-0"></div>
+            </div>
+            <div class="text-xs text-gray-500 mt-1">
+                <span id="cacheProgressText">0 / 0</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cache Control Functionality
+        let isCaching = false;
+        
+        document.getElementById('cacheBtn').addEventListener('click', async () => {
+            if (isCaching) return;
+            
+            const cacheBtn = document.getElementById('cacheBtn');
+            const cacheBtnText = document.getElementById('cacheBtnText');
+            const cacheProgress = document.getElementById('cacheProgress');
+            const cacheStatusText = document.getElementById('cacheStatusText');
+            const cacheProgressBar = document.getElementById('cacheProgressBar');
+            const cacheProgressText = document.getElementById('cacheProgressText');
+            
+            isCaching = true;
+            cacheBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            cacheBtnText.textContent = 'Caching...';
+            cacheProgress.classList.remove('hidden');
+            
+            try {
+                // List of all audio files
+                const audioFiles = [];
+                for (let i = 1; i <= 50; i++) {
+                    audioFiles.push(`sounds/Collocations-Lesson${i.toString().padStart(2, '0')}.mp3`);
+                }
+                
+                const totalFiles = audioFiles.length;
+                let cachedCount = 0;
+                let skippedCount = 0;
+                
+                cacheStatusText.textContent = 'Checking cached files...';
+                
+                for (let i = 0; i < audioFiles.length; i++) {
+                    const audioPath = audioFiles[i];
+                    const progress = Math.round(((i + 1) / totalFiles) * 100);
+                    
+                    cacheProgressBar.style.width = progress + '%';
+                    cacheProgressText.textContent = `${i + 1} / ${totalFiles}`;
+                    cacheStatusText.textContent = `Checking: ${audioPath}`;
+                    
+                    try {
+                        // Check if already cached
+                        const cache = await caches.open('english-collocations-v11');
+                        const cachedResponse = await cache.match(audioPath);
+                        
+                        if (cachedResponse) {
+                            skippedCount++;
+                            cacheStatusText.textContent = `Already cached: ${audioPath}`;
+                            await new Promise(resolve => setTimeout(resolve, 50)); // Short delay for UI
+                            continue;
+                        }
+                        
+                        // Cache the file
+                        cacheStatusText.textContent = `Downloading: ${audioPath}`;
+                        const response = await fetch(audioPath);
+                        
+                        if (response.ok) {
+                            await cache.put(audioPath, response);
+                            cachedCount++;
+                            cacheStatusText.textContent = `Cached: ${audioPath}`;
+                        } else {
+                            console.warn('Failed to fetch audio:', audioPath, response.status);
+                            cacheStatusText.textContent = `Error downloading: ${audioPath}`;
+                        }
+                        
+                    } catch (error) {
+                        console.error('Error caching audio:', audioPath, error);
+                        cacheStatusText.textContent = `Error: ${audioPath}`;
+                    }
+                    
+                    // Small delay to prevent overwhelming the browser
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                }
+                
+                cacheStatusText.textContent = `Complete! ${cachedCount} new files, ${skippedCount} already cached`;
+                showToast(`${cachedCount} audio files cached`, 'success');
+                
+            } catch (error) {
+                console.error('Cache operation failed:', error);
+                cacheStatusText.textContent = 'Error caching files';
+                showToast('Error caching files', 'error');
+            }
+            
+            // Hide progress after 3 seconds
+            setTimeout(() => {
+                cacheProgress.classList.add('hidden');
+                cacheBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                cacheBtnText.textContent = 'Cache Audio Files';
+                isCaching = false;
+            }, 3000);
+        });
     </script>
 </body>
 </html>

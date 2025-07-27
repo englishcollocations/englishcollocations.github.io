@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-collocations-v6';
+const CACHE_NAME = 'english-collocations-v11';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -6,6 +6,12 @@ const urlsToCache = [
   '/pdf.pdf',
   '/icon-192.svg',
   '/icon-512.svg',
+  // External CSS and JS resources
+  'https://cdn.tailwindcss.com',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+  // PDF.js files (these should be local files)
+  '/pdf.min.js',
+  '/pdf.worker.min.js',
   // Add all audio files to cache with correct paths
   'sounds/Collocations-Lesson01.mp3',
   'sounds/Collocations-Lesson02.mp3',
@@ -79,7 +85,9 @@ self.addEventListener('install', (event) => {
           '/manifest.json',
           '/pdf.pdf',
           '/icon-192.svg',
-          '/icon-512.svg'
+          '/icon-512.svg',
+          '/pdf.min.js',
+          '/pdf.worker.min.js'
         ];
         
         console.log('Caching critical files...');
