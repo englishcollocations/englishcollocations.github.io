@@ -81,6 +81,80 @@
                 line-height: 1.2;
             }
         }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Player highlight animations */
+        .player-highlight {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+            transform: scale(1.02);
+        }
+
+        /* Loading animation for lesson cards */
+        .lesson-loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lesson-loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Enhanced button hover effects */
+        .btn-enhanced {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-enhanced:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-enhanced:active {
+            transform: translateY(0);
+        }
+
+        /* Enhanced control buttons */
+        #playBtn, #prevBtn, #nextBtn {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #playBtn:hover {
+            transform: scale(1.05) translateY(-1px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        #prevBtn:hover, #nextBtn:hover {
+            transform: scale(1.05) translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Lesson card enhanced animations */
+        .lesson-card-enhanced {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backface-visibility: hidden;
+        }
+
+        .lesson-card-enhanced:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
@@ -702,6 +776,7 @@
                 this.initializeEventListeners();
                 this.renderLessons();
                 this.updateStats();
+                this.resetProgressDisplay(); // Initialize progress display
                 this.loadLesson(0); // Load lesson 1 by default
             }
 
@@ -894,6 +969,13 @@
                     await this.audioPlayer.play();
                     this.isPlaying = true;
                     this.playBtn.innerHTML = '<i class="fas fa-pause text-lg sm:text-xl"></i>';
+                    
+                    // Add visual feedback for play start
+                    this.playBtn.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        this.playBtn.style.transform = '';
+                    }, 200);
+                    
                 } catch (error) {
                     console.error('Audio play failed:', error);
                     this.handleAudioError(error);
@@ -905,6 +987,13 @@
                     this.audioPlayer.pause();
                     this.isPlaying = false;
                     this.playBtn.innerHTML = '<i class="fas fa-play text-lg sm:text-xl"></i>';
+                    
+                    // Add visual feedback for pause
+                    this.playBtn.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.playBtn.style.transform = '';
+                    }, 200);
+                    
                 } catch (error) {
                     console.error('Audio pause failed:', error);
                 }
@@ -941,7 +1030,7 @@
                 }
             }
 
-            async loadLesson(index) {
+            async loadLesson(index, autoPlay = false) {
                 if (index < 0 || index >= this.lessons.length) {
                     console.warn('Invalid lesson index:', index);
                     return;
@@ -951,11 +1040,20 @@
                 const lesson = this.lessons[index];
                 
                 try {
+                    // Show loading state
+                    this.showLessonLoading(true);
+                    
+                    // Smooth scroll to media player
+                    await this.smoothScrollToPlayer();
+                    
                     // Clear previous audio and set new source
                     this.audioPlayer.pause();
                     this.audioPlayer.currentTime = 0;
                     this.audioPlayer.src = '';
                     this.audioPlayer.load();
+                    
+                    // Reset progress bar and time displays immediately
+                    this.resetProgressDisplay();
                     
                     // Set the new source
                     this.audioPlayer.src = lesson.path;
@@ -969,10 +1067,20 @@
                     const handleError = (e) => {
                         console.error('Audio loading error:', e, 'for file:', lesson.path);
                         this.showToast(`Failed to load ${lesson.title}`, 'error');
+                        this.showLessonLoading(false);
                     };
                     
                     const handleCanPlay = () => {
-                        // Audio ready
+                        this.showLessonLoading(false);
+                        // Auto-play if requested and audio is ready
+                        if (autoPlay) {
+                            setTimeout(() => {
+                                this.play().catch(err => {
+                                    console.warn('Auto-play failed:', err);
+                                    this.showToast('Click play to start the lesson', 'info');
+                                });
+                            }, 300); // Shorter delay for better responsiveness
+                        }
                     };
                     
                     this.audioPlayer.addEventListener('error', handleError, { once: true });
@@ -989,6 +1097,134 @@
                 } catch (error) {
                     console.error('Failed to load lesson:', error);
                     this.showToast('Failed to load lesson', 'error');
+                    this.showLessonLoading(false);
+                }
+            }
+
+            resetProgressDisplay() {
+                // Add smooth transition for progress bar reset
+                this.progressFill.style.transition = 'width 0.3s ease-out';
+                
+                // Reset progress bar to beginning
+                this.progressFill.style.width = '0%';
+                
+                // Reset time displays
+                this.currentTimeSpan.textContent = '0:00';
+                this.durationSpan.textContent = '0:00';
+                
+                // Ensure audio is at the beginning
+                if (this.audioPlayer) {
+                    this.audioPlayer.currentTime = 0;
+                }
+                
+                // Remove transition after reset to allow normal progress updates
+                setTimeout(() => {
+                    this.progressFill.style.transition = '';
+                }, 300);
+            }
+
+            showLessonLoading(isLoading) {
+                if (isLoading) {
+                    this.currentLessonTitle.style.opacity = '0.7';
+                    this.playBtn.style.opacity = '0.7';
+                    this.playBtn.disabled = true;
+                    this.showToast('Loading lesson...', 'info');
+                } else {
+                    this.currentLessonTitle.style.opacity = '1';
+                    this.playBtn.style.opacity = '1';
+                    this.playBtn.disabled = false;
+                }
+            }
+
+            async smoothScrollToPlayer() {
+                return new Promise((resolve) => {
+                    // Find the audio player section
+                    const playerSection = document.querySelector('.bg-white.rounded-xl.shadow-lg.mb-6.p-3.sm\\:p-6');
+                    
+                    if (!playerSection) {
+                        resolve();
+                        return;
+                    }
+
+                    // Calculate the target position (optimal viewing position)
+                    const rect = playerSection.getBoundingClientRect();
+                    const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+                    const offset = headerHeight + 20; // Account for header plus some padding
+                    const targetY = window.pageYOffset + rect.top - offset;
+
+                    // Only scroll if the player is not already in view
+                    const viewportHeight = window.innerHeight;
+                    const playerBottom = rect.bottom;
+                    const playerTop = rect.top;
+                    
+                    if (playerTop >= headerHeight && playerBottom <= viewportHeight) {
+                        // Player is already in optimal view, just highlight
+                        this.highlightPlayer();
+                        resolve();
+                        return;
+                    }
+
+                    // Smooth scroll with advanced easing
+                    const startY = window.pageYOffset;
+                    const distance = targetY - startY;
+                    const duration = Math.min(1200, Math.max(600, Math.abs(distance) * 1.5)); // Dynamic duration
+                    let start = null;
+
+                    // Advanced easing function for very smooth animation
+                    const easeInOutQuart = (t) => {
+                        return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
+                    };
+
+                    const step = (timestamp) => {
+                        if (!start) start = timestamp;
+                        const elapsed = timestamp - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easedProgress = easeInOutQuart(progress);
+                        
+                        window.scrollTo(0, startY + distance * easedProgress);
+                        
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            // Add professional highlight effect
+                            this.highlightPlayer();
+                            resolve();
+                        }
+                    };
+
+                    requestAnimationFrame(step);
+                });
+            }
+
+            highlightPlayer() {
+                const playerSection = document.querySelector('.bg-white.rounded-xl.shadow-lg.mb-6.p-3.sm\\:p-6');
+                if (playerSection) {
+                    // Professional glow effect
+                    const originalTransition = playerSection.style.transition;
+                    const originalBoxShadow = playerSection.style.boxShadow;
+                    const originalTransform = playerSection.style.transform;
+                    
+                    // Apply highlight with multiple layers for professional look
+                    playerSection.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    playerSection.style.boxShadow = '0 0 40px rgba(99, 102, 241, 0.4), 0 0 80px rgba(99, 102, 241, 0.1)';
+                    playerSection.style.transform = 'scale(1.015) translateY(-2px)';
+                    
+                    // Add subtle border glow
+                    const borderGlow = playerSection.style.border;
+                    playerSection.style.border = '1px solid rgba(99, 102, 241, 0.3)';
+                    
+                    // Remove highlight with fade out
+                    setTimeout(() => {
+                        playerSection.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        playerSection.style.boxShadow = originalBoxShadow;
+                        playerSection.style.transform = originalTransform;
+                        playerSection.style.border = borderGlow;
+                        
+                        // Restore original styles
+                        setTimeout(() => {
+                            playerSection.style.transition = originalTransition;
+                        }, 600);
+                    }, 1200);
                 }
             }
 
@@ -1117,13 +1353,13 @@
 
             nextLesson() {
                 if (this.currentLessonIndex < this.lessons.length - 1) {
-                    this.loadLesson(this.currentLessonIndex + 1);
+                    this.loadLesson(this.currentLessonIndex + 1, true);
                 }
             }
 
             previousLesson() {
                 if (this.currentLessonIndex > 0) {
-                    this.loadLesson(this.currentLessonIndex - 1);
+                    this.loadLesson(this.currentLessonIndex - 1, true);
                 }
             }
 
@@ -1149,6 +1385,9 @@
 
             updateDuration() {
                 this.durationSpan.textContent = this.formatTime(this.audioPlayer.duration);
+                // Ensure progress is at the beginning when duration is updated
+                this.progressFill.style.width = '0%';
+                this.currentTimeSpan.textContent = '0:00';
             }
 
             seek(event) {
@@ -1209,8 +1448,8 @@
                     
                     const lessonCard = document.createElement('div');
                     lessonCard.className = `
-                        relative bg-white border-2 rounded-xl p-2 sm:p-4 cursor-pointer transition-all duration-200 
-                        hover:shadow-lg hover:scale-105 group min-h-[80px] sm:min-h-[100px]
+                        relative bg-white border-2 rounded-xl p-2 sm:p-4 cursor-pointer 
+                        lesson-card-enhanced min-h-[80px] sm:min-h-[100px]
                         ${isCompleted ? 'lesson-completed text-white border-green-500' : 
                           isActive ? 'lesson-active text-white border-blue-500' : 
                           'border-gray-200 hover:border-blue-300'}
@@ -1236,7 +1475,8 @@
                         if (e.target.closest('.complete-checkbox')) return;
                         
                         const originalIndex = this.lessons.indexOf(lesson);
-                        this.loadLesson(originalIndex);
+                        // Enable auto-play when user selects a lesson
+                        this.loadLesson(originalIndex, true);
                     });
                     
                     // Add checkbox for completion toggle
@@ -1444,7 +1684,7 @@
     <script>
         // Cache Management Module
         class CacheManager {
-            static get CACHE_VERSION() { return 'english-collocations-v14'; }
+            static get CACHE_VERSION() { return 'english-collocations-v15'; }
             
             static async checkCachedFiles() {
                 if (!('caches' in window)) {
@@ -1532,8 +1772,8 @@
                             if (response.ok) {
                                 // Determine which cache to use
                                 const cacheName = filePath.includes('.mp3') ? 
-                                    'english-collocations-v14-audio' : 
-                                    'english-collocations-v14-text';
+                                    'english-collocations-v15-audio' : 
+                                    'english-collocations-v15-text';
                                 
                                 const cache = await caches.open(cacheName);
                                 await cache.put(filePath, response);
@@ -1613,7 +1853,7 @@
         async function checkCachedFiles() {
             if ('caches' in window) {
                 try {
-                    const cache = await caches.open('english-collocations-v14');
+                    const cache = await caches.open('english-collocations-v15');
                     const keys = await cache.keys();
                     return keys;
                 } catch (error) {

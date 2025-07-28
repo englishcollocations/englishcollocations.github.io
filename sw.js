@@ -1,4 +1,4 @@
-const CACHE_NAME = 'english-collocations-v14';
+const CACHE_NAME = 'english-collocations-v15';
 const CRITICAL_CACHE_NAME = `${CACHE_NAME}-critical`;
 const AUDIO_CACHE_NAME = `${CACHE_NAME}-audio`;
 const TEXT_CACHE_NAME = `${CACHE_NAME}-text`;
