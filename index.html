@@ -397,6 +397,10 @@
                     Lesson Text
                 </h3>
                 <div class="flex space-x-2 w-full sm:w-auto">
+                    <!-- <button id="voiceSettingsBtnText" class="bg-purple-500 hover:bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </button> -->
                     <button id="toggleTextBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
                         <i class="fas fa-eye"></i>
                         <span>Show Text</span>
@@ -478,6 +482,10 @@
                     Collocations
                 </h3>
                 <div class="flex space-x-2 w-full sm:w-auto">
+                    <button id="voiceSettingsBtnCollocations" class="bg-purple-500 hover:bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </button>
                     <button id="toggleCollocationsBtn" 
                             class="bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
                         <i class="fas fa-eye"></i>
@@ -512,6 +520,9 @@
                             <option value="1" selected>Normal</option>
                             <option value="1.3">Fast</option>
                         </select>
+                        <button id="voiceSettingsBtn" title="Voice Settings" class="bg-purple-500 hover:bg-purple-600 text-white px-2 py-2 rounded text-xs transition-colors duration-200 flex items-center justify-center w-8 h-8">
+                            <i class="fas fa-cog"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -688,6 +699,78 @@
                 <button id="dismissInstallBanner" class="text-white hover:text-gray-200 p-2 transition-colors duration-200" title="Dismiss">
                     <i class="fas fa-times"></i>
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Settings Modal -->
+    <div id="voiceSettingsModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md mx-4 transform transition-all duration-300">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+                    <i class="fas fa-microphone text-blue-500 mr-2"></i>
+                    Voice Settings
+                </h3>
+                <button id="closeVoiceSettings" class="text-gray-400 hover:text-gray-600 transition-colors" title="Close Voice Settings">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- Voice Selection -->
+                <div>
+                    <label for="voiceSelect" class="block text-sm font-medium text-gray-700 mb-2">
+                        Select Voice:
+                    </label>
+                    <select id="voiceSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
+                        <option value="">Loading voices...</option>
+                    </select>
+                </div>
+                
+                <!-- Voice Rate -->
+                <div>
+                    <label for="voiceRate" class="block text-sm font-medium text-gray-700 mb-2">
+                        Speech Rate: <span id="voiceRateValue">1.0</span>
+                    </label>
+                    <input type="range" id="voiceRate" min="0.5" max="2" step="0.1" value="1" 
+                           class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+                
+                <!-- Voice Pitch -->
+                <div>
+                    <label for="voicePitch" class="block text-sm font-medium text-gray-700 mb-2">
+                        Speech Pitch: <span id="voicePitchValue">1.0</span>
+                    </label>
+                    <input type="range" id="voicePitch" min="0.5" max="2" step="0.1" value="1" 
+                           class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+                
+                <!-- Voice Volume -->
+                <div>
+                    <label for="voiceVolume" class="block text-sm font-medium text-gray-700 mb-2">
+                        Speech Volume: <span id="voiceVolumeValue">1.0</span>
+                    </label>
+                    <input type="range" id="voiceVolume" min="0.1" max="1" step="0.1" value="1" 
+                           class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+                
+                <!-- Test Voice Button -->
+                <div class="pt-2">
+                    <button id="testVoiceBtn" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2">
+                        <i class="fas fa-play text-sm"></i>
+                        <span>Test Voice</span>
+                    </button>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex space-x-3 pt-4 border-t">
+                    <button id="resetVoiceSettings" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg transition-colors duration-200 text-sm">
+                        Reset
+                    </button>
+                    <button id="saveVoiceSettings" class="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition-colors duration-200 text-sm">
+                        Save
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -2267,6 +2350,12 @@
                     return;
                 }
 
+                // Check if voice settings manager is available
+                if (!voiceSettingsManager) {
+                    showToast('Voice settings not available', 'error');
+                    return;
+                }
+
                 // Stop any ongoing speech
                 window.speechSynthesis.cancel();
 
@@ -2276,44 +2365,21 @@
                     textToSpeak += `. ${definition}`;
                 }
                 
-                const utterance = new SpeechSynthesisUtterance(textToSpeak);
-                utterance.rate = 0.9;
-                utterance.pitch = 1;
-                utterance.volume = 1;
+                // Use voice settings manager to create utterance
+                const utterance = voiceSettingsManager.createUtterance(textToSpeak);
 
-                // Set English voice
-                const setVoiceAndSpeak = () => {
-                    const voices = window.speechSynthesis.getVoices();
-                    const englishVoice = voices.find(voice => 
-                        voice.lang.startsWith('en') && 
-                        (voice.name.includes('Google') || voice.name.includes('Microsoft') || voice.name.includes('Samantha'))
-                    ) || voices.find(voice => voice.lang.startsWith('en'));
-                    
-                    if (englishVoice) {
-                        utterance.voice = englishVoice;
-                    }
-
-                    utterance.onstart = () => {
-                        showToast(`🔊 ${term}`, 'info');
-                    };
-
-                    utterance.onerror = (error) => {
-                        console.error('Speech synthesis error:', error);
-                        showToast('Speech synthesis failed', 'error');
-                    };
-
-                    window.speechSynthesis.speak(utterance);
+                utterance.onstart = () => {
+                    showToast(`🔊 ${term}`, 'info');
                 };
 
-                // Check if voices are loaded
-                if (window.speechSynthesis.getVoices().length === 0) {
-                    window.speechSynthesis.onvoiceschanged = () => {
-                        setVoiceAndSpeak();
-                        window.speechSynthesis.onvoiceschanged = null;
-                    };
-                } else {
-                    setVoiceAndSpeak();
-                }
+                utterance.onerror = (error) => {
+                    console.error('Speech synthesis error:', error);
+                    showToast('Speech synthesis failed', 'error');
+                };
+
+                setTimeout(() => {
+                    window.speechSynthesis.speak(utterance);
+                }, 100);
             }
 
             countWords(text) {
@@ -2538,6 +2604,12 @@
                 const collocation = this.currentCollocations[id];
                 if (!collocation) return;
 
+                // Check if voice settings manager is available
+                if (!voiceSettingsManager) {
+                    showToast('Voice settings not available', 'error');
+                    return;
+                }
+
                 // Stop any ongoing speech
                 this.speechSynthesis.cancel();
 
@@ -2556,49 +2628,23 @@
                     textToSpeak += ` Example: ${collocation.example}`;
                 }
                 
-                const utterance = new SpeechSynthesisUtterance(textToSpeak);
-                utterance.rate = this.speechRate;
-                utterance.pitch = 1;
-                utterance.volume = 1;
+                // Use voice settings manager to create utterance
+                const utterance = voiceSettingsManager.createUtterance(textToSpeak);
 
-                // Wait for voices to load and set English voice
-                const setVoiceAndSpeak = () => {
-                    const voices = this.speechSynthesis.getVoices();
-                    
-                    // Prefer Google or Microsoft English voices, then any English voice
-                    const preferredVoice = voices.find(voice => 
-                        voice.lang.startsWith('en') && 
-                        (voice.name.includes('Google') || voice.name.includes('Microsoft') || voice.name.includes('Samantha'))
-                    ) || voices.find(voice => voice.lang.startsWith('en'));
-                    
-                    if (preferredVoice) {
-                        utterance.voice = preferredVoice;
-                    }
-
-                    utterance.onend = () => {
-                        // Remove highlight when speech ends
-                        items.forEach(item => item.classList.remove('speaking'));
-                    };
-
-                    utterance.onerror = (error) => {
-                        console.error('Speech synthesis error:', error);
-                        items.forEach(item => item.classList.remove('speaking'));
-                        showToast('Speech synthesis failed. Please try again.', 'error');
-                    };
-
-                    this.speechSynthesis.speak(utterance);
+                utterance.onend = () => {
+                    // Remove highlight when speech ends
+                    items.forEach(item => item.classList.remove('speaking'));
                 };
 
-                // Check if voices are loaded
-                if (this.speechSynthesis.getVoices().length === 0) {
-                    // Wait for voices to load
-                    this.speechSynthesis.onvoiceschanged = () => {
-                        setVoiceAndSpeak();
-                        this.speechSynthesis.onvoiceschanged = null; // Remove listener
-                    };
-                } else {
-                    setVoiceAndSpeak();
-                }
+                utterance.onerror = (error) => {
+                    console.error('Speech synthesis error:', error);
+                    items.forEach(item => item.classList.remove('speaking'));
+                    showToast('Speech synthesis failed. Please try again.', 'error');
+                };
+
+                setTimeout(() => {
+                    this.speechSynthesis.speak(utterance);
+                }, 100);
             }
 
             copyAllCollocations() {
@@ -2675,11 +2721,252 @@
             }
         }
 
-        // Initialize lesson text manager
+        // Voice Settings Management Module
+        class VoiceSettingsManager {
+            constructor() {
+                this.voices = [];
+                this.selectedVoice = null;
+                this.settings = {
+                    rate: 1.0,
+                    pitch: 1.0,
+                    volume: 1.0,
+                    voiceIndex: -1
+                };
+                
+                this.loadSettings();
+                this.initializeElements();
+                this.initializeEventListeners();
+                this.loadVoices();
+            }
+
+            initializeElements() {
+                this.modal = document.getElementById('voiceSettingsModal');
+                this.openBtn = document.getElementById('voiceSettingsBtn');
+                this.openBtnText = document.getElementById('voiceSettingsBtnText');
+                this.openBtnCollocations = document.getElementById('voiceSettingsBtnCollocations');
+                this.closeBtn = document.getElementById('closeVoiceSettings');
+                this.voiceSelect = document.getElementById('voiceSelect');
+                this.voiceRate = document.getElementById('voiceRate');
+                this.voicePitch = document.getElementById('voicePitch');
+                this.voiceVolume = document.getElementById('voiceVolume');
+                this.voiceRateValue = document.getElementById('voiceRateValue');
+                this.voicePitchValue = document.getElementById('voicePitchValue');
+                this.voiceVolumeValue = document.getElementById('voiceVolumeValue');
+                this.testVoiceBtn = document.getElementById('testVoiceBtn');
+                this.resetBtn = document.getElementById('resetVoiceSettings');
+                this.saveBtn = document.getElementById('saveVoiceSettings');
+            }
+
+            initializeEventListeners() {
+                // Modal controls
+                this.openBtn?.addEventListener('click', () => this.openModal());
+                this.openBtnText?.addEventListener('click', () => this.openModal());
+                this.openBtnCollocations?.addEventListener('click', () => this.openModal());
+                this.closeBtn?.addEventListener('click', () => this.closeModal());
+                this.modal?.addEventListener('click', (e) => {
+                    if (e.target === this.modal) this.closeModal();
+                });
+
+                // Settings controls
+                this.voiceRate?.addEventListener('input', (e) => {
+                    this.settings.rate = parseFloat(e.target.value);
+                    this.voiceRateValue.textContent = this.settings.rate.toFixed(1);
+                });
+
+                this.voicePitch?.addEventListener('input', (e) => {
+                    this.settings.pitch = parseFloat(e.target.value);
+                    this.voicePitchValue.textContent = this.settings.pitch.toFixed(1);
+                });
+
+                this.voiceVolume?.addEventListener('input', (e) => {
+                    this.settings.volume = parseFloat(e.target.value);
+                    this.voiceVolumeValue.textContent = this.settings.volume.toFixed(1);
+                });
+
+                this.voiceSelect?.addEventListener('change', (e) => {
+                    this.settings.voiceIndex = parseInt(e.target.value);
+                    this.selectedVoice = this.voices[this.settings.voiceIndex] || null;
+                });
+
+                // Action buttons
+                this.testVoiceBtn?.addEventListener('click', () => this.testVoice());
+                this.resetBtn?.addEventListener('click', () => this.resetSettings());
+                this.saveBtn?.addEventListener('click', () => this.saveSettings());
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && !this.modal?.classList.contains('hidden')) {
+                        this.closeModal();
+                    }
+                });
+            }
+
+            loadVoices() {
+                this.voices = speechSynthesis.getVoices();
+                this.populateVoiceSelect();
+                
+                // Set selected voice if saved
+                if (this.settings.voiceIndex >= 0 && this.voices[this.settings.voiceIndex]) {
+                    this.selectedVoice = this.voices[this.settings.voiceIndex];
+                    this.voiceSelect.value = this.settings.voiceIndex;
+                }
+            }
+
+            populateVoiceSelect() {
+                if (!this.voiceSelect) return;
+
+                this.voiceSelect.innerHTML = '';
+                
+                // Default option
+                const defaultOption = document.createElement('option');
+                defaultOption.value = -1;
+                defaultOption.textContent = 'System Default';
+                this.voiceSelect.appendChild(defaultOption);
+
+                // Add available voices
+                this.voices.forEach((voice, index) => {
+                    const option = document.createElement('option');
+                    option.value = index;
+                    option.textContent = `${voice.name} (${voice.lang})`;
+                    
+                    // Highlight English voices
+                    if (voice.lang.startsWith('en')) {
+                        option.textContent += ' ⭐';
+                    }
+                    
+                    this.voiceSelect.appendChild(option);
+                });
+
+                // Set current selection
+                this.voiceSelect.value = this.settings.voiceIndex;
+            }
+
+            openModal() {
+                this.loadVoices(); // Refresh voices
+                this.updateUI();
+                this.modal?.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            closeModal() {
+                this.modal?.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+
+            updateUI() {
+                if (this.voiceRate) {
+                    this.voiceRate.value = this.settings.rate;
+                    this.voiceRateValue.textContent = this.settings.rate.toFixed(1);
+                }
+                if (this.voicePitch) {
+                    this.voicePitch.value = this.settings.pitch;
+                    this.voicePitchValue.textContent = this.settings.pitch.toFixed(1);
+                }
+                if (this.voiceVolume) {
+                    this.voiceVolume.value = this.settings.volume;
+                    this.voiceVolumeValue.textContent = this.settings.volume.toFixed(1);
+                }
+                if (this.voiceSelect) {
+                    this.voiceSelect.value = this.settings.voiceIndex;
+                }
+            }
+
+            testVoice() {
+                const testText = "Hello! This is a test of the selected voice settings. How does it sound?";
+                this.speak(testText);
+            }
+
+            speak(text) {
+                if (!('speechSynthesis' in window)) {
+                    showToast('Speech synthesis not supported', 'error');
+                    return;
+                }
+
+                speechSynthesis.cancel();
+
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = this.settings.rate;
+                utterance.pitch = this.settings.pitch;
+                utterance.volume = this.settings.volume;
+
+                if (this.selectedVoice) {
+                    utterance.voice = this.selectedVoice;
+                    utterance.lang = this.selectedVoice.lang;
+                }
+
+                utterance.onerror = (error) => {
+                    console.error('Speech synthesis error:', error);
+                    showToast('Speech synthesis failed', 'error');
+                };
+
+                setTimeout(() => {
+                    speechSynthesis.speak(utterance);
+                }, 100);
+            }
+
+            resetSettings() {
+                this.settings = {
+                    rate: 1.0,
+                    pitch: 1.0,
+                    volume: 1.0,
+                    voiceIndex: -1
+                };
+                this.selectedVoice = null;
+                this.updateUI();
+                showToast('Voice settings reset to default', 'info');
+            }
+
+            saveSettings() {
+                this.saveSettingsToStorage();
+                this.closeModal();
+                showToast('Voice settings saved successfully!', 'success');
+            }
+
+            loadSettings() {
+                try {
+                    const saved = localStorage.getItem('voiceSettings');
+                    if (saved) {
+                        this.settings = { ...this.settings, ...JSON.parse(saved) };
+                    }
+                } catch (error) {
+                    console.error('Failed to load voice settings:', error);
+                }
+            }
+
+            saveSettingsToStorage() {
+                try {
+                    localStorage.setItem('voiceSettings', JSON.stringify(this.settings));
+                } catch (error) {
+                    console.error('Failed to save voice settings:', error);
+                }
+            }
+
+            // Public method for other components to use
+            createUtterance(text) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = this.settings.rate;
+                utterance.pitch = this.settings.pitch;
+                utterance.volume = this.settings.volume;
+
+                if (this.selectedVoice) {
+                    utterance.voice = this.selectedVoice;
+                    utterance.lang = this.selectedVoice.lang;
+                }
+
+                return utterance;
+            }
+        }
+
+        // Initialize voice settings manager
+        let voiceSettingsManager;
         let lessonTextManager;
         let collocationManager;
         
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize voice settings manager first
+            voiceSettingsManager = new VoiceSettingsManager();
+            
+            // Initialize other components
             lessonTextManager = new LessonTextManager();
             collocationManager = new CollocationManager();
         });
