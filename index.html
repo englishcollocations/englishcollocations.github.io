@@ -477,16 +477,16 @@
                     <i class="fas fa-language text-primary-600 mr-2"></i>
                     Collocations
                 </h3>
-                <div class="flex space-x-2">
-                    <button id="copyCollocationsBtn" 
-                            class="btn-enhanced bg-green-500 hover:bg-green-600 text-white px-3 py-1.5 rounded-lg text-xs sm:text-sm transition-all duration-200 flex items-center space-x-1 hidden">
-                        <i class="fas fa-copy text-xs"></i>
-                        <span>Copy All</span>
-                    </button>
+                <div class="flex space-x-2 w-full sm:w-auto">
                     <button id="toggleCollocationsBtn" 
-                            class="btn-enhanced bg-primary-500 hover:bg-primary-600 text-white px-3 py-1.5 rounded-lg text-xs sm:text-sm transition-all duration-200 flex items-center space-x-1">
-                        <i class="fas fa-eye text-xs"></i>
+                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
+                        <i class="fas fa-eye"></i>
                         <span>Show</span>
+                    </button>
+                    <button id="copyCollocationsBtn" 
+                            class="bg-green-500 hover:bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center hidden">
+                        <i class="fas fa-copy"></i>
+                        <span>Copy All</span>
                     </button>
                 </div>
             </div>
@@ -2610,10 +2610,19 @@
 
                 navigator.clipboard.writeText(textToCopy).then(() => {
                     showToast('All collocations copied to clipboard!', 'success');
-                    this.copyBtn?.classList.add('copy-success');
+                    
+                    // Visual feedback on copy button (same as copy text button)
+                    const originalHTML = this.copyBtn.innerHTML;
+                    this.copyBtn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
+                    this.copyBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                    this.copyBtn.classList.add('bg-green-600');
+                    
                     setTimeout(() => {
-                        this.copyBtn?.classList.remove('copy-success');
-                    }, 500);
+                        this.copyBtn.innerHTML = originalHTML;
+                        this.copyBtn.classList.remove('bg-green-600');
+                        this.copyBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                    }, 2000);
+                    
                 }).catch(err => {
                     console.error('Failed to copy:', err);
                     showToast('Failed to copy collocations', 'error');
@@ -2648,10 +2657,14 @@
                 
                 if (this.isVisible) {
                     this.container?.classList.remove('hidden');
-                    this.toggleBtn.innerHTML = '<i class="fas fa-eye-slash text-xs"></i><span>Hide</span>';
+                    this.toggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i><span>Hide</span>';
+                    this.toggleBtn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+                    this.toggleBtn.classList.add('bg-gray-500', 'hover:bg-gray-600');
                 } else {
                     this.container?.classList.add('hidden');
-                    this.toggleBtn.innerHTML = '<i class="fas fa-eye text-xs"></i><span>Show</span>';
+                    this.toggleBtn.innerHTML = '<i class="fas fa-eye"></i><span>Show</span>';
+                    this.toggleBtn.classList.remove('bg-gray-500', 'hover:bg-gray-600');
+                    this.toggleBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
                 }
             }
 
