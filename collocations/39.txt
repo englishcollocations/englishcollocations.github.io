@@ -1,0 +1,25 @@
+<ol>
+  <li><strong>impressive accomplishments</strong> – notable achievements that inspire admiration.<br><em>Example:</em> Her impressive accomplishments in research earned her a Nobel Prize nomination.</li>
+  <li><strong>phenomenal success</strong> – extraordinary or remarkable achievement.<br><em>Example:</em> The startup's phenomenal success surprised even the most optimistic investors.</li>
+  <li><strong>dramatic improvement</strong> – a significant and noticeable positive change.<br><em>Example:</em> The new teaching method led to dramatic improvement in student test scores.</li>
+  <li><strong>pull it off</strong> – succeed in accomplishing something difficult.<br><em>Example:</em> Everyone doubted she could organize the event in two weeks, but she pulled it off.</li>
+  <li><strong>unprecedented success</strong> – achievement that has never happened before in history.<br><em>Example:</em> The vaccine development achieved unprecedented success in record time.</li>
+  <li><strong>crowning achievement</strong> – the best or most significant accomplishment in someone's career.<br><em>Example:</em> Winning the championship was the crowning achievement of his athletic career.</li>
+  <li><strong>modest success</strong> – limited or small-scale achievement.<br><em>Example:</em> The local band enjoyed modest success with their first album.</li>
+  <li><strong>room for improvement</strong> – potential or opportunity to get better.<br><em>Example:</em> While the project was good, there's still room for improvement in efficiency.</li>
+  <li><strong>making good progress</strong> – advancing well toward a goal.<br><em>Example:</em> The construction team is making good progress on the new building.</li>
+  <li><strong>make a breakthrough</strong> – achieve a sudden important advance or discovery.<br><em>Example:</em> Scientists hope to make a breakthrough in cancer treatment this year.</li>
+  <li><strong>brings out the best</strong> – helps someone show their finest qualities.<br><em>Example:</em> Good leadership brings out the best in team members.</li>
+  <li><strong>wins the respect</strong> – earns admiration and esteem from others.<br><em>Example:</em> Her honesty and hard work quickly wins the respect of her colleagues.</li>
+  <li><strong>fail miserably</strong> – be completely unsuccessful in a very obvious way.<br><em>Example:</em> The new product launch failed miserably due to poor marketing.</li>
+  <li><strong>dashing his hopes</strong> – destroying someone's expectations or dreams.<br><em>Example:</em> The rejection letter dashed his hopes of attending his dream university.</li>
+  <li><strong>lost his nerve</strong> – suddenly became afraid or lost courage.<br><em>Example:</em> He was ready to give the speech but lost his nerve at the last minute.</li>
+  <li><strong>mediocre performance</strong> – average or below-average quality work.<br><em>Example:</em> His mediocre performance led to his placement on probation at work.</li>
+  <li><strong>spectacular failure</strong> – a very dramatic and complete lack of success.<br><em>Example:</em> The movie was a spectacular failure, losing millions at the box office.</li>
+  <li><strong>recipe for disaster</strong> – a situation very likely to result in failure or problems.<br><em>Example:</em> Driving without insurance is a recipe for disaster if you have an accident.</li>
+  <li><strong>way off the mark</strong> – completely inaccurate or wrong.<br><em>Example:</em> His sales forecast was way off the mark, predicting twice the actual revenue.</li>
+  <li><strong>went under</strong> – failed financially and closed down (for businesses).<br><em>Example:</em> The restaurant went under after only six months due to poor management.</li>
+  <li><strong>doomed to failure</strong> – destined or certain to be unsuccessful.<br><em>Example:</em> Without proper funding, the project was doomed to failure from the start.</li>
+  <li><strong>all else fails</strong> – if every other option is unsuccessful.<br><em>Example:</em> If all else fails, we can always ask for help from our experienced colleague.</li>
+  <li><strong>last resort</strong> – the final option when all others have been exhausted.<br><em>Example:</em> Surgery should only be considered as a last resort for this medical condition.</li>
+</ol>

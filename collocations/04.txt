@@ -1,0 +1,24 @@
+<ol>
+  <li><strong>painfully shy</strong> – extremely shy.<br><em>Example:</em> As a child, I was painfully shy and avoided speaking in public.</li>
+  <li><strong>vivid imagination</strong> – a creative and colorful imagination.<br><em>Example:</em> Children with a vivid imagination often enjoy storytelling.</li>
+  <li><strong>outgoing personality</strong> – a sociable and friendly personality.<br><em>Example:</em> Her outgoing personality makes her the life of the party.</li>
+  <li><strong>good sense of humor</strong> – the ability to make people laugh.<br><em>Example:</em> He has a good sense of humor that everyone appreciates.</li>
+  <li><strong>brutally honest</strong> – very direct, sometimes hurtfully so.<br><em>Example:</em> She was brutally honest about my performance.</li>
+  <li><strong>hurt my feelings</strong> – made me feel sad, upset, or angry.<br><em>Example:</em> His criticism really hurt my feelings.</li>
+
+  <li><strong>fiercely loyal</strong> – very loyal and devoted.<br><em>Example:</em> Dogs are known for being fiercely loyal to their owners.</li>
+  <li><strong>showed her true colors</strong> – revealed her real personality.<br><em>Example:</em> He seemed nice at first, but he showed his true colors when he lost his temper.</li>
+  <li><strong>played a prank</strong> – performed a trick or joke on someone.<br><em>Example:</em> The students played a prank on their teacher by switching the desks.</li>
+  <li><strong>bore a grudge</strong> – kept feeling angry towards someone.<br><em>Example:</em> He bore a grudge against his neighbor for years.</li>
+  <li><strong>low self-esteem</strong> – poor opinion of oneself.<br><em>Example:</em> Constant criticism can lead to low self-esteem.</li>
+  <li><strong>mean streak</strong> – a tendency to be unkind.<br><em>Example:</em> She has a mean streak when she’s stressed.</li>
+
+  <li><strong>come out of my shell</strong> – become less shy.<br><em>Example:</em> College helped me come out of my shell and make friends.</li>
+  <li><strong>thicker skin</strong> – less sensitivity to criticism.<br><em>Example:</em> You need to develop thicker skin to work in politics.</li>
+  <li><strong>speak their minds</strong> – say exactly what they think.<br><em>Example:</em> She’s never afraid to speak her mind in meetings.</li>
+
+  <li><strong>superiority complex</strong> – belief that you are better than others.<br><em>Example:</em> His arrogance comes from a superiority complex.</li>
+  <li><strong>swallow my pride</strong> – admit you were wrong or accept humiliation.<br><em>Example:</em> I had to swallow my pride and apologize.</li>
+  <li><strong>concerted effort</strong> – a strong, focused attempt.<br><em>Example:</em> We need a concerted effort to finish the project on time.</li>
+  <li><strong>put others first</strong> – consider others’ needs more important than your own.<br><em>Example:</em> Good leaders put others first before themselves.</li>
+</ol>

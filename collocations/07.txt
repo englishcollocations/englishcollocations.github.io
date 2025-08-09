@@ -1,0 +1,24 @@
+<ol>
+  <li><strong>eating habits</strong> – patterns of food consumption.<br><em>Example:</em> My mother radically changed her eating habits a few years ago.</li>
+  <li><strong>junk food</strong> – food that is not nutritious or healthy.<br><em>Example:</em> She used to eat a lot of junk food and was overweight.</li>
+  <li><strong>go on a diet</strong> – start eating less food and healthier food to lose weight.<br><em>Example:</em> Sometimes she would try to go on a diet, but it never lasted.</li>
+  <li><strong>processed foods</strong> – foods that have been chemically treated or altered.<br><em>Example:</em> She understands how unhealthy processed foods are.</li>
+  <li><strong>food additives</strong> – chemicals added to food during processing.<br><em>Example:</em> Processed foods are full of food additives that cause health problems.</li>
+  <li><strong>balanced diet</strong> – eating the right amounts of different types of nutritious food.<br><em>Example:</em> Nowadays, she eats a balanced diet with lots of vegetables.</li>
+  <li><strong>nourishing meals</strong> – meals that are healthy and nutritious.<br><em>Example:</em> She prepares nourishing meals that she makes herself.</li>
+  <li><strong>organic food</strong> – food produced without chemicals or pesticides.<br><em>Example:</em> She doesn't buy organic food because the prices are too high.</li>
+  <li><strong>stocks up on</strong> – buys a large supply of something.<br><em>Example:</em> She stocks up on fresh produce every week.</li>
+  <li><strong>fresh produce</strong> – fresh fruits and vegetables.<br><em>Example:</em> The grocery store has excellent fresh produce.</li>
+  <li><strong>quick snack</strong> – something small and fast to eat.<br><em>Example:</em> She grabs an apple when she wants a quick snack.</li>
+  <li><strong>eat in moderation</strong> – eat reasonable amounts, not too much.<br><em>Example:</em> She has learned to eat in moderation.</li>
+  <li><strong>portion sizes</strong> – how much food you take at one time.<br><em>Example:</em> She carefully watches her portion sizes.</li>
+  <li><strong>home-cooked meal</strong> – a meal prepared at home rather than in a restaurant.<br><em>Example:</em> I stop by when I'm in the mood for a home-cooked meal.</li>
+  <li><strong>hearty stew</strong> – a thick, filling soup with lots of ingredients.<br><em>Example:</em> She made a hearty stew full of beans and vegetables.</li>
+  <li><strong>healthy appetite</strong> – the capacity to eat a lot of food.<br><em>Example:</em> My brother has a healthy appetite and always wants more.</li>
+  <li><strong>second helping</strong> – a second portion of food.<br><em>Example:</em> He had a second helping of the delicious stew.</li>
+  <li><strong>filling</strong> – making you feel full and satisfied.<br><em>Example:</em> The stew was so filling that I could barely finish my bowl.</li>
+  <li><strong>international cuisine</strong> – food from different countries around the world.<br><em>Example:</em> She wants to try some international cuisine.</li>
+  <li><strong>food poisoning</strong> – illness caused by eating contaminated food.<br><em>Example:</em> She got food poisoning at a Japanese restaurant.</li>
+  <li><strong>light meals</strong> – small, not heavy meals.<br><em>Example:</em> I told her to eat light meals during the day.</li>
+  <li><strong>spoil your appetite</strong> – eat something that makes you not hungry for a later meal.<br><em>Example:</em> Don't snack too much or you'll spoil your appetite for dinner.</li>
+</ol>

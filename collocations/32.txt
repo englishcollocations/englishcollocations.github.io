@@ -1,0 +1,41 @@
+<ol>
+  <li><strong>aroma</strong> – a pleasant, distinctive smell, especially of food or drinks.<br><em>Example:</em> The rich aroma of freshly ground coffee filled the entire café.</li>
+  <li><strong>scent</strong> – a pleasant, often light smell, especially from flowers or perfume.<br><em>Example:</em> The delicate scent of roses drifted through the garden on the warm breeze.</li>
+  <li><strong>fragrance</strong> – a sweet or pleasant smell, often used for perfumes.<br><em>Example:</em> Her elegant fragrance left a subtle trail wherever she walked.</li>
+  <li><strong>wonderful aroma</strong> – an exceptionally pleasant and appealing smell.<br><em>Example:</em> The wonderful aroma of homemade apple pie made everyone hungry.</li>
+  <li><strong>fresh scent</strong> – a clean, natural, and pleasant smell.<br><em>Example:</em> The fresh scent of pine trees filled the mountain air.</li>
+  <li><strong>sweet fragrance</strong> – a pleasant smell with sweet characteristics.<br><em>Example:</em> The sweet fragrance of jasmine bloomed stronger in the evening hours.</li>
+  <li><strong>lovely smell</strong> – a pleasant and attractive odor.<br><em>Example:</em> The lovely smell of vanilla candles created a cozy atmosphere.</li>
+  <li><strong>horrible smell</strong> – a very unpleasant and offensive odor.<br><em>Example:</em> The horrible smell from the garbage truck made everyone cover their noses.</li>
+  <li><strong>It smells delicious</strong> – something has a very appetizing aroma.<br><em>Example:</em> Whatever you're cooking, it smells delicious from here!</li>
+  <li><strong>It smells nasty</strong> – something has a very unpleasant odor.<br><em>Example:</em> This milk has expired; it smells nasty and should be thrown away.</li>
+  <li><strong>stench</strong> – a very strong, unpleasant smell.<br><em>Example:</em> The stench from the landfill was unbearable on hot summer days.</li>
+  <li><strong>stink</strong> – a strong, offensive smell.<br><em>Example:</em> The stink of rotten eggs filled the laboratory after the experiment failed.</li>
+  <li><strong>foul odor</strong> – a disgusting and offensive smell.<br><em>Example:</em> A foul odor emanated from the basement, indicating a serious plumbing problem.</li>
+  <li><strong>revolting stench</strong> – an extremely disgusting and nauseating smell.<br><em>Example:</em> The revolting stench of the swamp made hiking nearly impossible.</li>
+  <li><strong>body odor</strong> – unpleasant smell from a person's body due to poor hygiene.<br><em>Example:</em> Regular bathing and deodorant help prevent embarrassing body odor.</li>
+  <li><strong>light/faint smells</strong> – weak or barely noticeable odors.<br><em>Example:</em> The faint smell of perfume lingered in the room long after she left.</li>
+  <li><strong>strong smells</strong> – powerful, easily noticeable odors.<br><em>Example:</em> Strong smells from the fish market could be detected from blocks away.</li>
+  <li><strong>overpowering smell</strong> – an extremely strong smell that dominates everything else.<br><em>Example:</em> The overpowering smell of cleaning chemicals made her eyes water.</li>
+  <li><strong>familiar smell</strong> – a recognizable odor from past experience.<br><em>Example:</em> The familiar smell of her grandmother's kitchen brought back childhood memories.</li>
+  <li><strong>distinctive smell</strong> – a unique, easily recognizable odor.<br><em>Example:</em> Every bakery has its own distinctive smell that makes it memorable.</li>
+  <li><strong>unmistakable smell</strong> – a smell that is impossible to confuse with anything else.<br><em>Example:</em> The unmistakable smell of fresh bread drew customers to the bakery daily.</li>
+  <li><strong>waft</strong> – (of a smell) to float gently through the air.<br><em>Example:</em> The smell of barbecue began to waft over from the neighbor's backyard.</li>
+  <li><strong>mouth-watering scent</strong> – a smell that makes you want to eat something.<br><em>Example:</em> The mouth-watering scent of grilled steak made everyone's stomach growl.</li>
+  <li><strong>wafted</strong> – past tense of waft; floated gently through the air.<br><em>Example:</em> The aroma of chocolate chip cookies wafted from the kitchen to the living room.</li>
+  <li><strong>acrid smell</strong> – a sharp, bitter, and unpleasant smell that irritates.<br><em>Example:</em> The acrid smell of burning plastic forced everyone to evacuate the building.</li>
+  <li><strong>filled</strong> – (of a smell) to occupy or permeate a space completely.<br><em>Example:</em> The smell of fresh paint filled the entire house for days.</li>
+  <li><strong>spicy aroma</strong> – a warm, pungent smell from spices.<br><em>Example:</em> The spicy aroma of curry made the restaurant instantly recognizable.</li>
+  <li><strong>linger</strong> – (of a smell) to remain in a place for a long time.<br><em>Example:</em> The smell of cigarette smoke tends to linger in fabric and furniture.</li>
+  <li><strong>lingered</strong> – past tense of linger; remained in a place for a long time.<br><em>Example:</em> The fragrance of her perfume lingered in the elevator after she got off.</li>
+  <li><strong>earthy smell</strong> – a smell like soil, dirt, or earth.<br><em>Example:</em> After the rain, there was a pleasant earthy smell in the forest.</li>
+  <li><strong>fishy smell</strong> – a smell like fish, often indicating something suspicious.<br><em>Example:</em> The fishy smell in the refrigerator suggested something had spoiled.</li>
+  <li><strong>fruity smell</strong> – a sweet smell reminiscent of fruit.<br><em>Example:</em> The wine had a fruity smell with hints of berries and citrus.</li>
+  <li><strong>metallic smell</strong> – a smell like metal, often sharp and distinctive.<br><em>Example:</em> The metallic smell of blood made her feel queasy.</li>
+  <li><strong>rancid smell</strong> – a disgusting smell of spoiled fat or oil.<br><em>Example:</em> The rancid smell of old cooking oil filled the abandoned restaurant.</li>
+  <li><strong>putrid smell</strong> – a foul smell of decaying organic matter.<br><em>Example:</em> The putrid smell from the garbage disposal indicated it needed cleaning.</li>
+  <li><strong>damp smell</strong> – a musty smell of moisture and wetness.<br><em>Example:</em> The basement had a persistent damp smell despite the dehumidifier.</li>
+  <li><strong>dank smell</strong> – an unpleasant smell of dampness and mold.<br><em>Example:</em> The old cellar had a dank smell that made everyone uncomfortable.</li>
+  <li><strong>pervasive smell</strong> – a smell that spreads throughout and dominates a space.<br><em>Example:</em> The pervasive smell of paint thinner made working in the studio difficult.</li>
+  <li><strong>pungent smell</strong> – a sharp, strong smell that affects the nose intensely.<br><em>Example:</em> The pungent smell of onions made her eyes tear up while cooking.</li>
+</ol>

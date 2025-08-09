@@ -1,0 +1,24 @@
+<ol>
+  <li><strong>make a decision</strong> – choose between different options or courses of action.<br><em>Example:</em> We need to make a decision about the new marketing strategy by Friday.</li>
+  <li><strong>pros and cons</strong> – advantages and disadvantages of a particular choice.<br><em>Example:</em> Let's list the pros and cons of moving to a new city before deciding.</li>
+  <li><strong>consider all the options</strong> – think about every possible choice available.<br><em>Example:</em> Before choosing a college, she carefully considered all the options available to her.</li>
+  <li><strong>trust your intuition</strong> – rely on instinctive feelings rather than logical analysis.<br><em>Example:</em> Sometimes it's best to trust your intuition when making personal decisions.</li>
+  <li><strong>make a choice</strong> – select one option from several possibilities.<br><em>Example:</em> You need to make a choice between the job offers by Monday.</li>
+  <li><strong>tough decision</strong> – a difficult choice that is hard to make.<br><em>Example:</em> Choosing between the two qualified candidates was a tough decision for the hiring manager.</li>
+  <li><strong>ask for advice</strong> – request guidance or suggestions from someone else.<br><em>Example:</em> I always ask for advice from my mentor when facing important career choices.</li>
+  <li><strong>in-depth</strong> – thorough and detailed in discussion or analysis.<br><em>Example:</em> We had an in-depth conversation about the project's requirements and timeline.</li>
+  <li><strong>take their advice</strong> – follow someone's guidance or suggestions.<br><em>Example:</em> I decided to take my doctor's advice and get more exercise.</li>
+  <li><strong>ignore their advice</strong> – choose not to follow someone's guidance or suggestions.<br><em>Example:</em> He ignored his friends' advice and invested in the risky startup anyway.</li>
+  <li><strong>snap decision</strong> – a quick decision made without much thought or deliberation.<br><em>Example:</em> Buying that expensive watch was a snap decision I later regretted.</li>
+  <li><strong>spur-of-the-moment decision</strong> – a spontaneous choice made without planning.<br><em>Example:</em> Our weekend trip to the beach was a spur-of-the-moment decision.</li>
+  <li><strong>defend your decision</strong> – justify or explain the reasons for your choice.<br><em>Example:</em> The CEO had to defend her decision to restructure the company to angry shareholders.</li>
+  <li><strong>arbitrary decision</strong> – a choice based on random selection rather than reason.<br><em>Example:</em> The judge's ruling seemed like an arbitrary decision with no legal basis.</li>
+  <li><strong>undecided</strong> – not having made a choice yet, still uncertain.<br><em>Example:</em> Many voters remain undecided just weeks before the election.</li>
+  <li><strong>costly mistake</strong> – an error that results in significant negative consequences.<br><em>Example:</em> Not backing up the data proved to be a costly mistake when the server crashed.</li>
+  <li><strong>weighing the possible outcomes</strong> – carefully considering all potential results.<br><em>Example:</em> Before launching the product, we spent weeks weighing the possible outcomes.</li>
+  <li><strong>second thoughts</strong> – doubts or reconsideration about a decision already made.<br><em>Example:</em> After signing the contract, she began having second thoughts about the job offer.</li>
+  <li><strong>keep your options open</strong> – avoid committing to one choice to maintain flexibility.<br><em>Example:</em> He decided to keep his options open and apply to multiple universities.</li>
+  <li><strong>having no choice</strong> – being in a situation with only one possible course of action.<br><em>Example:</em> With the deadline approaching, we had no choice but to work overtime.</li>
+  <li><strong>sound judgment</strong> – the ability to make good, rational decisions.<br><em>Example:</em> Her sound judgment in financial matters helped the company avoid bankruptcy.</li>
+  <li><strong>make wise decisions</strong> – choose courses of action that are intelligent and beneficial.<br><em>Example:</em> Good leaders make wise decisions even under pressure and uncertainty.</li>
+</ol>

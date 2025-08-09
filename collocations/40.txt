@@ -1,0 +1,40 @@
+<ol>
+  <li><strong>cause damage</strong> – result in harm, destruction, or injury.<br><em>Example:</em> The hurricane will cause damage to coastal buildings and infrastructure.</li>
+  <li><strong>cause a problem</strong> – create an issue or difficulty.<br><em>Example:</em> The software bug could cause a problem with the entire system.</li>
+  <li><strong>cause confusion</strong> – create misunderstanding or uncertainty.<br><em>Example:</em> The unclear directions will cause confusion among the participants.</li>
+  <li><strong>cause an uproar</strong> – create a strong negative public reaction.<br><em>Example:</em> The controversial policy decision caused an uproar among voters.</li>
+  <li><strong>cause injury</strong> – result in physical harm to someone.<br><em>Example:</em> Improper lifting techniques can cause injury to your back muscles.</li>
+  <li><strong>cause death</strong> – result in someone dying.<br><em>Example:</em> The disease can cause death if not treated promptly and properly.</li>
+  <li><strong>cause for concern</strong> – a reason to be worried or troubled.<br><em>Example:</em> The declining test scores are cause for concern among educators.</li>
+  <li><strong>cause for alarm</strong> – a reason for urgent worry or fear.<br><em>Example:</em> The sudden increase in crime is cause for alarm in the neighborhood.</li>
+  <li><strong>cause for celebration</strong> – a reason to be happy and celebrate.<br><em>Example:</em> The successful merger was cause for celebration among company employees.</li>
+  <li><strong>main/primary cause</strong> – the most important or principal reason for something.<br><em>Example:</em> Poor communication was identified as the main cause of the project's failure.</li>
+  <li><strong>hidden/underlying causes</strong> – reasons that are not immediately obvious or visible.<br><em>Example:</em> The therapist helped identify hidden causes of the patient's anxiety.</li>
+  <li><strong>root cause</strong> – the fundamental or deepest reason for a problem.<br><em>Example:</em> We need to address the root cause of employee turnover, not just the symptoms.</li>
+  <li><strong>has an effect</strong> – influences or impacts something.<br><em>Example:</em> Regular exercise has a positive effect on mental health and mood.</li>
+  <li><strong>has a strong effect</strong> – significantly influences or impacts something.<br><em>Example:</em> Social media has a strong effect on how teenagers view themselves.</li>
+  <li><strong>significant impact</strong> – an important or meaningful influence.<br><em>Example:</em> The new technology will have a significant impact on manufacturing efficiency.</li>
+  <li><strong>profound impact</strong> – a deep, far-reaching influence.<br><em>Example:</em> The pandemic had a profound impact on global economic systems.</li>
+  <li><strong>short-term effects</strong> – consequences that occur quickly and don't last long.<br><em>Example:</em> The medication may have short-term effects like drowsiness and nausea.</li>
+  <li><strong>long-term effects</strong> – consequences that develop slowly and last for extended periods.<br><em>Example:</em> Smoking can have serious long-term effects on respiratory health.</li>
+  <li><strong>visible effects</strong> – consequences that can be clearly seen or observed.<br><em>Example:</em> The drought's visible effects include dried lakes and withered crops.</li>
+  <li><strong>subtle effects</strong> – consequences that are not immediately obvious or noticeable.<br><em>Example:</em> Air pollution has subtle effects on cognitive function that develop gradually.</li>
+  <li><strong>powerful effect</strong> – a very strong or intense influence.<br><em>Example:</em> Music therapy can have a powerful effect on patients' emotional well-being.</li>
+  <li><strong>minimal/negligible effect</strong> – very little or almost no influence.<br><em>Example:</em> The new policy had a negligible effect on employee satisfaction levels.</li>
+  <li><strong>beneficial effect</strong> – a positive or helpful influence.<br><em>Example:</em> Regular meditation has a beneficial effect on stress reduction and focus.</li>
+  <li><strong>adverse effect</strong> – a negative or harmful influence.<br><em>Example:</em> The medication may have adverse effects on liver function.</li>
+  <li><strong>main effect</strong> – the primary or most important consequence.<br><em>Example:</em> The main effect of the treatment is reduced inflammation and pain.</li>
+  <li><strong>side effect</strong> – an additional or secondary consequence, often unintended.<br><em>Example:</em> A common side effect of this antihistamine is drowsiness.</li>
+  <li><strong>have/produce results</strong> – generate outcomes or consequences.<br><em>Example:</em> The marketing campaign should produce results within the next quarter.</li>
+  <li><strong>preliminary results</strong> – early or initial findings before final analysis.<br><em>Example:</em> The preliminary results of the study look promising for future research.</li>
+  <li><strong>final results</strong> – conclusive outcomes after complete analysis.<br><em>Example:</em> The final results of the election won't be announced until tomorrow.</li>
+  <li><strong>concrete/tangible results</strong> – outcomes that are clearly measurable and verifiable.<br><em>Example:</em> The training program delivered concrete results in improved productivity.</li>
+  <li><strong>inevitable result</strong> – an outcome that cannot be avoided or prevented.<br><em>Example:</em> Poor maintenance was the inevitable result of budget cuts.</li>
+  <li><strong>direct results</strong> – outcomes that are immediately and clearly connected to a cause.<br><em>Example:</em> Increased sales were the direct result of the new advertising campaign.</li>
+  <li><strong>indirect results</strong> – outcomes that are connected to a cause through intermediate steps.<br><em>Example:</em> Better employee morale was an indirect result of the improved workspace design.</li>
+  <li><strong>desired result</strong> – the outcome that is wanted or intended.<br><em>Example:</em> The therapy achieved the desired result of reducing chronic pain symptoms.</li>
+  <li><strong>outcome</strong> – the final result or consequence of a situation or process.<br><em>Example:</em> The outcome of the negotiation was favorable for both parties.</li>
+  <li><strong>likely/probable outcome</strong> – a result that is expected to happen based on evidence.<br><em>Example:</em> Given the current trends, economic recovery is the likely outcome.</li>
+  <li><strong>logical outcome</strong> – a result that makes sense based on the circumstances.<br><em>Example:</em> Improved customer service was the logical outcome of the staff training program.</li>
+  <li><strong>unexpected outcome</strong> – a result that was not predicted or anticipated.<br><em>Example:</em> The merger's unexpected outcome was increased innovation between the companies.</li>
+</ol>

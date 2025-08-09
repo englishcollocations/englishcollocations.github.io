@@ -1,0 +1,24 @@
+<ol>
+  <li><strong>business trip</strong> – travel for work-related purposes.<br><em>Example:</em> She goes on a business trip to New York every quarter.</li>
+  <li><strong>travel agency</strong> – a company that arranges trips and vacations for customers.<br><em>Example:</em> The travel agency helped us plan our honeymoon itinerary.</li>
+  <li><strong>booking my flight</strong> – reserving and purchasing airplane tickets.<br><em>Example:</em> I'm booking my flight early to get the best price.</li>
+  <li><strong>hotel reservation</strong> – arranging accommodation at a hotel in advance.<br><em>Example:</em> Make sure to confirm your hotel reservation before traveling.</li>
+  <li><strong>make the travel arrangements</strong> – organize all aspects of a trip.<br><em>Example:</em> My assistant will make the travel arrangements for the conference.</li>
+  <li><strong>overbooked</strong> – having sold more tickets than available seats.<br><em>Example:</em> The flight was overbooked, so they offered compensation for volunteers.</li>
+  <li><strong>bumped to a later flight</strong> – moved to a different flight due to overbooking.<br><em>Example:</em> We were bumped to a later flight and missed our connection.</li>
+  <li><strong>boarding pass</strong> – the ticket that allows you to enter the airplane.<br><em>Example:</em> Please have your boarding pass ready when approaching the gate.</li>
+  <li><strong>window seat</strong> – an airplane seat next to the window.<br><em>Example:</em> I always request a window seat to enjoy the view during takeoff.</li>
+  <li><strong>aisle seat</strong> – an airplane seat next to the corridor.<br><em>Example:</em> He prefers an aisle seat because it's easier to get up and move around.</li>
+  <li><strong>bumpy flight</strong> – a flight with a lot of turbulence and movement.<br><em>Example:</em> The bumpy flight made several passengers feel nauseous.</li>
+  <li><strong>missed my connecting flight</strong> – failed to catch the next scheduled flight.<br><em>Example:</em> Due to delays, I missed my connecting flight to Paris.</li>
+  <li><strong>layover</strong> – a waiting period between flights during a journey.<br><em>Example:</em> We have a two-hour layover in Amsterdam before continuing to Rome.</li>
+  <li><strong>checked luggage</strong> – bags placed in the airplane's cargo compartment.<br><em>Example:</em> Make sure not to pack valuables in your checked luggage.</li>
+  <li><strong>carry-on bag</strong> – luggage taken into the airplane cabin.<br><em>Example:</em> Your carry-on bag must fit in the overhead compartment.</li>
+  <li><strong>checked into a hotel</strong> – registered and received room keys at accommodation.<br><em>Example:</em> After checking into a hotel, we immediately went to explore the city.</li>
+  <li><strong>five-star hotel</strong> – a luxury hotel with the highest rating.<br><em>Example:</em> The five-star hotel offered exceptional service and amenities.</li>
+  <li><strong>seedy hotel</strong> – an unsafe, uncomfortable, or disreputable accommodation.<br><em>Example:</em> We accidentally booked a seedy hotel in a questionable part of town.</li>
+  <li><strong>red-light district</strong> – an area with adult entertainment establishments.<br><em>Example:</em> Tourists should be cautious when walking through the red-light district at night.</li>
+  <li><strong>dingy room</strong> – a dirty, dark, and unpleasant accommodation.<br><em>Example:</em> The dingy room had stained carpets and broken furniture.</li>
+  <li><strong>luxury hotel</strong> – high-end accommodation with premium services.<br><em>Example:</em> The luxury hotel featured a spa, fine dining, and concierge service.</li>
+  <li><strong>lost my luggage</strong> – had bags misplaced or not delivered by the airline.<br><em>Example:</em> The airline lost my luggage, so I had to buy new clothes for the wedding.</li>
+</ol>

@@ -1,0 +1,26 @@
+<ol>
+  <li><strong>started studying</strong> – began learning about a subject.<br><em>Example:</em> I started studying Spanish when I moved to Mexico last year.</li>
+  <li><strong>began studying</strong> – commenced learning about a subject (more formal).<br><em>Example:</em> She began studying medicine at Harvard University in 2020.</li>
+  <li><strong>let's get started</strong> – informal phrase to begin an activity.<br><em>Example:</em> Everyone's here now, so let's get started with the meeting.</li>
+  <li><strong>got off to a good start</strong> – began well or positively.<br><em>Example:</em> The new restaurant got off to a good start with excellent reviews.</li>
+  <li><strong>encouraging start</strong> – a beginning that gives hope for future success.<br><em>Example:</em> The project had an encouraging start with strong support from management.</li>
+  <li><strong>promising start</strong> – a beginning that shows potential for good results.<br><em>Example:</em> The young athlete's career got off to a promising start with several victories.</li>
+  <li><strong>shaky start</strong> – an uncertain or unstable beginning.<br><em>Example:</em> The company had a shaky start, but eventually became profitable.</li>
+  <li><strong>unsteady start</strong> – a beginning marked by inconsistency or uncertainty.<br><em>Example:</em> The team had an unsteady start to the season with mixed results.</li>
+  <li><strong>disappointing start</strong> – a beginning that doesn't meet expectations.<br><em>Example:</em> The film had a disappointing start at the box office despite heavy promotion.</li>
+  <li><strong>disastrous start</strong> – a beginning that goes very badly.<br><em>Example:</em> The product launch had a disastrous start due to technical problems.</li>
+  <li><strong>fresh start</strong> – a new beginning, often after problems or failure.<br><em>Example:</em> After the divorce, she moved to a new city for a fresh start.</li>
+  <li><strong>new beginning</strong> – a chance to start over or start something new.<br><em>Example:</em> Graduating from college marked a new beginning in his professional life.</li>
+  <li><strong>humble/modest beginning</strong> – starting from a simple or unpretentious position.<br><em>Example:</em> The tech giant had humble beginnings in a garage workshop.</li>
+  <li><strong>finish</strong> – complete or bring something to completion.<br><em>Example:</em> I need to finish this report before the deadline tomorrow.</li>
+  <li><strong>end</strong> – come to a conclusion or terminate.<br><em>Example:</em> The concert will end at 10 PM, so plan accordingly.</li>
+  <li><strong>finished</strong> – completed or brought to completion.<br><em>Example:</em> She finished her degree in three years instead of the usual four.</li>
+  <li><strong>ends</strong> – comes to a conclusion or terminates.<br><em>Example:</em> The school year ends in June, and summer vacation begins.</li>
+  <li><strong>ended</strong> – brought to a conclusion or terminated.<br><em>Example:</em> They ended their friendship after a serious disagreement.</li>
+  <li><strong>put the finishing touches</strong> – add final details to complete something.<br><em>Example:</em> The decorator is putting the finishing touches on the living room design.</li>
+  <li><strong>come to an end</strong> – reach a conclusion or stop.<br><em>Example:</em> After 20 years, his career as a professional athlete came to an end.</li>
+  <li><strong>draw to a close</strong> – gradually approach an ending.<br><em>Example:</em> As the summer draws to a close, students prepare for the new school year.</li>
+  <li><strong>the beginning of the end</strong> – the start of a process that will lead to failure or conclusion.<br><em>Example:</em> The CEO's resignation was the beginning of the end for the struggling company.</li>
+  <li><strong>comes to an abrupt/sudden end</strong> – stops quickly and unexpectedly.<br><em>Example:</em> The party came to a sudden end when the police arrived.</li>
+  <li><strong>no end in sight</strong> – appears it will continue indefinitely.<br><em>Example:</em> The traffic jam stretched for miles with no end in sight.</li>
+</ol>

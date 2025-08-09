@@ -1,0 +1,34 @@
+<ol>
+  <li><strong>war has broken out</strong> – conflict has suddenly started between nations or groups.<br><em>Example:</em> War has broken out between the neighboring countries over territorial disputes.</li>
+  <li><strong>violence has erupted</strong> – sudden outbreak of fighting or conflict.<br><em>Example:</em> Violence has erupted in the capital city following the controversial election.</li>
+  <li><strong>declared war</strong> – officially announced the beginning of hostilities.<br><em>Example:</em> The country declared war after diplomatic negotiations failed completely.</li>
+  <li><strong>pre-emptive strike</strong> – an attack made to prevent an anticipated enemy action.<br><em>Example:</em> The military launched a pre-emptive strike against suspected weapon sites.</li>
+  <li><strong>stockpiling weapons</strong> – accumulating and storing large quantities of arms.<br><em>Example:</em> Intelligence reports suggest the regime is stockpiling weapons near the border.</li>
+  <li><strong>unprovoked attack</strong> – an assault without justification or prior aggression.<br><em>Example:</em> The unprovoked attack on civilians shocked the international community.</li>
+  <li><strong>on the brink of war</strong> – very close to starting a military conflict.<br><em>Example:</em> The two nations are on the brink of war despite peace talks.</li>
+  <li><strong>sending in the military</strong> – deploying armed forces to a conflict area.<br><em>Example:</em> The government is considering sending in the military to restore order.</li>
+  <li><strong>deploying troops</strong> – positioning soldiers in specific locations for military operations.<br><em>Example:</em> The coalition is deploying troops to secure the humanitarian corridor.</li>
+  <li><strong>stationed</strong> / <strong>posted</strong> – assigned to remain in a particular location.<br><em>Example:</em> Soldiers are stationed at checkpoints throughout the disputed territory.</li>
+  <li><strong>launch an offensive</strong> – begin a coordinated military attack.<br><em>Example:</em> The army will launch an offensive at dawn to retake the city.</li>
+  <li><strong>storm enemy territory</strong> – attack and rapidly advance into opponent's land.<br><em>Example:</em> Special forces will storm enemy territory under cover of darkness.</li>
+  <li><strong>invade enemy territory</strong> – enter and occupy an opponent's land by force.<br><em>Example:</em> The decision to invade enemy territory was made after months of planning.</li>
+  <li><strong>opened fire</strong> – began shooting weapons at targets.<br><em>Example:</em> Soldiers opened fire when they spotted movement in the abandoned building.</li>
+  <li><strong>horrors of war</strong> – the terrible and traumatic aspects of armed conflict.<br><em>Example:</em> The documentary exposed viewers to the horrors of war in graphic detail.</li>
+  <li><strong>caught in the crossfire</strong> – trapped between opposing forces during fighting.<br><em>Example:</em> Innocent families were caught in the crossfire during the urban battle.</li>
+  <li><strong>civilian casualties</strong> – non-military people injured or killed during conflict.<br><em>Example:</em> The bombing resulted in significant civilian casualties despite precision targeting.</li>
+  <li><strong>collateral damage</strong> – unintended destruction or harm during military operations.<br><em>Example:</em> The hospital was destroyed as collateral damage during the air strike.</li>
+  <li><strong>refugees displaced by the violence</strong> – people forced to leave their homes due to conflict.<br><em>Example:</em> Thousands of refugees displaced by the violence are seeking shelter in camps.</li>
+  <li><strong>resettle</strong> – establish a new permanent home in a different location.<br><em>Example:</em> The government program helps war victims resettle in peaceful regions.</li>
+  <li><strong>flee to another country</strong> – escape to a different nation for safety.<br><em>Example:</em> Many families chose to flee to another country rather than face persecution.</li>
+  <li><strong>decisive battle</strong> – a crucial fight that determines the outcome of a conflict.<br><em>Example:</em> The decisive battle turned the tide of the war in favor of the rebels.</li>
+  <li><strong>intervenes</strong> – becomes involved in a conflict to influence the outcome.<br><em>Example:</em> The UN often intervenes in conflicts to prevent humanitarian disasters.</li>
+  <li><strong>negotiate a truce</strong> – discuss and arrange a temporary cessation of fighting.<br><em>Example:</em> Diplomats worked tirelessly to negotiate a truce between the warring factions.</li>
+  <li><strong>ceasefire</strong> – an agreement to stop fighting temporarily.<br><em>Example:</em> Both sides agreed to a ceasefire to allow humanitarian aid delivery.</li>
+  <li><strong>restore peace</strong> – bring back peaceful conditions after conflict.<br><em>Example:</em> International efforts to restore peace in the region have shown promising results.</li>
+  <li><strong>fragile peace</strong> – a delicate, easily broken state of non-conflict.<br><em>Example:</em> The fragile peace could collapse if tensions continue to escalate.</li>
+  <li><strong>uneasy peace</strong> – a tense, uncomfortable state of non-conflict.<br><em>Example:</em> An uneasy peace exists between the communities despite recent agreements.</li>
+  <li><strong>bring stability</strong> – establish secure, predictable conditions.<br><em>Example:</em> Economic development programs aim to bring stability to post-conflict areas.</li>
+  <li><strong>establish a lasting peace</strong> – create a permanent, durable end to conflict.<br><em>Example:</em> The peace accord hopes to establish a lasting peace for future generations.</li>
+  <li><strong>peacekeeping forces</strong> – military personnel deployed to maintain peace agreements.<br><em>Example:</em> Peacekeeping forces monitor the ceasefire and protect civilian populations.</li>
+  <li><strong>avert war</strong> – prevent armed conflict from occurring.<br><em>Example:</em> Diplomatic negotiations successfully managed to avert war between the nations.</li>
+</ol>

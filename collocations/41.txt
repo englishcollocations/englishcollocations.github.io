@@ -1,0 +1,17 @@
+<ol>
+  <li><strong>earliest memory</strong> – the first thing you can remember from your childhood.<br><em>Example:</em> My earliest memory is of playing in my grandmother's garden when I was three.</li>
+  <li><strong>vaguely remember</strong> – recall something with limited detail or clarity.<br><em>Example:</em> I vaguely remember meeting him at a party years ago, but can't recall his name.</li>
+  <li><strong>distinctly remember</strong> – recall something clearly and with specific details.<br><em>Example:</em> I distinctly remember the smell of fresh bread in my mother's kitchen.</li>
+  <li><strong>come flooding back</strong> – memories return suddenly and in large numbers.<br><em>Example:</em> When I heard that song, childhood memories came flooding back instantly.</li>
+  <li><strong>completely forgotten</strong> – no longer able to remember something at all.<br><em>Example:</em> I had completely forgotten about our high school reunion until you mentioned it.</li>
+  <li><strong>refresh my memory</strong> – remind someone of something they had forgotten.<br><em>Example:</em> Could you refresh my memory about what we discussed in yesterday's meeting?</li>
+  <li><strong>bring back fond memories</strong> – cause pleasant recollections to return.<br><em>Example:</em> Looking at old photo albums always brings back fond memories of family vacations.</li>
+  <li><strong>unforgettable experience</strong> – something so memorable it will never be forgotten.<br><em>Example:</em> Seeing the Northern Lights was an unforgettable experience that changed my perspective.</li>
+  <li><strong>traumatic memory</strong> – a recollection of a deeply distressing or disturbing event.<br><em>Example:</em> The traumatic memory of the accident still affects her driving confidence.</li>
+  <li><strong>haunts me</strong> – a disturbing memory that continues to trouble someone.<br><em>Example:</em> The image of the devastated town still haunts me years later.</li>
+  <li><strong>serves as a sobering reminder</strong> – acts as a serious warning or reality check.<br><em>Example:</em> The empty chair serves as a sobering reminder of our colleague's untimely death.</li>
+  <li><strong>terrible memory for peoples' names</strong> – very poor ability to remember what people are called.<br><em>Example:</em> I have a terrible memory for peoples' names, which makes networking events challenging.</li>
+  <li><strong>mind went blank</strong> – suddenly unable to think or remember anything.<br><em>Example:</em> During the presentation, my mind went blank and I forgot everything I planned to say.</li>
+  <li><strong>racked my brain</strong> – tried very hard to remember or think of something.<br><em>Example:</em> I racked my brain trying to remember where I put my car keys this morning.</li>
+  <li><strong>came to mind</strong> – thought of something or remembered something.<br><em>Example:</em> When she mentioned Paris, the first thing that came to mind was the Eiffel Tower.</li>
+</ol>

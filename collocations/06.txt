@@ -1,0 +1,25 @@
+<ol>
+  <li><strong>short-term rental</strong> – a place to live that can be rented for a short period of time.<br><em>Example:</em> I looked for a short-term rental instead of staying in a hotel.</li>
+  <li><strong>two-bedroom apartment</strong> – an apartment with two bedrooms, a living room, and a kitchen.<br><em>Example:</em> I ended up sharing a two-bedroom apartment with some friends.</li>
+  <li><strong>studio apartment</strong> – an apartment with only one big room.<br><em>Example:</em> It was cheaper than renting a studio apartment all by myself.</li>
+  <li><strong>top floor</strong> – the highest floor of a building.<br><em>Example:</em> The apartment was on the top floor of a five-story building.</li>
+  <li><strong>five-story building</strong> – a building with five floors.<br><em>Example:</em> It was a five-story building overlooking the ocean.</li>
+  <li><strong>balcony overlooking</strong> – a balcony from which you can see something.<br><em>Example:</em> It had a balcony overlooking the ocean.</li>
+  <li><strong>city skyline</strong> – the outline of buildings in a city as seen from a distance.<br><em>Example:</em> From the roof, we had a nice view of the city skyline.</li>
+  <li><strong>recently remodeled</strong> – fixed up and improved not long ago.<br><em>Example:</em> The apartment had recently been remodeled.</li>
+  <li><strong>recently renovated</strong> – restored and improved not long ago.<br><em>Example:</em> The place had recently been renovated.</li>
+  <li><strong>fully furnished</strong> – having all necessary furniture and equipment.<br><em>Example:</em> The apartment was fully furnished with beds and tables.</li>
+  <li><strong>spacious living room</strong> – a large living room.<br><em>Example:</em> We loved the spacious living room.</li>
+  <li><strong>rather cramped</strong> – small and uncomfortable.<br><em>Example:</em> Unfortunately the bedrooms were rather cramped.</li>
+  <li><strong>feel homesick</strong> – feel sad because you miss your life at home.<br><em>Example:</em> By the end of the trip I started to feel homesick.</li>
+  <li><strong>place of my own</strong> – my own house or apartment.<br><em>Example:</em> I'd really like to have a place of my own.</li>
+  <li><strong>throwing away money</strong> – wasting money.<br><em>Example:</em> I'm not throwing away money on rent every month.</li>
+  <li><strong>affordable housing</strong> – houses or apartments that are reasonably priced.<br><em>Example:</em> There's a real shortage of affordable housing in my city.</li>
+  <li><strong>upscale neighborhoods</strong> – areas where rich people live.<br><em>Example:</em> Even if I stay away from the upscale neighborhoods.</li>
+  <li><strong>take out a mortgage</strong> – borrow money from the bank to buy a house.<br><em>Example:</em> I'd still have to take out a mortgage.</li>
+  <li><strong>pay it off</strong> – finish paying all the money owed.<br><em>Example:</em> It'll take me more than 30 years to pay it off.</li>
+  <li><strong>saving up for</strong> – gradually collecting money for a future purchase.<br><em>Example:</em> I'm gonna start saving up for a down payment.</li>
+  <li><strong>down payment</strong> – an initial payment on a big purchase.<br><em>Example:</em> I need to save for a down payment on a house.</li>
+  <li><strong>move into</strong> – start living in a new place.<br><em>Example:</em> Someday, when I do move into a new place.</li>
+  <li><strong>housewarming party</strong> – a party to celebrate living in a new house or apartment.<br><em>Example:</em> I'll be sure to throw a housewarming party.</li>
+</ol>

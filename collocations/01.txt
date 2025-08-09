@@ -1,0 +1,41 @@
+<ol>
+  <li><strong>immediate family</strong> – your closest family members: parents, brothers, and sisters.<br><em>Example:</em> My immediate family is small – just my parents and my sister.</li>
+  <li><strong>extended family</strong> – all your relatives beyond the immediate family.<br><em>Example:</em> We’re having a big party with all our extended family this weekend.</li>
+  <li><strong>family tree</strong> – a diagram showing family relationships.<br><em>Example:</em> I made a family tree for a school project.</li>
+  <li><strong>family members</strong> – people who belong to your family.<br><em>Example:</em> All family members should attend the meeting.</li>
+  <li><strong>distant relative</strong> – a person related to you but not closely.<br><em>Example:</em> He’s a distant relative – my mother’s cousin’s son.</li>
+
+  <li><strong>loving family</strong> – a family with affection and care for each other.<br><em>Example:</em> I was lucky to grow up in a loving family.</li>
+  <li><strong>close-knit family</strong> – a family with strong relationships and support.<br><em>Example:</em> We’re a close-knit family; we always support each other.</li>
+  <li><strong>carefree childhood</strong> – a childhood without worries or problems.<br><em>Example:</em> Thanks to my parents, I had a carefree childhood.</li>
+
+  <li><strong>dysfunctional family</strong> – a family with unhealthy or poor relationships.<br><em>Example:</em> She grew up in a dysfunctional family with constant arguments.</li>
+  <li><strong>troubled childhood</strong> – a childhood full of problems such as poverty or abuse.<br><em>Example:</em> His troubled childhood affected his behavior later in life.</li>
+  <li><strong>bitter divorce</strong> – a divorce with bad or angry feelings.<br><em>Example:</em> Their bitter divorce made the children suffer.</li>
+  <li><strong>messy divorce</strong> – a divorce full of conflicts and complications.<br><em>Example:</em> It was a messy divorce, with years of legal disputes.</li>
+  <li><strong>prolonged legal battle</strong> – a long-lasting legal conflict.<br><em>Example:</em> The couple was involved in a prolonged legal battle over their house.</li>
+  <li><strong>divorce settlement</strong> – the legal agreement dividing assets after divorce.<br><em>Example:</em> In the divorce settlement, she got the house and the car.</li>
+  <li><strong>broken home</strong> – a family where the parents are separated or divorced.<br><em>Example:</em> He comes from a broken home, but he’s doing well now.</li>
+
+  <li><strong>fight over custody</strong> – argue about who takes care of the children.<br><em>Example:</em> They are fighting over custody of their children.</li>
+  <li><strong>grant joint custody</strong> – give both parents shared responsibility for the children.<br><em>Example:</em> The judge granted joint custody to both parents.</li>
+  <li><strong>sole custody</strong> – only one parent has legal responsibility for the children.<br><em>Example:</em> She has sole custody of her son.</li>
+  <li><strong>award sole custody</strong> – give legal responsibility to just one parent.<br><em>Example:</em> The court awarded sole custody to the father.</li>
+  <li><strong>child support</strong> – regular payments from one parent to help with child expenses.<br><em>Example:</em> He pays child support every month.</li>
+
+  <li><strong>mutual divorce</strong> – a divorce where both agree to separate peacefully.<br><em>Example:</em> They had a mutual divorce and remain friends.</li>
+  <li><strong>stay on good terms</strong> – maintain a polite and friendly relationship.<br><em>Example:</em> Even after the breakup, they stayed on good terms.</li>
+
+  <li><strong>single mother</strong> – a woman raising a child without a partner.<br><em>Example:</em> She became a single mother at the age of 22.</li>
+  <li><strong>get pregnant</strong> – to become pregnant.<br><em>Example:</em> She got pregnant last year.</li>
+  <li><strong>due date</strong> – the expected date of the baby’s birth.<br><em>Example:</em> Her due date is next month.</li>
+  <li><strong>baby is due</strong> – the baby is expected to be born.<br><em>Example:</em> The baby is due in July.</li>
+  <li><strong>give birth (to the baby)</strong> – to have a baby.<br><em>Example:</em> She gave birth to a healthy baby boy.</li>
+
+  <li><strong>give the baby up for adoption</strong> – allow someone else to adopt your baby.<br><em>Example:</em> She decided to give the baby up for adoption.</li>
+  <li><strong>adoptive parents</strong> – parents who adopt a child.<br><em>Example:</em> The adoptive parents were very happy to meet the baby.</li>
+  <li><strong>raise the child</strong> – bring up a child.<br><em>Example:</em> They raised the child as their own.</li>
+  <li><strong>bring up the child</strong> – care for and educate a child.<br><em>Example:</em> She brought up the child with love and care.</li>
+  <li><strong>birth mother</strong> – the woman who gave birth to the child.<br><em>Example:</em> He tried to find his birth mother.</li>
+  <li><strong>biological mother</strong> – the woman who is the genetic mother of the child.<br><em>Example:</em> She met her biological mother for the first time.</li>
+</ol>

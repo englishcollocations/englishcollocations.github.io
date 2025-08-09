@@ -1,0 +1,24 @@
+<ol>
+  <li><strong>make friends</strong> – to begin a friendship with someone.<br><em>Example:</em> It can be hard to make friends when you move to a new city.</li>
+  <li><strong>casual acquaintances</strong> – people you know slightly but are not close to.<br><em>Example:</em> I have a few casual acquaintances at the gym.</li>
+  <li><strong>good friends</strong> – friends with a strong and close relationship.<br><em>Example:</em> We’ve been good friends since high school.</li>
+  <li><strong>close friends</strong> – friends you share a deep and trusted relationship with.<br><em>Example:</em> She is one of my closest friends.</li>
+  <li><strong>love at first sight</strong> – falling in love immediately upon meeting someone.<br><em>Example:</em> They met on vacation and it was love at first sight.</li>
+  <li><strong>strong chemistry</strong> – a powerful attraction or connection between people.<br><em>Example:</em> The actors had strong chemistry on screen.</li>
+  <li><strong>significant other</strong> – your romantic partner, such as a boyfriend, girlfriend, or spouse.<br><em>Example:</em> She came to the party with her significant other.</li>
+  <li><strong>soul mate</strong> – a person who is perfectly suited to another in temperament and destiny.<br><em>Example:</em> They believe they are soul mates.</li>
+  <li><strong>have feelings for</strong> – to have romantic emotions toward someone.<br><em>Example:</em> He has feelings for his coworker.</li>
+  <li><strong>the feeling is not mutual</strong> – the other person does not feel the same way.<br><em>Example:</em> I liked her, but unfortunately the feeling was not mutual.</li>
+  <li><strong>not my type</strong> – not the kind of person you are romantically attracted to.<br><em>Example:</em> He’s nice, but he’s just not my type.</li>
+  <li><strong>unrequited love</strong> – love that is not returned by the other person.<br><em>Example:</em> The poem was about his unrequited love.</li>
+  <li><strong>childhood sweetheart</strong> – a boyfriend or girlfriend from childhood years.<br><em>Example:</em> He married his childhood sweetheart.</li>
+  <li><strong>high school sweetheart</strong> – a romantic partner from high school years.<br><em>Example:</em> They were high school sweethearts who reunited years later.</li>
+  <li><strong>college sweetheart</strong> – a romantic partner from college years.<br><em>Example:</em> She married her college sweetheart.</li>
+  <li><strong>mutual friend</strong> – a friend that two people have in common.<br><em>Example:</em> They met through a mutual friend.</li>
+  <li><strong>make a commitment</strong> – to agree to a serious relationship or marriage.<br><em>Example:</em> They decided to make a commitment after two years of dating.</li>
+  <li><strong>propose to</strong> – to ask someone to marry you.<br><em>Example:</em> He proposed to her on the beach.</li>
+  <li><strong>happily married</strong> – having a good and satisfying marriage.<br><em>Example:</em> They’ve been happily married for 20 years.</li>
+  <li><strong>happy ending</strong> – a positive conclusion, often in a romantic story.<br><em>Example:</em> Their love story had a happy ending.</li>
+  <li><strong>have an affair</strong> – to have a romantic or sexual relationship outside of marriage.<br><em>Example:</em> She divorced him after he had an affair.</li>
+  <li><strong>cheating on</strong> – being unfaithful to a romantic partner.<br><em>Example:</em> He admitted to cheating on his girlfriend.</li>
+</ol>

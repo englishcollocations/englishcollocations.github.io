@@ -1,0 +1,30 @@
+<ol>
+  <li><strong>movie trailer</strong> – a short video offering a preview of the movie.<br><em>Example:</em> When he sees a movie trailer, he gets excited about the film.</li>
+  <li><strong>comes out</strong> – is released to the public.<br><em>Example:</em> He counts down the days until the movie comes out.</li>
+  <li><strong>opening night</strong> – the first day a movie, show, or performance is open to the public.<br><em>Example:</em> He always goes to the movie theater on opening night.</li>
+  <li><strong>film critics' reviews</strong> – evaluations by people whose job is to analyze movies.<br><em>Example:</em> He loves to read film critics' reviews before choosing a movie.</li>
+  <li><strong>nominated for an award</strong> – selected as a candidate for a prize.<br><em>Example:</em> The movie was nominated for an award at the film festival.</li>
+  <li><strong>movie stars</strong> – famous actors and actresses.<br><em>Example:</em> One of his favorite movie stars is in the new film.</li>
+  <li><strong>starring in</strong> – playing a main role in a movie or show.<br><em>Example:</em> She is starring in an upcoming romantic comedy.</li>
+  <li><strong>upcoming film</strong> – a movie that will be released soon.<br><em>Example:</em> The upcoming film is generating a lot of excitement.</li>
+  <li><strong>based on a true story</strong> – inspired by real events.<br><em>Example:</em> The movie is based on a true story about World War II.</li>
+  <li><strong>shooting the film</strong> – recording or filming the movie.<br><em>Example:</em> They are shooting the film in various locations around the city.</li>
+  <li><strong>on-site</strong> – at the actual location where events took place.<br><em>Example:</em> They're filming on-site in Vietnam for authenticity.</li>
+  <li><strong>leading role</strong> – the most important part in a movie.<br><em>Example:</em> He was offered the leading role in the new thriller.</li>
+  <li><strong>box-office hit</strong> – a movie that is very financially successful.<br><em>Example:</em> The superhero movie was a massive box-office hit.</li>
+  <li><strong>turn it down</strong> – refuse an offer or opportunity.<br><em>Example:</em> He couldn't turn down such an amazing role.</li>
+  <li><strong>engrossed in a book</strong> – completely absorbed or fascinated by reading.<br><em>Example:</em> I'm currently engrossed in a mystery novel.</li>
+  <li><strong>main character</strong> – the most important person in a book or story.<br><em>Example:</em> The main character faces many challenges throughout the story.</li>
+  <li><strong>collection of books</strong> – a group of books that someone owns.<br><em>Example:</em> She has an impressive collection of classic literature.</li>
+  <li><strong>borrow books from the library</strong> – take books temporarily from a public library.<br><em>Example:</em> I prefer to borrow books from the library rather than buy them.</li>
+  <li><strong>took out</strong> – borrowed from the library.<br><em>Example:</em> I took out three books from the library yesterday.</li>
+  <li><strong>deals with</strong> – focuses on or discusses a particular topic.<br><em>Example:</em> The book deals with important social issues.</li>
+  <li><strong>controversial topic</strong> – a subject that causes disagreement or debate.<br><em>Example:</em> Climate change can be a controversial topic in some circles.</li>
+  <li><strong>enjoyable read</strong> – a book that is pleasant and interesting to read.<br><em>Example:</em> Despite being educational, it was an enjoyable read.</li>
+  <li><strong>finish it</strong> – complete reading the book.<br><em>Example:</em> I hope to finish it before the weekend.</li>
+  <li><strong>return the book</strong> – give the book back to the library.<br><em>Example:</em> I need to return the book by next Tuesday.</li>
+  <li><strong>renew it</strong> – extend the borrowing period.<br><em>Example:</em> I'll renew it for another week to finish reading.</li>
+  <li><strong>beginning and end</strong> – the start and conclusion of a story.<br><em>Example:</em> The beginning and end of the novel were equally powerful.</li>
+  <li><strong>opening and closing scenes</strong> – the first and last scenes in a movie.<br><em>Example:</em> The opening and closing scenes were beautifully filmed.</li>
+  <li><strong>opening and closing chapters</strong> – the first and last chapters in a book.<br><em>Example:</em> The opening and closing chapters tied the story together perfectly.</li>
+</ol>

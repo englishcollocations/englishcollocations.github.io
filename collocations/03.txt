@@ -1,0 +1,30 @@
+<ol>
+  <li><strong>absolutely gorgeous</strong> – extremely beautiful.<br><em>Example:</em> She looked absolutely gorgeous in her wedding dress.</li>
+  <li><strong>sleek</strong> – smooth and straight (usually hair).<br><em>Example:</em> Her sleek hair shone in the sunlight.</li>
+  <li><strong>jet-black hair</strong> – perfectly black hair.<br><em>Example:</em> He has jet-black hair that contrasts with his pale skin.</li>
+  <li><strong>pale blue eyes</strong> – light-colored blue eyes.<br><em>Example:</em> The child had pale blue eyes like her mother.</li>
+  <li><strong>radiant complexion</strong> – healthy, glowing skin.<br><em>Example:</em> She always has a radiant complexion thanks to her skincare routine.</li>
+
+  <li><strong>hourglass figure</strong> – body shape with large breasts and hips, but a small waist.<br><em>Example:</em> The model had an hourglass figure that everyone admired.</li>
+  <li><strong>slender waist</strong> – a thin waist.<br><em>Example:</em> She maintains her slender waist through regular exercise.</li>
+  <li><strong>round face</strong> – a face shape that is circular.<br><em>Example:</em> He has a round face with soft features.</li>
+  <li><strong>upturned nose</strong> – a nose that is slightly turned upward at the tip.<br><em>Example:</em> Her upturned nose gave her a cute look.</li>
+  <li><strong>bears a striking resemblance</strong> – looks extremely similar to someone.<br><em>Example:</em> He bears a striking resemblance to his father.</li>
+
+  <li><strong>hideously ugly</strong> – extremely unattractive.<br><em>Example:</em> The old building was hideously ugly before renovation.</li>
+  <li><strong>unkempt</strong> – messy and not well cared for (especially hair).<br><em>Example:</em> His unkempt hair made him look tired.</li>
+
+  <li><strong>square face</strong> – a face shape with a strong jawline and equal width and length.<br><em>Example:</em> The actor had a square face perfect for his rugged roles.</li>
+  <li><strong>ruddy complexion</strong> – reddish skin tone.<br><em>Example:</em> Farmers often have a ruddy complexion from working outdoors.</li>
+  <li><strong>deep-set eyes</strong> – eyes positioned far back in the face.<br><em>Example:</em> His deep-set eyes gave him a mysterious look.</li>
+  <li><strong>bushy eyebrows</strong> – thick eyebrows with a lot of hair.<br><em>Example:</em> His bushy eyebrows were his most striking feature.</li>
+  <li><strong>thick mustache</strong> – a mustache with a lot of hair.<br><em>Example:</em> He trimmed his thick mustache before the interview.</li>
+  <li><strong>shaggy beard</strong> – a beard with a lot of hair, often messy.<br><em>Example:</em> The explorer had a shaggy beard after months in the wilderness.</li>
+  <li><strong>facial hair</strong> – hair on the face, including beard and mustache.<br><em>Example:</em> He decided to shave off all his facial hair.</li>
+
+  <li><strong>athletic build</strong> – a body with a lot of muscles.<br><em>Example:</em> The swimmer had an athletic build and strong shoulders.</li>
+  <li><strong>broad shoulders</strong> – wide shoulders.<br><em>Example:</em> He had broad shoulders from years of weight training.</li>
+  <li><strong>muscular arms</strong> – arms with visible muscles.<br><em>Example:</em> Her muscular arms showed her dedication to fitness.</li>
+  <li><strong>trim his beard</strong> – cut the beard a little shorter.<br><em>Example:</em> He decided to trim his beard for a neater appearance.</li>
+  <li><strong>somewhat attractive</strong> – more or less good-looking.<br><em>Example:</em> With a new haircut, he looked somewhat attractive.</li>
+</ol>

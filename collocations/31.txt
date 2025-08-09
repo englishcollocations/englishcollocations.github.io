@@ -1,0 +1,28 @@
+<ol>
+  <li><strong>dry hair</strong> – hair that lacks natural oils and moisture.<br><em>Example:</em> She uses a deep conditioning mask to treat her dry hair.</li>
+  <li><strong>oily hair</strong> / <strong>greasy hair</strong> – hair that has too much natural oil or sebum.<br><em>Example:</em> People with oily hair usually need to wash it daily to keep it looking clean.</li>
+  <li><strong>dry skin</strong> – skin that lacks moisture and feels rough or tight.<br><em>Example:</em> Winter weather often causes dry skin that needs extra moisturizing.</li>
+  <li><strong>oily skin</strong> – skin that produces too much natural oil.<br><em>Example:</em> Teenagers often struggle with oily skin and acne problems.</li>
+  <li><strong>smooth surface</strong> – a surface that is even and has no bumps or irregularities.<br><em>Example:</em> The marble countertop has a perfectly smooth surface that's easy to clean.</li>
+  <li><strong>rough surface</strong> – a surface that is uneven with bumps or irregularities.<br><em>Example:</em> The rough surface of the sandpaper is perfect for smoothing wood.</li>
+  <li><strong>calm water</strong> – water that is still and peaceful without waves or movement.<br><em>Example:</em> The lake's calm water reflected the mountains like a mirror.</li>
+  <li><strong>choppy water</strong> / <strong>rough water</strong> – water with many small waves or disturbances.<br><em>Example:</em> The choppy water made it difficult to navigate the small boat safely.</li>
+  <li><strong>hard object</strong> – something that is firm and doesn't bend or compress easily.<br><em>Example:</em> The hard wooden chair became uncomfortable after sitting for hours.</li>
+  <li><strong>soft object</strong> – something that is yielding and easily compressed or bent.<br><em>Example:</em> The soft pillow provided perfect comfort for a good night's sleep.</li>
+  <li><strong>tender meat</strong> – meat that is easy to cut and chew.<br><em>Example:</em> The slow-cooked beef was so tender it fell apart with a fork.</li>
+  <li><strong>tough meat</strong> – meat that is difficult to cut and chew.<br><em>Example:</em> The overcooked steak was tough and nearly impossible to chew.</li>
+  <li><strong>sharp blade</strong> – a cutting edge that can cut easily and cleanly.<br><em>Example:</em> A sharp blade makes chopping vegetables much safer and more efficient.</li>
+  <li><strong>dull blade</strong> – a cutting edge that has lost its sharpness and cuts poorly.<br><em>Example:</em> The dull blade made it dangerous to cut because it required more pressure.</li>
+  <li><strong>sharp point</strong> – a pointed end that is fine and can pierce easily.<br><em>Example:</em> The pencil's sharp point allowed for precise drawing and writing.</li>
+  <li><strong>dull point</strong> – a pointed end that has become rounded and less effective.<br><em>Example:</em> The dull point of the pencil made it hard to write clearly.</li>
+  <li><strong>soften</strong> – the process of becoming soft or more yielding.<br><em>Example:</em> The butter will soften quickly if you leave it at room temperature.</li>
+  <li><strong>harden</strong> – the process of becoming hard or more firm.<br><em>Example:</em> The concrete will harden completely within 24 hours of pouring.</li>
+  <li><strong>voice softens</strong> – someone's tone becomes gentler and more friendly.<br><em>Example:</em> Her voice softened when she spoke to the frightened child.</li>
+  <li><strong>voice hardens</strong> – someone's tone becomes stricter and less friendly.<br><em>Example:</em> The teacher's voice hardened when the students wouldn't stop talking.</li>
+  <li><strong>creamy</strong> – having a smooth, rich texture like cream.<br><em>Example:</em> The creamy chocolate mousse melted perfectly on my tongue.</li>
+  <li><strong>crunchy</strong> – making a crisp sound when bitten or chewed.<br><em>Example:</em> The crunchy granola added perfect texture to the smooth yogurt.</li>
+  <li><strong>crispy</strong> – having a firm, dry texture that breaks easily when bitten.<br><em>Example:</em> The crispy bacon was cooked to perfection for breakfast.</li>
+  <li><strong>chewy</strong> – requiring effort to chew, having a somewhat tough texture.<br><em>Example:</em> The chewy caramel candy stuck to my teeth as I ate it.</li>
+  <li><strong>tough and chewy</strong> – having an unpleasantly difficult texture to chew.<br><em>Example:</em> The overcooked chicken became tough and chewy, ruining the meal.</li>
+  <li><strong>greasy</strong> – containing or covered with a lot of oil or fat.<br><em>Example:</em> The greasy pizza left an oily residue on my fingers.</li>
+</ol>

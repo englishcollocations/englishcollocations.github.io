@@ -1,0 +1,37 @@
+<ol>
+  <li><strong>passing laws</strong> – officially approving and enacting new legislation.<br><em>Example:</em> Congress is responsible for passing laws that govern the entire country.</li>
+  <li><strong>upholding the law</strong> – maintaining and supporting legal standards.<br><em>Example:</em> Police officers take an oath to uphold the law fairly and justly.</li>
+  <li><strong>enforcing the law</strong> – ensuring that laws are followed and applied.<br><em>Example:</em> Law enforcement agencies are dedicated to enforcing the law consistently.</li>
+  <li><strong>charged with a crime</strong> – formally accused of committing an illegal act.<br><em>Example:</em> The suspect was charged with a crime after police gathered sufficient evidence.</li>
+  <li><strong>appear in court</strong> – be present at a legal proceeding.<br><em>Example:</em> All defendants must appear in court on their scheduled hearing date.</li>
+  <li><strong>stand trial</strong> – undergo legal proceedings to determine guilt or innocence.<br><em>Example:</em> The accused will stand trial next month for the alleged robbery.</li>
+  <li><strong>prosecution</strong> – the legal team trying to prove guilt.<br><em>Example:</em> The prosecution presented compelling evidence against the defendant.</li>
+  <li><strong>defense</strong> – the legal team protecting the accused person's rights.<br><em>Example:</em> The defense argued that the evidence was circumstantial and insufficient.</li>
+  <li><strong>present their cases</strong> – argue their legal positions before the court.<br><em>Example:</em> Both sides will present their cases during the two-week trial.</li>
+  <li><strong>reach a verdict</strong> – arrive at a final decision about guilt or innocence.<br><em>Example:</em> The jury took six hours to reach a verdict in the complex case.</li>
+  <li><strong>irrefutable evidence</strong> – proof that cannot be disputed or denied.<br><em>Example:</em> DNA analysis provided irrefutable evidence of the suspect's guilt.</li>
+  <li><strong>overwhelming evidence</strong> – an enormous amount of convincing proof.<br><em>Example:</em> The overwhelming evidence made the defendant's conviction almost certain.</li>
+  <li><strong>concrete evidence</strong> – solid, tangible proof of something.<br><em>Example:</em> The video footage provided concrete evidence of the crime.</li>
+  <li><strong>unanimous</strong> – complete agreement among all members of a group.<br><em>Example:</em> The jury reached a unanimous decision after careful deliberation.</li>
+  <li><strong>circumstantial evidence</strong> – indirect proof that suggests but doesn't definitively prove something.<br><em>Example:</em> The case relied heavily on circumstantial evidence rather than direct proof.</li>
+  <li><strong>inconclusive evidence</strong> – proof that doesn't provide a clear answer.<br><em>Example:</em> The inconclusive evidence made it difficult for the jury to decide.</li>
+  <li><strong>hung jury</strong> – a jury that cannot reach a unanimous decision.<br><em>Example:</em> The hung jury resulted in a mistrial and a new trial was scheduled.</li>
+  <li><strong>light sentence</strong> – a mild punishment for a crime.<br><em>Example:</em> The first-time offender received a light sentence of community service.</li>
+  <li><strong>pay a fine</strong> – give money as punishment for breaking the law.<br><em>Example:</em> Drivers who speed must pay a fine determined by local regulations.</li>
+  <li><strong>community service</strong> – unpaid work for the benefit of the community as punishment.<br><em>Example:</em> He completed 100 hours of community service at the local shelter.</li>
+  <li><strong>go to prison</strong> – be sent to jail as punishment for a crime.<br><em>Example:</em> Serious offenders often go to prison for several years.</li>
+  <li><strong>heinous crimes</strong> – extremely evil or wicked illegal acts.<br><em>Example:</em> Heinous crimes against children receive the harshest possible sentences.</li>
+  <li><strong>harsh sentence</strong> – a severe punishment for a crime.<br><em>Example:</em> The judge imposed a harsh sentence due to the crime's brutal nature.</li>
+  <li><strong>life in prison</strong> / <strong>life imprisonment</strong> – permanent incarceration until death.<br><em>Example:</em> The serial killer received life in prison without possibility of parole.</li>
+  <li><strong>death penalty</strong> – execution as punishment for the most serious crimes.<br><em>Example:</em> Some states have abolished the death penalty while others still use it.</li>
+  <li><strong>appeal the verdict</strong> – request a higher court to review and possibly change the decision.<br><em>Example:</em> The defense team decided to appeal the verdict to a higher court.</li>
+  <li><strong>prolonged legal battle</strong> – a long-lasting legal dispute.<br><em>Example:</em> The complicated case turned into a prolonged legal battle lasting five years.</li>
+  <li><strong>uphold the verdict</strong> – confirm and maintain the original court decision.<br><em>Example:</em> The appeals court decided to uphold the verdict from the lower court.</li>
+  <li><strong>overturn the original verdict</strong> – reverse or change the initial court decision.<br><em>Example:</em> New evidence caused the appeals court to overturn the original verdict.</li>
+  <li><strong>serving time</strong> – spending a period in prison as punishment.<br><em>Example:</em> He is currently serving time for tax evasion at a minimum-security facility.</li>
+  <li><strong>released from prison early</strong> – let out of jail before the full sentence is completed.<br><em>Example:</em> She was released from prison early due to overcrowding and good behavior.</li>
+  <li><strong>good behavior</strong> – following rules and not causing problems while in prison.<br><em>Example:</em> Prisoners with good behavior may qualify for early release programs.</li>
+  <li><strong>threat to society</strong> – someone who poses danger to other people.<br><em>Example:</em> The parole board determined he was no longer a threat to society.</li>
+  <li><strong>on parole</strong> – released from prison early under specific conditions and supervision.<br><em>Example:</em> While on parole, he must report to his officer monthly.</li>
+  <li><strong>comply with certain conditions</strong> – follow specific rules and requirements.<br><em>Example:</em> Parolees must comply with certain conditions or risk returning to prison.</li>
+</ol>

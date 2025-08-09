@@ -1,0 +1,32 @@
+<ol>
+  <li><strong>musically gifted</strong> – having a natural talent for music.<br><em>Example:</em> My brother is musically gifted and can play multiple instruments.</li>
+  <li><strong>play any tune</strong> – perform any piece of music.<br><em>Example:</em> He can play any tune from memory without sheet music.</li>
+  <li><strong>sheet music</strong> – musical notation written on paper.<br><em>Example:</em> Most pianists rely on sheet music to play complex pieces.</li>
+  <li><strong>strumming a guitar</strong> – playing a guitar by brushing the strings.<br><em>Example:</em> He enjoys strumming a guitar while singing folk songs.</li>
+  <li><strong>composing music</strong> – creating original music.<br><em>Example:</em> She spends hours composing music for her upcoming album.</li>
+  <li><strong>song lyrics</strong> – the words to a song.<br><em>Example:</em> The song lyrics were very meaningful and touched many hearts.</li>
+  <li><strong>formed a band</strong> – created a musical group.<br><em>Example:</em> They formed a band in college and still play together.</li>
+  <li><strong>sizable following</strong> – a large group of fans or supporters.<br><em>Example:</em> The local band has attracted a sizable following in the city.</li>
+  <li><strong>playing gigs</strong> – giving musical performances, usually small or informal.<br><em>Example:</em> The band started playing gigs in local clubs and bars.</li>
+  <li><strong>debut album</strong> – the first CD or record released by an artist.<br><em>Example:</em> Their debut album topped the charts for several weeks.</li>
+  <li><strong>remixed track</strong> – a song that has been modified electronically.<br><em>Example:</em> The remixed track became more popular than the original version.</li>
+  <li><strong>massive hit</strong> – a very popular and successful song.<br><em>Example:</em> The song became a massive hit on radio stations worldwide.</li>
+  <li><strong>catchy tune</strong> – a memorable and appealing melody.<br><em>Example:</em> The commercial had a catchy tune that stuck in everyone's head.</li>
+  <li><strong>upbeat tempo</strong> – a fast, energetic rhythm.<br><em>Example:</em> The song's upbeat tempo made everyone want to dance.</li>
+  <li><strong>released</strong> – made available to the public.<br><em>Example:</em> The new album will be released next month.</li>
+  <li><strong>record it live</strong> – capture the performance as it happens in real-time.<br><em>Example:</em> They decided to record it live to capture the energy of the concert.</li>
+  <li><strong>going on tour</strong> – traveling to perform in different cities or venues.<br><em>Example:</em> The band is going on tour across Europe this summer.</li>
+  <li><strong>big break</strong> – a major opportunity that leads to success.<br><em>Example:</em> Every aspiring musician dreams of getting their big break.</li>
+  <li><strong>get his foot in the door</strong> – gain initial access to an industry or opportunity.<br><em>Example:</em> He's trying to get his foot in the door of the entertainment industry.</li>
+  <li><strong>singing along</strong> – singing together with a song or other people.<br><em>Example:</em> The audience was singing along to every song at the concert.</li>
+  <li><strong>tone-deaf</strong> – unable to distinguish differences in musical pitch.<br><em>Example:</em> He admits he's tone-deaf and can't carry a tune.</li>
+  <li><strong>sing off-key</strong> – sing with incorrect pitch or melody.<br><em>Example:</em> I always sing off-key when I try to harmonize.</li>
+  <li><strong>contemporary music</strong> – modern music of the current time period.<br><em>Example:</em> She prefers contemporary music to classical compositions.</li>
+  <li><strong>classical music</strong> – traditional orchestral music, often from past centuries.<br><em>Example:</em> Classical music helps me concentrate while studying.</li>
+  <li><strong>orchestral music</strong> – music performed by an orchestra.<br><em>Example:</em> The movie soundtrack featured beautiful orchestral music.</li>
+  <li><strong>instrumental music</strong> – music with instruments only, no singing.<br><em>Example:</em> I enjoy instrumental music while working at my desk.</li>
+  <li><strong>rock music</strong> – popular music with strong rhythm and electric guitars.<br><em>Example:</em> Rock music was revolutionary in the 1960s and 70s.</li>
+  <li><strong>solo album</strong> – a recording by one artist alone, not in a group.<br><em>Example:</em> After leaving the band, she released a successful solo album.</li>
+  <li><strong>compilation album</strong> – a collection of songs from various artists.<br><em>Example:</em> The compilation album featured hits from the 1980s.</li>
+  <li><strong>cult following</strong> – a dedicated group of devoted fans.<br><em>Example:</em> The indie band has developed a strong cult following.</li>
+</ol>

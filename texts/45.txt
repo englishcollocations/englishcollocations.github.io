@@ -1,10 +1,11 @@
-
-
 Lesson 45 – Claiming & Denying
 
-
 Read and listen to this news report about a corruption scandal in a large company:
-Randy Fisher, president of the software company NewTech, is facing accusations of fraud by its chief financial officer, Brian King, who has openly accused Fisher of hiding millions of dollars of profit in off- shore bank accounts in order to avoid paying taxes.
-Fisher denies the allegations (says the accusations are not true) and clearly states that King has no evidence to substantiate his claims (prove his claims are true or reasonable). However, in a leaked document (a secret document that was accidentally released to the public) from the company’s internal archives, Fisher heavily implies (says indirectly but strongly) that the company is in fact much more profitable than it appears on paper. Some journalists are now spreading the rumor (transmitting the comment) that these “invisible” funds were used to finance Fisher’s recent real estate investments in Central America.
-According to King, Fisher wanted him to participate in the illegal financial scheme, and became angry when King refused his offer. It is widely acknowledged (known by many people) that if Fisher were to resign, King would be the logical successor to the position of CEO. This has fueled speculation (created beliefs) that there may be an ulterior motive (a hidden reason) for his accusations.
-NewTech’s public relations department has issued a statement affirming its total compliance with tax regulations. If indeed King’s claims are unfounded (his claims have no basis in fact), then he will probably face legal action for unjustly and maliciously accusing Fisher, thus resulting in damage to his reputation.
+
+Randy Fisher, president of the software company NewTech, is facing <strong>accusations of fraud</strong> by its chief financial officer, Brian King, who has <strong>openly accused</strong> Fisher of hiding millions of dollars of profit in off-shore bank accounts in order to avoid paying taxes.
+
+Fisher <strong>denies the allegations</strong> (says the accusations are not true) and clearly states that King has no evidence to <strong>substantiate his claims</strong> (prove his claims are true or reasonable). However, in a <strong>leaked document</strong> (a secret document that was accidentally released to the public) from the company's internal archives, Fisher <strong>heavily implies</strong> (says indirectly but strongly) that the company is in fact much more profitable than it appears on paper. Some journalists are now <strong>spreading the rumor</strong> (transmitting the comment) that these "invisible" funds were used to finance Fisher's recent real estate investments in Central America.
+
+According to King, Fisher wanted him to participate in the illegal financial scheme, and became angry when King refused his offer. It is <strong>widely acknowledged</strong> (known by many people) that if Fisher were to resign, King would be the logical successor to the position of CEO. This has <strong>fueled speculation</strong> (created beliefs) that there may be an <strong>ulterior motive</strong> (a hidden reason) for his accusations.
+
+NewTech's public relations department has <strong>issued a statement</strong> affirming its total compliance with tax regulations. If indeed King's claims are <strong>unfounded</strong> (his claims have no basis in fact), then he will probably face legal action for unjustly and maliciously accusing Fisher, thus resulting in <strong>damage to his reputation</strong>.

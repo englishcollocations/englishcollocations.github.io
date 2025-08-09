@@ -1,0 +1,26 @@
+<ol>
+  <li><strong>the sun is shining</strong> – the sun is emitting bright light.<br><em>Example:</em> The sun is shining brightly today, perfect for a picnic in the park.</li>
+  <li><strong>blinding sunlight</strong> – extremely bright sunlight that makes it difficult to see.<br><em>Example:</em> The blinding sunlight reflecting off the snow forced me to wear sunglasses.</li>
+  <li><strong>weak sunlight</strong> – sunlight that is not very strong or bright.<br><em>Example:</em> The weak sunlight of early winter barely warmed the cold ground.</li>
+  <li><strong>the sun sets</strong> – the sun disappears below the horizon at the end of the day.<br><em>Example:</em> We watched the sun set over the ocean during our romantic dinner.</li>
+  <li><strong>full moon</strong> – the phase when the moon appears completely round and bright.<br><em>Example:</em> The full moon provided enough light for our midnight hike.</li>
+  <li><strong>crescent moon</strong> – the phase when the moon appears as a thin, curved sliver.<br><em>Example:</em> A beautiful crescent moon hung in the twilight sky.</li>
+  <li><strong>new moon</strong> – the phase when the moon is not visible from Earth.<br><em>Example:</em> During the new moon, the night sky is perfect for stargazing.</li>
+  <li><strong>pitch dark/black</strong> – completely dark with no light at all.<br><em>Example:</em> The cave was pitch black, requiring flashlights to navigate safely.</li>
+  <li><strong>stars twinkling</strong> – stars appearing to sparkle or flicker in the sky.<br><em>Example:</em> The children were amazed by the stars twinkling in the clear night sky.</li>
+  <li><strong>bright light</strong> – strong, intense illumination.<br><em>Example:</em> The bright light from the hospital room made it difficult to sleep.</li>
+  <li><strong>dim light</strong> – weak, faint illumination.<br><em>Example:</em> She preferred reading in dim light to avoid straining her eyes.</li>
+  <li><strong>cast a shadow</strong> – create a dark area by blocking light.<br><em>Example:</em> The tall building cast a shadow over the entire street below.</li>
+  <li><strong>the shade</strong> – an area protected from direct sunlight.<br><em>Example:</em> Let's find the shade under that large tree to escape the heat.</li>
+  <li><strong>sit in the shade</strong> – position oneself in an area away from direct sunlight.<br><em>Example:</em> We decided to sit in the shade to avoid getting sunburned.</li>
+  <li><strong>bright/strong lighting</strong> – intense artificial illumination.<br><em>Example:</em> The office has bright lighting to help employees stay alert and focused.</li>
+  <li><strong>soft/subdued lighting</strong> – gentle, low-level artificial illumination.<br><em>Example:</em> The restaurant uses soft lighting to create a romantic atmosphere.</li>
+  <li><strong>street lights</strong> – public lamps that illuminate roads and pathways.<br><em>Example:</em> The broken street lights made the neighborhood feel unsafe at night.</li>
+  <li><strong>the power goes out</strong> – electrical power stops working.<br><em>Example:</em> When the power goes out during storms, we always keep candles ready.</li>
+  <li><strong>power outage</strong> – a period when electrical power is not available.<br><em>Example:</em> The power outage lasted for six hours during the ice storm.</li>
+  <li><strong>plunged into darkness</strong> – suddenly become completely dark.<br><em>Example:</em> The entire city was plunged into darkness during the blackout.</li>
+  <li><strong>complete/total darkness</strong> – absolute darkness with no light whatsoever.<br><em>Example:</em> The basement was in complete darkness when the flashlight batteries died.</li>
+  <li><strong>flashlights</strong> – portable electric lamps for emergency lighting.<br><em>Example:</em> We keep several flashlights in the kitchen drawer for emergencies.</li>
+  <li><strong>light candles</strong> – ignite candles to provide illumination.<br><em>Example:</em> They had to light candles when the electricity failed during dinner.</li>
+  <li><strong>the sun rises/comes up</strong> – the sun appears above the horizon at the start of the day.<br><em>Example:</em> The farmer wakes up every morning before the sun rises to tend to his animals.</li>
+</ol>

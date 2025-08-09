@@ -1,0 +1,30 @@
+<ol>
+  <li><strong>large number of people</strong> – many people (countable).<br><em>Example:</em> A large number of people attended the outdoor concert despite the rain.</li>
+  <li><strong>massive amount of damage</strong> – extensive harm or destruction (uncountable).<br><em>Example:</em> The earthquake caused a massive amount of damage to the city's infrastructure.</li>
+  <li><strong>significant number of countries</strong> – many countries, an important quantity.<br><em>Example:</em> A significant number of countries signed the climate change agreement.</li>
+  <li><strong>considerable amount of money</strong> – a large sum of money.<br><em>Example:</em> The renovation required a considerable amount of money from the budget.</li>
+  <li><strong>tiny number of computers</strong> – very few computers.<br><em>Example:</em> Only a tiny number of computers in the office need to be replaced.</li>
+  <li><strong>minuscule amount of alcohol</strong> – an extremely small quantity of alcohol.<br><em>Example:</em> The medicine contains only a minuscule amount of alcohol as a preservative.</li>
+  <li><strong>increase</strong> – become larger in number or amount (formal).<br><em>Example:</em> Sales are expected to increase by 15% this quarter.</li>
+  <li><strong>decrease</strong> – become smaller in number or amount (formal).<br><em>Example:</em> The company plans to decrease expenses by cutting unnecessary costs.</li>
+  <li><strong>rise</strong> – go up or increase (formal).<br><em>Example:</em> Housing prices continue to rise in major metropolitan areas.</li>
+  <li><strong>fall</strong> – go down or decrease (formal).<br><em>Example:</em> Unemployment rates fell dramatically after the economic recovery began.</li>
+  <li><strong>go up</strong> – increase (informal).<br><em>Example:</em> Gas prices tend to go up during the summer driving season.</li>
+  <li><strong>go down</strong> – decrease (informal).<br><em>Example:</em> Stock prices went down sharply after the negative earnings report.</li>
+  <li><strong>sharp</strong> – sudden and significant in degree.<br><em>Example:</em> There was a sharp increase in online shopping during the pandemic.</li>
+  <li><strong>dramatic</strong> – striking and significant in effect.<br><em>Example:</em> The new medication showed dramatic improvement in patient symptoms.</li>
+  <li><strong>dramatic drop</strong> – a sudden and significant decrease.<br><em>Example:</em> The company experienced a dramatic drop in sales after the product recall.</li>
+  <li><strong>sharp rise</strong> – a sudden and significant increase.<br><em>Example:</em> There was a sharp rise in enrollment for online courses this year.</li>
+  <li><strong>gradual increase</strong> – a slow and steady rise over time.<br><em>Example:</em> The gradual increase in global temperatures is concerning to scientists.</li>
+  <li><strong>slow decline</strong> – a gradual decrease over time.<br><em>Example:</em> The newspaper industry has experienced a slow decline in readership.</li>
+  <li><strong>remains steady</strong> – stays the same, doesn't change.<br><em>Example:</em> The interest rate remains steady despite economic fluctuations.</li>
+  <li><strong>remains constant</strong> – continues unchanged, stays at the same level.<br><em>Example:</em> The temperature in the laboratory remains constant at 68 degrees.</li>
+  <li><strong>widespread</strong> – existing or happening in many places or situations.<br><em>Example:</em> The new policy received widespread support from employees.</li>
+  <li><strong>widespread dissatisfaction</strong> – discontent that exists in many places or among many people.<br><em>Example:</em> There is widespread dissatisfaction with the current healthcare system.</li>
+  <li><strong>widespread acclaim</strong> – praise and approval from many people or places.<br><em>Example:</em> The novel received widespread acclaim from critics and readers alike.</li>
+  <li><strong>widespread damage</strong> – harm or destruction that affects many areas.<br><em>Example:</em> The hurricane caused widespread damage across three states.</li>
+  <li><strong>widespread support</strong> – backing or approval from many people or groups.<br><em>Example:</em> The environmental initiative has widespread support among young voters.</li>
+  <li><strong>keep + -ING</strong> – structure used to describe repeated actions.<br><em>Example:</em> She keeps forgetting to lock the door when she leaves for work.</li>
+  <li><strong>keep interrupting</strong> – repeatedly disturbing or stopping someone.<br><em>Example:</em> The children keep interrupting their teacher during the lesson.</li>
+  <li><strong>keep asking</strong> – repeatedly requesting or questioning.<br><em>Example:</em> He keeps asking for a raise even though he just got one last month.</li>
+</ol>

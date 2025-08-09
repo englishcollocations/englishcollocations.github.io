@@ -1,0 +1,50 @@
+<ol>
+  <li><strong>weather forecast</strong> – a prediction of future weather conditions.<br><em>Example:</em> Check the weather forecast before planning your outdoor wedding.</li>
+  <li><strong>sun will be shining brightly</strong> – the sun will produce strong, clear light.<br><em>Example:</em> Tomorrow the sun will be shining brightly, perfect for our picnic.</li>
+  <li><strong>clear skies</strong> – sky without clouds, completely visible.<br><em>Example:</em> The clear skies made it an ideal day for stargazing.</li>
+  <li><strong>bask in the sunshine</strong> – enjoy and relax in the sun's warmth.<br><em>Example:</em> Tourists love to bask in the sunshine on tropical beaches.</li>
+  <li><strong>soak up the sunshine</strong> – absorb and enjoy the sun's rays.<br><em>Example:</em> After the long winter, everyone wanted to soak up the sunshine.</li>
+  <li><strong>oppressively hot</strong> – uncomfortably and overwhelmingly hot.<br><em>Example:</em> The oppressively hot weather made it difficult to work outside.</li>
+  <li><strong>scorching hot</strong> – extremely hot, burning.<br><em>Example:</em> The desert was scorching hot during the midday sun.</li>
+  <li><strong>swelteringly hot</strong> – uncomfortably hot and humid.<br><em>Example:</em> The swelteringly hot weather forced everyone indoors during lunch.</li>
+  <li><strong>hot and humid</strong> – high temperature with lots of moisture in the air.<br><em>Example:</em> The hot and humid climate made her clothes stick to her skin.</li>
+  <li><strong>partly cloudy</strong> – sky partially covered with clouds.<br><em>Example:</em> The partly cloudy weather provided occasional relief from the sun.</li>
+  <li><strong>scattered clouds</strong> – a few clouds spread across the sky.<br><em>Example:</em> The scattered clouds created interesting shadows on the landscape.</li>
+  <li><strong>heavy clouds</strong> – thick, dense clouds that block sunlight.<br><em>Example:</em> Heavy clouds gathered overhead, promising rain soon.</li>
+  <li><strong>storm clouds</strong> – dark clouds indicating approaching severe weather.<br><em>Example:</em> The storm clouds on the horizon warned of an approaching hurricane.</li>
+  <li><strong>It looks like rain</strong> – weather conditions suggest rain is coming.<br><em>Example:</em> You should take an umbrella; it looks like rain this afternoon.</li>
+  <li><strong>light rain</strong> – gentle, minimal rainfall.<br><em>Example:</em> The light rain was perfect for watering the garden naturally.</li>
+  <li><strong>heavy rain</strong> – intense, abundant rainfall.<br><em>Example:</em> The heavy rain caused flooding in several neighborhoods.</li>
+  <li><strong>torrential rain</strong> – extremely heavy, violent rainfall.<br><em>Example:</em> The torrential rain made driving dangerous and visibility poor.</li>
+  <li><strong>continuous rain</strong> – rain that doesn't stop for an extended period.<br><em>Example:</em> Continuous rain for three days caused the river to overflow.</li>
+  <li><strong>constant rain</strong> – uninterrupted rainfall over time.<br><em>Example:</em> The constant rain ruined our camping trip plans.</li>
+  <li><strong>intermittent rain</strong> – rain that starts and stops irregularly.<br><em>Example:</em> Intermittent rain throughout the day made outdoor activities unpredictable.</li>
+  <li><strong>scattered showers</strong> – brief periods of rain in different areas.<br><em>Example:</em> Scattered showers are expected this afternoon across the region.</li>
+  <li><strong>rain let up</strong> – rain stopped or decreased in intensity.<br><em>Example:</em> Once the rain let up, we continued our hike through the forest.</li>
+  <li><strong>light winds</strong> / <strong>slight winds</strong> – gentle air movement.<br><em>Example:</em> Light winds made the sailing conditions perfect for beginners.</li>
+  <li><strong>high winds</strong> / <strong>strong winds</strong> – powerful air movement.<br><em>Example:</em> Strong winds knocked down power lines throughout the city.</li>
+  <li><strong>fierce winds</strong> – violent, intense wind conditions.<br><em>Example:</em> Fierce winds during the storm uprooted several large trees.</li>
+  <li><strong>gale-force winds</strong> – extremely strong winds, typically 39-54 mph.<br><em>Example:</em> Gale-force winds made it dangerous for small boats to leave harbor.</li>
+  <li><strong>The wind is picking up</strong> – wind speed is increasing.<br><em>Example:</em> The wind is picking up; we should secure the outdoor furniture.</li>
+  <li><strong>The wind is dying down</strong> – wind speed is decreasing.<br><em>Example:</em> The wind is dying down, so we can finally light the campfire.</li>
+  <li><strong>biting wind</strong> – extremely cold, harsh wind.<br><em>Example:</em> The biting wind made her cheeks red and numb.</li>
+  <li><strong>icy wind</strong> – very cold wind that feels like ice.<br><em>Example:</em> An icy wind blew through the mountain pass, chilling everyone.</li>
+  <li><strong>blast of wind</strong> – a sudden, strong gust of air.<br><em>Example:</em> A blast of wind nearly knocked him off his bicycle.</li>
+  <li><strong>gust of wind</strong> – a brief, sudden increase in wind speed.<br><em>Example:</em> A gust of wind scattered the papers across the parking lot.</li>
+  <li><strong>light snow</strong> – gentle, minimal snowfall.<br><em>Example:</em> Light snow began falling just as the children went to bed.</li>
+  <li><strong>heavy snow</strong> – intense, abundant snowfall.<br><em>Example:</em> Heavy snow closed schools and made roads impassable.</li>
+  <li><strong>snow flurries</strong> – light, brief periods of snowfall.<br><em>Example:</em> Snow flurries in the forecast suggest winter is approaching.</li>
+  <li><strong>driving snow</strong> – snow blown forcefully by strong winds.<br><em>Example:</em> Driving snow made it impossible to see more than a few feet ahead.</li>
+  <li><strong>swirling snow</strong> – snow moving in circular patterns due to wind.<br><em>Example:</em> Swirling snow created beautiful but dangerous driving conditions.</li>
+  <li><strong>fresh snow</strong> – newly fallen, clean snow.<br><em>Example:</em> The fresh snow made the entire landscape look pristine and beautiful.</li>
+  <li><strong>powdery snow</strong> – light, dry snow that's easy to move.<br><em>Example:</em> Skiers love powdery snow because it's perfect for skiing.</li>
+  <li><strong>newly-fallen snow</strong> – snow that has just recently accumulated.<br><em>Example:</em> Children rushed outside to play in the newly-fallen snow.</li>
+  <li><strong>clear the snow</strong> – remove snow from roads or pathways.<br><em>Example:</em> The city works all night to clear the snow from major streets.</li>
+  <li><strong>plough the snow</strong> – remove snow using mechanical equipment.<br><em>Example:</em> Trucks will plough the snow from highways before morning rush hour.</li>
+  <li><strong>shoveling the snow</strong> – manually removing snow with a shovel.<br><em>Example:</em> Shoveling the snow from the driveway is good exercise but hard work.</li>
+  <li><strong>snow melts</strong> – snow turns to water due to warming temperatures.<br><em>Example:</em> When spring arrives, the snow melts and streams start flowing again.</li>
+  <li><strong>unseasonably warm</strong> – warmer than normal for the time of year.<br><em>Example:</em> The unseasonably warm December weather confused the flowering trees.</li>
+  <li><strong>unseasonably cool</strong> – cooler than normal for the time of year.<br><em>Example:</em> An unseasonably cool summer allowed people to save on air conditioning.</li>
+  <li><strong>record high</strong> – the highest temperature ever recorded for a location.<br><em>Example:</em> Yesterday's temperature set a new record high for this date.</li>
+  <li><strong>record low</strong> – the lowest temperature ever recorded for a location.<br><em>Example:</em> Last night's record low broke a temperature record from 1952.</li>
+</ol>

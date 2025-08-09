@@ -1,0 +1,25 @@
+<ol>
+  <li><strong>go into business for yourself</strong> – start your own company or become self-employed.<br><em>Example:</em> After years of corporate work, she decided to go into business for yourself.</li>
+  <li><strong>set up a company</strong> – establish and organize a new business.<br><em>Example:</em> They plan to set up a company specializing in renewable energy.</li>
+  <li><strong>do market research</strong> – investigate and analyze market conditions.<br><em>Example:</em> Before launching the product, they need to do market research thoroughly.</li>
+  <li><strong>operate at a loss</strong> – spend more money than the business earns.<br><em>Example:</em> Many startups operate at a loss during their first few years.</li>
+  <li><strong>break even</strong> – earn exactly as much as you spend, with no profit or loss.<br><em>Example:</em> The restaurant hopes to break even by the end of its second year.</li>
+  <li><strong>tough competition</strong> – strong rivalry from other businesses.<br><em>Example:</em> The smartphone market faces tough competition from established brands.</li>
+  <li><strong>start-up</strong> – a newly established business, typically small and innovative.<br><em>Example:</em> The tech start-up received significant funding from investors.</li>
+  <li><strong>gain market share</strong> – increase the percentage of total market sales.<br><em>Example:</em> The company worked hard to gain market share in the competitive industry.</li>
+  <li><strong>runs the risk</strong> – faces the possibility of something bad happening.<br><em>Example:</em> Any business that ignores customer feedback runs the risk of failure.</li>
+  <li><strong>going bankrupt</strong> – becoming unable to pay debts and continuing operations.<br><em>Example:</em> Poor financial management can result in going bankrupt quickly.</li>
+  <li><strong>going under</strong> – failing completely and ceasing to operate.<br><em>Example:</em> Many small retailers are going under due to online competition.</li>
+  <li><strong>making a profit</strong> – earning more money than what is spent.<br><em>Example:</em> The company has been making a profit consistently for five years.</li>
+  <li><strong>hire staff</strong> / <strong>take on employees</strong> – employ people to work for the company.<br><em>Example:</em> As the business expands, they plan to hire staff in marketing and sales.</li>
+  <li><strong>make a deal</strong> – reach a business agreement or arrangement.<br><em>Example:</em> The two companies made a deal to share distribution networks.</li>
+  <li><strong>do business together</strong> – work collaboratively in commercial activities.<br><em>Example:</em> Both firms have decided to do business together on this project.</li>
+  <li><strong>sign a contract</strong> – formally agree to the terms by putting your signature.<br><em>Example:</em> They will sign a contract next week to finalize the partnership.</li>
+  <li><strong>launch a new product</strong> – introduce and begin selling a new item.<br><em>Example:</em> Apple plans to launch a new product category next year.</li>
+  <li><strong>excellent customer service</strong> – very high-quality help and support for customers.<br><em>Example:</em> Companies with excellent customer service tend to have loyal customers.</li>
+  <li><strong>take their business elsewhere</strong> – choose to buy from a different company.<br><em>Example:</em> Disappointed customers will take their business elsewhere if problems aren't resolved.</li>
+  <li><strong>rival company</strong> – a competing business in the same industry.<br><em>Example:</em> The rival company launched a similar product just weeks before us.</li>
+  <li><strong>run a business</strong> – manage and operate a company.<br><em>Example:</em> It takes dedication and hard work to run a business successfully.</li>
+  <li><strong>take off</strong> – become very successful quickly.<br><em>Example:</em> The social media platform really took off after the celebrity endorsement.</li>
+  <li><strong>business is booming</strong> – the company is experiencing rapid growth and success.<br><em>Example:</em> With the new product line, business is booming beyond our expectations.</li>
+</ol>

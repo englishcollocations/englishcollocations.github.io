@@ -1,0 +1,44 @@
+<ol>
+<li><strong>have a baby</strong> - give birth to a child</li>
+<li><strong>have children</strong> - raise children</li>
+<li><strong>have a good time</strong> - enjoy yourself</li>
+<li><strong>have a blast</strong> - enjoy yourself very much</li>
+<li><strong>have fun</strong> - enjoy yourself</li>
+<li><strong>have breakfast/lunch/dinner</strong> - eat meals</li>
+<li><strong>have a snack</strong> - eat a small meal</li>
+<li><strong>have an opportunity</strong> - get a chance</li>
+<li><strong>have an advantage</strong> - possess a benefit</li>
+<li><strong>take a shower/bath</strong> - wash yourself</li>
+<li><strong>take a class/test/exam</strong> - attend class or do a test</li>
+<li><strong>take a bus/train/taxi</strong> - travel by public transport</li>
+<li><strong>take a break</strong> - pause from an activity</li>
+<li><strong>take a rest</strong> - pause from an activity</li>
+<li><strong>take advantage of</strong> - use an opportunity</li>
+<li><strong>take care of</strong> - look after someone/something</li>
+<li><strong>take action</strong> - do something about a situation</li>
+<li><strong>pay attention</strong> - give attention, observe</li>
+<li><strong>pay tribute</strong> - give honor or recognition</li>
+<li><strong>pay someone a compliment</strong> - give someone a compliment</li>
+<li><strong>pay someone a visit</strong> - visit someone (informal)</li>
+<li><strong>pay (your) respects</strong> - express admiration (often for someone who died)</li>
+<li><strong>break a habit</strong> - stop doing a habit</li>
+<li><strong>break a promise</strong> - fail to do what you promised</li>
+<li><strong>break the ice</strong> - initiate conversation in a quiet group</li>
+<li><strong>break the rules/law</strong> - disobey</li>
+<li><strong>break the news to someone</strong> - tell someone important news (usually bad)</li>
+<li><strong>catch a cold</strong> - get sick from virus/bacteria</li>
+<li><strong>catch the flu</strong> - get sick from flu virus</li>
+<li><strong>catch fire</strong> - begin to burn</li>
+<li><strong>catch sight of</strong> - get the opportunity to look at something</li>
+<li><strong>catch a glimpse of</strong> - get a brief look at something</li>
+<li><strong>catch someone's eye</strong> - make eye contact with someone</li>
+<li><strong>catch the bus/train/subway</strong> - travel by public transport (informal)</li>
+<li><strong>come into force/effect</strong> - begin to have an effect</li>
+<li><strong>come to an end</strong> - finish</li>
+<li><strong>come to terms with</strong> - learn to accept someone or something</li>
+<li><strong>come under attack/scrutiny</strong> - be criticized or examined</li>
+<li><strong>come close</strong> - approximate someone or something</li>
+<li><strong>get married/divorced</strong> - become married/divorced</li>
+<li><strong>get drunk/pregnant</strong> - become drunk/pregnant</li>
+<li><strong>get angry/scared/excited/tired</strong> - become angry/scared/excited/tired</li>
+</ol>

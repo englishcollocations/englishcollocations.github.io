@@ -1,0 +1,40 @@
+<ol>
+  <li><strong>big house</strong> – a house that is physically large in size.<br><em>Example:</em> They bought a big house with five bedrooms and three bathrooms.</li>
+  <li><strong>large house</strong> – formal way to describe a house that is physically large.<br><em>Example:</em> The family inherited a large house from their grandparents.</li>
+  <li><strong>drink sizes</strong> – size categories for beverages (small, medium, large).<br><em>Example:</em> Fast food restaurants offer different drink sizes to accommodate customer preferences.</li>
+  <li><strong>large coffee</strong> – the biggest size option for coffee beverages.<br><em>Example:</em> I need a large coffee to get through this long meeting.</li>
+  <li><strong>large soda</strong> – the biggest size option for soft drinks.<br><em>Example:</em> The movie theater sells a large soda that can be shared by two people.</li>
+  <li><strong>clothing sizes</strong> – standardized measurements for garments (S, M, L, etc.).<br><em>Example:</em> The store carries clothing sizes from extra small to extra large.</li>
+  <li><strong>large number</strong> – a significant quantity or amount.<br><em>Example:</em> A large number of applicants submitted their resumes for the position.</li>
+  <li><strong>large scale</strong> – involving extensive scope or magnitude.<br><em>Example:</em> The company planned a large scale expansion into international markets.</li>
+  <li><strong>small scale</strong> – involving limited scope or magnitude.<br><em>Example:</em> We started with small scale testing before launching the full product.</li>
+  <li><strong>large-scale production</strong> – manufacturing in very high quantities.<br><em>Example:</em> The factory switched to large-scale production to meet increased demand.</li>
+  <li><strong>big accomplishment</strong> – a significant achievement or success.<br><em>Example:</em> Graduating from medical school was a big accomplishment for the entire family.</li>
+  <li><strong>big decision</strong> – an important choice with significant consequences.<br><em>Example:</em> Choosing a career path is a big decision that affects your entire future.</li>
+  <li><strong>big disappointment</strong> – a major letdown or source of sadness.<br><em>Example:</em> Not getting the promotion was a big disappointment after working so hard.</li>
+  <li><strong>big failure</strong> – a significant unsuccessful outcome.<br><em>Example:</em> The product launch was a big failure due to poor market research.</li>
+  <li><strong>big improvement</strong> – a substantial positive change or enhancement.<br><em>Example:</em> The new software update brought a big improvement in performance.</li>
+  <li><strong>big mistake</strong> – a serious error with significant consequences.<br><em>Example:</em> Investing all his savings in one stock was a big mistake.</li>
+  <li><strong>big surprise</strong> – an unexpected event that causes amazement.<br><em>Example:</em> The surprise birthday party was a big surprise that she'll never forget.</li>
+  <li><strong>big brother</strong> – an older male sibling.<br><em>Example:</em> My big brother taught me how to ride a bicycle when I was five.</li>
+  <li><strong>big sister</strong> – an older female sibling.<br><em>Example:</em> His big sister always helped him with his homework.</li>
+  <li><strong>tall building</strong> – a structure with significant height.<br><em>Example:</em> The tall building downtown has over 40 floors.</li>
+  <li><strong>tall trees</strong> – trees with significant height from ground to top.<br><em>Example:</em> The park is famous for its tall trees that are over 100 years old.</li>
+  <li><strong>tall man/woman</strong> – a person with above-average height.<br><em>Example:</em> The tall man had to duck when entering the old doorway.</li>
+  <li><strong>feet high</strong> – measurement of vertical distance or altitude.<br><em>Example:</em> The mountain peak stands 14,000 feet high above sea level.</li>
+  <li><strong>low branch</strong> – a tree branch that is close to the ground.<br><em>Example:</em> Children love to climb on the low branches of the old oak tree.</li>
+  <li><strong>high/low prices</strong> – expensive or inexpensive cost levels.<br><em>Example:</em> High prices during peak season discourage many tourists from visiting.</li>
+  <li><strong>high/low levels</strong> – different degrees or amounts of something.<br><em>Example:</em> High levels of stress can negatively impact your health.</li>
+  <li><strong>high/low quality</strong> – superior or inferior standards of something.<br><em>Example:</em> High quality materials ensure the product will last for years.</li>
+  <li><strong>high/low rate</strong> – fast or slow frequency of occurrence.<br><em>Example:</em> The city has a high rate of employment in the technology sector.</li>
+  <li><strong>high/low degree</strong> – significant or minimal extent of something.<br><em>Example:</em> The project requires a high degree of precision and attention to detail.</li>
+  <li><strong>small house</strong> – a house that is modest in physical size (neutral).<br><em>Example:</em> They preferred a small house that was easy to maintain and clean.</li>
+  <li><strong>cute little house</strong> – a small house described with affection.<br><em>Example:</em> The newlyweds bought a cute little house with a white picket fence.</li>
+  <li><strong>small children</strong> – young kids described neutrally by size/age.<br><em>Example:</em> The daycare center specializes in caring for small children under age five.</li>
+  <li><strong>pretty little girls</strong> – young female children described with affection.<br><em>Example:</em> The three pretty little girls wore matching dresses to the wedding.</li>
+  <li><strong>small dog</strong> – a dog that is modest in physical size (neutral).<br><em>Example:</em> Apartment living is easier with a small dog rather than a large breed.</li>
+  <li><strong>poor little dog</strong> – a dog described with sympathy and affection.<br><em>Example:</em> The poor little dog was shivering in the rain without shelter.</li>
+  <li><strong>a little money</strong> – a small amount of money (quantity, not size).<br><em>Example:</em> I saved a little money each month to buy a birthday gift.</li>
+  <li><strong>very little</strong> – a very small amount or quantity.<br><em>Example:</em> There was very little food left after the party ended.</li>
+  <li><strong>little salt</strong> – a small amount of salt (quantity, not physical size).<br><em>Example:</em> The doctor recommended using little salt to maintain healthy blood pressure.</li>
+</ol>

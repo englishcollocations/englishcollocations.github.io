@@ -1,0 +1,42 @@
+<ol>
+  <li><strong>breaks the law</strong> – does something illegal or against regulations.<br><em>Example:</em> Anyone who breaks the law will face consequences in court.</li>
+  <li><strong>committed a crime</strong> – performed an illegal act.<br><em>Example:</em> The police believe he committed a crime based on the evidence.</li>
+  <li><strong>savage rape</strong> – an extremely violent and brutal sexual assault.<br><em>Example:</em> The victim survived a savage rape and is receiving counseling support.</li>
+  <li><strong>brutal murder</strong> – an extremely violent and cruel killing.<br><em>Example:</em> The detective was horrified by the details of the brutal murder.</li>
+  <li><strong>barbaric crimes</strong> – extremely cruel and uncivilized illegal acts.<br><em>Example:</em> Human rights organizations condemn barbaric crimes against civilians.</li>
+  <li><strong>horrible crimes</strong> – terrible and shocking illegal acts.<br><em>Example:</em> The community was shaken by the horrible crimes committed last month.</li>
+  <li><strong>vicious crimes</strong> – cruel and violent illegal acts.<br><em>Example:</em> Vicious crimes often receive longer prison sentences.</li>
+  <li><strong>attempted murder</strong> – trying to kill someone but failing.<br><em>Example:</em> He was charged with attempted murder after the failed poisoning.</li>
+  <li><strong>attempted kidnapping</strong> – trying to abduct someone but failing.<br><em>Example:</em> The attempted kidnapping was prevented by alert bystanders.</li>
+  <li><strong>attempted break-in</strong> – trying to illegally enter a building but failing.<br><em>Example:</em> Security cameras recorded the attempted break-in at the jewelry store.</li>
+  <li><strong>alleged assault</strong> – an accusation of physical attack that hasn't been proven.<br><em>Example:</em> The alleged assault occurred outside the nightclub last weekend.</li>
+  <li><strong>alleged harassment</strong> – an unproven accusation of persistent unwanted behavior.<br><em>Example:</em> The manager was suspended pending investigation of alleged harassment.</li>
+  <li><strong>alleged rape</strong> – an unproven accusation of sexual assault.<br><em>Example:</em> The court will determine if the alleged rape actually occurred.</li>
+  <li><strong>reports the crime</strong> – officially tells police about an illegal act.<br><em>Example:</em> She reports the crime to authorities after gathering courage.</li>
+  <li><strong>investigate the crime</strong> – examine and research details of an illegal act.<br><em>Example:</em> Detectives will investigate the crime using modern forensic techniques.</li>
+  <li><strong>crime scene</strong> – the location where an illegal act occurred.<br><em>Example:</em> Police sealed off the crime scene to preserve evidence.</li>
+  <li><strong>gather forensic evidence</strong> – collect scientific proof from a crime.<br><em>Example:</em> Experts gather forensic evidence including DNA samples and fingerprints.</li>
+  <li><strong>witnesses come forward</strong> – people who saw the crime volunteer information.<br><em>Example:</em> Several witnesses came forward after seeing the news report.</li>
+  <li><strong>interview them</strong> – question witnesses or suspects formally.<br><em>Example:</em> Police will interview them separately to get accurate accounts.</li>
+  <li><strong>first-hand account</strong> – a story told by someone who directly witnessed events.<br><em>Example:</em> The journalist provided a first-hand account of the disaster.</li>
+  <li><strong>motives for the crime</strong> – reasons why someone committed an illegal act.<br><em>Example:</em> Investigators are still searching for motives for the crime.</li>
+  <li><strong>arrest suspects</strong> – officially detain people believed to have committed crimes.<br><em>Example:</em> Police arrest suspects based on witness testimonies and evidence.</li>
+  <li><strong>prove their innocence</strong> – demonstrate that one did not commit the crime.<br><em>Example:</em> The defendant hopes to prove their innocence with new evidence.</li>
+  <li><strong>solid alibi</strong> – strong proof of being elsewhere when a crime occurred.<br><em>Example:</em> He had a solid alibi with multiple witnesses confirming his location.</li>
+  <li><strong>unsolved crime</strong> – an illegal act where the perpetrator is unknown.<br><em>Example:</em> The murder remains an unsolved crime after five years of investigation.</li>
+  <li><strong>crime rate</strong> – statistics showing frequency of illegal acts in an area.<br><em>Example:</em> The city's crime rate has decreased significantly this year.</li>
+  <li><strong>crime wave</strong> – a sudden increase in criminal activity.<br><em>Example:</em> The neighborhood experienced a crime wave during the economic crisis.</li>
+  <li><strong>first-time offender</strong> – someone who has broken the law for the first time.<br><em>Example:</em> As a first-time offender, she received a lighter sentence.</li>
+  <li><strong>criminal record</strong> – official documentation of someone's past crimes.<br><em>Example:</em> Having a criminal record can affect employment opportunities.</li>
+  <li><strong>serial killer</strong> – someone who murders multiple people over time.<br><em>Example:</em> The serial killer was captured after a nationwide manhunt.</li>
+  <li><strong>organized crime</strong> – criminal activities by structured groups or gangs.<br><em>Example:</em> The FBI investigates organized crime throughout the country.</li>
+  <li><strong>notorious criminal</strong> – a famous criminal known for serious offenses.<br><em>Example:</em> The notorious criminal escaped from maximum security prison.</li>
+  <li><strong>cold-blooded killer</strong> – a murderer who shows no emotion or remorse.<br><em>Example:</em> The cold-blooded killer showed no reaction during sentencing.</li>
+  <li><strong>psychopathic killer</strong> – a murderer with mental disorders affecting empathy.<br><em>Example:</em> Psychiatrists evaluated the psychopathic killer for trial competency.</li>
+  <li><strong>domestic violence</strong> – abuse occurring within family or household relationships.<br><em>Example:</em> Domestic violence affects millions of families worldwide.</li>
+  <li><strong>drug trafficking</strong> – illegal trade and distribution of controlled substances.<br><em>Example:</em> Drug trafficking carries severe penalties in most countries.</li>
+  <li><strong>identity theft</strong> – stealing someone's personal information for illegal use.<br><em>Example:</em> Identity theft victims often face years of financial problems.</li>
+  <li><strong>sexual harassment</strong> – unwanted sexual advances or inappropriate behavior.<br><em>Example:</em> Companies must have clear policies against sexual harassment.</li>
+  <li><strong>petty crime</strong> – minor criminal offenses with light penalties.<br><em>Example:</em> Shoplifting is considered a petty crime in most jurisdictions.</li>
+  <li><strong>armed robbery</strong> – theft using weapons to threaten victims.<br><em>Example:</em> The armed robbery at the bank shocked the quiet community.</li>
+</ol>

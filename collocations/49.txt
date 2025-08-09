@@ -1,0 +1,64 @@
+<ol>
+<li><strong>close the door</strong> - shut the door</li>
+<li><strong>shut the door</strong> - close the door</li>
+<li><strong>close the window</strong> - shut the window</li>
+<li><strong>shut the window</strong> - close the window</li>
+<li><strong>shut her eyes</strong> - closed her eyes</li>
+<li><strong>closed her eyes</strong> - shut her eyes</li>
+<li><strong>slammed the door shut</strong> - closed door with loud noise</li>
+<li><strong>bang shut</strong> - closed with loud bang</li>
+<li><strong>shut your mouth!</strong> - rude way to tell somebody to stop talking</li>
+<li><strong>bank close</strong> - when the bank stops operating</li>
+<li><strong>closed due to construction</strong> - not open because of building work</li>
+<li><strong>closing in 30 minutes</strong> - will stop operating in 30 minutes</li>
+<li><strong>bring this meeting to a close</strong> - end the meeting</li>
+<li><strong>drawing to a close</strong> - ending</li>
+<li><strong>coming to a close</strong> - ending</li>
+<li><strong>closing moments</strong> - final moments</li>
+<li><strong>won the game</strong> - was victorious in the game</li>
+<li><strong>win the lottery</strong> - be successful in the lottery</li>
+<li><strong>won a prize</strong> - received an award</li>
+<li><strong>win a race</strong> - be first in a race</li>
+<li><strong>win a competition</strong> - be victorious in a competition</li>
+<li><strong>win a medal</strong> - receive a medal for winning</li>
+<li><strong>win an argument</strong> - be victorious in an argument</li>
+<li><strong>win a battle</strong> - be victorious in a battle</li>
+<li><strong>win the war</strong> - be victorious in the war</li>
+<li><strong>earns a lot of money</strong> - receives much money from work</li>
+<li><strong>earn a decent salary</strong> - receive a good salary</li>
+<li><strong>earns 2% interest</strong> - receives 2% profit</li>
+<li><strong>earns a 10% commission</strong> - receives 10% from sales</li>
+<li><strong>gained weight</strong> - increased in weight</li>
+<li><strong>gained speed</strong> - increased in speed</li>
+<li><strong>gain insight</strong> - obtain understanding</li>
+<li><strong>gained a lot of experience</strong> - obtained much experience</li>
+<li><strong>gained a reputation</strong> - developed a reputation</li>
+<li><strong>save energy</strong> - conserve energy</li>
+<li><strong>save time</strong> - conserve time</li>
+<li><strong>save space</strong> - conserve space</li>
+<li><strong>save someone's life</strong> - rescue someone from death</li>
+<li><strong>save money</strong> - conserve money or keep money for future</li>
+<li><strong>saving up money</strong> - keeping money for a long time</li>
+<li><strong>keep it</strong> - maintain possession of it</li>
+<li><strong>keep trying</strong> - continue trying</li>
+<li><strong>keep an eye on</strong> - continue to observe/monitor</li>
+<li><strong>keep track of</strong> - continue to monitor a situation</li>
+<li><strong>keep in mind</strong> - continue being aware of something</li>
+<li><strong>keep in touch</strong> - maintain contact with a person</li>
+<li><strong>keep something clean/safe</strong> - maintain in that state</li>
+<li><strong>keep someone happy/quiet</strong> - maintain person in that state</li>
+<li><strong>keep a promise</strong> - do the action that you promised</li>
+<li><strong>keep a secret</strong> - maintain a secret hidden</li>
+<li><strong>spend money</strong> - use money to buy things</li>
+<li><strong>spend time</strong> - use time for activities</li>
+<li><strong>spent $100 on tickets</strong> - used $100 to buy tickets</li>
+<li><strong>spent three hours waiting</strong> - used three hours for waiting</li>
+<li><strong>spend a period of time</strong> - use time for activities</li>
+<li><strong>spent the weekend</strong> - used the weekend for activities</li>
+<li><strong>spent the afternoon</strong> - used the afternoon for activities</li>
+<li><strong>pay rent</strong> - give money for rent</li>
+<li><strong>pay a fine</strong> - give money as penalty</li>
+<li><strong>pay your bills</strong> - give money to settle bills</li>
+<li><strong>pay your taxes</strong> - give money to government</li>
+<li><strong>paid $100 for the tickets</strong> - gave $100 in exchange for tickets</li>
+</ol>

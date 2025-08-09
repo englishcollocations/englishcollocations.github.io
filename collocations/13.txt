@@ -1,0 +1,48 @@
+<ol>
+  <li><strong>begin their studies</strong> – start their education.<br><em>Example:</em> Most children begin their studies at age five or six.</li>
+  <li><strong>pre-school</strong> – educational program for children before kindergarten.<br><em>Example:</em> Pre-school helps children develop social skills before starting formal education.</li>
+  <li><strong>kindergarten</strong> – the first year of formal schooling for young children.<br><em>Example:</em> My daughter is excited to start kindergarten next fall.</li>
+  <li><strong>primary school</strong> / <strong>elementary school</strong> – early years of formal education.<br><em>Example:</em> Elementary school usually covers grades one through five.</li>
+  <li><strong>first grade through fifth grade</strong> – the early elementary school years.<br><em>Example:</em> Primary education spans from first grade through fifth grade.</li>
+  <li><strong>middle school</strong> – intermediate level between elementary and high school.<br><em>Example:</em> Middle school can be challenging as students adjust to multiple teachers.</li>
+  <li><strong>sixth grade through eighth grade</strong> – the middle school years.<br><em>Example:</em> Students attend middle school from sixth grade through eighth grade.</li>
+  <li><strong>high school</strong> – secondary education before college.<br><em>Example:</em> High school students prepare for college or careers after graduation.</li>
+  <li><strong>ninth grade through twelfth grade</strong> – the high school years.<br><em>Example:</em> High school spans from ninth grade through twelfth grade.</li>
+  <li><strong>apply to colleges</strong> / <strong>universities</strong> – request admission to higher education institutions.<br><em>Example:</em> Students typically apply to colleges during their senior year of high school.</li>
+  <li><strong>send in</strong> / <strong>submit your application</strong> – deliver your request for admission.<br><em>Example:</em> The deadline to submit your application is January 15th.</li>
+  <li><strong>got good grades</strong> – achieved high academic marks.<br><em>Example:</em> Students who got good grades have better scholarship opportunities.</li>
+  <li><strong>get</strong> / <strong>be awarded a scholarship</strong> – receive financial aid for education.<br><em>Example:</em> She was awarded a scholarship for academic excellence.</li>
+  <li><strong>tuition</strong> – the cost of attending school or university.<br><em>Example:</em> College tuition has increased significantly over the past decade.</li>
+  <li><strong>take classes</strong> / <strong>courses</strong> – attend educational sessions on specific subjects.<br><em>Example:</em> I plan to take courses in computer science and mathematics.</li>
+  <li><strong>take notes</strong> – write down important information during class.<br><em>Example:</em> Good students always take notes during lectures.</li>
+  <li><strong>giving the lecture</strong> – presenting educational material to students.<br><em>Example:</em> The professor is giving the lecture on molecular biology today.</li>
+  <li><strong>give</strong> / <strong>make presentations</strong> – deliver speeches or reports to an audience.<br><em>Example:</em> Students must make presentations about their research projects.</li>
+  <li><strong>do research</strong> – investigate and study a topic thoroughly.<br><em>Example:</em> Graduate students spend much time doing research for their thesis.</li>
+  <li><strong>write an essay</strong> – compose a structured written piece on a topic.<br><em>Example:</em> The assignment is to write an essay about environmental protection.</li>
+  <li><strong>assignment</strong> – a task given by a teacher to be completed.<br><em>Example:</em> The math assignment is due next Monday.</li>
+  <li><strong>report</strong> – a detailed written account of research or investigation.<br><em>Example:</em> Students must submit a report on their laboratory experiments.</li>
+  <li><strong>paper</strong> – an academic written work on a specific topic.<br><em>Example:</em> She's writing a research paper about climate change.</li>
+  <li><strong>hand in your work</strong> – submit completed assignments to the teacher.<br><em>Example:</em> Please hand in your work before the deadline.</li>
+  <li><strong>grade the assignment</strong> – evaluate and give a score to student work.<br><em>Example:</em> Teachers typically grade the assignment within a week.</li>
+  <li><strong>give you feedback</strong> – provide comments and suggestions on your work.<br><em>Example:</em> The instructor will give you feedback to improve your writing.</li>
+  <li><strong>take tests</strong> / <strong>exams</strong> – participate in formal evaluations of knowledge.<br><em>Example:</em> Students take tests regularly to assess their understanding.</li>
+  <li><strong>passed the test</strong> – achieved the minimum score required to succeed.<br><em>Example:</em> I'm relieved that I passed the test after studying all week.</li>
+  <li><strong>failed the test</strong> – did not achieve the minimum score required.<br><em>Example:</em> He failed the test because he didn't study enough.</li>
+  <li><strong>pass</strong> / <strong>fail a course</strong> – successfully complete or not complete a class.<br><em>Example:</em> You need to attend regularly to pass a course.</li>
+  <li><strong>withdraw from</strong> – formally leave a course or program.<br><em>Example:</em> She decided to withdraw from the advanced mathematics course.</li>
+  <li><strong>drop the course</strong> – informally leave a class.<br><em>Example:</em> Many students drop the course if it's too difficult.</li>
+  <li><strong>choose a major</strong> / <strong>concentration</strong> – select a primary area of study.<br><em>Example:</em> College students usually choose a major in their second year.</li>
+  <li><strong>majored in biology</strong> – studied biology as a primary subject.<br><em>Example:</em> She majored in biology before going to medical school.</li>
+  <li><strong>biology major</strong> – a student whose primary subject is biology.<br><em>Example:</em> As a biology major, he spends a lot of time in the laboratory.</li>
+  <li><strong>majoring in philosophy</strong> – currently studying philosophy as a primary subject.<br><em>Example:</em> She's majoring in philosophy and plans to become a teacher.</li>
+  <li><strong>philosophy major</strong> – a student whose primary subject is philosophy.<br><em>Example:</em> The philosophy major presented an excellent thesis on ethics.</li>
+  <li><strong>graduate from college</strong> – complete higher education and receive a degree.<br><em>Example:</em> Most students graduate from college in four years.</li>
+  <li><strong>get a diploma</strong> – receive a certificate of graduation.<br><em>Example:</em> You'll get a diploma at the graduation ceremony.</li>
+  <li><strong>have a degree</strong> – possess a qualification from higher education.<br><em>Example:</em> Having a degree opens many career opportunities.</li>
+  <li><strong>bachelor's degree</strong> – undergraduate degree typically taking four years.<br><em>Example:</em> A bachelor's degree is required for most professional jobs.</li>
+  <li><strong>master's degree</strong> – graduate degree beyond the bachelor's level.<br><em>Example:</em> She's pursuing a master's degree in business administration.</li>
+  <li><strong>doctorate</strong> / <strong>Ph.D.</strong> – the highest academic degree.<br><em>Example:</em> Earning a doctorate requires several years of advanced study and research.</li>
+  <li><strong>bachelor's degree in chemistry</strong> – undergraduate qualification in chemistry.<br><em>Example:</em> His bachelor's degree in chemistry prepared him for pharmaceutical research.</li>
+  <li><strong>master's degree in linguistics</strong> – graduate qualification in language studies.<br><em>Example:</em> Her master's degree in linguistics helped her become a translator.</li>
+  <li><strong>Ph.D. in theology</strong> – doctoral degree in religious studies.<br><em>Example:</em> He earned his Ph.D. in theology after eight years of study.</li>
+</ol>

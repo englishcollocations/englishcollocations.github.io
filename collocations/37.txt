@@ -1,0 +1,24 @@
+<ol>
+  <li><strong>small talk</strong> – casual conversation about unimportant or everyday topics.<br><em>Example:</em> We made small talk about the weather while waiting for the elevator.</li>
+  <li><strong>strike up a conversation</strong> – start or initiate a conversation with someone.<br><em>Example:</em> He tried to strike up a conversation with the woman sitting next to him on the plane.</li>
+  <li><strong>delicate subjects</strong> – sensitive or controversial topics that might cause disagreement.<br><em>Example:</em> At family gatherings, we try to avoid delicate subjects like politics and money.</li>
+  <li><strong>lengthy discussion</strong> – a long, extended conversation or debate.<br><em>Example:</em> The board meeting turned into a lengthy discussion about budget cuts.</li>
+  <li><strong>have an argument</strong> – engage in a verbal disagreement or dispute.<br><em>Example:</em> They had an argument about whose turn it was to take out the trash.</li>
+  <li><strong>lull in the conversation</strong> – a pause or quiet moment during a conversation.<br><em>Example:</em> During the lull in the conversation, she asked about his recent vacation.</li>
+  <li><strong>go on and on</strong> – talk continuously for too long without stopping.<br><em>Example:</em> He tends to go on and on about his hobby without realizing people are bored.</li>
+  <li><strong>brief chat</strong> – a short, quick conversation.<br><em>Example:</em> We had a brief chat in the hallway before rushing to our next meetings.</li>
+  <li><strong>cracking jokes</strong> – telling jokes or trying to be funny.<br><em>Example:</em> He's always cracking jokes to lighten the mood during stressful situations.</li>
+  <li><strong>apologize profusely</strong> – say sorry many times in an excessive manner.<br><em>Example:</em> She had to apologize profusely after accidentally spilling coffee on her colleague's laptop.</li>
+  <li><strong>communication skills</strong> – abilities related to effectively expressing and understanding messages.<br><em>Example:</em> Good communication skills are essential for success in any leadership position.</li>
+  <li><strong>get straight to the point</strong> – speak directly about the main issue without delay.<br><em>Example:</em> Let me get straight to the point: we need to reduce costs by 20%.</li>
+  <li><strong>dropping hints</strong> – giving indirect suggestions or clues about something.<br><em>Example:</em> She's been dropping hints about wanting a promotion for months.</li>
+  <li><strong>tells lies</strong> – says things that are not true or factual.<br><em>Example:</em> Nobody trusts him anymore because he constantly tells lies about his accomplishments.</li>
+  <li><strong>stretches the truth</strong> – exaggerates or distorts facts to make them seem different.<br><em>Example:</em> He always stretches the truth when telling stories about his adventures.</li>
+  <li><strong>tell the truth</strong> – say what is factual and honest.<br><em>Example:</em> It's important to tell the truth, even when it's difficult or uncomfortable.</li>
+  <li><strong>give your word</strong> – make a promise or guarantee about something.<br><em>Example:</em> If you give your word that you'll be there, I know I can count on you.</li>
+  <li><strong>watch your tone of voice</strong> – be careful about the emotion or attitude in your speech.<br><em>Example:</em> You need to watch your tone of voice when speaking to customers.</li>
+  <li><strong>sarcastic remarks</strong> – comments that use irony to mock or convey contempt.<br><em>Example:</em> His sarcastic remarks during the meeting made everyone uncomfortable.</li>
+  <li><strong>disparaging comments</strong> – negative, critical, or belittling remarks about someone or something.<br><em>Example:</em> The coach was fired for making disparaging comments about the players.</li>
+  <li><strong>constructive criticism</strong> – helpful feedback intended to improve a situation or performance.<br><em>Example:</em> She appreciated the constructive criticism from her mentor about her presentation.</li>
+  <li><strong>ask a favor</strong> – request someone to do something helpful for you.<br><em>Example:</em> I need to ask a favor: could you pick up my kids from school today?</li>
+</ol>

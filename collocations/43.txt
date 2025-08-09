@@ -1,0 +1,26 @@
+<ol>
+  <li><strong>strongly/firmly believe</strong> – hold a conviction with great certainty and confidence.<br><em>Example:</em> I firmly believe that education is the key to solving poverty.</li>
+  <li><strong>deeply-held belief</strong> – a conviction that is fundamental and important to someone.<br><em>Example:</em> His deeply-held belief in equality influenced all his political decisions.</li>
+  <li><strong>unshakable belief</strong> – a conviction so strong it cannot be changed or destroyed.<br><em>Example:</em> She has an unshakable belief in her children's ability to succeed.</li>
+  <li><strong>subconscious belief</strong> – a conviction held without conscious awareness.<br><em>Example:</em> Many people have subconscious beliefs about gender roles that affect their behavior.</li>
+  <li><strong>color your judgment</strong> – influence or bias your decisions and opinions.<br><em>Example:</em> Don't let personal feelings color your judgment when evaluating the candidates.</li>
+  <li><strong>believe in superstitions</strong> – accept irrational beliefs without factual evidence.<br><em>Example:</em> Many athletes believe in superstitions like wearing lucky socks before games.</li>
+  <li><strong>blind faith</strong> – complete trust without questioning or evidence.<br><em>Example:</em> His blind faith in the investment scheme cost him his life savings.</li>
+  <li><strong>strengthen/reinforce your belief</strong> – make a conviction stronger or more certain.<br><em>Example:</em> The positive results of the study reinforced her belief in the treatment.</li>
+  <li><strong>undermine/weaken your belief</strong> – make a conviction less strong or certain.<br><em>Example:</em> The contradictory evidence undermined his belief in the theory.</li>
+  <li><strong>making assumptions</strong> – accepting something as true without proof or verification.<br><em>Example:</em> Stop making assumptions about people based on their appearance.</li>
+  <li><strong>erroneous conclusions</strong> – incorrect or mistaken final judgments.<br><em>Example:</em> The faulty data led to erroneous conclusions about market trends.</li>
+  <li><strong>common misconceptions</strong> – widely held but incorrect beliefs.<br><em>Example:</em> One of the most common misconceptions is that lightning never strikes twice.</li>
+  <li><strong>dispel misconceptions</strong> – eliminate or correct false beliefs.<br><em>Example:</em> The doctor's presentation helped dispel misconceptions about the vaccine.</li>
+  <li><strong>beyond/without a shadow of a doubt</strong> – completely certain, with no uncertainty.<br><em>Example:</em> The DNA evidence proved his innocence beyond a shadow of a doubt.</li>
+  <li><strong>doubts arise</strong> – uncertainties or questions begin to develop.<br><em>Example:</em> Doubts arose about the project's feasibility after the budget analysis.</li>
+  <li><strong>voices their doubts</strong> – expresses uncertainties or concerns aloud.<br><em>Example:</em> Several board members voiced their doubts about the merger proposal.</li>
+  <li><strong>sneaking suspicion</strong> – a persistent feeling that something might be true.<br><em>Example:</em> I have a sneaking suspicion that he's planning a surprise party.</li>
+  <li><strong>casts doubts</strong> – creates uncertainty or questions about something.<br><em>Example:</em> The witness's contradictory testimony casts doubts on his credibility.</li>
+  <li><strong>gnawing doubt</strong> – a persistent, bothering uncertainty.<br><em>Example:</em> A gnawing doubt about her decision kept her awake all night.</li>
+  <li><strong>lingering doubt</strong> – an uncertainty that remains for a long time.<br><em>Example:</em> Despite the evidence, a lingering doubt about his guilt remained.</li>
+  <li><strong>nagging doubt</strong> – a persistent, annoying uncertainty.<br><em>Example:</em> She had a nagging doubt that she'd forgotten something important.</li>
+  <li><strong>niggling doubt</strong> – a small but persistent worry or uncertainty.<br><em>Example:</em> A niggling doubt about the plan's success troubled the team leader.</li>
+  <li><strong>rethink/reexamine your beliefs</strong> – reconsider or review your convictions.<br><em>Example:</em> The new evidence forced him to rethink his beliefs about climate change.</li>
+  <li><strong>arrive at a different conclusion</strong> – reach a new or changed final judgment.<br><em>Example:</em> After reviewing all the data, we arrived at a different conclusion than expected.</li>
+</ol>

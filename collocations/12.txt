@@ -1,0 +1,32 @@
+<ol>
+  <li><strong>start up</strong> – turn on and begin operating a computer.<br><em>Example:</em> It takes a few minutes for the old computer to start up.</li>
+  <li><strong>shut down the computer</strong> – turn off the computer properly.<br><em>Example:</em> Always shut down the computer before unplugging it.</li>
+  <li><strong>get online</strong> – connect to the internet.<br><em>Example:</em> I need to get online to check my messages.</li>
+  <li><strong>access the internet</strong> – connect to and use the world wide web.<br><em>Example:</em> The library allows visitors to access the internet for free.</li>
+  <li><strong>check her e-mail</strong> – look at electronic messages received.<br><em>Example:</em> She checks her e-mail every morning before work.</li>
+  <li><strong>write and send messages</strong> – compose and transmit electronic communications.<br><em>Example:</em> Students learn to write and send messages professionally.</li>
+  <li><strong>reply to an e-mail</strong> – respond to an electronic message.<br><em>Example:</em> Please reply to an e-mail within 24 hours.</li>
+  <li><strong>forward an e-mail</strong> – send a received message to another person.<br><em>Example:</em> I'll forward an e-mail with the meeting details to you.</li>
+  <li><strong>attach a file</strong> – include a document with an electronic message.<br><em>Example:</em> Don't forget to attach a file with your assignment.</li>
+  <li><strong>log into</strong> – sign in to access an account or system.<br><em>Example:</em> You need a password to log into your bank account.</li>
+  <li><strong>website was down</strong> – the website was not functioning or accessible.<br><em>Example:</em> The website was down for maintenance all morning.</li>
+  <li><strong>home page</strong> – the main or first page of a website.<br><em>Example:</em> Click the logo to return to the home page.</li>
+  <li><strong>scheduled maintenance</strong> – planned system updates or repairs.<br><em>Example:</em> The server will be offline for scheduled maintenance tonight.</li>
+  <li><strong>search engine</strong> – a tool for finding information on the internet.<br><em>Example:</em> Google is the most popular search engine worldwide.</li>
+  <li><strong>surfing the web</strong> / <strong>browsing the web</strong> – exploring websites on the internet.<br><em>Example:</em> I spent the afternoon surfing the web for vacation ideas.</li>
+  <li><strong>social media</strong> – online platforms for sharing and communication.<br><em>Example:</em> Many teenagers spend hours daily on social media.</li>
+  <li><strong>burn a CD</strong> – copy files from a computer to a compact disc.<br><em>Example:</em> Can you help me burn a CD with my favorite songs?</li>
+  <li><strong>deleting an important file</strong> – removing a crucial document accidentally.<br><em>Example:</em> Be careful about deleting an important file without backing it up.</li>
+  <li><strong>recover the file</strong> – restore a deleted or lost document.<br><em>Example:</em> The IT department was able to recover the file from the backup.</li>
+  <li><strong>recycling bin</strong> – a folder containing deleted files that can be restored.<br><em>Example:</em> Check the recycling bin before permanently deleting files.</li>
+  <li><strong>freezes</strong> – stops responding or becomes unresponsive.<br><em>Example:</em> The computer freezes whenever I open too many programs.</li>
+  <li><strong>locks up</strong> – becomes completely unresponsive and unusable.<br><em>Example:</em> My laptop locks up when the processor overheats.</li>
+  <li><strong>restart</strong> / <strong>reboot the computer</strong> – turn the computer off and on again.<br><em>Example:</em> Try to restart the computer if it's running slowly.</li>
+  <li><strong>back up her files</strong> – create copies of important documents for safety.<br><em>Example:</em> It's wise to back up her files regularly to avoid data loss.</li>
+  <li><strong>lose her data</strong> – accidentally delete or be unable to access information.<br><em>Example:</em> She was devastated to lose her data when the hard drive failed.</li>
+  <li><strong>crashes</strong> – suddenly stops working or fails completely.<br><em>Example:</em> The system crashes whenever there's a power surge.</li>
+  <li><strong>runs scans</strong> – performs automatic checks for problems.<br><em>Example:</em> The antivirus software runs scans every night.</li>
+  <li><strong>viruses</strong> – malicious programs that can damage computer systems.<br><em>Example:</em> Installing antivirus software protects against viruses.</li>
+  <li><strong>spyware</strong> – software that secretly gathers user information.<br><em>Example:</em> Spyware can slow down your computer and steal personal data.</li>
+  <li><strong>infected</strong> – contaminated with malicious software.<br><em>Example:</em> His computer was infected with multiple viruses.</li>
+</ol>

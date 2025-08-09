@@ -1,0 +1,35 @@
+<ol>
+  <li><strong>lifestyle changes</strong> – modifications to how one lives to improve health.<br><em>Example:</em> Making lifestyle changes can significantly improve your quality of life.</li>
+  <li><strong>overall health</strong> – general physical and mental well-being.<br><em>Example:</em> Regular exercise contributes greatly to your overall health.</li>
+  <li><strong>life expectancy</strong> – the average number of years a person is expected to live.<br><em>Example:</em> Healthy eating habits can increase your life expectancy.</li>
+  <li><strong>quit smoking</strong> – stop the habit of smoking cigarettes.<br><em>Example:</em> She decided to quit smoking for her family's health.</li>
+  <li><strong>reduce stress</strong> – lower levels of mental or physical tension.<br><em>Example:</em> Meditation can help you reduce stress in daily life.</li>
+  <li><strong>eat a balanced diet</strong> – consume a variety of nutritious foods.<br><em>Example:</em> Doctors recommend that we eat a balanced diet with fruits and vegetables.</li>
+  <li><strong>get plenty of sleep</strong> – obtain adequate rest each night.<br><em>Example:</em> Students should get plenty of sleep before important exams.</li>
+  <li><strong>exercise regularly</strong> – engage in physical activity on a consistent basis.<br><em>Example:</em> People who exercise regularly tend to live longer lives.</li>
+  <li><strong>vaccinations</strong> / <strong>immunizations</strong> – medical treatments that prevent diseases.<br><em>Example:</em> Children need vaccinations before starting school.</li>
+  <li><strong>prevent diseases</strong> – stop illnesses from occurring.<br><em>Example:</em> Washing your hands frequently helps prevent diseases.</li>
+  <li><strong>health insurance</strong> – coverage that pays for medical expenses.<br><em>Example:</em> Having health insurance is essential for managing medical costs.</li>
+  <li><strong>suffer injuries</strong> / <strong>sustain serious injuries</strong> – experience physical harm.<br><em>Example:</em> The athlete sustained serious injuries during the championship game.</li>
+  <li><strong>minor injuries</strong> – small, less serious physical harm.<br><em>Example:</em> He escaped the accident with only minor injuries.</li>
+  <li><strong>broken bone</strong> / <strong>fractured a bone</strong> – a bone that has cracked or broken.<br><em>Example:</em> The X-ray showed that she had fractured a bone in her wrist.</li>
+  <li><strong>put your leg in a cast</strong> – place a hard covering around a broken limb.<br><em>Example:</em> The doctor will put your leg in a cast for six weeks.</li>
+  <li><strong>give you stitches</strong> – sew up a cut or wound.<br><em>Example:</em> The nurse will give you stitches to close that deep cut.</li>
+  <li><strong>ointment</strong> – a thick liquid medicine applied to the skin.<br><em>Example:</em> Apply this ointment twice daily to heal the rash.</li>
+  <li><strong>prevent infection</strong> – stop bacteria or viruses from causing illness.<br><em>Example:</em> Keep the wound clean to prevent infection.</li>
+  <li><strong>minor ailment</strong> – a small, less serious health problem.<br><em>Example:</em> A headache is usually just a minor ailment.</li>
+  <li><strong>take some aspirin</strong> – consume pain-relieving medication.<br><em>Example:</em> You can take some aspirin if your head hurts.</li>
+  <li><strong>relieve the pain</strong> – reduce or eliminate discomfort.<br><em>Example:</em> This medicine should help relieve the pain in your back.</li>
+  <li><strong>suffer from a chronic condition</strong> – have a long-lasting health problem.<br><em>Example:</em> Many elderly people suffer from chronic conditions like arthritis.</li>
+  <li><strong>over-the-counter medications</strong> – medicines you can buy without a prescription.<br><em>Example:</em> Over-the-counter medications are available at any pharmacy.</li>
+  <li><strong>prescription medications</strong> – medicines that require a doctor's prescription.<br><em>Example:</em> Prescription medications are often stronger than over-the-counter ones.</li>
+  <li><strong>alleviate the symptoms</strong> – reduce the signs or effects of illness.<br><em>Example:</em> This treatment should help alleviate the symptoms of your condition.</li>
+  <li><strong>respiratory infection</strong> – an illness affecting the breathing system.<br><em>Example:</em> Cold weather can increase the risk of respiratory infections.</li>
+  <li><strong>have a cold</strong> – be sick with a common viral infection.<br><em>Example:</em> I think I'm starting to have a cold with this runny nose.</li>
+  <li><strong>catch a cold</strong> – become infected with a cold virus.<br><em>Example:</em> You might catch a cold if you don't dress warmly.</li>
+  <li><strong>contagious diseases</strong> – illnesses that can spread from person to person.<br><em>Example:</em> Schools often close when contagious diseases spread among students.</li>
+  <li><strong>sexually-transmitted diseases</strong> (STDs) – infections spread through sexual contact.<br><em>Example:</em> Education about sexually-transmitted diseases is important for teenagers.</li>
+  <li><strong>diagnosed with</strong> – officially identified as having a specific illness.<br><em>Example:</em> She was diagnosed with diabetes last month.</li>
+  <li><strong>extensive treatment</strong> – comprehensive and thorough medical care.<br><em>Example:</em> Cancer patients often require extensive treatment over many months.</li>
+  <li><strong>terminally ill</strong> – having a disease that will eventually cause death.<br><em>Example:</em> The family spent quality time together after learning he was terminally ill.</li>
+</ol>

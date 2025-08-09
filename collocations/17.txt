@@ -1,0 +1,35 @@
+<ol>
+  <li><strong>earn money</strong> – receive payment for work or services.<br><em>Example:</em> Students often earn money by working part-time jobs during college.</li>
+  <li><strong>make money</strong> – generate income through work or business.<br><em>Example:</em> The entrepreneur found creative ways to make money from her hobby.</li>
+  <li><strong>inherit money</strong> – receive money from someone who has died.<br><em>Example:</em> She was able to buy a house after inheriting money from her grandmother.</li>
+  <li><strong>inherit a fortune</strong> – receive a large amount of money from a deceased person.<br><em>Example:</em> The young man inherited a fortune when his wealthy uncle passed away.</li>
+  <li><strong>make a deposit</strong> – put money into a bank account.<br><em>Example:</em> I need to make a deposit before my rent check bounces.</li>
+  <li><strong>make a withdrawal</strong> – take money out of a bank account.<br><em>Example:</em> You can make a withdrawal using the ATM machine outside the bank.</li>
+  <li><strong>spend money</strong> – use money to purchase goods or services.<br><em>Example:</em> Teenagers often spend money on clothes and entertainment.</li>
+  <li><strong>waste money</strong> / <strong>squander your money</strong> – use money foolishly or carelessly.<br><em>Example:</em> Don't waste money on expensive gadgets you don't really need.</li>
+  <li><strong>money is tight</strong> – having very little money available.<br><em>Example:</em> Money is tight this month, so we'll eat at home instead of restaurants.</li>
+  <li><strong>make a budget</strong> – create a plan for spending and saving money.<br><em>Example:</em> Financial advisors recommend that everyone should make a budget annually.</li>
+  <li><strong>stick to the budget</strong> – follow your spending plan without deviation.<br><em>Example:</em> It's difficult but important to stick to the budget during holiday shopping.</li>
+  <li><strong>broke</strong> – having no money available.<br><em>Example:</em> After buying the car, I was completely broke until my next paycheck.</li>
+  <li><strong>financially savvy</strong> – knowledgeable and wise about money matters.<br><em>Example:</em> Financially savvy individuals start investing early in their careers.</li>
+  <li><strong>save money</strong> – keep money for future use instead of spending it.<br><em>Example:</em> She managed to save money by cooking meals at home.</li>
+  <li><strong>emergency fund</strong> – money set aside for unexpected expenses.<br><em>Example:</em> Having an emergency fund helped them when the car needed major repairs.</li>
+  <li><strong>living expenses</strong> – the cost of basic necessities like food, housing, and transportation.<br><em>Example:</em> Living expenses in major cities are typically much higher than in rural areas.</li>
+  <li><strong>invest money</strong> – put money into financial instruments expecting future returns.<br><em>Example:</em> Many people invest money in retirement accounts for their future.</li>
+  <li><strong>stock market</strong> – the system where company shares are bought and sold.<br><em>Example:</em> The stock market can be volatile, so invest only what you can afford to lose.</li>
+  <li><strong>make a nice profit</strong> – earn a good amount of money from an investment.<br><em>Example:</em> They made a nice profit by selling their house in the booming market.</li>
+  <li><strong>losing money</strong> – experiencing financial loss from investments or business.<br><em>Example:</em> The restaurant has been losing money due to decreased foot traffic.</li>
+  <li><strong>goes downhill</strong> – deteriorates or becomes worse.<br><em>Example:</em> When the economy goes downhill, many people lose their jobs.</li>
+  <li><strong>saved up money</strong> – accumulated money over time for a specific purpose.<br><em>Example:</em> They saved up money for two years to afford their dream vacation.</li>
+  <li><strong>set aside money</strong> – reserve money for a particular purpose.<br><em>Example:</em> Smart parents set aside money for their children's education early.</li>
+  <li><strong>borrow money</strong> – receive money temporarily with the obligation to repay.<br><em>Example:</em> Small businesses often borrow money to expand their operations.</li>
+  <li><strong>taking out a loan</strong> – formally borrowing money from a financial institution.<br><em>Example:</em> Taking out a loan for college education is common among students.</li>
+  <li><strong>pay the money back</strong> – return borrowed money to the lender.<br><em>Example:</em> You must pay the money back according to the agreed schedule.</li>
+  <li><strong>installments</strong> – regular partial payments of a larger debt.<br><em>Example:</em> The furniture store allows customers to pay in monthly installments.</li>
+  <li><strong>interest</strong> – additional money charged for borrowing or earned on savings.<br><em>Example:</em> Credit cards typically charge high interest rates on unpaid balances.</li>
+  <li><strong>change money</strong> / <strong>exchange money</strong> – convert currency from one type to another.<br><em>Example:</em> Travelers need to exchange money when visiting foreign countries.</li>
+  <li><strong>local currency</strong> – the money used in a particular country or region.<br><em>Example:</em> Always have some local currency when traveling to small towns abroad.</li>
+  <li><strong>counterfeit bills</strong> – fake money that is illegally made to look real.<br><em>Example:</em> Businesses use special machines to detect counterfeit bills.</li>
+  <li><strong>donating money</strong> – giving money to charity without expecting anything in return.<br><em>Example:</em> Many wealthy individuals enjoy donating money to educational causes.</li>
+  <li><strong>raise money</strong> – collect donations or funds for a specific purpose.<br><em>Example:</em> The school is trying to raise money for new playground equipment.</li>
+</ol>

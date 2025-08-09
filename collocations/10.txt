@@ -1,0 +1,47 @@
+<ol>
+  <li><strong>play soccer</strong> – participate in football (American English).<br><em>Example:</em> The kids play soccer every weekend at the local park.</li>
+  <li><strong>play basketball</strong> – participate in the sport with hoops and a ball.<br><em>Example:</em> We play basketball at the gym twice a week.</li>
+  <li><strong>play tennis</strong> – participate in the racket sport.<br><em>Example:</em> They play tennis every morning before work.</li>
+  <li><strong>play baseball</strong> – participate in the sport with bats and bases.<br><em>Example:</em> The team will play baseball in the championship next month.</li>
+  <li><strong>play golf</strong> – participate in the sport played on a golf course.<br><em>Example:</em> He loves to play golf on sunny afternoons.</li>
+  <li><strong>do yoga</strong> – practice the exercise and meditation discipline.<br><em>Example:</em> She does yoga every morning to start her day peacefully.</li>
+  <li><strong>do gymnastics</strong> – practice the sport involving athletic exercises.<br><em>Example:</em> Many children do gymnastics to improve their flexibility.</li>
+  <li><strong>do martial arts</strong> – practice fighting sports like karate or judo.<br><em>Example:</em> He has been doing martial arts since he was ten years old.</li>
+  <li><strong>do aerobics</strong> – practice cardiovascular exercise routines.<br><em>Example:</em> The fitness class does aerobics to upbeat music.</li>
+  <li><strong>do exercise</strong> – engage in physical activity for fitness.<br><em>Example:</em> Doctors recommend that people do exercise regularly.</li>
+  <li><strong>lift weights</strong> – engage in strength training with dumbbells or barbells.<br><em>Example:</em> Athletes lift weights to build muscle strength.</li>
+  <li><strong>go swimming</strong> – participate in swimming as exercise or recreation.<br><em>Example:</em> We go swimming at the community pool every summer.</li>
+  <li><strong>go biking</strong> – ride a bicycle for exercise or transportation.<br><em>Example:</em> They go biking through the forest trails on weekends.</li>
+  <li><strong>go surfing</strong> – ride waves on a surfboard.<br><em>Example:</em> Tourists go surfing at the famous beaches in Hawaii.</li>
+  <li><strong>go rock climbing</strong> – climb rocks or artificial walls as a sport.<br><em>Example:</em> Adventure enthusiasts go rock climbing in the mountains.</li>
+  <li><strong>go bowling</strong> – play the sport of rolling balls at pins.<br><em>Example:</em> Families often go bowling for fun on Friday nights.</li>
+  <li><strong>go fishing</strong> – attempt to catch fish as sport or hobby.<br><em>Example:</em> My grandfather and I go fishing every summer vacation.</li>
+  <li><strong>soccer game</strong> – a match of football (American English).<br><em>Example:</em> The soccer game was cancelled due to heavy rain.</li>
+  <li><strong>basketball game</strong> – a match of basketball.<br><em>Example:</em> The basketball game went into overtime last night.</li>
+  <li><strong>tennis match</strong> – a competition between tennis players.<br><em>Example:</em> The tennis match lasted over three hours.</li>
+  <li><strong>win the game</strong> – be victorious in a competition.<br><em>Example:</em> Our team managed to win the game in the final minutes.</li>
+  <li><strong>lose the game</strong> – be defeated in a competition.<br><em>Example:</em> They were disappointed to lose the game by one point.</li>
+  <li><strong>tie the game</strong> – end a competition with an equal score.<br><em>Example:</em> The teams will tie the game if no one scores soon.</li>
+  <li><strong>home game</strong> – a match played at one's own venue.<br><em>Example:</em> The home game always attracts more local fans.</li>
+  <li><strong>away game</strong> – a match played at the opponent's venue.<br><em>Example:</em> The team performed well even in the away game.</li>
+  <li><strong>tournament</strong> – a series of competitions to determine a winner.<br><em>Example:</em> The tennis tournament attracts players from around the world.</li>
+  <li><strong>has the lead</strong> – is currently winning or ahead in score.<br><em>Example:</em> Our team has the lead with a score of 2-0.</li>
+  <li><strong>make a comeback</strong> – recover from a losing position to win.<br><em>Example:</em> The team made an incredible comeback in the second half.</li>
+  <li><strong>take the lead</strong> – move ahead in score or position.<br><em>Example:</em> They managed to take the lead in the final quarter.</li>
+  <li><strong>gymnastics competition</strong> – a contest of gymnastic skills.<br><em>Example:</em> She won gold at the gymnastics competition.</li>
+  <li><strong>martial arts competition</strong> – a contest of fighting sports skills.<br><em>Example:</em> The martial arts competition featured fighters from many countries.</li>
+  <li><strong>surfing competition</strong> – a contest of surfing abilities.<br><em>Example:</em> The annual surfing competition attracts top athletes.</li>
+  <li><strong>ice skating competition</strong> – a contest of skating skills on ice.<br><em>Example:</em> The ice skating competition was held at the Olympic venue.</li>
+  <li><strong>race</strong> – a competition to see who is fastest.<br><em>Example:</em> The marathon race started early in the morning.</li>
+  <li><strong>enter a competition</strong> – register to participate in a contest.<br><em>Example:</em> She decided to enter a competition to test her skills.</li>
+  <li><strong>win first place</strong> – achieve the top position in a competition.<br><em>Example:</em> His goal is to win first place at the upcoming event.</li>
+  <li><strong>enhance their performance</strong> – improve their athletic abilities.<br><em>Example:</em> Athletes train hard to enhance their performance.</li>
+  <li><strong>steroids</strong> – illegal drugs used to artificially improve performance.<br><em>Example:</em> The use of steroids is banned in professional sports.</li>
+  <li><strong>fail a drug test</strong> – test positive for banned substances.<br><em>Example:</em> The athlete was suspended after failing a drug test.</li>
+  <li><strong>disqualified from participating</strong> – banned from taking part in competition.<br><em>Example:</em> He was disqualified from participating due to rule violations.</li>
+  <li><strong>achieve a personal best</strong> – perform better than one's previous best performance.<br><em>Example:</em> She was thrilled to achieve a personal best in the race.</li>
+  <li><strong>break the world record</strong> – surpass the previous global best performance.<br><em>Example:</em> The swimmer managed to break the world record by two seconds.</li>
+  <li><strong>set a new world record</strong> – establish a new global best performance.<br><em>Example:</em> The athlete set a new world record in the long jump.</li>
+  <li><strong>get injured</strong> – sustain physical harm or damage.<br><em>Example:</em> Many athletes get injured during intense training.</li>
+  <li><strong>withdraw from the competition</strong> – voluntarily leave or quit a contest.<br><em>Example:</em> Due to his injury, he had to withdraw from the competition.</li>
+</ol>

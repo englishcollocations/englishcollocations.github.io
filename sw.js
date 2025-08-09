@@ -1,7 +1,8 @@
-const CACHE_NAME = 'english-collocations-v15';
+const CACHE_NAME = 'english-collocations-v16';
 const CRITICAL_CACHE_NAME = `${CACHE_NAME}-critical`;
 const AUDIO_CACHE_NAME = `${CACHE_NAME}-audio`;
 const TEXT_CACHE_NAME = `${CACHE_NAME}-text`;
+const COLLOCATION_CACHE_NAME = `${CACHE_NAME}-collocations`;
 
 // Separate critical files from audio and text files for better performance
 const criticalFiles = [
@@ -24,7 +25,12 @@ for (let i = 1; i <= 50; i++) {
   textFiles.push(`texts/${i.toString().padStart(2, '0')}.txt`);
 }
 
-const urlsToCache = [...criticalFiles, ...audioFiles, ...textFiles];
+const collocationFiles = [];
+for (let i = 1; i <= 50; i++) {
+  collocationFiles.push(`collocations/${i.toString().padStart(2, '0')}.txt`);
+}
+
+const urlsToCache = [...criticalFiles, ...audioFiles, ...textFiles, ...collocationFiles];
 
 // Install Service Worker with improved performance
 self.addEventListener('install', (event) => {
@@ -57,6 +63,11 @@ self.addEventListener('install', (event) => {
       
       // Initialize text cache (don't cache text files during install)
       caches.open(TEXT_CACHE_NAME).then(() => {
+        
+      }),
+      
+      // Initialize collocation cache (don't cache collocation files during install)
+      caches.open(COLLOCATION_CACHE_NAME).then(() => {
         
       })
     ]).then(() => {
@@ -99,6 +110,9 @@ self.addEventListener('fetch', (event) => {
   } else if (url.includes('.txt') && url.includes('texts/')) {
     // Text files: Cache first strategy with text cache
     event.respondWith(cacheFirst(event.request, TEXT_CACHE_NAME));
+  } else if (url.includes('.txt') && url.includes('collocations/')) {
+    // Collocation files: Cache first strategy with collocation cache
+    event.respondWith(cacheFirst(event.request, COLLOCATION_CACHE_NAME));
   } else if (url.includes('.svg') || 
              url.includes('.jpg') || 
              url.includes('.png') ||
@@ -133,7 +147,11 @@ async function cacheFirst(request, cacheName = CRITICAL_CACHE_NAME) {
     
     // For text files, try alternative matching strategies
     if (!cachedResponse && url.includes('.txt')) {
-      cachedResponse = await findTextInCache(url);
+      if (url.includes('texts/')) {
+        cachedResponse = await findTextInCache(url);
+      } else if (url.includes('collocations/')) {
+        cachedResponse = await findCollocationInCache(url);
+      }
     }
     
     if (cachedResponse) {
@@ -198,6 +216,42 @@ async function findAudioInCache(url) {
     return null;
   } catch (error) {
     console.error('Error finding audio in cache:', error);
+    return null;
+  }
+}
+
+// Helper function to find collocation files in cache with flexible matching
+async function findCollocationInCache(url) {
+  try {
+    // Try without query parameters
+    const urlWithoutQuery = url.split('?')[0];
+    let cachedResponse = await caches.match(urlWithoutQuery);
+    
+    if (cachedResponse) {
+      
+      return cachedResponse;
+    }
+    
+    // Try filename matching across both caches
+    const filename = urlWithoutQuery.split('/').pop();
+    const cacheNames = [COLLOCATION_CACHE_NAME, CRITICAL_CACHE_NAME];
+    
+    for (const cacheName of cacheNames) {
+      const cache = await caches.open(cacheName);
+      const cacheKeys = await cache.keys();
+      
+      for (const key of cacheKeys) {
+        if (key.url.includes(filename) && key.url.includes('collocations/')) {
+          
+          return await cache.match(key);
+        }
+      }
+    }
+    
+    
+    return null;
+  } catch (error) {
+    console.error('Error finding collocation in cache:', error);
     return null;
   }
 }
@@ -363,11 +417,16 @@ async function cacheAllFiles() {
   try {
     const results = await Promise.allSettled([
       cacheAudioFiles(),
+      cacheTextFiles(),
+      cacheCollocationFiles(),
       cacheAdditionalResources()
     ]);
     
     const audioResult = results[0];
-    const resourcesResult = results[1];
+    const textResult = results[1];
+    const collocationResult = results[2];
+    const resourcesResult = results[3];
+    
     
     
     
@@ -375,6 +434,12 @@ async function cacheAllFiles() {
     
     if (audioResult.status === 'rejected') {
       console.error('Audio caching failed:', audioResult.reason);
+    }
+    if (textResult.status === 'rejected') {
+      console.error('Text caching failed:', textResult.reason);
+    }
+    if (collocationResult.status === 'rejected') {
+      console.error('Collocation caching failed:', collocationResult.reason);
     }
     if (resourcesResult.status === 'rejected') {
       console.error('Resources caching failed:', resourcesResult.reason);
@@ -447,6 +512,125 @@ async function cacheAudioFiles() {
   
 }
 
+// Cache Text Files - Optimized batch processing
+async function cacheTextFiles() {
+  
+  
+  const textCache = await caches.open(TEXT_CACHE_NAME);
+  const existingKeys = await textCache.keys();
+  const existingUrls = new Set(existingKeys.map(req => req.url));
+  
+  // Filter out already cached files
+  const filesToCache = textFiles.filter(url => {
+    const fullUrl = new URL(url, self.location).href;
+    return !existingUrls.has(fullUrl);
+  });
+  
+  if (filesToCache.length === 0) {
+    
+    return;
+  }
+  
+  
+  
+  // Process in smaller batches to avoid overwhelming the network
+  const batchSize = 10; // Text files are smaller, can handle larger batches
+  const batches = [];
+  
+  for (let i = 0; i < filesToCache.length; i += batchSize) {
+    batches.push(filesToCache.slice(i, i + batchSize));
+  }
+  
+  let cachedCount = 0;
+  let failedCount = 0;
+  
+  for (const batch of batches) {
+    const batchResults = await Promise.allSettled(
+      batch.map(async (url) => {
+        try {
+          const response = await fetch(url);
+          if (response && response.status === 200) {
+            await textCache.put(url, response);
+            
+            cachedCount++;
+          } else {
+            console.warn(`⚠ Failed to cache text (bad response): ${url}`);
+            failedCount++;
+          }
+        } catch (error) {
+          console.warn(`⚠ Failed to cache text (network error): ${url}`, error);
+          failedCount++;
+        }
+      })
+    );
+    
+    // Small delay between batches to be nice to the server
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+  
+  
+}
+
+// Cache Collocation Files - Optimized batch processing
+async function cacheCollocationFiles() {
+  
+  
+  const collocationCache = await caches.open(COLLOCATION_CACHE_NAME);
+  const existingKeys = await collocationCache.keys();
+  const existingUrls = new Set(existingKeys.map(req => req.url));
+  
+  // Filter out already cached files
+  const filesToCache = collocationFiles.filter(url => {
+    const fullUrl = new URL(url, self.location).href;
+    return !existingUrls.has(fullUrl);
+  });
+  
+  if (filesToCache.length === 0) {
+    
+    return;
+  }
+  
+  
+  
+  // Process in smaller batches to avoid overwhelming the network
+  const batchSize = 10; // Collocation files are smaller, can handle larger batches
+  const batches = [];
+  
+  for (let i = 0; i < filesToCache.length; i += batchSize) {
+    batches.push(filesToCache.slice(i, i + batchSize));
+  }
+  
+  let cachedCount = 0;
+  let failedCount = 0;
+  
+  for (const batch of batches) {
+    const batchResults = await Promise.allSettled(
+      batch.map(async (url) => {
+        try {
+          const response = await fetch(url);
+          if (response && response.status === 200) {
+            await collocationCache.put(url, response);
+            
+            cachedCount++;
+          } else {
+            console.warn(`⚠ Failed to cache collocation (bad response): ${url}`);
+            failedCount++;
+          }
+        } catch (error) {
+          console.warn(`⚠ Failed to cache collocation (network error): ${url}`, error);
+          failedCount++;
+        }
+      })
+    );
+    
+    // Small delay between batches to be nice to the server
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+  
+  
+
+}
+
 // Cache Additional Resources
 async function cacheAdditionalResources() {
   
@@ -492,7 +676,9 @@ self.addEventListener('activate', (event) => {
         const deletePromises = cacheNames
           .filter(cacheName => 
             !cacheName.startsWith(CRITICAL_CACHE_NAME.split('-v')[0]) &&
-            !cacheName.startsWith(AUDIO_CACHE_NAME.split('-v')[0])
+            !cacheName.startsWith(AUDIO_CACHE_NAME.split('-v')[0]) &&
+            !cacheName.startsWith(TEXT_CACHE_NAME.split('-v')[0]) &&
+            !cacheName.startsWith(COLLOCATION_CACHE_NAME.split('-v')[0])
           )
           .map(cacheName => {
             
@@ -586,6 +772,19 @@ self.addEventListener('message', (event) => {
       cacheTextFile(textPath);
       break;
       
+    case 'CACHE_COLLOCATION':
+      const collocationPath = data.collocationPath;
+      
+      
+      // Validate the collocation path
+      if (!collocationPath || (!collocationPath.startsWith('collocations/') && !collocationPath.startsWith('/collocations/'))) {
+        console.warn('⚠ Invalid collocation path:', collocationPath);
+        return;
+      }
+      
+      cacheCollocationFile(collocationPath);
+      break;
+      
     default:
       
   }
@@ -642,6 +841,33 @@ async function cacheTextFile(textPath) {
     }
   } catch (error) {
     console.warn('⚠ Failed to cache text (network error):', textPath, error);
+  }
+}
+
+// Cache individual collocation file
+async function cacheCollocationFile(collocationPath) {
+  try {
+    const collocationCache = await caches.open(COLLOCATION_CACHE_NAME);
+    
+    // Check if already cached
+    const cachedResponse = await collocationCache.match(collocationPath);
+    if (cachedResponse) {
+      
+      return;
+    }
+    
+    // Cache the collocation file
+    
+    const response = await fetch(collocationPath);
+    
+    if (response && response.status === 200) {
+      await collocationCache.put(collocationPath, response);
+      
+    } else {
+      console.warn('⚠ Failed to fetch collocation (bad response):', collocationPath, response?.status);
+    }
+  } catch (error) {
+    console.warn('⚠ Failed to cache collocation (network error):', collocationPath, error);
   }
 }
 

@@ -1,0 +1,32 @@
+<ol>
+  <li><strong>light brown</strong> – a pale or faint shade of brown color.<br><em>Example:</em> She has beautiful light brown hair that shines in the sunlight.</li>
+  <li><strong>dark brown hair</strong> – hair that is a deep, rich brown color.<br><em>Example:</em> His dark brown hair contrasted nicely with his blue eyes.</li>
+  <li><strong>bright red apple</strong> – an apple with an intense, vivid red color.<br><em>Example:</em> The bright red apple looked delicious hanging from the tree.</li>
+  <li><strong>pale green dress</strong> – a dress with a light, soft green color.<br><em>Example:</em> She wore a pale green dress to the spring wedding.</li>
+  <li><strong>bold/vivid colors</strong> – colors that are very intense and striking.<br><em>Example:</em> The artist used bold colors to create a dramatic painting.</li>
+  <li><strong>pastel colors</strong> – light, soft, and gentle colors.<br><em>Example:</em> The nursery was decorated in pastel colors like pink and baby blue.</li>
+  <li><strong>shades of a color</strong> – different variations or intensities of the same color.<br><em>Example:</em> The sunset displayed many beautiful shades of orange and red.</li>
+  <li><strong>sky blue</strong> – a light blue color like a clear daytime sky.<br><em>Example:</em> The bedroom walls were painted in a lovely sky blue shade.</li>
+  <li><strong>ruby red</strong> – a deep, rich red color like a ruby gemstone.<br><em>Example:</em> Her ruby red lipstick made a bold fashion statement.</li>
+  <li><strong>cherry red</strong> – a bright, vibrant red color like ripe cherries.<br><em>Example:</em> The cherry red sports car caught everyone's attention.</li>
+  <li><strong>fiery orange</strong> – an intense, bright orange color like flames.<br><em>Example:</em> The fiery orange sunset painted the sky magnificently.</li>
+  <li><strong>burnt orange</strong> – a dark, brownish-orange color.<br><em>Example:</em> The living room featured burnt orange pillows on the beige sofa.</li>
+  <li><strong>lemon yellow</strong> – a bright, vivid yellow color like fresh lemons.<br><em>Example:</em> The kitchen cabinets were painted in a cheerful lemon yellow.</li>
+  <li><strong>golden yellow</strong> – a rich, warm yellow color with golden tones.<br><em>Example:</em> The golden yellow wheat fields stretched to the horizon.</li>
+  <li><strong>emerald green</strong> – a deep, rich green color like emerald gemstones.<br><em>Example:</em> The emerald green dress looked stunning at the formal dinner.</li>
+  <li><strong>olive green</strong> – a dark, brownish-green color like olives.<br><em>Example:</em> His olive green jacket was perfect for outdoor activities.</li>
+  <li><strong>royal blue</strong> – a deep, rich blue color traditionally associated with royalty.<br><em>Example:</em> The royal blue curtains added elegance to the formal dining room.</li>
+  <li><strong>navy blue</strong> / <strong>midnight blue</strong> – very dark blue colors, almost black.<br><em>Example:</em> The navy blue uniform looked professional and crisp.</li>
+  <li><strong>with a tinge of</strong> – having a slight amount of another color mixed in.<br><em>Example:</em> The white roses had a tinge of pink at the edges of their petals.</li>
+  <li><strong>with a slight brownish tinge</strong> – having a small amount of brown color mixed in.<br><em>Example:</em> Her blonde hair had a slight brownish tinge in the sunlight.</li>
+  <li><strong>reddish brown</strong> – brown color with a noticeable amount of red mixed in.<br><em>Example:</em> The old brick building had a beautiful reddish brown facade.</li>
+  <li><strong>yellowish brown</strong> – brown color with a noticeable amount of yellow mixed in.<br><em>Example:</em> The autumn leaves turned a lovely yellowish brown color.</li>
+  <li><strong>colors match</strong> – colors that look good together and complement each other.<br><em>Example:</em> Her blue shoes and blue handbag matched perfectly with her outfit.</li>
+  <li><strong>colors clash</strong> – colors that look bad together and don't complement each other.<br><em>Example:</em> The orange shirt and purple pants clashed horribly together.</li>
+  <li><strong>that color suits you</strong> – a color that looks good on a particular person.<br><em>Example:</em> That burgundy dress really suits you; it brings out your eye color.</li>
+  <li><strong>that color looks good on you</strong> – a color that is flattering to someone's appearance.<br><em>Example:</em> Green really looks good on you with your red hair.</li>
+  <li><strong>paint a house</strong> – apply paint to change the color of a building.<br><em>Example:</em> They decided to paint the house white to make it look more modern.</li>
+  <li><strong>paint your nails</strong> – apply nail polish to change the color of fingernails.<br><em>Example:</em> She likes to paint her nails different colors to match her outfits.</li>
+  <li><strong>dye your hair blonde</strong> – chemically change hair color to blonde.<br><em>Example:</em> She decided to dye her hair blonde for a completely new look.</li>
+  <li><strong>dye a shirt blue</strong> – change the color of fabric using dye.<br><em>Example:</em> He learned how to dye a white shirt blue in his art class.</li>
+</ol>

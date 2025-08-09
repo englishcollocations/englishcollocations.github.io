@@ -1,0 +1,26 @@
+<ol>
+  <li><strong>in a rush</strong> – hurrying, moving or acting quickly due to time pressure.<br><em>Example:</em> I'm always in a rush during morning commute to catch the train.</li>
+  <li><strong>take your time</strong> – do something slowly and carefully without hurrying.<br><em>Example:</em> Take your time with this decision; there's no need to rush.</li>
+  <li><strong>spend your time efficiently</strong> – use time productively and effectively.<br><em>Example:</em> Students who spend their time efficiently achieve better academic results.</li>
+  <li><strong>waste time</strong> – use time unproductively or for pointless activities.<br><em>Example:</em> Don't waste time watching TV when you have important work to do.</li>
+  <li><strong>ungodly hours</strong> – very late at night or very early in the morning.<br><em>Example:</em> Medical residents often work ungodly hours during their training.</li>
+  <li><strong>taken me ages</strong> – required a very long time to accomplish.<br><em>Example:</em> It's taken me ages to learn how to cook properly.</li>
+  <li><strong>well in advance</strong> – much earlier than necessary or required.<br><em>Example:</em> Book your vacation flights well in advance to get better prices.</li>
+  <li><strong>underestimate the amount of time</strong> – incorrectly think something will take less time.<br><em>Example:</em> People often underestimate the amount of time needed for home renovations.</li>
+  <li><strong>grueling schedule</strong> – an extremely demanding and exhausting timetable.<br><em>Example:</em> Olympic athletes maintain a grueling schedule of training and competition.</li>
+  <li><strong>time-consuming tasks</strong> – activities that require a lot of time to complete.<br><em>Example:</em> Data entry and research are often time-consuming tasks.</li>
+  <li><strong>pressing commitments</strong> – urgent obligations or appointments that cannot be delayed.<br><em>Example:</em> She couldn't attend the meeting due to pressing commitments at home.</li>
+  <li><strong>establish a timeline</strong> – create a schedule showing when things should happen.<br><em>Example:</em> Project managers establish a timeline for each phase of development.</li>
+  <li><strong>leave things to the last minute</strong> – delay action until the final possible moment.<br><em>Example:</em> Students who leave things to the last minute often produce poor quality work.</li>
+  <li><strong>running out of time</strong> – having insufficient time remaining to complete something.<br><em>Example:</em> We're running out of time to finish this project before the deadline.</li>
+  <li><strong>stick to the schedule</strong> – follow the planned timetable without deviation.<br><em>Example:</em> Construction teams must stick to the schedule to avoid cost overruns.</li>
+  <li><strong>get ahead</strong> – complete work earlier than planned or required.<br><em>Example:</em> Try to get ahead on your assignments during spring break.</li>
+  <li><strong>falling behind</strong> – becoming late or delayed compared to the planned schedule.<br><em>Example:</em> The team is falling behind on their quarterly sales targets.</li>
+  <li><strong>strict deadline</strong> – a firm, unchangeable date by which something must be completed.<br><em>Example:</em> Tax returns must be filed before the strict deadline of April 15th.</li>
+  <li><strong>rush hour</strong> – peak traffic time when most people commute to or from work.<br><em>Example:</em> Avoid traveling during rush hour to save time and reduce stress.</li>
+  <li><strong>eight solid hours</strong> – eight continuous hours without interruption.<br><em>Example:</em> Adults need eight solid hours of sleep for optimal health.</li>
+  <li><strong>from dawn till dusk</strong> – from early morning until evening, all day long.<br><em>Example:</em> Farmers often work from dawn till dusk during harvest season.</li>
+  <li><strong>spare time</strong> / <strong>free time</strong> – time not occupied by work or obligations.<br><em>Example:</em> She uses her spare time to volunteer at the local animal shelter.</li>
+  <li><strong>cut back on your hours</strong> – reduce the amount of time spent working.<br><em>Example:</em> Doctors advised him to cut back on his hours to reduce stress.</li>
+  <li><strong>free up some time</strong> – make time available by reducing other commitments.<br><em>Example:</em> I need to free up some time this weekend to visit my parents.</li>
+</ol>

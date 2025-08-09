@@ -1,0 +1,29 @@
+<ol>
+  <li><strong>wildlife preserve</strong> – a protected area where animals live safely in their natural habitat.<br><em>Example:</em> The wildlife preserve is home to endangered species of birds and mammals.</li>
+  <li><strong>winding footpath</strong> – a walking trail that curves and turns through the landscape.<br><em>Example:</em> The winding footpath led us through beautiful gardens and forest clearings.</li>
+  <li><strong>dense forests</strong> – thick woods with many trees growing close together.<br><em>Example:</em> The dense forests provide shelter for countless species of wildlife.</li>
+  <li><strong>vast meadows</strong> – large, open grassy areas.<br><em>Example:</em> Cattle graze peacefully in the vast meadows surrounding the farmhouse.</li>
+  <li><strong>rolling hills</strong> – gentle, rounded hills that create wave-like patterns in the landscape.<br><em>Example:</em> The rolling hills of Tuscany are famous for their vineyard-covered slopes.</li>
+  <li><strong>rocky landscape</strong> – terrain dominated by rocks and stone formations.<br><em>Example:</em> The rocky landscape of the desert creates dramatic and beautiful scenery.</li>
+  <li><strong>towering cliffs</strong> – extremely tall, steep rock faces.<br><em>Example:</em> Seabirds nest on the towering cliffs overlooking the turbulent ocean.</li>
+  <li><strong>magnificent waterfalls</strong> – impressive, beautiful cascades of falling water.<br><em>Example:</em> Niagara Falls is one of the world's most magnificent waterfalls.</li>
+  <li><strong>hiking trail</strong> – a marked path for walking in natural areas.<br><em>Example:</em> The hiking trail offers stunning views of the valley below.</li>
+  <li><strong>steepest face</strong> – the most vertical side of a mountain or cliff.<br><em>Example:</em> Rock climbers challenged themselves on the steepest face of the mountain.</li>
+  <li><strong>foot of the mountain</strong> – the base or bottom area of a mountain.<br><em>Example:</em> Our campsite was located at the foot of the mountain near a crystal-clear lake.</li>
+  <li><strong>banks</strong> – the sides or edges of a river or stream.<br><em>Example:</em> Wildflowers bloom along the banks of the peaceful river.</li>
+  <li><strong>bubbling mountain stream</strong> – a small, fast-flowing water source making soft sounds.<br><em>Example:</em> The bubbling mountain stream provided fresh drinking water for hikers.</li>
+  <li><strong>summit</strong> – the highest point or peak of a mountain.<br><em>Example:</em> Reaching the summit after hours of climbing was incredibly rewarding.</li>
+  <li><strong>spectacular panoramic view</strong> – an impressive view that can be seen in all directions.<br><em>Example:</em> From the observation deck, visitors enjoy a spectacular panoramic view of the city.</li>
+  <li><strong>snow-covered peaks</strong> – mountain tops covered with snow.<br><em>Example:</em> The snow-covered peaks reflected beautifully in the alpine lake.</li>
+  <li><strong>mountain range</strong> – a series or chain of connected mountains.<br><em>Example:</em> The Himalayas are the world's highest mountain range.</li>
+  <li><strong>lush green countryside</strong> – rural areas with abundant, healthy vegetation.<br><em>Example:</em> Ireland is famous for its lush green countryside and rolling pastures.</li>
+  <li><strong>shallow river</strong> – a waterway that is not very deep.<br><em>Example:</em> Children safely played in the shallow river during the hot summer day.</li>
+  <li><strong>flows lazily</strong> – moves slowly and gently without urgency.<br><em>Example:</em> The wide river flows lazily through the peaceful valley.</li>
+  <li><strong>sun-drenched</strong> – receiving abundant sunlight.<br><em>Example:</em> The sun-drenched terrace was perfect for growing Mediterranean herbs.</li>
+  <li><strong>sandy beaches</strong> – shorelines covered with fine sand.<br><em>Example:</em> The Caribbean islands are known for their pristine sandy beaches.</li>
+  <li><strong>family-run hotel</strong> – accommodation owned and operated by a family.<br><em>Example:</em> The family-run hotel offered warm hospitality and home-cooked meals.</li>
+  <li><strong>picturesque fishing village</strong> – a charming, beautiful coastal town where fishing is the main activity.<br><em>Example:</em> The picturesque fishing village attracted artists and photographers from around the world.</li>
+  <li><strong>unobstructed view</strong> – a clear sight line with nothing blocking the view.<br><em>Example:</em> The penthouse apartment offers an unobstructed view of the harbor.</li>
+  <li><strong>secluded beaches</strong> – isolated, private beaches away from crowds.<br><em>Example:</em> We discovered secluded beaches accessible only by hiking through the forest.</li>
+  <li><strong>well worth the trip</strong> – definitely worth the time and effort to visit.<br><em>Example:</em> The hidden waterfall was well worth the trip despite the difficult hike.</li>
+</ol>

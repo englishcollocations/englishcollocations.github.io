@@ -1,0 +1,23 @@
+<ol>
+  <li><strong>towering skyscrapers</strong> – extremely tall buildings that dominate the skyline.<br><em>Example:</em> New York City is famous for its towering skyscrapers that reach toward the clouds.</li>
+  <li><strong>noise pollution</strong> – harmful or excessive noise in the environment.<br><em>Example:</em> Living near the airport, we suffer from constant noise pollution from planes.</li>
+  <li><strong>coastal city</strong> – a city located near the ocean or sea.<br><em>Example:</em> San Diego is a beautiful coastal city with perfect weather year-round.</li>
+  <li><strong>high-rise building</strong> – a tall building with many floors.<br><em>Example:</em> Many families prefer houses over apartments in high-rise buildings.</li>
+  <li><strong>industrial zone</strong> – an area designated for manufacturing and factories.<br><em>Example:</em> The industrial zone was moved outside the city to reduce pollution.</li>
+  <li><strong>outskirts of the city</strong> – the outer edges or suburbs of an urban area.<br><em>Example:</em> Housing is more affordable on the outskirts of the city.</li>
+  <li><strong>hectic pace</strong> – a fast, chaotic, and stressful rhythm of life.<br><em>Example:</em> The hectic pace of modern life leaves little time for relaxation.</li>
+  <li><strong>bustling streets</strong> – busy streets full of people and activity.<br><em>Example:</em> The bustling streets of Times Square are crowded day and night.</li>
+  <li><strong>strewn with litter</strong> – covered or scattered with garbage.<br><em>Example:</em> After the festival, the park was strewn with litter and food containers.</li>
+  <li><strong>traffic jams</strong> – situations where vehicles cannot move due to congestion.<br><em>Example:</em> Rush hour traffic jams can add an hour to your commute.</li>
+  <li><strong>cobblestone streets</strong> – roads paved with small, rounded stones.<br><em>Example:</em> The historic district features charming cobblestone streets from the colonial era.</li>
+  <li><strong>city center</strong> – the main commercial and business area of a city.<br><em>Example:</em> Most tourists prefer hotels in the city center for convenience.</li>
+  <li><strong>quaint shops</strong> – charming, old-fashioned, and appealing stores.<br><em>Example:</em> The small town is known for its quaint shops selling handmade crafts.</li>
+  <li><strong>local cuisine</strong> – the traditional food characteristic of a particular region.<br><em>Example:</em> Trying the local cuisine is one of the best parts of traveling.</li>
+  <li><strong>open-air market</strong> – an outdoor marketplace where vendors sell goods.<br><em>Example:</em> The open-air market offers fresh produce and handmade items every Saturday.</li>
+  <li><strong>street vendors</strong> – people who sell goods or food from carts or stands on the street.<br><em>Example:</em> Street vendors in the city center sell everything from hot dogs to souvenirs.</li>
+  <li><strong>trendy cafés</strong> – modern, stylish, and popular coffee shops.<br><em>Example:</em> Young professionals often work from trendy cafés with free WiFi.</li>
+  <li><strong>street crime</strong> – criminal activities that occur in public places.<br><em>Example:</em> Increased police patrols have helped reduce street crime in the downtown area.</li>
+  <li><strong>inner-city areas</strong> – the central, often disadvantaged parts of a city.<br><em>Example:</em> Government programs aim to improve education in inner-city areas.</li>
+  <li><strong>cultural diversity</strong> – the presence of multiple cultures and ethnicities.<br><em>Example:</em> Los Angeles is celebrated for its incredible cultural diversity.</li>
+  <li><strong>pulsating nightlife</strong> – vibrant, exciting evening entertainment scene.<br><em>Example:</em> Miami is famous for its pulsating nightlife with world-class clubs and bars.</li>
+</ol>

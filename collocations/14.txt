@@ -1,0 +1,30 @@
+<ol>
+  <li><strong>make an outline</strong> – create a structured plan or framework for writing.<br><em>Example:</em> Students should make an outline before writing their research papers.</li>
+  <li><strong>gather evidence</strong> – collect information and data to support arguments.<br><em>Example:</em> Researchers must gather evidence from multiple reliable sources.</li>
+  <li><strong>support your claims</strong> – provide proof for your statements or arguments.<br><em>Example:</em> You need statistics and examples to support your claims effectively.</li>
+  <li><strong>propose a theory</strong> – suggest or present a new explanation or hypothesis.<br><em>Example:</em> The scientist will propose a theory about climate change effects.</li>
+  <li><strong>challenge a theory</strong> – question or dispute an existing explanation.<br><em>Example:</em> New research findings challenge a theory that was widely accepted.</li>
+  <li><strong>refute a theory</strong> – prove that an existing explanation is wrong.<br><em>Example:</em> The study's results completely refute a theory from the 1980s.</li>
+  <li><strong>touch on several issues</strong> – briefly discuss multiple topics.<br><em>Example:</em> The presentation will touch on several issues related to education reform.</li>
+  <li><strong>draw a distinction</strong> – identify and explain differences between things.<br><em>Example:</em> It's important to draw a distinction between correlation and causation.</li>
+  <li><strong>draw parallels</strong> – identify and explain similarities between things.<br><em>Example:</em> Historians often draw parallels between different historical periods.</li>
+  <li><strong>fall into different categories</strong> – be classified into separate groups.<br><em>Example:</em> The survey responses fall into different categories based on age groups.</li>
+  <li><strong>making your outline</strong> – creating a structured plan for your work.<br><em>Example:</em> Making your outline thoroughly will save time during the writing process.</li>
+  <li><strong>supporting evidence</strong> – information that backs up your arguments.<br><em>Example:</em> The lawyer presented strong supporting evidence in court.</li>
+  <li><strong>make your case</strong> – present your argument convincingly.<br><em>Example:</em> You have five minutes to make your case to the committee.</li>
+  <li><strong>first draft</strong> – the initial version of a written work.<br><em>Example:</em> Don't worry about perfection in your first draft; focus on getting ideas down.</li>
+  <li><strong>go into detail</strong> – provide comprehensive information about something.<br><em>Example:</em> The professor will go into detail about the experiment methodology.</li>
+  <li><strong>revise the paper</strong> – make improvements and corrections to written work.<br><em>Example:</em> Students should revise the paper multiple times before submission.</li>
+  <li><strong>final draft</strong> – the completed, polished version of written work.<br><em>Example:</em> The final draft must be submitted by midnight on Friday.</li>
+  <li><strong>carrying out a study</strong> – conducting research or investigation.<br><em>Example:</em> The university is carrying out a study on student learning habits.</li>
+  <li><strong>analyze the key factors</strong> – examine the most important elements.<br><em>Example:</em> Economists analyze the key factors affecting market volatility.</li>
+  <li><strong>play a role</strong> / <strong>play a part</strong> – have an influence or effect on something.<br><em>Example:</em> Technology plays a role in modern education systems.</li>
+  <li><strong>shaping the country's financial future</strong> – influencing economic development.<br><em>Example:</em> Government policies are shaping the country's financial future.</li>
+  <li><strong>perfect examples</strong> – ideal instances that illustrate a point clearly.<br><em>Example:</em> These case studies provide perfect examples of successful marketing strategies.</li>
+  <li><strong>clear illustrations</strong> – obvious examples that demonstrate concepts.<br><em>Example:</em> The textbook includes clear illustrations of complex scientific principles.</li>
+  <li><strong>prove your points</strong> – demonstrate that your arguments are correct.<br><em>Example:</em> Statistical data will help prove your points about population trends.</li>
+  <li><strong>summarize the material</strong> – provide a brief overview of the content.<br><em>Example:</em> The conclusion should summarize the material covered in the report.</li>
+  <li><strong>draw conclusions</strong> – reach logical results based on evidence.<br><em>Example:</em> Researchers can draw conclusions from the experimental data.</li>
+  <li><strong>raise questions</strong> – present topics or issues for consideration.<br><em>Example:</em> The study's findings raise questions about current medical practices.</li>
+  <li><strong>further study</strong> – additional research or investigation.<br><em>Example:</em> These preliminary results suggest areas for further study.</li>
+</ol>

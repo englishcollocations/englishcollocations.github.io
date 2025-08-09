@@ -1,0 +1,35 @@
+<ol>
+  <li><strong>preserving and protecting the environment</strong> – maintaining and safeguarding the natural world.<br><em>Example:</em> Preserving and protecting the environment requires global cooperation and commitment.</li>
+  <li><strong>fossil fuels</strong> – energy sources like oil, coal, and natural gas formed from ancient organisms.<br><em>Example:</em> The world's dependence on fossil fuels contributes significantly to climate change.</li>
+  <li><strong>greenhouse gases</strong> – atmospheric gases that trap heat and warm the planet.<br><em>Example:</em> Carbon dioxide and methane are major greenhouse gases affecting global temperatures.</li>
+  <li><strong>deplete the ozone layer</strong> – reduce the protective atmospheric layer that blocks harmful radiation.<br><em>Example:</em> Chemical pollutants continue to deplete the ozone layer above polar regions.</li>
+  <li><strong>global warming</strong> – the gradual increase in Earth's average temperature.<br><em>Example:</em> Global warming is causing glaciers to melt at unprecedented rates.</li>
+  <li><strong>climate change</strong> – long-term changes in Earth's weather patterns and temperatures.<br><em>Example:</em> Climate change affects agricultural production and food security worldwide.</li>
+  <li><strong>irreparable damage</strong> – harm that cannot be fixed or reversed.<br><em>Example:</em> Deforestation has caused irreparable damage to many rainforest ecosystems.</li>
+  <li><strong>rising sea levels</strong> – increasing ocean height due to melting ice and thermal expansion.<br><em>Example:</em> Rising sea levels threaten coastal communities and island nations.</li>
+  <li><strong>natural disasters</strong> – destructive events caused by natural forces.<br><em>Example:</em> Natural disasters like hurricanes and earthquakes displace millions of people annually.</li>
+  <li><strong>gone extinct</strong> – completely disappeared from existence.<br><em>Example:</em> Many species have gone extinct due to habitat destruction and hunting.</li>
+  <li><strong>endangered</strong> – at risk of becoming extinct in the near future.<br><em>Example:</em> Tigers and rhinos are among the most endangered animals on Earth.</li>
+  <li><strong>clean energy</strong> – power sources that don't pollute the environment.<br><em>Example:</em> Solar and wind power are examples of clean energy technologies.</li>
+  <li><strong>renewable resources</strong> – natural materials that can be replenished naturally.<br><em>Example:</em> Water, wind, and sunlight are renewable resources for energy production.</li>
+  <li><strong>harmful to the environment</strong> – damaging to the natural world and ecosystems.<br><em>Example:</em> Plastic pollution is extremely harmful to the environment and marine life.</li>
+  <li><strong>die of hunger</strong> / <strong>starvation</strong> – perish from lack of food.<br><em>Example:</em> Millions of children die of hunger each year in developing regions.</li>
+  <li><strong>extreme poverty</strong> – severe lack of basic necessities for survival.<br><em>Example:</em> Extreme poverty affects over 700 million people worldwide.</li>
+  <li><strong>developing countries</strong> – nations with lower levels of economic development.<br><em>Example:</em> Many developing countries struggle with inadequate healthcare systems.</li>
+  <li><strong>food shortages</strong> – insufficient supply of food for a population's needs.<br><em>Example:</em> Drought and conflict have caused severe food shortages in the region.</li>
+  <li><strong>lack of access to clean water</strong> – inability to obtain safe drinking water.<br><em>Example:</em> Lack of access to clean water affects billions of people globally.</li>
+  <li><strong>homeless people</strong> – individuals without permanent housing.<br><em>Example:</em> Cities worldwide struggle to provide adequate services for homeless people.</li>
+  <li><strong>homeless shelters</strong> – temporary accommodation facilities for people without homes.<br><em>Example:</em> Homeless shelters provide essential services during cold winter months.</li>
+  <li><strong>on the margins of society</strong> – excluded from mainstream social and economic life.<br><em>Example:</em> Indigenous communities often find themselves on the margins of society.</li>
+  <li><strong>living below the poverty line</strong> – having income insufficient for basic needs.<br><em>Example:</em> Over 10% of Americans are living below the poverty line.</li>
+  <li><strong>make ends meet</strong> – earn enough money to pay for basic living expenses.<br><em>Example:</em> Many families struggle to make ends meet despite working multiple jobs.</li>
+  <li><strong>welfare programs</strong> – government assistance for people in need.<br><em>Example:</em> Welfare programs provide crucial support for vulnerable populations.</li>
+  <li><strong>alleviate poverty</strong> – reduce or ease the effects of being poor.<br><em>Example:</em> Education and job training programs help alleviate poverty in communities.</li>
+  <li><strong>widening gap between rich and poor</strong> – increasing difference in wealth between social classes.<br><em>Example:</em> The widening gap between rich and poor threatens social stability.</li>
+  <li><strong>eradicated</strong> – completely eliminated or destroyed.<br><em>Example:</em> Smallpox was successfully eradicated through global vaccination efforts.</li>
+  <li><strong>die of preventable diseases</strong> – perish from illnesses that can be avoided or treated.<br><em>Example:</em> Thousands die of preventable diseases due to lack of healthcare access.</li>
+  <li><strong>child labor</strong> – work performed by children that harms their development.<br><em>Example:</em> International laws prohibit child labor in manufacturing industries.</li>
+  <li><strong>disadvantaged backgrounds</strong> – coming from poor or difficult family situations.<br><em>Example:</em> Students from disadvantaged backgrounds often need additional educational support.</li>
+  <li><strong>human trafficking</strong> – illegal trade and exploitation of people.<br><em>Example:</em> Human trafficking is a serious crime affecting millions of victims worldwide.</li>
+  <li><strong>sexual exploitation</strong> – abuse of people for sexual purposes, often for profit.<br><em>Example:</em> Laws must be strengthened to combat sexual exploitation of vulnerable individuals.</li>
+</ol>

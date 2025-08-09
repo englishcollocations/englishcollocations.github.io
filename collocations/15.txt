@@ -1,0 +1,35 @@
+<ol>
+  <li><strong>start your career</strong> – begin your professional working life.<br><em>Example:</em> Many graduates start their career with entry-level positions.</li>
+  <li><strong>internship</strong> – a temporary position offering practical experience.<br><em>Example:</em> She completed an internship at a prestigious law firm last summer.</li>
+  <li><strong>gain experience</strong> – acquire practical knowledge and skills.<br><em>Example:</em> Volunteers gain experience while helping their community.</li>
+  <li><strong>entry-level job</strong> – a position requiring minimal experience or skills.<br><em>Example:</em> Most college graduates begin with an entry-level job in their field.</li>
+  <li><strong>earning minimum wage</strong> – receiving the lowest legal hourly pay.<br><em>Example:</em> Many part-time workers are earning minimum wage at retail stores.</li>
+  <li><strong>do excellent work</strong> – perform tasks with high quality and skill.<br><em>Example:</em> Employees who do excellent work often get promoted quickly.</li>
+  <li><strong>team player</strong> – someone who cooperates well with colleagues.<br><em>Example:</em> Being a team player is essential in collaborative work environments.</li>
+  <li><strong>get a promotion</strong> – receive advancement to a higher position.<br><em>Example:</em> After two years of hard work, she finally got a promotion.</li>
+  <li><strong>get a raise</strong> – receive an increase in salary.<br><em>Example:</em> He hopes to get a raise during his annual performance review.</li>
+  <li><strong>slack off</strong> – work less hard or be lazy at work.<br><em>Example:</em> Don't slack off during your first month at the new job.</li>
+  <li><strong>fired</strong> / <strong>dismissed</strong> – lose your job involuntarily due to poor performance.<br><em>Example:</em> Employees can be fired for consistently arriving late to work.</li>
+  <li><strong>heavy workload</strong> – a large amount of work to complete.<br><em>Example:</em> The project manager has a heavy workload during busy seasons.</li>
+  <li><strong>work overtime</strong> – work beyond regular scheduled hours.<br><em>Example:</em> During the holiday season, retail workers often work overtime.</li>
+  <li><strong>demanding job</strong> – a position requiring significant effort and responsibility.<br><em>Example:</em> Being a surgeon is a demanding job that requires years of training.</li>
+  <li><strong>stressed out</strong> – feeling overwhelmed by pressure or anxiety.<br><em>Example:</em> Many employees feel stressed out during end-of-quarter deadlines.</li>
+  <li><strong>quit your job</strong> – voluntarily leave your position.<br><em>Example:</em> She decided to quit her job to pursue graduate studies.</li>
+  <li><strong>competitive salary</strong> – pay that is higher than average for similar positions.<br><em>Example:</em> Top companies offer competitive salaries to attract talented employees.</li>
+  <li><strong>generous benefits</strong> – valuable additional compensation beyond salary.<br><em>Example:</em> The company provides generous benefits including health insurance and vacation time.</li>
+  <li><strong>well-paid job</strong> – a position offering good financial compensation.<br><em>Example:</em> Software engineers typically have well-paid jobs in the technology sector.</li>
+  <li><strong>rewarding job</strong> – a position that provides personal satisfaction.<br><em>Example:</em> Teaching can be a rewarding job despite the modest salary.</li>
+  <li><strong>career change</strong> – switching to a different professional field.<br><em>Example:</em> Many people consider a career change in their mid-thirties.</li>
+  <li><strong>applying for a job</strong> – requesting to be considered for a position.<br><em>Example:</em> Applying for a job requires careful preparation and research.</li>
+  <li><strong>job ads</strong> – advertisements for available positions.<br><em>Example:</em> She spends hours reading job ads on employment websites.</li>
+  <li><strong>send your resume</strong> – submit your professional background summary.<br><em>Example:</em> Always send your resume as a PDF to maintain formatting.</li>
+  <li><strong>cover letter</strong> – a letter accompanying a resume explaining interest.<br><em>Example:</em> A well-written cover letter can make you stand out from other candidates.</li>
+  <li><strong>interview the candidates</strong> – meet with potential employees to evaluate them.<br><em>Example:</em> The hiring manager will interview the candidates next week.</li>
+  <li><strong>job description</strong> – a detailed outline of position requirements and duties.<br><em>Example:</em> Read the job description carefully before applying for any position.</li>
+  <li><strong>job seekers</strong> – people actively looking for employment.<br><em>Example:</em> Job seekers should update their skills to remain competitive.</li>
+  <li><strong>menial job</strong> – work requiring little skill or offering low status.<br><em>Example:</em> Even successful entrepreneurs often start with menial jobs.</li>
+  <li><strong>earn a living</strong> – make enough money to support oneself.<br><em>Example:</em> Artists often struggle to earn a living from their creative work alone.</li>
+  <li><strong>between jobs</strong> – temporarily unemployed while searching for work.<br><em>Example:</em> He's been between jobs for three months since the company downsized.</li>
+  <li><strong>job offer</strong> – a formal invitation to accept a position.<br><em>Example:</em> After three interviews, she finally received a job offer from her preferred company.</li>
+  <li><strong>dream job</strong> – an ideal position that perfectly matches one's interests.<br><em>Example:</em> Working as a wildlife photographer has always been his dream job.</li>
+</ol>

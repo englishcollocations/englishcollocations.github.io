@@ -1,17 +1,21 @@
-
-
-
 Lesson 19 – Weather
 
+Do you want to know if it'll be sunny or rainy next weekend? Then you should check the <strong>weather forecast</strong> – that's the prediction of the weather in the near future.
 
-Do you want to know if it’ll be sunny or rainy next weekend? Then you should check the weather forecast – that’s the prediction of the weather in the near future.
-If the forecast says the sun will be shining brightly, with clear skies (no clouds in the sky) and high temperatures, then it’s a good day to go to the beach and bask in the sunshine (or soak up the sunshine) – these expressions mean to enjoy the sun’s heat and light.
-However, if the forecast says it’ll be oppressively hot, scorching hot, or swelteringly hot, then you might want to stay inside and turn up the air conditioning! Another common phrase is hot and humid – that means hot with a lot of water in the air (so you will sweat a lot).
-The weather forecast might say it will be partly cloudy (the sky partially covered by clouds). Another way to say this is that there are scattered clouds (just a few clouds). If there are heavy clouds, then you won’t be able to see the sun at all – and if there are storm clouds, then it will probably rain very soon.
-One way to express this is to say “It looks like rain.”
-We can have light rain (little rain) or heavy rain (lots of rain, intense rain) – and if the rain gets REALLY intense, we can describe it as torrential rain. If the rain continues without stopping, then we call it continuous rain or constant rain – but if it’s the type of rain that starts and stops various times throughout the day, it’s called intermittent rain or scattered showers. When it stops raining, you can say the rain let up.
-Rain is usually accompanied by wind, which can be light/slight winds or high/strong winds. If the wind is especially strong and violent, you can say fierce winds or gale-force winds – this last expression is usually used for winds at the level of a hurricane. When the wind is increasing in intensity, we say “The wind is picking up,” and when it is decreasing in intensity, we say “The wind is dying down.”
-Sometimes we describe the wind with an adjective that emphasizes the cold – such as a biting wind or
-an icy wind. Finally, a sudden instance of wind can be called a blast of wind or a gust of wind.
-Snow, like rain, can be light or heavy. Light snow can also be called snow flurries. When the snow is being blown around in the wind, we can describe it as driving snow or swirling snow. It can be wonderful to walk through fresh, powdery, newly-fallen snow – but not so nice to drive on it. So we clear the snow or plough the snow with vehicles to remove it from the roads. You can also do this manually – that’s called shoveling the snow. At the end of winter, when temperatures rise, the snow melts – it turns into water and disappears.
-Sometimes the weather is unusual for a particular time of year. For example, in the winter, you might have a day that is unseasonably warm, and in the summer, you might have a day that is unseasonably cool. When the temperature reaches an extreme, we call that a record high or a record low.
+If the forecast says the <strong>sun will be shining brightly</strong>, with <strong>clear skies</strong> (no clouds in the sky) and high temperatures, then it's a good day to go to the beach and <strong>bask in the sunshine</strong> (or <strong>soak up the sunshine</strong>) – these expressions mean to enjoy the sun's heat and light.
+
+However, if the forecast says it'll be <strong>oppressively hot</strong>, <strong>scorching hot</strong>, or <strong>swelteringly hot</strong>, then you might want to stay inside and turn up the air conditioning! Another common phrase is <strong>hot and humid</strong> – that means hot with a lot of water in the air (so you will sweat a lot).
+
+The weather forecast might say it will be <strong>partly cloudy</strong> (the sky partially covered by clouds). Another way to say this is that there are <strong>scattered clouds</strong> (just a few clouds). If there are <strong>heavy clouds</strong>, then you won't be able to see the sun at all – and if there are <strong>storm clouds</strong>, then it will probably rain very soon.
+
+One way to express this is to say "<strong>It looks like rain</strong>."
+
+We can have <strong>light rain</strong> (little rain) or <strong>heavy rain</strong> (lots of rain, intense rain) – and if the rain gets REALLY intense, we can describe it as <strong>torrential rain</strong>. If the rain continues without stopping, then we call it <strong>continuous rain</strong> or <strong>constant rain</strong> – but if it's the type of rain that starts and stops various times throughout the day, it's called <strong>intermittent rain</strong> or <strong>scattered showers</strong>. When it stops raining, you can say the <strong>rain let up</strong>.
+
+Rain is usually accompanied by wind, which can be <strong>light</strong>/<strong>slight winds</strong> or <strong>high</strong>/<strong>strong winds</strong>. If the wind is especially strong and violent, you can say <strong>fierce winds</strong> or <strong>gale-force winds</strong> – this last expression is usually used for winds at the level of a hurricane. When the wind is increasing in intensity, we say "<strong>The wind is picking up</strong>," and when it is decreasing in intensity, we say "<strong>The wind is dying down</strong>."
+
+Sometimes we describe the wind with an adjective that emphasizes the cold – such as a <strong>biting wind</strong> or an <strong>icy wind</strong>. Finally, a sudden instance of wind can be called a <strong>blast of wind</strong> or a <strong>gust of wind</strong>.
+
+Snow, like rain, can be <strong>light</strong> or <strong>heavy</strong>. Light snow can also be called <strong>snow flurries</strong>. When the snow is being blown around in the wind, we can describe it as <strong>driving snow</strong> or <strong>swirling snow</strong>. It can be wonderful to walk through <strong>fresh</strong>, <strong>powdery</strong>, <strong>newly-fallen snow</strong> – but not so nice to drive on it. So we <strong>clear the snow</strong> or <strong>plough the snow</strong> with vehicles to remove it from the roads. You can also do this manually – that's called <strong>shoveling the snow</strong>. At the end of winter, when temperatures rise, the snow <strong>melts</strong> – it turns into water and disappears.
+
+Sometimes the weather is unusual for a particular time of year. For example, in the winter, you might have a day that is <strong>unseasonably warm</strong>, and in the summer, you might have a day that is <strong>unseasonably cool</strong>. When the temperature reaches an extreme, we call that a <strong>record high</strong> or a <strong>record low</strong>.

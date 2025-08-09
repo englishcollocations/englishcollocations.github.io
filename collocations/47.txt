@@ -1,0 +1,17 @@
+<ol>
+<li><strong>barrage of criticism</strong> - intense attack of negative comments</li>
+<li><strong>give their blessing</strong> - give their approval/support</li>
+<li><strong>countered their criticism</strong> - argued against their criticism</li>
+<li><strong>grudging approval</strong> - angry and reluctant approval</li>
+<li><strong>frown of disapproval</strong> - disapproving facial expression</li>
+<li><strong>thinks the world of me</strong> - has great respect and admiration for me</li>
+<li><strong>enthusiastic support</strong> - strong and excited backing</li>
+<li><strong>heartily approved</strong> - completely and sincerely approved</li>
+<li><strong>standing ovation</strong> - when the audience stands up and claps for an extended period</li>
+<li><strong>rave reviews</strong> - extremely positive evaluations</li>
+<li><strong>outstanding performance</strong> - an excellent, superior performance</li>
+<li><strong>congratulated me warmly</strong> - congratulated me with love</li>
+<li><strong>scathing criticisms</strong> - very strong and hurtful criticisms</li>
+<li><strong>speaking highly of</strong> - saying good things about</li>
+<li><strong>won their approval</strong> - gained their acceptance and support</li>
+</ol>

@@ -1,0 +1,26 @@
+<ol>
+  <li><strong>tastes good</strong> – has a pleasant flavor when eaten.<br><em>Example:</em> This homemade soup tastes good even without any added salt.</li>
+  <li><strong>tastes bad</strong> – has an unpleasant flavor when eaten.<br><em>Example:</em> The medicine tastes bad, but it will help you feel better quickly.</li>
+  <li><strong>tastes divine/heavenly</strong> – has an extremely delicious and wonderful flavor.<br><em>Example:</em> This chocolate cake tastes absolutely divine; it's the best I've ever had.</li>
+  <li><strong>tastes gross/disgusting</strong> – has an extremely unpleasant and revolting flavor.<br><em>Example:</em> This expired yogurt tastes disgusting; I need to throw it away immediately.</li>
+  <li><strong>it tastes funny</strong> – has an unusual or off taste that seems wrong.<br><em>Example:</em> This orange juice tastes funny; I think it might have gone bad.</li>
+  <li><strong>tastes like</strong> – has a flavor similar to something else.<br><em>Example:</em> Many people say that alligator meat tastes like chicken.</li>
+  <li><strong>tasted like chicken</strong> – had a flavor similar to chicken meat.<br><em>Example:</em> The exotic game bird we tried at the restaurant tasted like chicken.</li>
+  <li><strong>nutty flavor</strong> – a taste reminiscent of nuts.<br><em>Example:</em> This brown rice has a pleasant nutty flavor that complements the vegetables.</li>
+  <li><strong>fruity flavor</strong> – a taste reminiscent of fruit.<br><em>Example:</em> The wine has a light, fruity flavor with hints of apple and pear.</li>
+  <li><strong>cheesy flavor</strong> – a taste reminiscent of cheese.<br><em>Example:</em> These crackers have a strong cheesy flavor that kids love.</li>
+  <li><strong>minty flavor</strong> – a taste reminiscent of mint, fresh and cooling.<br><em>Example:</em> The toothpaste has a refreshing minty flavor that leaves your mouth clean.</li>
+  <li><strong>salty flavor</strong> – a taste with a high salt content.<br><em>Example:</em> The pretzels have a perfectly balanced salty flavor that makes them addictive.</li>
+  <li><strong>fruity taste</strong> – a flavor similar to fruit (used as noun).<br><em>Example:</em> This tea has a natural fruity taste without any artificial additives.</li>
+  <li><strong>bitter flavor</strong> – a sharp, unpleasant taste often found in coffee or dark chocolate.<br><em>Example:</em> Dark chocolate has a bitter flavor that some people find too intense.</li>
+  <li><strong>sour taste</strong> – a sharp, acidic flavor like lemon or vinegar.<br><em>Example:</em> Lemons have such a sour taste that most people can't eat them plain.</li>
+  <li><strong>sweet taste</strong> – a pleasant flavor like sugar or honey.<br><em>Example:</em> Ripe strawberries have a naturally sweet taste that children love.</li>
+  <li><strong>savor the taste</strong> – enjoy and appreciate a flavor slowly and fully.<br><em>Example:</em> She closed her eyes to savor the taste of the expensive wine.</li>
+  <li><strong>strong flavor</strong> – an intense, powerful taste.<br><em>Example:</em> Garlic has such a strong flavor that a little goes a long way.</li>
+  <li><strong>rich flavor</strong> – a deep, full, and satisfying taste.<br><em>Example:</em> This dark roast coffee has a rich flavor with notes of chocolate and caramel.</li>
+  <li><strong>mild flavor</strong> – a gentle, not intense taste (positive connotation).<br><em>Example:</em> This cheese has a mild flavor that won't overpower other ingredients.</li>
+  <li><strong>subtle flavor</strong> – a delicate, refined taste that is not overpowering.<br><em>Example:</em> The herbs add a subtle flavor that enhances the dish without dominating it.</li>
+  <li><strong>bland taste</strong> – lacking flavor or taste, uninteresting (negative connotation).<br><em>Example:</em> Hospital food often has a bland taste that makes eating unenjoyable.</li>
+  <li><strong>bland flavor</strong> – lacking distinctive taste, boring (negative connotation).<br><em>Example:</em> These rice cakes have such a bland flavor that they need seasoning.</li>
+  <li><strong>acquired taste</strong> – something that people learn to enjoy over time.<br><em>Example:</em> Blue cheese is definitely an acquired taste; most people dislike it initially.</li>
+</ol>

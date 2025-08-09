@@ -1,0 +1,24 @@
+<ol>
+  <li><strong>I totally agree</strong> – express complete agreement with someone's opinion.<br><em>Example:</em> I totally agree that we need better public transportation in this city.</li>
+  <li><strong>I strongly agree</strong> – express emphatic agreement with someone's viewpoint.<br><em>Example:</em> I strongly agree with your assessment of the current economic situation.</li>
+  <li><strong>agrees wholeheartedly</strong> – supports something completely and enthusiastically.<br><em>Example:</em> She agrees wholeheartedly with the new company policy on remote work.</li>
+  <li><strong>I agree up to a point</strong> – partially agree but have some reservations.<br><em>Example:</em> I agree up to a point, but I think there are other factors to consider.</li>
+  <li><strong>I agree in principle</strong> – support the basic idea but may have concerns about implementation.<br><em>Example:</em> I agree in principle with the proposal, but the timeline seems unrealistic.</li>
+  <li><strong>I agree</strong> – simple expression of agreement (informal).<br><em>Example:</em> I agree that we should postpone the meeting until next week.</li>
+  <li><strong>I'm in agreement</strong> – formal way to express agreement.<br><em>Example:</em> I'm in agreement with the board's decision to expand operations overseas.</li>
+  <li><strong>share an opinion</strong> – have the same viewpoint as someone else.<br><em>Example:</em> We share an opinion about the importance of environmental protection.</li>
+  <li><strong>share a view</strong> – hold the same perspective as another person.<br><em>Example:</em> Most economists share a view that inflation will continue to rise.</li>
+  <li><strong>difference of opinion</strong> – disagreement or varying viewpoints on a matter.<br><em>Example:</em> We had a difference of opinion about the best approach to the problem.</li>
+  <li><strong>worlds apart</strong> – having completely different opinions or positions.<br><em>Example:</em> The two political parties are worlds apart on healthcare policy.</li>
+  <li><strong>reach a compromise</strong> – find a mutually acceptable solution through negotiation.<br><em>Example:</em> After hours of discussion, they finally reached a compromise on the budget.</li>
+  <li><strong>heated argument</strong> – an intense, emotional disagreement or dispute.<br><em>Example:</em> The meeting turned into a heated argument about resource allocation.</li>
+  <li><strong>I'm afraid I disagree</strong> – polite way to express disagreement.<br><em>Example:</em> I'm afraid I disagree with your interpretation of the data.</li>
+  <li><strong>I see your point</strong> – acknowledge understanding someone's perspective.<br><em>Example:</em> I see your point about the risks, but I still think it's worth trying.</li>
+  <li><strong>minor/slight disagreement</strong> – a small or unimportant difference of opinion.<br><em>Example:</em> We had a minor disagreement about the meeting schedule, but resolved it quickly.</li>
+  <li><strong>major/serious disagreement</strong> – a significant or important difference of opinion.<br><em>Example:</em> There's a major disagreement between management and workers about salary increases.</li>
+  <li><strong>settle a disagreement</strong> – resolve or find a solution to a dispute.<br><em>Example:</em> The mediator helped settle the disagreement between the two departments.</li>
+  <li><strong>disagrees vehemently</strong> – opposes something with intense emotion and force.<br><em>Example:</em> The senator disagrees vehemently with the proposed tax legislation.</li>
+  <li><strong>long-running dispute</strong> – a conflict that has continued for an extended period.<br><em>Example:</em> The long-running dispute between the neighbors was finally resolved in court.</li>
+  <li><strong>bitter dispute</strong> – a conflict characterized by anger and hostile feelings.<br><em>Example:</em> The bitter dispute over the inheritance tore the family apart for years.</li>
+  <li><strong>agree to disagree</strong> – accept that you have different opinions and stop arguing.<br><em>Example:</em> We couldn't convince each other, so we decided to agree to disagree.</li>
+</ol>
