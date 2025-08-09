@@ -2449,6 +2449,9 @@
                 this.speechSynthesis = window.speechSynthesis;
                 this.speechRate = 1;
                 this.isVisible = false;
+                this.currentPlayingId = null;
+                this.currentUtterance = null;
+                this.isPlaying = false;
                 this.initializeElements();
                 this.initializeEventListeners();
             }
@@ -2479,6 +2482,9 @@
 
             async loadCollocations(lessonNumber) {
                 try {
+                    // Stop any ongoing speech when loading new collocations
+                    this.stopCurrentSpeech();
+                    
                     const paddedNumber = String(lessonNumber).padStart(2, '0');
                     const response = await fetch(`collocations/${paddedNumber}.txt`);
                     
@@ -2610,8 +2616,26 @@
                     return;
                 }
 
-                // Stop any ongoing speech
-                this.speechSynthesis.cancel();
+                const playButton = document.querySelector(`[data-id="${id}"] .collocation-play-btn`);
+                
+                // If this collocation is currently playing, pause it
+                if (this.currentPlayingId === id && this.isPlaying) {
+                    this.pauseCurrentSpeech();
+                    return;
+                }
+
+                // Stop any ongoing speech first
+                this.stopCurrentSpeech();
+
+                // Set current playing state
+                this.currentPlayingId = id;
+                this.isPlaying = true;
+                
+                // Update button to pause icon
+                if (playButton) {
+                    playButton.innerHTML = '<i class="fas fa-pause"></i>';
+                    playButton.title = 'Pause pronunciation';
+                }
 
                 // Highlight the speaking item
                 const items = document.querySelectorAll('.collocation-item');
@@ -2629,22 +2653,55 @@
                 }
                 
                 // Use voice settings manager to create utterance
-                const utterance = voiceSettingsManager.createUtterance(textToSpeak);
+                this.currentUtterance = voiceSettingsManager.createUtterance(textToSpeak);
 
-                utterance.onend = () => {
-                    // Remove highlight when speech ends
-                    items.forEach(item => item.classList.remove('speaking'));
+                this.currentUtterance.onend = () => {
+                    this.resetPlayState(id);
                 };
 
-                utterance.onerror = (error) => {
+                this.currentUtterance.onerror = (error) => {
                     console.error('Speech synthesis error:', error);
-                    items.forEach(item => item.classList.remove('speaking'));
+                    this.resetPlayState(id);
                     showToast('Speech synthesis failed. Please try again.', 'error');
                 };
 
                 setTimeout(() => {
-                    this.speechSynthesis.speak(utterance);
+                    this.speechSynthesis.speak(this.currentUtterance);
                 }, 100);
+            }
+
+            pauseCurrentSpeech() {
+                if (this.speechSynthesis.speaking) {
+                    this.speechSynthesis.cancel();
+                }
+                this.resetPlayState(this.currentPlayingId);
+            }
+
+            stopCurrentSpeech() {
+                if (this.speechSynthesis.speaking) {
+                    this.speechSynthesis.cancel();
+                }
+                if (this.currentPlayingId !== null) {
+                    this.resetPlayState(this.currentPlayingId);
+                }
+            }
+
+            resetPlayState(id) {
+                // Reset playing state
+                this.isPlaying = false;
+                this.currentPlayingId = null;
+                this.currentUtterance = null;
+
+                // Update button back to play icon
+                const playButton = document.querySelector(`[data-id="${id}"] .collocation-play-btn`);
+                if (playButton) {
+                    playButton.innerHTML = '<i class="fas fa-play"></i>';
+                    playButton.title = 'Listen to pronunciation';
+                }
+
+                // Remove highlight
+                const items = document.querySelectorAll('.collocation-item');
+                items.forEach(item => item.classList.remove('speaking'));
             }
 
             copyAllCollocations() {
