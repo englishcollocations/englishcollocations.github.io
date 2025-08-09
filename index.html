@@ -2452,6 +2452,7 @@
                 this.currentPlayingId = null;
                 this.currentUtterance = null;
                 this.isPlaying = false;
+                this.manuallyStopped = false;
                 this.initializeElements();
                 this.initializeEventListeners();
             }
@@ -2610,9 +2611,9 @@
                 const collocation = this.currentCollocations[id];
                 if (!collocation) return;
 
-                // Check if voice settings manager is available
-                if (!voiceSettingsManager) {
-                    showToast('Voice settings not available', 'error');
+                // Check if speech synthesis is supported
+                if (!('speechSynthesis' in window)) {
+                    showToast('Speech synthesis not supported in this browser', 'error');
                     return;
                 }
 
@@ -2652,45 +2653,95 @@
                     textToSpeak += ` Example: ${collocation.example}`;
                 }
                 
-                // Use voice settings manager to create utterance
-                this.currentUtterance = voiceSettingsManager.createUtterance(textToSpeak);
+                // Create utterance with fallback
+                let utterance;
+                if (voiceSettingsManager && voiceSettingsManager.createUtterance) {
+                    // Use voice settings manager if available
+                    utterance = voiceSettingsManager.createUtterance(textToSpeak);
+                } else {
+                    // Fallback to basic speech synthesis
+                    utterance = new SpeechSynthesisUtterance(textToSpeak);
+                    utterance.rate = this.speechRate || 1;
+                    utterance.pitch = 1;
+                    utterance.volume = 1;
+                    
+                    // Try to set an English voice
+                    const voices = speechSynthesis.getVoices();
+                    const englishVoice = voices.find(voice => voice.lang.startsWith('en'));
+                    if (englishVoice) {
+                        utterance.voice = englishVoice;
+                    }
+                }
 
-                this.currentUtterance.onend = () => {
-                    this.resetPlayState(id);
+                this.currentUtterance = utterance;
+
+                utterance.onend = () => {
+                    // Only reset if this utterance is still the current one and not manually stopped
+                    if (this.isPlaying && this.currentPlayingId === id && !this.manuallyStopped) {
+                        this.resetPlayState(id);
+                    }
                 };
 
-                this.currentUtterance.onerror = (error) => {
+                utterance.onerror = (error) => {
                     console.error('Speech synthesis error:', error);
-                    this.resetPlayState(id);
-                    showToast('Speech synthesis failed. Please try again.', 'error');
+                    // Only show error if not manually stopped
+                    if (this.currentPlayingId === id && !this.manuallyStopped) {
+                        this.resetPlayState(id);
+                        showToast('Speech synthesis failed. Please try again.', 'error');
+                    }
                 };
 
+                // Reset manual stop flag
+                this.manuallyStopped = false;
+
+                // Small delay to ensure everything is ready
                 setTimeout(() => {
-                    this.speechSynthesis.speak(this.currentUtterance);
+                    if (this.isPlaying && this.currentPlayingId === id) {
+                        try {
+                            speechSynthesis.speak(utterance);
+                        } catch (error) {
+                            console.error('Error starting speech:', error);
+                            this.resetPlayState(id);
+                            showToast('Could not start speech synthesis', 'error');
+                        }
+                    }
                 }, 100);
             }
 
             pauseCurrentSpeech() {
-                if (this.speechSynthesis.speaking) {
-                    this.speechSynthesis.cancel();
+                // Set flag to indicate manual stop
+                this.manuallyStopped = true;
+                
+                if (speechSynthesis.speaking) {
+                    speechSynthesis.cancel();
                 }
-                this.resetPlayState(this.currentPlayingId);
+                // Immediately reset without waiting for onend
+                if (this.currentPlayingId !== null) {
+                    this.resetPlayState(this.currentPlayingId);
+                }
             }
 
             stopCurrentSpeech() {
-                if (this.speechSynthesis.speaking) {
-                    this.speechSynthesis.cancel();
+                // Set flag to indicate manual stop
+                this.manuallyStopped = true;
+                
+                if (speechSynthesis.speaking) {
+                    speechSynthesis.cancel();
                 }
+                // Immediately reset without waiting for onend
                 if (this.currentPlayingId !== null) {
                     this.resetPlayState(this.currentPlayingId);
                 }
             }
 
             resetPlayState(id) {
+                if (id === null || id === undefined) return;
+                
                 // Reset playing state
                 this.isPlaying = false;
                 this.currentPlayingId = null;
                 this.currentUtterance = null;
+                this.manuallyStopped = false;
 
                 // Update button back to play icon
                 const playButton = document.querySelector(`[data-id="${id}"] .collocation-play-btn`);
