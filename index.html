@@ -5,15 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Collocations - Interactive Learning Platform</title>
     <meta name="description" content="Learn English collocations with interactive audio lessons">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     
-    <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#6366f1">
+    <meta name="msapplication-navbutton-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#6366f1">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="English Collocations">
     <link rel="apple-touch-icon" href="icon-192.svg">
     <link rel="manifest" href="manifest.json">
     
+    <script>
+        const consoleWarnOriginal = console.warn;
+        console.warn = function(...args) {
+            const message = args.join(' ');
+            if (message.includes('cdn.tailwindcss.com should not be used in production')) {
+                return;
+            }
+            consoleWarnOriginal.apply(console, args);
+        };
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script>
@@ -49,7 +62,6 @@
         .progress-bar-player {
             width: 0%;
         }
-        /* Custom slider styles */
         .slider::-webkit-slider-thumb {
             appearance: none;
             width: 20px;
@@ -82,19 +94,16 @@
             }
         }
 
-        /* Smooth scroll behavior */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Player highlight animations */
         .player-highlight {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
             transform: scale(1.02);
         }
 
-        /* Loading animation for lesson cards */
         .lesson-loading {
             position: relative;
             overflow: hidden;
@@ -116,7 +125,6 @@
             100% { left: 100%; }
         }
 
-        /* Enhanced button hover effects */
         .btn-enhanced {
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -130,7 +138,6 @@
             transform: translateY(0);
         }
 
-        /* Enhanced control buttons */
         #playBtn, #prevBtn, #nextBtn {
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -145,7 +152,6 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Lesson card enhanced animations */
         .lesson-card-enhanced {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             backface-visibility: hidden;
@@ -156,7 +162,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
-        /* Collocations styling */
         .collocation-item {
             background: white;
             border: 1px solid #e5e7eb;
@@ -258,7 +263,6 @@
             100% { background: white; }
         }
 
-        /* Lesson text styling */
         .collocation-highlight {
             padding: 2px 6px;
             border-radius: 4px;
@@ -268,7 +272,6 @@
             margin: 0 1px;
         }
 
-        /* Lesson text container improvements */
         #lessonTextContent h2 {
             color: #1f2937;
             margin-top: 1.5rem;
@@ -286,7 +289,6 @@
             text-align: justify;
         }
 
-        /* Responsive collocation highlights */
         @media (max-width: 640px) {
             .collocation-highlight {
                 padding: 1px 4px;
@@ -301,7 +303,7 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
-    <!-- Header -->
+    
     <header class="bg-white shadow-lg border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
             <div class="flex justify-between items-center h-14 sm:h-16">
@@ -331,7 +333,7 @@
     </header>
 
     <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-3 sm:py-6">
-        <!-- Audio Player Section -->
+        
         <div class="bg-white rounded-xl shadow-lg mb-6 p-3 sm:p-6">
             <div class="text-center mb-4 sm:mb-6">
                 <h3 id="currentLessonTitle" class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Collocations Lesson 01</h3>
@@ -341,7 +343,7 @@
             <div class="bg-gray-50 rounded-xl p-3 sm:p-6">
                 <audio id="audioPlayer" class="hidden" preload="metadata"></audio>
                 
-                <!-- Player Controls -->
+                
                 <div class="flex items-center justify-center space-x-4 sm:space-x-6 mb-4 sm:mb-6">
                     <button id="prevBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 w-12 h-12 sm:w-14 sm:h-14 rounded-full transition-all duration-200 transform hover:scale-110 shadow-md flex items-center justify-center" title="Previous Lesson">
                         <i class="fas fa-step-backward text-sm sm:text-lg"></i>
@@ -356,7 +358,7 @@
                     </button>
                 </div>
 
-                <!-- Progress Bar -->
+                
                 <div class="mb-4">
                     <div id="progressBarContainer" class="bg-gray-300 rounded-full h-2 cursor-pointer">
                         <div id="progressFill" class="bg-primary-600 h-2 rounded-full progress-bar progress-bar-player"></div>
@@ -367,7 +369,7 @@
                     </div>
                 </div>
 
-                <!-- Volume and Speed Controls -->
+                
                 <div class="flex items-center justify-center space-x-4 sm:space-x-8 flex-wrap gap-2">
                     <div class="flex items-center space-x-2 sm:space-x-3">
                         <i class="fas fa-volume-up text-gray-600 text-sm"></i>
@@ -389,7 +391,7 @@
             </div>
         </div>
 
-        <!-- Lesson Text Section -->
+        
         <div class="bg-white rounded-xl shadow-lg mb-6 p-3 sm:p-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
                 <h3 class="text-lg sm:text-xl font-semibold text-gray-900 flex items-center">
@@ -397,10 +399,10 @@
                     Lesson Text
                 </h3>
                 <div class="flex space-x-2 w-full sm:w-auto">
-                    <!-- <button id="voiceSettingsBtnText" class="bg-purple-500 hover:bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
+                    
                         <i class="fas fa-cog"></i>
                         <span>Settings</span>
-                    </button> -->
+                    </button>
                     <button id="toggleTextBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2 text-sm flex-1 sm:flex-none justify-center">
                         <i class="fas fa-eye"></i>
                         <span>Show Text</span>
@@ -431,7 +433,7 @@
             </div>
         </div>
 
-        <!-- Notes Section -->
+        
         <div class="bg-white rounded-xl shadow-lg mb-6 p-3 sm:p-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
                 <h3 class="text-lg sm:text-xl font-semibold text-gray-900 flex items-center">
@@ -474,7 +476,7 @@
             </div>
         </div>
 
-        <!-- Collocations Section -->
+        
         <div class="bg-white rounded-xl shadow-lg mb-6 p-3 sm:p-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
                 <h3 class="text-lg sm:text-xl font-semibold text-gray-900 flex items-center">
@@ -507,7 +509,7 @@
                     </div>
                 </div>
                 
-                <!-- Collocation controls -->
+                
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-4 pt-4 border-t border-gray-200 gap-3">
                     <div class="text-xs sm:text-sm text-gray-500 flex items-center">
                         <i class="fas fa-info-circle mr-1"></i>
@@ -528,7 +530,7 @@
             </div>
         </div>
 
-        <!-- Lessons Grid Section -->
+        
         <div class="bg-white rounded-xl shadow-lg p-3 sm:p-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-3">
                 <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Lessons</h3>
@@ -553,10 +555,10 @@
             </div>
 
             <div id="lessonsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4">
-                <!-- Lessons will be populated by JavaScript -->
+                
             </div>
             
-            <!-- Cache Control Section -->
+            
             <div id="cacheControl" class="mt-6 pt-4 border-t border-gray-200">
                 <div class="text-center">
                     <button id="cacheBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-all duration-200 flex items-center gap-2 mx-auto shadow-md">
@@ -566,7 +568,7 @@
                         <span id="cacheBtnText">Cache All Files</span>
                     </button>
                     
-                    <!-- Cache Progress -->
+                    
                     <div id="cacheProgress" class="hidden mt-4 bg-gray-50 rounded-lg p-4 max-w-md mx-auto">
                         <div class="text-sm text-gray-700 mb-2 text-center">
                             <span id="cacheStatusText">Preparing...</span>
@@ -583,11 +585,11 @@
         </div>
     </div>
 
-    <!-- PDF Download Section -->
+    
     <div class="bg-gradient-to-br from-indigo-50 to-blue-50 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
             <div class="text-center">
-                <!-- Header -->
+                
                 <div class="mb-6 sm:mb-8">
                     <div class="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl shadow-lg mb-4">
                         <i class="fas fa-file-pdf text-2xl sm:text-3xl text-white"></i>
@@ -600,7 +602,7 @@
                     </p>
                 </div>
 
-                <!-- PDF Info Card -->
+                
                 <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8 max-w-lg mx-auto mb-6 sm:mb-8">
                     <div class="flex items-center justify-between mb-4 sm:mb-6">
                         <div class="flex items-center space-x-3">
@@ -618,7 +620,7 @@
                         </div>
                     </div>
                     
-                    <!-- Features -->
+                    
                     <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
                         <div class="flex items-center space-x-2">
                             <i class="fas fa-check-circle text-green-500 text-sm"></i>
@@ -638,9 +640,9 @@
                         </div>
                     </div>
 
-                    <!-- Action Buttons -->
+                    
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                        <!-- Download Button -->
+                        
                         <a href="collocations.pdf" 
                            download="English-Collocations-Complete-Guide.pdf"
                            class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl group">
@@ -648,7 +650,7 @@
                             <span>Download PDF</span>
                         </a>
                         
-                        <!-- View Button -->
+                        
                         <a href="collocations.pdf" 
                            target="_blank"
                            rel="noopener noreferrer"
@@ -659,7 +661,7 @@
                     </div>
                 </div>
 
-                <!-- Quick Stats -->
+                
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto">
                     <div class="text-center">
                         <div class="text-2xl sm:text-3xl font-bold text-blue-600 mb-1">50</div>
@@ -682,7 +684,7 @@
         </div>
     </div>
 
-    <!-- PWA Install Banner -->
+    
     <div id="installBanner" class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-primary-600 to-primary-700 text-white p-4 shadow-lg z-50 transform translate-y-full transition-transform duration-300 ease-in-out">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -703,7 +705,7 @@
         </div>
     </div>
 
-    <!-- Voice Settings Modal -->
+    
     <div id="voiceSettingsModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
         <div class="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md mx-4 transform transition-all duration-300">
             <div class="flex justify-between items-center mb-4">
@@ -717,7 +719,7 @@
             </div>
             
             <div class="space-y-4">
-                <!-- Voice Selection -->
+                
                 <div>
                     <label for="voiceSelect" class="block text-sm font-medium text-gray-700 mb-2">
                         Select Voice:
@@ -727,7 +729,7 @@
                     </select>
                 </div>
                 
-                <!-- Voice Rate -->
+                
                 <div>
                     <label for="voiceRate" class="block text-sm font-medium text-gray-700 mb-2">
                         Speech Rate: <span id="voiceRateValue">1.0</span>
@@ -736,7 +738,7 @@
                            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
                 </div>
                 
-                <!-- Voice Pitch -->
+                
                 <div>
                     <label for="voicePitch" class="block text-sm font-medium text-gray-700 mb-2">
                         Speech Pitch: <span id="voicePitchValue">1.0</span>
@@ -745,7 +747,7 @@
                            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
                 </div>
                 
-                <!-- Voice Volume -->
+                
                 <div>
                     <label for="voiceVolume" class="block text-sm font-medium text-gray-700 mb-2">
                         Speech Volume: <span id="voiceVolumeValue">1.0</span>
@@ -754,7 +756,7 @@
                            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
                 </div>
                 
-                <!-- Test Voice Button -->
+                
                 <div class="pt-2">
                     <button id="testVoiceBtn" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2">
                         <i class="fas fa-play text-sm"></i>
@@ -762,7 +764,7 @@
                     </button>
                 </div>
                 
-                <!-- Action Buttons -->
+                
                 <div class="flex space-x-3 pt-4 border-t">
                     <button id="resetVoiceSettings" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg transition-colors duration-200 text-sm">
                         Reset
@@ -775,7 +777,7 @@
         </div>
     </div>
 
-    <!-- Toast Notification -->
+    
     <div id="toast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 z-50 opacity-0 translate-x-full pointer-events-none">
         <div class="flex items-center space-x-2">
             <i class="fas fa-check-circle"></i>
@@ -784,7 +786,7 @@
     </div>
 
     <script>
-        // Global toast function for PWA events
+        
         function showToast(message, type = 'success') {
             const toast = document.getElementById('toast');
             const toastMessage = document.getElementById('toastMessage');
@@ -793,7 +795,7 @@
             
             toastMessage.textContent = message;
             
-            // Update toast colors and icon based on type
+            
             let bgColor, icon;
             switch(type) {
                 case 'success':
@@ -817,22 +819,22 @@
                     icon = 'fas fa-check-circle';
             }
             
-            // Reset classes and apply new ones
+            
             toast.className = `fixed top-4 right-4 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 z-50 ${bgColor}`;
             toast.querySelector('i').className = icon;
             
-            // Show toast
+            
             toast.classList.remove('opacity-0', 'translate-x-full', 'pointer-events-none');
             toast.classList.add('opacity-100', 'translate-x-0');
             
-            // Hide after 3 seconds
+            
             setTimeout(() => {
                 toast.classList.remove('opacity-100', 'translate-x-0');
                 toast.classList.add('opacity-0', 'translate-x-full', 'pointer-events-none');
             }, 3000);
         }
 
-        // PWA Auto-Update
+        
         let swRegistration = null;
 
         if ('serviceWorker' in navigator) {
@@ -841,13 +843,13 @@
                     .then((registration) => {
                         swRegistration = registration;
                         
-                        // Check for updates
+                        
                         registration.addEventListener('updatefound', () => {
                             const newWorker = registration.installing;
                             if (newWorker) {
                                 newWorker.addEventListener('statechange', () => {
                                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                        // Auto-update without showing banner
+                                        
                                         newWorker.postMessage({ type: 'SKIP_WAITING' });
                                     }
                                 });
@@ -855,43 +857,43 @@
                         });
                     })
                     .catch((registrationError) => {
-                        // Silent error handling
+                        
                     });
 
-                // Listen for messages from Service Worker
+                
                 navigator.serviceWorker.addEventListener('message', (event) => {
                     if (event.data && event.data.type === 'RELOAD_NOW') {
                         window.location.reload(true);
                     }
                 });
 
-                // Listen for controller changes (when SW becomes active) - Auto reload
+                
                 navigator.serviceWorker.addEventListener('controllerchange', () => {
                     window.location.reload(true);
                 });
             });
         }
 
-        // PWA Install Prompt
+        
         let deferredPrompt;
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
             
-            // Don't show install options if already installed
+            
             if (localStorage.getItem('appInstalled') === 'true') {
                 return;
             }
             
-            // Show install banner after a short delay
+            
             setTimeout(() => {
                 if (!localStorage.getItem('installBannerDismissed')) {
                     showInstallBanner();
                 }
             }, 3000);
             
-            // Show install button in header
+            
             const installBtn = document.getElementById('installBtn');
             if (installBtn) {
                 installBtn.classList.remove('hidden');
@@ -899,18 +901,18 @@
             }
         });
 
-        // Handle successful app installation
+        
         window.addEventListener('appinstalled', (e) => {
             hideInstallBanner();
             showToast('App installed successfully! 🎉', 'success');
             
-            // Hide install button in header
+            
             const installBtn = document.getElementById('installBtn');
             if (installBtn) {
                 installBtn.classList.add('hidden');
             }
             
-            // Mark as installed in localStorage to remember across sessions
+            
             localStorage.setItem('appInstalled', 'true');
         });
 
@@ -937,13 +939,13 @@
                     if (choiceResult.outcome === 'accepted') {
                         hideInstallBanner();
                         
-                        // Hide install button immediately after acceptance
+                        
                         const installBtn = document.getElementById('installBtn');
                         if (installBtn) {
                             installBtn.classList.add('hidden');
                         }
                         
-                        // Mark as installed
+                        
                         localStorage.setItem('appInstalled', 'true');
                         showToast('Installing app...', 'info');
                     }
@@ -952,15 +954,15 @@
             }
         }
 
-        // Set up banner event listeners
+        
         document.addEventListener('DOMContentLoaded', () => {
-            // Check if app is already installed and hide install elements
+            
             checkInstallStatus();
             
-            // Set up offline/online detection
+            
             setupOfflineDetection();
             
-            // Install banner events
+            
             const installBannerBtn = document.getElementById('installBannerBtn');
             const dismissInstallBanner = document.getElementById('dismissInstallBanner');
             
@@ -977,7 +979,7 @@
         });
 
         function checkInstallStatus() {
-            // Check if app was previously installed
+            
             if (localStorage.getItem('appInstalled') === 'true') {
                 const installBtn = document.getElementById('installBtn');
                 if (installBtn) {
@@ -986,7 +988,7 @@
                 return;
             }
             
-            // Check if running as PWA (display-mode: standalone)
+            
             if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
                 localStorage.setItem('appInstalled', 'true');
                 const installBtn = document.getElementById('installBtn');
@@ -1013,10 +1015,10 @@
                 }
             }
             
-            // Initial status
+            
             updateConnectionStatus();
             
-            // Listen for online/offline events
+            
             window.addEventListener('online', () => {
                 updateConnectionStatus();
                 showToast('Connection restored! Back online.', 'success');
@@ -1039,7 +1041,7 @@
                 this.lessonNotes = this.loadLessonNotes();
                 this.autoSaveTimer = null;
                 
-                // Performance optimization: Bind methods once
+                
                 this.handleKeyboardShortcuts = this.handleKeyboardShortcuts.bind(this);
                 this.updateProgress = this.updateProgress.bind(this);
                 this.updateDuration = this.updateDuration.bind(this);
@@ -1049,11 +1051,11 @@
                 this.initializeEventListeners();
                 this.renderLessons();
                 this.updateStats();
-                this.resetProgressDisplay(); // Initialize progress display
-                this.loadLesson(0); // Load lesson 1 by default
+                this.resetProgressDisplay(); 
+                this.loadLesson(0); 
             }
 
-            // Constants for better maintainability
+            
             static get CACHE_VERSION() { return 'english-collocations-v16'; }
             static get TOTAL_LESSONS() { return 50; }
             static get AUTO_SAVE_DELAY() { return 2000; }
@@ -1105,12 +1107,12 @@
             }
 
             initializeEventListeners() {
-                // Audio player events
+                
                 this.audioPlayer.addEventListener('loadedmetadata', () => this.updateDuration());
                 this.audioPlayer.addEventListener('timeupdate', () => this.updateProgress());
                 this.audioPlayer.addEventListener('ended', () => this.onAudioEnded());
                 
-                // Control events
+                
                 this.playBtn.addEventListener('click', () => this.togglePlay());
                 this.prevBtn.addEventListener('click', () => this.previousLesson());
                 this.nextBtn.addEventListener('click', () => this.nextLesson());
@@ -1119,19 +1121,19 @@
                 this.speedBtn.addEventListener('click', () => this.cycleSpeed());
                 this.markCompleteBtn.addEventListener('click', () => this.markCurrentLessonComplete());
                 
-                // Progress events
+                
                 this.markAllBtn.addEventListener('click', () => this.markAllCompleted());
                 this.resetProgressBtn.addEventListener('click', () => this.resetProgress());
                 
-                // Search event
+                
                 this.searchInput.addEventListener('input', (e) => this.filterLessons(e.target.value));
 
-                // Notes events
+                
                 this.notesTextarea.addEventListener('input', () => this.onNotesInput());
                 this.saveNotesBtn.addEventListener('click', () => this.saveCurrentNotes());
                 this.clearNotesBtn.addEventListener('click', () => this.clearCurrentNotes());
 
-                // Keyboard shortcuts
+                
                 document.addEventListener('keydown', (e) => this.handleKeyboardShortcuts(e));
             }
 
@@ -1243,7 +1245,7 @@
                     this.isPlaying = true;
                     this.playBtn.innerHTML = '<i class="fas fa-pause text-lg sm:text-xl"></i>';
                     
-                    // Add visual feedback for play start
+                    
                     this.playBtn.style.transform = 'scale(1.1)';
                     setTimeout(() => {
                         this.playBtn.style.transform = '';
@@ -1261,7 +1263,7 @@
                     this.isPlaying = false;
                     this.playBtn.innerHTML = '<i class="fas fa-play text-lg sm:text-xl"></i>';
                     
-                    // Add visual feedback for pause
+                    
                     this.playBtn.style.transform = 'scale(0.95)';
                     setTimeout(() => {
                         this.playBtn.style.transform = '';
@@ -1283,7 +1285,7 @@
                 const message = errorMessages[error.name] || 'Audio playback failed';
                 console.error('Audio error:', error.name, error.message);
 
-                // Try to reload audio source if it's a source issue
+                
                 if (error.name === 'NotSupportedError' || error.message.includes('no supported sources')) {
                     const currentSrc = this.audioPlayer.src;
                     this.audioPlayer.load();
@@ -1313,30 +1315,30 @@
                 const lesson = this.lessons[index];
                 
                 try {
-                    // Show loading state
+                    
                     this.showLessonLoading(true);
                     
-                    // Smooth scroll to media player
+                    
                     await this.smoothScrollToPlayer();
                     
-                    // Clear previous audio and set new source
+                    
                     this.audioPlayer.pause();
                     this.audioPlayer.currentTime = 0;
                     this.audioPlayer.src = '';
                     this.audioPlayer.load();
                     
-                    // Reset progress bar and time displays immediately
+                    
                     this.resetProgressDisplay();
                     
-                    // Set the new source
+                    
                     this.audioPlayer.src = lesson.path;
                     this.audioPlayer.load();
                     
-                    // Update UI immediately
+                    
                     this.currentLessonTitle.textContent = lesson.title;
                     this.lessonNumber.textContent = `Lesson ${lesson.id} of ${EnglishCollocationPlayer.TOTAL_LESSONS}`;
                     
-                    // Add one-time event listeners for this audio load
+                    
                     const handleError = (e) => {
                         console.error('Audio loading error:', e, 'for file:', lesson.path);
                         this.showToast(`Failed to load ${lesson.title}`, 'error');
@@ -1345,21 +1347,21 @@
                     
                     const handleCanPlay = () => {
                         this.showLessonLoading(false);
-                        // Auto-play if requested and audio is ready
+                        
                         if (autoPlay) {
                             setTimeout(() => {
                                 this.play().catch(err => {
                                     console.warn('Auto-play failed:', err);
                                     this.showToast('Click play to start the lesson', 'info');
                                 });
-                            }, 300); // Shorter delay for better responsiveness
+                            }, 300); 
                         }
                     };
                     
                     this.audioPlayer.addEventListener('error', handleError, { once: true });
                     this.audioPlayer.addEventListener('canplay', handleCanPlay, { once: true });
                     
-                    // Pre-cache this audio file for offline usage
+                    
                     await this.preloadAudioFile(lesson.path);
                     
                     this.updateMarkCompleteButton();
@@ -1375,22 +1377,22 @@
             }
 
             resetProgressDisplay() {
-                // Add smooth transition for progress bar reset
+                
                 this.progressFill.style.transition = 'width 0.3s ease-out';
                 
-                // Reset progress bar to beginning
+                
                 this.progressFill.style.width = '0%';
                 
-                // Reset time displays
+                
                 this.currentTimeSpan.textContent = '0:00';
                 this.durationSpan.textContent = '0:00';
                 
-                // Ensure audio is at the beginning
+                
                 if (this.audioPlayer) {
                     this.audioPlayer.currentTime = 0;
                 }
                 
-                // Remove transition after reset to allow normal progress updates
+                
                 setTimeout(() => {
                     this.progressFill.style.transition = '';
                 }, 300);
@@ -1411,7 +1413,7 @@
 
             async smoothScrollToPlayer() {
                 return new Promise((resolve) => {
-                    // Find the audio player section
+                    
                     const playerSection = document.querySelector('.bg-white.rounded-xl.shadow-lg.mb-6.p-3.sm\\:p-6');
                     
                     if (!playerSection) {
@@ -1419,31 +1421,31 @@
                         return;
                     }
 
-                    // Calculate the target position (optimal viewing position)
+                    
                     const rect = playerSection.getBoundingClientRect();
                     const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-                    const offset = headerHeight + 20; // Account for header plus some padding
+                    const offset = headerHeight + 20; 
                     const targetY = window.pageYOffset + rect.top - offset;
 
-                    // Only scroll if the player is not already in view
+                    
                     const viewportHeight = window.innerHeight;
                     const playerBottom = rect.bottom;
                     const playerTop = rect.top;
                     
                     if (playerTop >= headerHeight && playerBottom <= viewportHeight) {
-                        // Player is already in optimal view, just highlight
+                        
                         this.highlightPlayer();
                         resolve();
                         return;
                     }
 
-                    // Smooth scroll with advanced easing
+                    
                     const startY = window.pageYOffset;
                     const distance = targetY - startY;
-                    const duration = Math.min(1200, Math.max(600, Math.abs(distance) * 1.5)); // Dynamic duration
+                    const duration = Math.min(1200, Math.max(600, Math.abs(distance) * 1.5)); 
                     let start = null;
 
-                    // Advanced easing function for very smooth animation
+                    
                     const easeInOutQuart = (t) => {
                         return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
                     };
@@ -1459,7 +1461,7 @@
                         if (progress < 1) {
                             requestAnimationFrame(step);
                         } else {
-                            // Add professional highlight effect
+                            
                             this.highlightPlayer();
                             resolve();
                         }
@@ -1472,28 +1474,28 @@
             highlightPlayer() {
                 const playerSection = document.querySelector('.bg-white.rounded-xl.shadow-lg.mb-6.p-3.sm\\:p-6');
                 if (playerSection) {
-                    // Professional glow effect
+                    
                     const originalTransition = playerSection.style.transition;
                     const originalBoxShadow = playerSection.style.boxShadow;
                     const originalTransform = playerSection.style.transform;
                     
-                    // Apply highlight with multiple layers for professional look
+                    
                     playerSection.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                     playerSection.style.boxShadow = '0 0 40px rgba(99, 102, 241, 0.4), 0 0 80px rgba(99, 102, 241, 0.1)';
                     playerSection.style.transform = 'scale(1.015) translateY(-2px)';
                     
-                    // Add subtle border glow
+                    
                     const borderGlow = playerSection.style.border;
                     playerSection.style.border = '1px solid rgba(99, 102, 241, 0.3)';
                     
-                    // Remove highlight with fade out
+                    
                     setTimeout(() => {
                         playerSection.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                         playerSection.style.boxShadow = originalBoxShadow;
                         playerSection.style.transform = originalTransform;
                         playerSection.style.border = borderGlow;
                         
-                        // Restore original styles
+                        
                         setTimeout(() => {
                             playerSection.style.transition = originalTransition;
                         }, 600);
@@ -1515,7 +1517,7 @@
                         return;
                     }
                     
-                    // Send message to service worker to cache this specific audio file
+                    
                     if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
                         navigator.serviceWorker.controller.postMessage({
                             type: 'CACHE_AUDIO',
@@ -1523,17 +1525,17 @@
                         });
                     }
                     
-                    // Also try to preload in browser for immediate playback
+                    
                     const audio = new Audio();
                     audio.preload = 'metadata';
                     audio.src = audioPath;
                     
                     const handleLoad = () => {
-                        // Audio ready
+                        
                     };
                     
                     const handleError = (e) => {
-                        // Handle error silently
+                        
                     };
                     
                     audio.addEventListener('canplaythrough', handleLoad, { once: true });
@@ -1556,14 +1558,14 @@
             onNotesInput() {
                 this.updateCharCount();
                 
-                // Clear existing timer
+                
                 if (this.autoSaveTimer) {
                     clearTimeout(this.autoSaveTimer);
                 }
                 
-                // Auto-save after 2 seconds of inactivity
+                
                 this.autoSaveTimer = setTimeout(() => {
-                    this.saveCurrentNotes(true); // true means auto-save
+                    this.saveCurrentNotes(true); 
                 }, 2000);
             }
 
@@ -1584,9 +1586,9 @@
                     }
                     
                     this.saveLessonNotes();
-                    this.renderLessons(); // Update lesson cards to show note indicator
+                    this.renderLessons(); 
                     
-                    // Update last saved indicator
+                    
                     const now = new Date();
                     const timeString = now.toLocaleTimeString('en-US', { 
                         hour12: false, 
@@ -1638,7 +1640,7 @@
 
             onAudioEnded() {
                 this.pause();
-                // Auto-mark as complete when audio ends
+                
                 const currentLesson = this.lessons[this.currentLessonIndex];
                 if (currentLesson && !this.isLessonCompleted(currentLesson.id)) {
                     this.completedLessons.push(currentLesson.id);
@@ -1658,7 +1660,7 @@
 
             updateDuration() {
                 this.durationSpan.textContent = this.formatTime(this.audioPlayer.duration);
-                // Ensure progress is at the beginning when duration is updated
+                
                 this.progressFill.style.width = '0%';
                 this.currentTimeSpan.textContent = '0:00';
             }
@@ -1693,7 +1695,7 @@
             resetProgress() {
                 this.completedLessons = [];
                 this.saveCompletedLessons();
-                // Also reset cache status to show cache button again
+                
                 localStorage.removeItem('audioFilesCached');
                 const cacheControl = document.getElementById('cacheControl');
                 if (cacheControl) {
@@ -1748,11 +1750,11 @@
                         if (e.target.closest('.complete-checkbox')) return;
                         
                         const originalIndex = this.lessons.indexOf(lesson);
-                        // Enable auto-play when user selects a lesson
+                        
                         this.loadLesson(originalIndex, true);
                     });
                     
-                    // Add checkbox for completion toggle
+                    
                     const checkbox = document.createElement('div');
                     checkbox.className = 'complete-checkbox absolute top-1 sm:top-2 left-1 sm:left-2 w-4 h-4 sm:w-6 sm:h-6 cursor-pointer';
                     checkbox.innerHTML = `
@@ -1771,7 +1773,7 @@
             }
 
             highlightCurrentLesson() {
-                this.renderLessons(); // Re-render to update active states
+                this.renderLessons(); 
             }
 
             formatTime(seconds) {
@@ -1784,7 +1786,7 @@
             showToast(message, type = 'success') {
                 this.toastMessage.textContent = message;
                 
-                // Update toast colors and icon based on type
+                
                 let bgColor, icon;
                 switch(type) {
                     case 'success':
@@ -1808,15 +1810,15 @@
                         icon = 'fas fa-check-circle';
                 }
                 
-                // Reset classes and apply new ones
+                
                 this.toast.className = `fixed top-4 right-4 text-white px-6 py-3 rounded-lg shadow-lg transition-all duration-300 z-50 ${bgColor}`;
                 this.toast.querySelector('i').className = icon;
                 
-                // Show toast
+                
                 this.toast.classList.remove('opacity-0', 'translate-x-full', 'pointer-events-none');
                 this.toast.classList.add('opacity-100', 'translate-x-0');
                 
-                // Hide after 3 seconds
+                
                 setTimeout(() => {
                     this.toast.classList.remove('opacity-100', 'translate-x-0');
                     this.toast.classList.add('opacity-0', 'translate-x-full', 'pointer-events-none');
@@ -1824,7 +1826,7 @@
             }
 
             handleKeyboardShortcuts(event) {
-                // Don't trigger shortcuts when typing in input fields or textarea
+                
                 if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
                 
                 switch(event.code) {
@@ -1866,21 +1868,21 @@
             }
         }
 
-        // Initialize the player when the page loads
+        
         document.addEventListener('DOMContentLoaded', () => {
             window.player = new EnglishCollocationPlayer();
             
-            // Check if audio files are already cached and hide button if needed
+            
             CacheManager.checkCacheStatus();
             
-            // Start preloading all files for offline access
+            
             preloadAllFilesInBackground();
         });
 
-        // Function to preload all audio, text, and collocation files in background
+        
         function preloadAllFilesInBackground() {
             
-            // Get all audio, text, and collocation file paths
+            
             const audioFiles = [];
             const textFiles = [];
             const collocationFiles = [];
@@ -1895,7 +1897,7 @@
             let currentIndex = 0;
             let cachedCount = 0;
             let skippedCount = 0;
-            const preloadDelay = 600; // 600ms between each file (faster due to more files)
+            const preloadDelay = 600; 
             
             function preloadNext() {
                 if (currentIndex >= allFiles.length) {
@@ -1916,7 +1918,7 @@
                     fileType = 'Collocation';
                 }
                 
-                // Check if already cached before attempting to cache
+                
                 if ('caches' in window) {
                     caches.match(filePath).then(cachedResponse => {
                         if (cachedResponse) {
@@ -1924,7 +1926,7 @@
                         } else {
                             cachedCount++;
                             
-                            // Send to service worker for caching
+                            
                             if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
                                 let messageType = 'CACHE_FILE';
                                 let pathKey = 'filePath';
@@ -1949,25 +1951,25 @@
                         
                         currentIndex++;
                         
-                        // Schedule next preload
+                        
                         setTimeout(preloadNext, preloadDelay);
                     }).catch(err => {
                         currentIndex++;
                         setTimeout(preloadNext, preloadDelay);
                     });
                 } else {
-                    // Fallback if caches API not available
+                    
                     currentIndex++;
                     setTimeout(preloadNext, preloadDelay);
                 }
             }
             
-            // Start preloading after 3 seconds to let the page load first
+            
             setTimeout(() => {
                 preloadNext();
             }, 3000);
             
-            // Debug: Check what's cached after 5 seconds
+            
             setTimeout(() => {
                 CacheManager.checkCachedFiles();
             }, 5000);
@@ -1975,7 +1977,7 @@
     </script>
 
     <script>
-        // Cache Management Module
+        
         class CacheManager {
             static get CACHE_VERSION() { return 'english-collocations-v16'; }
             
@@ -2017,12 +2019,12 @@
                 }
 
                 try {
-                    // Show loading state
+                    
                     cacheBtn.classList.add('opacity-50', 'cursor-not-allowed');
                     cacheBtnText.textContent = 'Caching...';
                     cacheProgress.classList.remove('hidden');
                     
-                    // Generate audio, text, and collocation file lists
+                    
                     const audioFiles = [];
                     const textFiles = [];
                     const collocationFiles = [];
@@ -2057,7 +2059,7 @@
                         cacheStatusText.textContent = `Checking ${fileType}: ${filePath}`;
                         
                         try {
-                            // Check if already cached
+                            
                             const cachedResponse = await caches.match(filePath);
                             
                             if (cachedResponse) {
@@ -2067,12 +2069,12 @@
                                 continue;
                             }
                             
-                            // Cache the file
+                            
                             cacheStatusText.textContent = `Downloading ${fileType}: ${filePath}`;
                             const response = await fetch(filePath);
                             
                             if (response.ok) {
-                                // Determine which cache to use
+                                
                                 let cacheName = 'english-collocations-v16-main';
                                 if (filePath.includes('.mp3')) {
                                     cacheName = 'english-collocations-v16-audio';
@@ -2087,7 +2089,7 @@
                                 cachedCount++;
                                 cacheStatusText.textContent = `Cached ${fileType}: ${filePath}`;
                                 
-                                // Also send to service worker for consistency
+                                
                                 if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
                                     let messageType = 'CACHE_FILE';
                                     let pathKey = 'filePath';
@@ -2125,16 +2127,16 @@
                     cacheStatusText.textContent = `Complete! ${cachedCount} new files cached, ${skippedCount} already cached`;
                     showToast(`${cachedCount} files cached for offline use!`, 'success');
                     
-                    // Mark caching as complete
+                    
                     localStorage.setItem('allFilesCached', 'true');
-                    localStorage.setItem('audioFilesCached', 'true'); // For backward compatibility
+                    localStorage.setItem('audioFilesCached', 'true'); 
                     
                 } catch (error) {
                     console.error('Cache operation failed:', error);
                     cacheStatusText.textContent = 'Error caching files';
                     showToast('Error caching files', 'error');
                 } finally {
-                    // Hide progress and button after completion
+                    
                     setTimeout(() => {
                         cacheProgress.classList.add('hidden');
                         const cacheControl = document.getElementById('cacheControl');
@@ -2154,10 +2156,10 @@
             }
         }
 
-        // Cache Control Functionality
+        
         let isCaching = false;
         
-        // Check if caching was already completed and hide button if so
+        
         function checkCacheStatus() {
             if (localStorage.getItem('allFilesCached') === 'true' || localStorage.getItem('audioFilesCached') === 'true') {
                 const cacheControl = document.getElementById('cacheControl');
@@ -2167,7 +2169,7 @@
             }
         }
         
-        // Debug function to check cached files
+        
         async function checkCachedFiles() {
             if ('caches' in window) {
                 try {
@@ -2191,7 +2193,7 @@
             }
         });
         
-        // Lesson Text Functionality
+        
         class LessonTextManager {
             constructor() {
                 this.isTextVisible = false;
@@ -2222,7 +2224,7 @@
                     this.lessonTextContent.innerHTML = '<p class="text-gray-500 italic">Loading lesson text...</p>';
                     this.currentTextFile.textContent = `${paddedNumber}.txt`;
                     
-                    // Send message to service worker to cache this text file
+                    
                     if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
                         navigator.serviceWorker.controller.postMessage({
                             type: 'CACHE_TEXT',
@@ -2239,14 +2241,14 @@
                     const textContent = await response.text();
                     this.currentLessonText = textContent;
                     
-                    // Format text for display
+                    
                     const formattedText = this.formatTextContent(textContent);
                     this.lessonTextContent.innerHTML = formattedText;
                     
-                    // Add click events to collocation highlights
+                    
                     this.addCollocationClickEvents();
                     
-                    // Update word count
+                    
                     const wordCount = this.countWords(textContent);
                     this.textWordCount.textContent = `${wordCount} words`;
                     
@@ -2265,26 +2267,26 @@
             }
 
             formatTextContent(text) {
-                // Parse HTML and Markdown content
+                
                 return this.parseHTMLAndMarkdown(text);
             }
 
             parseHTMLAndMarkdown(text) {
-                // Split into lines and process
+                
                 const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
                 let result = '';
                 
                 for (let line of lines) {
-                    // Handle lesson titles (starting with "Lesson")
+                    
                     if (line.startsWith('Lesson ')) {
                         result += `<h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-primary-500 pb-2">${this.processInlineHTML(line)}</h2>`;
                     }
-                    // Handle section headers (lines with ** around them)
+                    
                     else if (line.startsWith('**') && line.endsWith('**')) {
                         const headerText = line.slice(2, -2).trim();
                         result += `<h3 class="text-xl font-semibold text-primary-700 mt-6 mb-3">${this.processInlineHTML(headerText)}</h3>`;
                     }
-                    // Handle regular paragraphs
+                    
                     else {
                         result += `<p class="mb-4 leading-relaxed text-gray-800">${this.processInlineHTML(line)}</p>`;
                     }
@@ -2294,9 +2296,9 @@
             }
 
             processInlineHTML(text) {
-                // Process <strong> tags to highlight collocations
+                
                 text = text.replace(/<strong>(.*?)<\/strong>/g, (match, content) => {
-                    // Extract the definition in parentheses if it exists
+                    
                     const definitionMatch = content.match(/^(.*?)\s*\((.*?)\)\s*$/);
                     if (definitionMatch) {
                         const term = definitionMatch[1].trim();
@@ -2307,9 +2309,9 @@
                     }
                 });
                 
-                // Process other markdown-style formatting
-                text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Bold
-                text = text.replace(/\*(.*?)\*/g, '<em>$1</em>'); // Italic
+                
+                text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); 
+                text = text.replace(/\*(.*?)\*/g, '<em>$1</em>'); 
                 
                 return text;
             }
@@ -2333,7 +2335,7 @@
                         const definition = highlight.getAttribute('data-definition');
                         this.speakCollocation(term, definition);
                         
-                        // Visual feedback
+                        
                         highlight.style.transform = 'scale(1.1)';
                         highlight.style.boxShadow = '0 6px 20px rgba(99, 102, 241, 0.4)';
                         setTimeout(() => {
@@ -2350,22 +2352,22 @@
                     return;
                 }
 
-                // Check if voice settings manager is available
+                
                 if (!voiceSettingsManager) {
                     showToast('Voice settings not available', 'error');
                     return;
                 }
 
-                // Stop any ongoing speech
+                
                 window.speechSynthesis.cancel();
 
-                // Create speech text
+                
                 let textToSpeak = term;
                 if (definition && definition.trim()) {
                     textToSpeak += `. ${definition}`;
                 }
                 
-                // Use voice settings manager to create utterance
+                
                 const utterance = voiceSettingsManager.createUtterance(textToSpeak);
 
                 utterance.onstart = () => {
@@ -2411,7 +2413,7 @@
                 navigator.clipboard.writeText(this.currentLessonText).then(() => {
                     showToast('Lesson text copied to clipboard!', 'success');
                     
-                    // Visual feedback on copy button
+                    
                     const originalHTML = this.copyTextBtn.innerHTML;
                     this.copyTextBtn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
                     this.copyTextBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
@@ -2442,7 +2444,7 @@
             }
         }
 
-        // Collocation Management Module
+        
         class CollocationManager {
             constructor() {
                 this.currentCollocations = [];
@@ -2483,7 +2485,7 @@
 
             async loadCollocations(lessonNumber) {
                 try {
-                    // Stop any ongoing speech when loading new collocations
+                    
                     this.stopCurrentSpeech();
                     
                     const paddedNumber = String(lessonNumber).padStart(2, '0');
@@ -2505,7 +2507,7 @@
             }
 
             parseAndDisplayCollocations(htmlText) {
-                // Parse the HTML content
+                
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlText, 'text/html');
                 const listItems = doc.querySelectorAll('li');
@@ -2518,10 +2520,10 @@
                     if (strongElement) {
                         const term = strongElement.textContent.trim();
                         
-                        // Get the full text content
+                        
                         const fullText = item.textContent;
                         
-                        // Find the term and extract definition
+                        
                         const termEndIndex = fullText.indexOf(term) + term.length;
                         const exampleIndex = fullText.indexOf('Example:');
                         
@@ -2529,30 +2531,23 @@
                         let example = '';
                         
                         if (exampleIndex !== -1) {
-                            // Extract definition (between term and Example:)
+                            
                             definition = fullText.substring(termEndIndex, exampleIndex)
-                                .replace(/^\s*–\s*/, '') // Remove leading dash
-                                .replace(/\.\s*$/, '')   // Remove trailing period
+                                .replace(/^\s*–\s*/, '') 
+                                .replace(/\.\s*$/, '')   
                                 .trim();
                             
-                            // Extract example (after Example:)
-                            example = fullText.substring(exampleIndex + 8) // 8 = length of "Example:"
+                            
+                            example = fullText.substring(exampleIndex + 8) 
                                 .trim();
                         } else {
-                            // No example found, everything after term is definition
+                            
                             definition = fullText.substring(termEndIndex)
                                 .replace(/^\s*–\s*/, '')
                                 .trim();
                         }
                         
-                        // Debug logging
-                        console.log(`Parsed collocation ${index + 1}:`, {
-                            term,
-                            definition,
-                            example,
-                            fullText: fullText.substring(0, 100) + '...'
-                        });
-                        
+                      
                         this.currentCollocations.push({
                             id: index,
                             term,
@@ -2562,7 +2557,6 @@
                     }
                 });
 
-                console.log('Total collocations parsed:', this.currentCollocations.length);
                 this.renderCollocations();
             }
 
@@ -2611,7 +2605,7 @@
                 const collocation = this.currentCollocations[id];
                 if (!collocation) return;
 
-                // Check if speech synthesis is supported
+                
                 if (!('speechSynthesis' in window)) {
                     showToast('Speech synthesis not supported in this browser', 'error');
                     return;
@@ -2619,26 +2613,26 @@
 
                 const playButton = document.querySelector(`[data-id="${id}"] .collocation-play-btn`);
                 
-                // If this collocation is currently playing, pause it
+                
                 if (this.currentPlayingId === id && this.isPlaying) {
                     this.pauseCurrentSpeech();
                     return;
                 }
 
-                // Stop any ongoing speech first
+                
                 this.stopCurrentSpeech();
 
-                // Set current playing state
+                
                 this.currentPlayingId = id;
                 this.isPlaying = true;
                 
-                // Update button to pause icon
+                
                 if (playButton) {
                     playButton.innerHTML = '<i class="fas fa-pause"></i>';
                     playButton.title = 'Pause pronunciation';
                 }
 
-                // Highlight the speaking item
+                
                 const items = document.querySelectorAll('.collocation-item');
                 items.forEach(item => item.classList.remove('speaking'));
                 
@@ -2647,25 +2641,25 @@
                     currentItem.classList.add('speaking');
                 }
 
-                // Create speech text - handle missing examples gracefully
+                
                 let textToSpeak = `${collocation.term}. ${collocation.definition}.`;
                 if (collocation.example && collocation.example.trim()) {
                     textToSpeak += ` Example: ${collocation.example}`;
                 }
                 
-                // Create utterance with fallback
+                
                 let utterance;
                 if (voiceSettingsManager && voiceSettingsManager.createUtterance) {
-                    // Use voice settings manager if available
+                    
                     utterance = voiceSettingsManager.createUtterance(textToSpeak);
                 } else {
-                    // Fallback to basic speech synthesis
+                    
                     utterance = new SpeechSynthesisUtterance(textToSpeak);
                     utterance.rate = this.speechRate || 1;
                     utterance.pitch = 1;
                     utterance.volume = 1;
                     
-                    // Try to set an English voice
+                    
                     const voices = speechSynthesis.getVoices();
                     const englishVoice = voices.find(voice => voice.lang.startsWith('en'));
                     if (englishVoice) {
@@ -2676,7 +2670,7 @@
                 this.currentUtterance = utterance;
 
                 utterance.onend = () => {
-                    // Only reset if this utterance is still the current one and not manually stopped
+                    
                     if (this.isPlaying && this.currentPlayingId === id && !this.manuallyStopped) {
                         this.resetPlayState(id);
                     }
@@ -2684,17 +2678,17 @@
 
                 utterance.onerror = (error) => {
                     console.error('Speech synthesis error:', error);
-                    // Only show error if not manually stopped
+                    
                     if (this.currentPlayingId === id && !this.manuallyStopped) {
                         this.resetPlayState(id);
                         showToast('Speech synthesis failed. Please try again.', 'error');
                     }
                 };
 
-                // Reset manual stop flag
+                
                 this.manuallyStopped = false;
 
-                // Small delay to ensure everything is ready
+                
                 setTimeout(() => {
                     if (this.isPlaying && this.currentPlayingId === id) {
                         try {
@@ -2709,26 +2703,26 @@
             }
 
             pauseCurrentSpeech() {
-                // Set flag to indicate manual stop
+                
                 this.manuallyStopped = true;
                 
                 if (speechSynthesis.speaking) {
                     speechSynthesis.cancel();
                 }
-                // Immediately reset without waiting for onend
+                
                 if (this.currentPlayingId !== null) {
                     this.resetPlayState(this.currentPlayingId);
                 }
             }
 
             stopCurrentSpeech() {
-                // Set flag to indicate manual stop
+                
                 this.manuallyStopped = true;
                 
                 if (speechSynthesis.speaking) {
                     speechSynthesis.cancel();
                 }
-                // Immediately reset without waiting for onend
+                
                 if (this.currentPlayingId !== null) {
                     this.resetPlayState(this.currentPlayingId);
                 }
@@ -2737,20 +2731,20 @@
             resetPlayState(id) {
                 if (id === null || id === undefined) return;
                 
-                // Reset playing state
+                
                 this.isPlaying = false;
                 this.currentPlayingId = null;
                 this.currentUtterance = null;
                 this.manuallyStopped = false;
 
-                // Update button back to play icon
+                
                 const playButton = document.querySelector(`[data-id="${id}"] .collocation-play-btn`);
                 if (playButton) {
                     playButton.innerHTML = '<i class="fas fa-play"></i>';
                     playButton.title = 'Listen to pronunciation';
                 }
 
-                // Remove highlight
+                
                 const items = document.querySelectorAll('.collocation-item');
                 items.forEach(item => item.classList.remove('speaking'));
             }
@@ -2765,7 +2759,7 @@
                 navigator.clipboard.writeText(textToCopy).then(() => {
                     showToast('All collocations copied to clipboard!', 'success');
                     
-                    // Visual feedback on copy button (same as copy text button)
+                    
                     const originalHTML = this.copyBtn.innerHTML;
                     this.copyBtn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
                     this.copyBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
@@ -2792,7 +2786,7 @@
                 navigator.clipboard.writeText(textToCopy).then(() => {
                     showToast('Collocation copied to clipboard!', 'success');
                     
-                    // Visual feedback
+                    
                     const item = document.querySelector(`[data-id="${id}"]`);
                     if (item) {
                         item.classList.add('copy-success');
@@ -2829,7 +2823,7 @@
             }
         }
 
-        // Voice Settings Management Module
+        
         class VoiceSettingsManager {
             constructor() {
                 this.voices = [];
@@ -2866,7 +2860,7 @@
             }
 
             initializeEventListeners() {
-                // Modal controls
+                
                 this.openBtn?.addEventListener('click', () => this.openModal());
                 this.openBtnText?.addEventListener('click', () => this.openModal());
                 this.openBtnCollocations?.addEventListener('click', () => this.openModal());
@@ -2875,7 +2869,7 @@
                     if (e.target === this.modal) this.closeModal();
                 });
 
-                // Settings controls
+                
                 this.voiceRate?.addEventListener('input', (e) => {
                     this.settings.rate = parseFloat(e.target.value);
                     this.voiceRateValue.textContent = this.settings.rate.toFixed(1);
@@ -2896,12 +2890,12 @@
                     this.selectedVoice = this.voices[this.settings.voiceIndex] || null;
                 });
 
-                // Action buttons
+                
                 this.testVoiceBtn?.addEventListener('click', () => this.testVoice());
                 this.resetBtn?.addEventListener('click', () => this.resetSettings());
                 this.saveBtn?.addEventListener('click', () => this.saveSettings());
 
-                // Keyboard shortcuts
+                
                 document.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape' && !this.modal?.classList.contains('hidden')) {
                         this.closeModal();
@@ -2913,7 +2907,7 @@
                 this.voices = speechSynthesis.getVoices();
                 this.populateVoiceSelect();
                 
-                // Set selected voice if saved
+                
                 if (this.settings.voiceIndex >= 0 && this.voices[this.settings.voiceIndex]) {
                     this.selectedVoice = this.voices[this.settings.voiceIndex];
                     this.voiceSelect.value = this.settings.voiceIndex;
@@ -2925,19 +2919,19 @@
 
                 this.voiceSelect.innerHTML = '';
                 
-                // Default option
+                
                 const defaultOption = document.createElement('option');
                 defaultOption.value = -1;
                 defaultOption.textContent = 'System Default';
                 this.voiceSelect.appendChild(defaultOption);
 
-                // Add available voices
+                
                 this.voices.forEach((voice, index) => {
                     const option = document.createElement('option');
                     option.value = index;
                     option.textContent = `${voice.name} (${voice.lang})`;
                     
-                    // Highlight English voices
+                    
                     if (voice.lang.startsWith('en')) {
                         option.textContent += ' ⭐';
                     }
@@ -2945,12 +2939,12 @@
                     this.voiceSelect.appendChild(option);
                 });
 
-                // Set current selection
+                
                 this.voiceSelect.value = this.settings.voiceIndex;
             }
 
             openModal() {
-                this.loadVoices(); // Refresh voices
+                this.loadVoices(); 
                 this.updateUI();
                 this.modal?.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
@@ -3049,7 +3043,7 @@
                 }
             }
 
-            // Public method for other components to use
+            
             createUtterance(text) {
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.rate = this.settings.rate;
@@ -3065,50 +3059,50 @@
             }
         }
 
-        // Initialize voice settings manager
+        
         let voiceSettingsManager;
         let lessonTextManager;
         let collocationManager;
         
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize voice settings manager first
+            
             voiceSettingsManager = new VoiceSettingsManager();
             
-            // Initialize other components
+            
             lessonTextManager = new LessonTextManager();
             collocationManager = new CollocationManager();
         });
 
-        // Override the original player's loadLesson method to also load text
+        
         document.addEventListener('DOMContentLoaded', () => {
-            // Wait for player to be initialized
+            
             setTimeout(() => {
                 if (window.player) {
                     const originalLoadLesson = window.player.loadLesson.bind(window.player);
                     
                     window.player.loadLesson = function(lessonIndex) {
-                        // Call original loadLesson
+                        
                         originalLoadLesson(lessonIndex);
                         
-                        // Load corresponding text
+                        
                         const lesson = this.lessons[lessonIndex];
                         if (lesson && lessonTextManager) {
                             lessonTextManager.loadLessonText(lesson.id);
                         }
                         
-                        // Load corresponding collocations
+                        
                         if (lesson && collocationManager) {
                             collocationManager.loadCollocations(lesson.id);
                         }
                     };
                     
-                    // Load text for initial lesson
+                    
                     const currentLesson = window.player.lessons[window.player.currentLessonIndex];
                     if (currentLesson && lessonTextManager) {
                         lessonTextManager.loadLessonText(currentLesson.id);
                     }
                     
-                    // Load collocations for initial lesson
+                    
                     if (currentLesson && collocationManager) {
                         collocationManager.loadCollocations(currentLesson.id);
                     }
@@ -3116,14 +3110,14 @@
             }, 1000);
         });
 
-        // PDF Download Enhancement
+        
         document.addEventListener('DOMContentLoaded', () => {
             const downloadBtn = document.querySelector('a[download="English-Collocations-Complete-Guide.pdf"]');
             const viewBtn = document.querySelector('a[href="collocations.pdf"][target="_blank"]');
             
             if (downloadBtn) {
                 downloadBtn.addEventListener('click', (e) => {
-                    // Add visual feedback
+                    
                     const icon = downloadBtn.querySelector('i');
                     const text = downloadBtn.querySelector('span');
                     
@@ -3132,7 +3126,7 @@
                         text.textContent = 'Downloading...';
                         icon.className = 'fas fa-spinner fa-spin text-sm sm:text-base';
                         
-                        // Reset after 3 seconds
+                        
                         setTimeout(() => {
                             text.textContent = originalText;
                             icon.className = 'fas fa-download text-sm sm:text-base group-hover:animate-bounce';
