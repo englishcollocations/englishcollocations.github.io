@@ -1,7 +1,7 @@
 import { icon } from './icons.js';
 import {
   $, $$, esc, pad, data, store, lessonById, collocationByKey, loadStory, speech, offline, ACCENTS, applyTheme,
-  art, ring, animateRings, countUp, segmented, segHTML, switchHTML, setRangeFill, toast, confirmDialog, menu,
+  art, emojiImg, ring, animateRings, countUp, segmented, segHTML, switchHTML, setRangeFill, toast, confirmDialog, menu,
   popover, closePopover, confetti, copyText, markPhrase, fmtTime, fmtDuration, debounce, shuffle, seeded, plural,
   reveal, isMobile, todayKey, haptic, clamp,
 } from './core.js';
@@ -27,7 +27,7 @@ function collocCard(c, { n, showLesson = false } = {}) {
     </div>
     ${c.m ? `<div class="c-meaning">${esc(c.m)}</div>` : '<div class="c-meaning faint">Listen to the story to hear it in context.</div>'}
     ${c.e ? `<div class="c-example">${markPhrase(c.e, c.p)}</div>` : ''}
-    ${showLesson ? `<a class="link-btn" style="align-self:flex-start;margin:4px 0 0 28px" href="#/lesson/${l.id}/collocations">${l.emoji} Lesson ${l.id} · ${esc(l.topic)}</a>` : ''}
+    ${showLesson ? `<a class="link-btn" style="align-self:flex-start;margin:4px 0 0 28px" href="#/lesson/${l.id}/collocations">${emojiImg(l)} Lesson ${l.id} · ${esc(l.topic)}</a>` : ''}
   </article>`;
 }
 
@@ -35,10 +35,7 @@ function lessonCard(l, i) {
   const done = store.isDone(l.id);
   const pct = lessonPct(l);
   return `<a href="#/lesson/${l.id}" class="card card-interactive spot lesson-card" style="--i:${Math.min(i, 24)}" data-lesson-card="${l.id}">
-    <div class="art" style="--h:${l.hue}">
-      <span class="emo">${l.emoji}</span><span class="art-num">${l.nn}</span>
-      <button class="lc-hover-play" data-play-lesson="${l.id}" aria-label="Play lesson ${l.id}">${playIcon(20)}</button>
-    </div>
+    ${art(l, { num: true, extra: `<button class="lc-hover-play" data-play-lesson="${l.id}" aria-label="Play lesson ${l.id}">${playIcon(20)}</button>` })}
     <div class="lc-status">
       <span data-eq-lesson="${l.id}" hidden><span class="status-playing">${eqHTML('dark')} Playing</span></span>
       ${done ? `<span class="status-done" title="Completed">${icon('check', { size: 15, stroke: 3 })}</span>` : ''}
@@ -238,7 +235,7 @@ function home() {
         <a class="btn btn-glass btn-lg btn-pill" href="#/lesson/${current.id}">${icon('book', { size: 18 })} Open lesson</a>
       </div>
     </div>
-    <div class="hero-emoji" aria-hidden="true">${current.emoji}</div>
+    <div class="hero-emoji" aria-hidden="true">${emojiImg(current, '')}</div>
   </section>
 
   <div class="stats stagger">
@@ -272,7 +269,7 @@ function home() {
           <button class="btn btn-tinted btn-sm" data-speak="${esc(wotd.p)}">${icon('speaker', { size: 15 })} Listen</button>
           <button class="btn btn-secondary btn-sm ${store.isFav(wotd.key) ? 'starred' : ''}" data-fav="${esc(wotd.key)}">${icon('star', { size: 15 })} ${store.isFav(wotd.key) ? 'Saved' : 'Save'}</button>
           <span style="flex:1"></span>
-          <a class="link-btn" href="#/lesson/${wl.id}/collocations">${wl.emoji} ${esc(wl.topic)} ${icon('chevronRight', { size: 15 })}</a>
+          <a class="link-btn" href="#/lesson/${wl.id}/collocations">${emojiImg(wl)} ${esc(wl.topic)} ${icon('chevronRight', { size: 15 })}</a>
         </div>
       </article>
       <article class="card spot cta-card">
@@ -425,10 +422,10 @@ function lesson({ id, tab = 'story' }, ctx) {
 
   <div class="lesson-tabs" id="lessonTabs">
     ${segHTML([
-      { value: 'story', label: 'Story', icon: 'book' },
+      { value: 'story', label: 'Story' },
       { value: 'collocations', label: 'Collocations', count: l.collocations.length },
-      { value: 'notes', label: 'Notes', icon: 'pen', count: hasNote ? '•' : null },
-    ], tab)}
+      { value: 'notes', label: 'Notes', count: hasNote ? '✓' : null },
+    ], tab, { cls: 'lesson-seg' })}
     <div class="tab-tools" id="tabTools"></div>
   </div>
   <div id="tabPanel"></div>
@@ -538,6 +535,10 @@ function lesson({ id, tab = 'story' }, ctx) {
       p.addEventListener('click', (e) => {
         const b = e.target.closest('.hl');
         if (b) showPhrase(b, b.dataset.phrase, l.id);
+      });
+      p.addEventListener('keydown', (e) => {
+        const b = e.target.closest('.hl');
+        if (b && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); e.stopPropagation(); showPhrase(b, b.dataset.phrase, l.id); }
       });
     };
 
@@ -801,7 +802,7 @@ function session({ mode }, ctx) {
             <span class="flash-stamp know" id="stKnow">Got it</span><span class="flash-stamp learn" id="stLearn">Learning</span>
             <div class="flip">
               <div class="face front">
-                <span class="fc-tag">${l.emoji} Lesson ${l.id}</span>
+                <span class="fc-tag">${emojiImg(l)} Lesson ${l.id}</span>
                 <button class="icon-btn round fc-speak" data-speak="${esc(c.p)}" aria-label="Pronounce">${icon('speaker', { size: 18 })}</button>
                 <div class="fc-phrase">${esc(c.p)}</div>
                 <div class="fc-hint">${icon('repeat', { size: 14 })} ${isMobile() ? 'Tap to flip · swipe to answer' : 'Click or press Space to flip'}</div>

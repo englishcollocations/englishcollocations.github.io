@@ -2,7 +2,7 @@
    - App shell: network-first (fresh after deploys), cache fallback offline
    - Lesson texts: stale-while-revalidate
    - Audio: served from the download cache (with HTTP Range support) or network */
-const VERSION = 'v2.0.0';
+const VERSION = 'v2.2.0';
 const SHELL_CACHE = `ec-shell-${VERSION}`;
 const DATA_CACHE = 'ec-data-v1';
 const AUDIO_CACHE = 'ec-audio-v1';
@@ -25,6 +25,7 @@ const SHELL = [
   'apple-touch-icon.png',
   'android-chrome-192x192.png',
   'android-chrome-512x512.png',
+  ...Array.from({ length: 50 }, (_, i) => `assets/emoji/${String(i + 1).padStart(2, '0')}.png`),
 ];
 
 self.addEventListener('install', (event) => {
@@ -69,6 +70,7 @@ self.addEventListener('fetch', (event) => {
 
   if (path.endsWith('.mp3')) { event.respondWith(audioResponse(req)); return; }
   if (path.endsWith('.pdf')) return; // large; let the browser handle it
+  if (path.includes('/assets/emoji/')) { event.respondWith(cacheFirst(req, SHELL_CACHE)); return; }
   if (req.mode === 'navigate') { event.respondWith(navigation(event)); return; }
   if (path.includes('/texts/') || path.includes('/collocations/')) { event.respondWith(staleWhileRevalidate(req, DATA_CACHE)); return; }
   event.respondWith(networkFirst(req, SHELL_CACHE));
@@ -102,6 +104,15 @@ async function networkFirst(req, cacheName) {
   }
 }
 
+async function cacheFirst(req, cacheName) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(req, { ignoreSearch: true });
+  if (cached) return cached;
+  const res = await fetch(req);
+  if (res.ok && res.type === 'basic') cache.put(req, res.clone());
+  return res;
+}
+
 async function staleWhileRevalidate(req, cacheName) {
   const cache = await caches.open(cacheName);
   const cached = await cache.match(req, { ignoreSearch: true });
@@ -114,7 +125,8 @@ async function staleWhileRevalidate(req, cacheName) {
 function fetchWithTimeout(req, ms) {
   return new Promise((resolve, reject) => {
     const t = setTimeout(() => reject(new Error('timeout')), ms);
-    fetch(req).then((r) => { clearTimeout(t); resolve(r); }, (e) => { clearTimeout(t); reject(e); });
+    // no-cache: always revalidate with the server (cheap 304s) so a deploy never mixes old and new modules
+    fetch(req, { cache: 'no-cache' }).then((r) => { clearTimeout(t); resolve(r); }, (e) => { clearTimeout(t); reject(e); });
   });
 }
 

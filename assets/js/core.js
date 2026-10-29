@@ -86,7 +86,7 @@ export async function loadStory(id) {
   const html = paragraphs.map((p) => {
     const safe = esc(p).replace(/&lt;strong&gt;([\s\S]*?)&lt;\/strong&gt;/g, (_, inner) => {
       const text = inner.replace(/&lt;[^&]*&gt;/g, '');
-      return `<button type="button" class="hl" data-phrase="${text}">${text}</button>`;
+      return `<span class="hl" role="button" tabindex="0" data-phrase="${text}">${text}</span>`;
     }).replace(/&lt;\/?(em|i|b)&gt;/g, '');
     return `<p>${safe}</p>`;
   }).join('');
@@ -383,8 +383,13 @@ export const offline = {
 /* ==========================================================================
    UI primitives
    ========================================================================== */
-export function art(lesson, { cls = '', num = false, style = '' } = {}) {
-  return `<div class="art ${cls}" style="--h:${lesson.hue};${style}"><span class="emo">${lesson.emoji}</span>${num ? `<span class="art-num">${lesson.nn}</span>` : ''}</div>`;
+/** High-quality 3D emoji image for a lesson (falls back to the system emoji). */
+export function emojiImg(lesson, cls = 'emoji') {
+  if (!lesson?.id) return `<span class="${cls}">${lesson?.emoji || ''}</span>`;
+  return `<img class="${cls}" src="assets/emoji/${lesson.nn}.png" alt="" width="256" height="256" decoding="async" draggable="false" onerror="this.replaceWith(document.createTextNode('${lesson.emoji}'))">`;
+}
+export function art(lesson, { cls = '', num = false, style = '', extra = '' } = {}) {
+  return `<div class="art ${cls}" style="--h:${lesson.hue};${style}">${emojiImg(lesson, 'emo')}${num ? `<span class="art-num">${lesson.nn}</span>` : ''}${extra}</div>`;
 }
 
 export function ring(pct, { size = 44, stroke = 5, label = '', cls = '' } = {}) {
@@ -431,7 +436,7 @@ export function segmented(el, onChange) {
     if (!active) { pill.style.width = '0'; return; }
     if (!animate) el.classList.add('no-anim');
     pill.style.width = `${active.offsetWidth}px`;
-    pill.style.transform = `translateX(${active.offsetLeft - 3}px)`;
+    pill.style.transform = `translateX(${active.offsetLeft}px)`;
     if (!animate) requestAnimationFrame(() => requestAnimationFrame(() => el.classList.remove('no-anim')));
   };
   const select = (value, animate = true) => {

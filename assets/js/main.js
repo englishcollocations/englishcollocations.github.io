@@ -1,7 +1,7 @@
 import { icon } from './icons.js';
 import {
   $, $$, esc, data, store, loadData, applyTheme, speech, ring, animateRings, toast, sheet, closeMenu, closePopover,
-  topSheet, menu, modKey, lessonById, haptic, debounce,
+  topSheet, menu, modKey, lessonById, haptic, debounce, emojiImg,
 } from './core.js';
 import { player, playIcon, sync, initPlayerControls } from './player.js';
 import { views, initGlobalActions } from './views.js';
@@ -74,7 +74,6 @@ function shellHTML() {
         <span class="spacer"></span>
         <span id="offlinePill"></span>
         <button class="toolbar-search" data-act="search">${icon('search', { size: 15 })}<span>Search lessons &amp; collocations</span><kbd>${modKey}K</kbd></button>
-        <button class="icon-btn mobile-only" data-act="search" aria-label="Search">${icon('search', { size: 20 })}</button>
         <button class="icon-btn desktop-only" data-act="theme" id="themeBtn" title="Appearance" aria-label="Appearance"></button>
       </header>
       <div class="view-scroll scroll" id="viewScroll"><div id="view"></div></div>
@@ -108,13 +107,17 @@ function shellHTML() {
   </div>
 
   <nav class="tabbar" id="tabbar" aria-label="Tabs">
-    ${TABS.map((t) => `<a class="tab" href="${t.href}" data-tab="${t.id}"><span class="tab-dot"></span>${icon(t.icon, { size: 23 })}<span>${t.label}</span></a>`).join('')}
+    <div class="tb-pill">
+      <span class="tb-hl" aria-hidden="true"></span>
+      ${TABS.map((t) => `<a class="tab" href="${t.href}" data-tab="${t.id}"><span class="tab-icon">${icon(t.icon, { size: 23 })}</span><span class="tab-label"><span>${t.label}</span></span></a>`).join('')}
+    </div>
+    <button class="tb-acc" data-act="search" aria-label="Search">${icon('search', { size: 23 })}</button>
   </nav>`;
 }
 
 function renderSidebarLessons() {
   $('#sideLessons').innerHTML = data.lessons.map((l) => `<a class="side-lesson" href="#/lesson/${l.id}" data-lesson-card="${l.id}" data-id="${l.id}">
-      <span class="num">${l.nn}</span><span class="emo">${l.emoji}</span><span class="name">${esc(l.topic)}</span>
+      <span class="num">${l.nn}</span><span class="emo">${emojiImg(l, '')}</span><span class="name">${esc(l.topic)}</span>
       <span data-eq-lesson="${l.id}" hidden><span class="eq"><i></i><i></i><i></i></span></span>
       ${store.isDone(l.id) ? `<span class="done">${icon('check', { size: 14, stroke: 3 })}</span>` : ''}
     </a>`).join('');
@@ -199,9 +202,16 @@ function render(route, { keepScroll = false, animate = true } = {}) {
   $('#mobileBack').innerHTML = v.backTo ? `<a class="back-label" href="${v.backTo.href}">${icon('chevronLeft', { size: 24, stroke: 2.4 })}<span>${esc(v.backTo.label)}</span></a>` : '';
   $$('[data-tab]').forEach((t) => {
     const on = t.dataset.tab === route.tab;
+    if (on && !t.classList.contains('active') && t.classList.contains('tab')) {
+      t.classList.remove('bump'); void t.offsetWidth; t.classList.add('bump');
+    }
     t.classList.toggle('active', on);
     if (on) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
   });
+  const tabIndex = TABS.findIndex((t) => t.id === route.tab);
+  $('#tabbar').style.setProperty('--i', Math.max(0, tabIndex));
+  $('.tb-hl').style.opacity = tabIndex < 0 ? '0' : '1';
+  setNavMin(false);
   moveSideHighlight();
   highlightSidebarLesson();
   onScroll();
@@ -219,8 +229,22 @@ function onRoute() {
 /* ==========================================================================
    Scroll-linked chrome (toolbar glass + collapsing title)
    ========================================================================== */
+let lastScrollTop = 0;
+function setNavMin(min) {
+  const bar = $('#tabbar');
+  if (!bar || bar.classList.contains('min') === min) return;
+  bar.classList.toggle('min', min);
+  document.body.classList.toggle('nav-min', min);
+}
 function onScroll() {
   const sc = $('#viewScroll');
+  const top = sc.scrollTop;
+  const delta = top - lastScrollTop;
+  if (Math.abs(delta) > 4) {
+    if (top <= 6 || delta < 0) setNavMin(false);
+    else if (delta > 0) setNavMin(true);
+    lastScrollTop = top;
+  }
   const tb = $('#toolbar');
   tb.classList.toggle('scrolled', sc.scrollTop > 4);
   const h1 = $('#view h1');
@@ -288,11 +312,11 @@ function openSearch() {
     items = [];
     if (!q) {
       const cont = lessonById(store.last) || data.lessons.find((l) => !store.isDone(l.id));
-      if (cont) items.push({ group: 'Continue', emoji: cont.emoji, hue: cont.hue, title: `Lesson ${cont.id} · ${cont.topic}`, sub: `${cont.collocations.length} collocations`, run: () => go(`#/lesson/${cont.id}`) });
+      if (cont) items.push({ group: 'Continue', lesson: cont, hue: cont.hue, title: `Lesson ${cont.id} · ${cont.topic}`, sub: `${cont.collocations.length} collocations`, run: () => go(`#/lesson/${cont.id}`) });
       items.push(...actions());
     } else {
       data.lessons.filter((l) => l.topic.toLowerCase().includes(q) || String(l.id) === q || `lesson ${l.id}` === q).slice(0, 8)
-        .forEach((l) => items.push({ group: 'Lessons', emoji: l.emoji, hue: l.hue, title: `Lesson ${l.id} · `, hl: l.topic, sub: `${l.collocations.length} collocations${store.isDone(l.id) ? ' · ✓ completed' : ''}`, run: () => go(`#/lesson/${l.id}`) }));
+        .forEach((l) => items.push({ group: 'Lessons', lesson: l, hue: l.hue, title: `Lesson ${l.id} · `, hl: l.topic, sub: `${l.collocations.length} collocations${store.isDone(l.id) ? ' · ✓ completed' : ''}`, run: () => go(`#/lesson/${l.id}`) }));
       const colHits = data.all.filter((c) => c.p.toLowerCase().includes(q))
         .sort((a, b) => (a.p.toLowerCase().startsWith(q) ? 0 : 1) - (b.p.toLowerCase().startsWith(q) ? 0 : 1) || a.p.length - b.p.length)
         .slice(0, 14);
@@ -300,7 +324,7 @@ function openSearch() {
       [...colHits, ...meaningHits].forEach((c) => {
         const l = lessonById(c.lessonId);
         items.push({
-          group: 'Collocations', icon: 'quote', title: '', hl: c.p, sub: `${c.m || 'From the story'} · Lesson ${l.id}`, end: l.emoji,
+          group: 'Collocations', icon: 'quote', title: '', hl: c.p, sub: `${c.m || 'From the story'} · Lesson ${l.id}`, end: emojiImg(l),
           run: () => go(`#/lesson/${l.id}/collocations`, () => {
             const card = document.querySelector(`.colloc[data-key="${CSS.escape(c.key)}"]`);
             if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); card.classList.add('speaking'); setTimeout(() => card.classList.remove('speaking'), 1800); }
@@ -315,7 +339,7 @@ function openSearch() {
       const head = it.group !== lastGroup ? `<div class="cmdk-group">${esc(it.group)}</div>` : '';
       lastGroup = it.group;
       return `${head}<button class="cmdk-item ${i === 0 ? 'active' : ''}" data-i="${i}" role="option">
-        <span class="ci-icon" ${it.hue != null ? `style="background:hsl(${it.hue} 80% 60% / .2)"` : ''}>${it.emoji || icon(it.icon, { size: 16 })}</span>
+        <span class="ci-icon" ${it.hue != null ? `style="background:hsl(${it.hue} 80% 60% / .2)"` : ''}>${it.lesson ? emojiImg(it.lesson, '') : icon(it.icon, { size: 16 })}</span>
         <span class="ci-main"><b>${esc(it.title || '')}${it.hl ? mark(it.hl, q) : ''}</b>${it.sub ? `<span>${esc(it.sub)}</span>` : ''}</span>
         ${it.end ? `<span class="ci-end">${it.end}</span>` : ''}
       </button>`;
@@ -393,10 +417,12 @@ function initChromeActions() {
   });
 
   // tapping the active tab scrolls to top (iOS behaviour)
+  $('#tabbar').addEventListener('focusin', () => setNavMin(false));
   $('#tabbar').addEventListener('click', (e) => {
     const t = e.target.closest('.tab');
     if (!t) return;
     haptic(5);
+    if ($('#tabbar').classList.contains('min')) setNavMin(false);
     if (t.classList.contains('active') && current.route?.depth === 0) { e.preventDefault(); $('#viewScroll').scrollTo({ top: 0, behavior: 'smooth' }); }
   });
 

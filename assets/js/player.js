@@ -249,7 +249,7 @@ export function sync(lessonChanged = false) {
     if (label) label.textContent = mine ? 'Pause' : (store.positions[el.dataset.playLesson] ? 'Resume' : 'Play');
   }
   for (const el of document.querySelectorAll('[data-eq-lesson]')) {
-    el.hidden = Number(el.dataset.eqLesson) !== player.lesson?.id;
+    el.hidden = Number(el.dataset.eqLesson) !== player.lesson?.id || !playing;
     el.querySelector('.eq')?.classList.toggle('paused', !playing);
   }
   document.getElementById('miniplayer')?.classList.toggle('hidden-mp', !has || document.body.classList.contains('np-open'));
