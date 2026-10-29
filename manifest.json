@@ -1,52 +1,25 @@
 {
-  "name": "English Collocations - Audio Lessons",
-  "short_name": "English Collocations",
-  "description": "Learn English collocations with 50 interactive audio lessons",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#f0f4ff",
-  "theme_color": "#6366f1",
-  "orientation": "portrait-primary",
+  "id": "/",
+  "name": "English Collocations — Audio Lessons",
+  "short_name": "Collocations",
+  "description": "Master natural English with 50 audio lessons and 1,400+ collocations — stories, meanings, flashcards and quizzes. Works offline.",
+  "start_url": "/#/",
   "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f2f2f5",
+  "theme_color": "#6366f1",
   "lang": "en",
-  "categories": [
-    "education",
-    "books",
-    "reference"
-  ],
+  "dir": "ltr",
+  "categories": ["education", "books", "reference"],
   "icons": [
-    {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzc1IiBoZWlnaHQ9IjgxMiIgdmlld0JveD0iMCAwIDM3NSA4MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzNzUiIGhlaWdodD0iODEyIiBmaWxsPSIjZjBmNGZmIi8+CjxyZWN0IHg9IjIwIiB5PSI1MCIgd2lkdGg9IjMzNSIgaGVpZ2h0PSI3MDAiIGZpbGw9IndoaXRlIiByeD0iMTAiLz4KPHU+eHQgeD0iMzciIHk9IjEwMCIgZmlsbD0iIzMzNzNkYyIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiPkVuZ2xpc2ggQ29sbG9jYXRpb25zPC90ZXh0Pgo8L3N2Zz4=",
-      "sizes": "375x812",
-      "type": "image/svg+xml",
-      "form_factor": "narrow"
-    }
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ],
   "shortcuts": [
-    {
-      "name": "Play Lesson 1",
-      "short_name": "Lesson 1",
-      "description": "Start with the first lesson",
-      "url": "/?lesson=1",
-      "icons": [
-        {
-          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDgiIGN5PSI0OCIgcj0iNDgiIGZpbGw9IiM2MzY2ZjEiLz4KPHBhdGggZD0iTTM2IDMwTDY2IDQ4TDM2IDY2VjMwWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+",
-          "sizes": "96x96",
-          "type": "image/svg+xml"
-        }
-      ]
-    }
+    { "name": "Continue learning", "short_name": "Continue", "url": "/#/", "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }] },
+    { "name": "All lessons", "short_name": "Lessons", "url": "/#/lessons", "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }] },
+    { "name": "Quick quiz", "short_name": "Quiz", "url": "/#/practice/quiz", "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }] },
+    { "name": "Flashcards", "short_name": "Flashcards", "url": "/#/practice/flashcards", "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }] }
   ]
 }
